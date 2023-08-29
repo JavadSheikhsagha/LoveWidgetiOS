@@ -135,6 +135,9 @@ struct MainScreen: View {
                         
                     }.frame(width: UIScreen.screenWidth - 65, height: 67)
                     
+                    Spacer()
+                        .frame(height: 24)
+                    
                     ShareLink(item: "TEXT TO SHARE") {
                         Image("imgShareMyCodeButton")
                             .resizable()
@@ -152,6 +155,9 @@ struct MainScreen: View {
     
     var inviteFiendsView : some View {
         VStack {
+            
+            Spacer()
+                .frame(height: 28)
             
             Button(action: {
                 
@@ -177,7 +183,7 @@ struct MainScreen: View {
             if mainViewModel.widgets.count < 1 && mainViewModel.isLoading == false {
                 
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 80)
                 
                 Image("emptyWidgetList")
                     
@@ -190,7 +196,7 @@ struct MainScreen: View {
                     .font(.system(size: 20))
                 
                 Spacer()
-                    .frame(height: 80)
+                    .frame(height: 60)
             } else {
                 // LazyHStack for each widget
                 
@@ -207,8 +213,6 @@ struct MainScreen: View {
                 Image("btnAddNewWidget")
             })
             
-            Spacer()
-                .frame(height: 100)
         }
     }
     
@@ -363,6 +367,23 @@ struct MainScreen: View {
                     inviteFiendsView
                     
                     widgetListView
+                    
+                    Spacer()
+                        .frame(height: 100)
+                }
+                
+                
+            }
+            
+            VStack {
+                Spacer()
+                ZStack {
+                    
+                    Color.white
+                        .opacity(0.8)
+                        .ignoresSafeArea()
+                        .frame(width: UIScreen.screenWidth, height: 100)
+                        .blur(radius: 3.0)
                     
                     btnAddNewWidget
                 }
