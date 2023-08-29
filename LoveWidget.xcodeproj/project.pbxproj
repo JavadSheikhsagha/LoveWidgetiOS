@@ -14,6 +14,7 @@
 		806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8EF2A9DD27100599C14 /* LoginScreen.swift */; };
 		806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
 		806CA8F62A9DD8C500599C14 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */; };
+		806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F72A9DDD0E00599C14 /* MainScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		806CA8E82A9DD21B00599C14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		806CA8EF2A9DD27100599C14 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		806CA8F72A9DDD0E00599C14 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */,
 				806CA8E22A9DD21900599C14 /* ContentView.swift */,
+				806CA8F92A9DDD1200599C14 /* main */,
 				806CA8F12A9DD7D600599C14 /* login */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
@@ -83,6 +86,14 @@
 				806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */,
 			);
 			path = login;
+			sourceTree = "<group>";
+		};
+		806CA8F92A9DDD1200599C14 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				806CA8F72A9DDD0E00599C14 /* MainScreen.swift */,
+			);
+			path = main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			files = (
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
+				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 			);
