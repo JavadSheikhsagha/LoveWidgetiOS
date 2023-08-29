@@ -12,7 +12,14 @@ var appName = "Love Widget"
 
 struct MainScreen: View {
     
+    
     @EnvironmentObject var mainViewModel : MainViewModel
+    
+    
+    @State var showEditNameDialog = false
+    @State var showLogoutDialog = false
+    @State var showDeleteAccountDialog = false
+    
     
     var cardTopView : some View {
         VStack {
@@ -40,13 +47,17 @@ struct MainScreen: View {
                             .padding()
                             .contextMenu {
                                 Button {
-                                    
+                                    withAnimation {
+                                        showLogoutDialog = true
+                                    }
                                 } label: {
                                     Text("Logout")
                                 }
                                 
                                 Button {
-                                    
+                                    withAnimation {
+                                        showDeleteAccountDialog = true
+                                    }
                                 } label: {
                                     Text("Delete Account")
                                 }
@@ -86,6 +97,9 @@ struct MainScreen: View {
                             
                             Button {
                                 // edit name dialog
+                                withAnimation {
+                                    showEditNameDialog.toggle()
+                                }
                             } label: {
                                 Image("imgEditNameIcon")
                             }
@@ -158,6 +172,177 @@ struct MainScreen: View {
         }
     }
     
+    var widgetListView : some View {
+        VStack {
+            if mainViewModel.widgets.count < 1 && mainViewModel.isLoading == false {
+                
+                Spacer()
+                    .frame(height: 100)
+                
+                Image("emptyWidgetList")
+                    
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                Text("Haven’t added any widget yet")
+                    .bold()
+                    .font(.system(size: 20))
+                
+                Spacer()
+                    .frame(height: 80)
+            } else {
+                // LazyHStack for each widget
+                
+                
+            }
+        }
+    }
+    
+    var btnAddNewWidget : some View {
+        VStack {
+            Button(action: {
+                
+            }, label: {
+                Image("btnAddNewWidget")
+            })
+            
+            Spacer()
+                .frame(height: 100)
+        }
+    }
+    
+    var changeNameDialog : some View {
+        ZStack {
+            Color(hex: "#EEF1FF").clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack {
+                
+                Spacer()
+                    .frame(height: 28)
+                
+                Text("Edit Name")
+                    .bold()
+                    .font(.system(size: 20))
+                
+                Spacer()
+                    .frame(height: 36)
+                
+                ZStack {
+                    Image("imgEditTextName")
+                        .resizable()
+                        .frame(width: UIScreen.screenWidth - 65, height: 67)
+                    
+                    HStack(alignment:.bottom) {
+                        
+                        Text("Hello") // todo : Chhange to textField
+                            .font(.system(size: 16))
+                        
+                        Spacer()
+                        
+                        Button {
+                            // edit name dialog
+                        } label: {
+                            Image("imgEditNameIcon")
+                        }
+
+                        
+                    }.padding()
+                        .offset(y: 5)
+                    
+                }.frame(width: UIScreen.screenWidth - 65, height: 67)
+                
+                Spacer()
+                    .frame(height: 42)
+                
+                Button(action: {
+                    //save name
+                }, label: {
+                    Image("btnSave")
+                        .resizable()
+                        .frame(width: UIScreen.screenWidth - 64,height: 55)
+                })
+                    
+                Button(action: {
+                    //discard saving
+                }, label: {
+                    Image("btnDiscard")
+                        .resizable()
+                        .frame(width: UIScreen.screenWidth - 64,height: 55)
+                })
+            }
+            
+        }
+        .frame(width: UIScreen.screenWidth - 40, height:  UIScreen.screenWidth)
+        .opacity(showEditNameDialog ? 1.0 : 0.0)
+        .offset(y: showEditNameDialog ? 0 : UIScreen.screenHeight)
+    }
+    
+    var logoutDialog : some View {
+        ZStack {
+            
+            Color(hex: "#FFFFFF")
+                .frame(width: UIScreen.screenWidth - 64, height: 120)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack(spacing: 20) {
+                
+                Text("Are you sure you want to logout?")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(hex: "#707070"))
+                
+                
+                HStack(spacing: 32) {
+                    
+                    Button(action: {}, label: {
+                        Image("btnCancel")
+                    })
+                    
+                    Button(action: {}, label: {
+                        Image("btnLogout")
+                    })
+                    
+                }
+            }
+        }
+        .frame(width: UIScreen.screenWidth - 64, height: 120)
+        .opacity(showLogoutDialog ? 1.0 : 0.0)
+        .offset(y: showLogoutDialog ? 0 : UIScreen.screenHeight)
+    }
+    
+    
+    var deleteAccountDialog : some View {
+        ZStack {
+            
+            Color(hex: "#FFFFFF")
+                .frame(width: UIScreen.screenWidth - 64, height: 120)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack(spacing: 20) {
+                
+                Text("Are you sure you want to delete your account?")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(hex: "#707070"))
+                
+                
+                HStack(spacing: 32) {
+                    
+                    Button(action: {}, label: {
+                        Image("btnCancel")
+                    })
+                    
+                    Button(action: {}, label: {
+                        Image("btnLogout")
+                    })
+                    
+                }
+            }
+        }
+        .frame(width: UIScreen.screenWidth - 64, height: 120)
+        .opacity(showDeleteAccountDialog ? 1.0 : 0.0)
+        .offset(y: showDeleteAccountDialog ? 0 : UIScreen.screenHeight)
+    }
+    
     var body: some View {
         ZStack {
             
@@ -177,40 +362,38 @@ struct MainScreen: View {
                     
                     inviteFiendsView
                     
-                    if mainViewModel.widgets.count < 1 && mainViewModel.isLoading == false {
-                        
-                        Spacer()
-                            .frame(height: 100)
-                        
-                        Image("emptyWidgetList")
-                            
-                        
-                        Spacer()
-                            .frame(height: 30)
-                        
-                        Text("Haven’t added any widget yet")
-                            .bold()
-                            .font(.system(size: 20))
-                        
-                        Spacer()
-                            .frame(height: 80)
-                    } else {
-                        // LazyHStack for each widget
-                        
-                        
-                    }
+                    widgetListView
                     
-                    Button(action: {
-                        
-                    }, label: {
-                        Image("btnAddNewWidget")
-                    })
-                    
-                    Spacer()
-                        .frame(height: 100)
+                    btnAddNewWidget
                 }
             }
             
+            ZStack {
+                
+                Color.black.opacity(showLogoutDialog ||
+                                    showEditNameDialog ||
+                                    showDeleteAccountDialog ?
+                                    0.6 : 0.0)
+                .offset(y: showLogoutDialog ||
+                        showEditNameDialog ||
+                        showDeleteAccountDialog ?
+                        0 : UIScreen.screenHeight)
+                .onTapGesture {
+                    withAnimation {
+                        showLogoutDialog = false
+                        showEditNameDialog = false
+                        showDeleteAccountDialog = false
+                    }
+                }
+                
+                
+                changeNameDialog
+                
+                logoutDialog
+                
+                deleteAccountDialog
+                
+            }
             
         }
     }
