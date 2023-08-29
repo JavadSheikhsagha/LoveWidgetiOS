@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import EnigmaSystemDesign
 
 struct LoginScreen: View {
     
     @State var isButtonEnabled = false
     @State var isLoading = false
+    @State var passwordText = ""
+    @State var email: String = ""
     
     var body: some View {
         ZStack {
@@ -36,7 +39,32 @@ struct LoginScreen: View {
                     VStack(spacing: 12) {
                         
                         // two texts
+                        ZStack {
+                            
+                            TextField(text: $email, prompt: Text("Email")) {
+                                
+                            }.textContentType(.emailAddress).padding()
+                                .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                        }.cornerRadius(10) /// make the background rounded
+                        .overlay( /// apply a rounded border
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                        )
                         
+                        
+                        
+                        ZStack {
+                            
+                            SecureField ("Password", text: $passwordText)
+                                .padding()
+                                .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                            
+                        }.cornerRadius(10) /// make the background rounded
+                        .overlay( /// apply a rounded border
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                        )
+                            
                     }
                     
                     

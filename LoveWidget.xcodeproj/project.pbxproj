@@ -13,6 +13,7 @@
 		806CA8E92A9DD21B00599C14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E82A9DD21B00599C14 /* Preview Assets.xcassets */; };
 		806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8EF2A9DD27100599C14 /* LoginScreen.swift */; };
 		806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
+		806CA8F62A9DD8C500599C14 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806CA8F62A9DD8C500599C14 /* EnigmaSystemDesign in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,9 @@
 			dependencies = (
 			);
 			name = LoveWidget;
+			packageProductDependencies = (
+				806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */,
+			);
 			productName = LoveWidget;
 			productReference = 806CA8DD2A9DD21900599C14 /* LoveWidget.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +132,9 @@
 				Base,
 			);
 			mainGroup = 806CA8D42A9DD21900599C14;
+			packageReferences = (
+				806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */,
+			);
 			productRefGroup = 806CA8DE2A9DD21900599C14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -374,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/padram39/EnigmaSystemDesign.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */;
+			productName = EnigmaSystemDesign;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 806CA8D52A9DD21900599C14 /* Project object */;
 }
