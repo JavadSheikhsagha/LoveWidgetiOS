@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+class MainViewModel : ObservableObject {
+    
+    @Published var isLoading = false
+    @Published var widgets = [String]()
+    
+    
+    
+}

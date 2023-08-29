@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct LoveWidgetApp: App {
+    
+    @StateObject var mainViewModel = MainViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(mainViewModel)
         }
     }
 }

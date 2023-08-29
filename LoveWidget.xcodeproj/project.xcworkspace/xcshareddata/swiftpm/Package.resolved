@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "enigmasystemdesign",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/padram39/EnigmaSystemDesign.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "46f78e1de7bcc955bf18fde39941c6c3a63823ec"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "b6f62758f21a8c03cd64f4009c037cfa580a256e",
+        "version" : "7.9.1"
+      }
+    },
+    {
+      "identity" : "swiftystorekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bizz84/SwiftyStoreKit.git",
+      "state" : {
+        "revision" : "9ce911639680113dac9b554d6243e406a9758ebe",
+        "version" : "0.16.4"
+      }
+    }
+  ],
+  "version" : 2
+}
