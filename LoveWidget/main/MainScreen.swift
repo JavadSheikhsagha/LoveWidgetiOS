@@ -24,8 +24,6 @@ struct MainScreen: View {
     var cardTopView : some View {
         VStack {
             
-            Spacer()
-                .frame(height: 16)
             
             Text(appName)
                 .bold()
@@ -382,7 +380,7 @@ struct MainScreen: View {
                     Color.white
                         .opacity(0.8)
                         .ignoresSafeArea()
-                        .frame(width: UIScreen.screenWidth, height: 100)
+                        .frame(width: UIScreen.screenWidth, height: 80)
                         .blur(radius: 3.0)
                     
                     btnAddNewWidget

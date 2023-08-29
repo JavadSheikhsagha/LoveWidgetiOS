@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
+		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
 		806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E22A9DD21900599C14 /* ContentView.swift */; };
 		806CA8E52A9DD21B00599C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveWidgetApp.swift; sourceTree = "<group>"; };
 		806CA8E22A9DD21900599C14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FE3E5A52A9E6F56003CD376 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
 		806CA8D42A9DD21900599C14 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 				806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */,
 				806CA8E22A9DD21900599C14 /* ContentView.swift */,
 				806CA8F92A9DDD1200599C14 /* main */,
+				3FE3E5A52A9E6F56003CD376 /* widget */,
 				806CA8F12A9DD7D600599C14 /* login */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
@@ -178,6 +189,7 @@
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
+				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
