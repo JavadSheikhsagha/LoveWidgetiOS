@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WidgetSingleScreen: View {
     
+    @EnvironmentObject var mainViewModel : MainViewModel
     
     var body: some View {
         ZStack {
@@ -76,7 +77,9 @@ struct WidgetSingleScreen: View {
             HStack(spacing: 24) {
                 
                 Button {
-                    
+                    withAnimation {
+                        mainViewModel.SCREEN_VIEW = .History
+                    }
                 } label: {
                     Image(.addQuoteCard)
                         .resizable()

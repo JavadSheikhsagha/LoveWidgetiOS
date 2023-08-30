@@ -10,6 +10,8 @@ import EnigmaSystemDesign
 
 struct LoginScreen: View {
     
+    @EnvironmentObject var mainViewModel : MainViewModel
+    
     @State var isButtonEnabled = false
     @State var isLoading = false
     @State var passwordText = ""
@@ -104,7 +106,9 @@ struct LoginScreen: View {
                     
                     Button {
                         // login later
-                        
+                        withAnimation {
+                            mainViewModel.SCREEN_VIEW = .MainMenu
+                        }
                     } label: {
                         Image("loginLaterButton")
                             .resizable()

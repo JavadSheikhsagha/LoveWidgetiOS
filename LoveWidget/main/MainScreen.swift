@@ -15,7 +15,7 @@ struct MainScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
     
-    
+    @State var showFriendsBottomSheet = false
     @State var showEditNameDialog = false
     @State var showLogoutDialog = false
     @State var showDeleteAccountDialog = false
@@ -158,7 +158,7 @@ struct MainScreen: View {
                 .frame(height: 28)
             
             Button(action: {
-                
+                showFriendsBottomSheet = true
             }, label: {
                 Image("imgInviteFriends")
                     .resizable()
@@ -414,6 +414,8 @@ struct MainScreen: View {
                 
             }
             
+        }.sheet(isPresented: $showFriendsBottomSheet) {
+            FriendsScreen()
         }
     }
 }

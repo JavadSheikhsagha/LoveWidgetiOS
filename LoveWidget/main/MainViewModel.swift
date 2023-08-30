@@ -13,6 +13,16 @@ class MainViewModel : ObservableObject {
     @Published var isLoading = false
     @Published var widgets = [String]()
     
+    @Published var SCREEN_VIEW : Screens = .Login
     
+}
+
+
+enum Screens {
     
+    case MainMenu
+    case Friends
+    case WidgetSingle
+    case Login
+    case History 
 }

@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var mainViewModel : MainViewModel
     var body: some View {
         ZStack {
-            FriendsScreen()
+            
+            switch mainViewModel.SCREEN_VIEW {
+                case .MainMenu:
+                    MainScreen()
+                case .Friends:
+                    FriendsScreen()
+                case .WidgetSingle:
+                    WidgetSingleScreen()
+                case .Login:
+                    LoginScreen()
+                case .History:
+                    WidgetHistoryScreen()
+            }
+            
         }
     }
 }
