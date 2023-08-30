@@ -11,11 +11,13 @@ import SwiftUI
 struct LoveWidgetApp: App {
     
     @StateObject var mainViewModel = MainViewModel()
+    @StateObject var friendsViewModel = FriendsViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(mainViewModel)
+                .environmentObject(friendsViewModel)
         }
     }
 }

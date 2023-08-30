@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */; };
+		3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */; };
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
+		3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7927A02A9F10EA00D5F1F5 /* friends */ = {
+			isa = PBXGroup;
+			children = (
+				3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */,
+				3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */,
+			);
+			path = friends;
+			sourceTree = "<group>";
+		};
 		3FE3E5A52A9E6F56003CD376 /* widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 				806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */,
 				806CA8E22A9DD21900599C14 /* ContentView.swift */,
 				806CA8F92A9DDD1200599C14 /* main */,
+				3F7927A02A9F10EA00D5F1F5 /* friends */,
 				3FE3E5A52A9E6F56003CD376 /* widget */,
 				806CA8F12A9DD7D600599C14 /* login */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
@@ -187,12 +201,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
+				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
 				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
+				3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
