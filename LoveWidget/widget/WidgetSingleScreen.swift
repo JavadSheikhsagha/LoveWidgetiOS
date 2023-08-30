@@ -144,8 +144,6 @@ struct WidgetSingleScreen: View {
                       .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                 }
             }
-            
-            
         }
     }
     
@@ -154,7 +152,9 @@ struct WidgetSingleScreen: View {
             
             Button {
                 //back to main
-                
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .MainMenu
+                }
             } label: {
                 Image("iconBack")
                     .resizable()

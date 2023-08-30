@@ -10,6 +10,7 @@ import SwiftUI
 struct WidgetHistoryScreen: View {
     
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    @EnvironmentObject var mainViewModel : MainViewModel
     
     var body: some View {
         ZStack {
@@ -75,7 +76,9 @@ struct WidgetHistoryScreen: View {
             
             Button {
                 //back to main
-                
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .WidgetSingle
+                }
             } label: {
                 Image("iconBack")
                     .resizable()

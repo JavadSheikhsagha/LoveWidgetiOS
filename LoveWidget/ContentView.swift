@@ -24,8 +24,9 @@ struct ContentView: View {
                     LoginScreen()
                 case .History:
                     WidgetHistoryScreen()
+                case .CreateWidget:
+                    CreateWidgetScreen()
             }
-            
         }
     }
 }

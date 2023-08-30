@@ -206,7 +206,9 @@ struct MainScreen: View {
     var btnAddNewWidget : some View {
         VStack {
             Button(action: {
-                
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .CreateWidget
+                }
             }, label: {
                 Image("btnAddNewWidget")
             })

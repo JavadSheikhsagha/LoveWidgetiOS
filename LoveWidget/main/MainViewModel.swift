@@ -25,4 +25,5 @@ enum Screens {
     case WidgetSingle
     case Login
     case History 
+    case CreateWidget
 }
