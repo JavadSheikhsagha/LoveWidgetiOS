@@ -27,6 +27,12 @@ struct ContentView: View {
                 case .CreateWidget:
                     CreateWidgetScreen()
             }
+        }.onAppear {
+            if isUserLoggedIn() {
+                mainViewModel.SCREEN_VIEW = .MainMenu
+            } else {
+                mainViewModel.SCREEN_VIEW = .Login
+            }
         }
     }
 }

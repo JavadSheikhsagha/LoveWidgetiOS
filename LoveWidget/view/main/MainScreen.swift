@@ -310,7 +310,11 @@ struct MainScreen: View {
                 
                 HStack(spacing: 32) {
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        withAnimation {
+                            showLogoutDialog = false
+                        }
+                    }, label: {
                         Image("btnCancel")
                     })
                     
@@ -427,6 +431,7 @@ struct MainScreen: View {
                                     showEditNameDialog ||
                                     showDeleteAccountDialog ?
                                     0.6 : 0.0)
+                .ignoresSafeArea()
                 .offset(y: showLogoutDialog ||
                         showEditNameDialog ||
                         showDeleteAccountDialog ?
