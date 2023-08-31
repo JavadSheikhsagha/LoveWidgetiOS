@@ -334,11 +334,24 @@ struct MainScreen: View {
                 
                 HStack(spacing: 32) {
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        withAnimation {
+                            showDeleteAccountDialog = false
+                        }
+                    }, label: {
                         Image("btnCancel")
                     })
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        mainViewModel.deleteUser { bool in
+                            if bool {
+                                withAnimation {
+                                    showDeleteAccountDialog = false
+                                    mainViewModel.SCREEN_VIEW = .Login
+                                }
+                            }
+                        }
+                    }, label: {
                         Image("btnLogout")
                     })
                     
@@ -421,6 +434,11 @@ struct MainScreen: View {
             
         }.sheet(isPresented: $showFriendsBottomSheet) {
             FriendsScreen()
+        }
+        .alert(mainViewModel.errorMessage, isPresented: $mainViewModel.isErrorOccurred) {
+            Button("ok") {
+                mainViewModel.isErrorOccurred = false
+            }
         }
     }
 }

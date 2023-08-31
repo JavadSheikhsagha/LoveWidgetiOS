@@ -9,7 +9,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let base_url = "157.90.30.203/widget-ios"
+let base_url = "http://157.90.30.203/widget-ios"
+
 
 @MainActor
 class LoginViewModel : ObservableObject {
@@ -32,11 +33,19 @@ class LoginViewModel : ObservableObject {
                 //save token
                 //save usermodel
                 if let data = data {
-                    saveToken(token: data.accessToken)
-                    saveUser(userModel: data.user)
-                    self.token = getToken() ?? ""
-                    self.userModel = loadUser()
-                    onSuccess(true)
+                    if data.success == true {
+                        saveToken(token: data.accessToken ?? "")
+                        saveUser(userModel: data.user)
+                        self.token = getToken() ?? ""
+                        self.userModel = loadUser()
+                        onSuccess(true)
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Login Failed.."
+                        onSuccess(false)
+                    }
+                    
                 } else {
                     self.isErrorOccurred = true
                     self.isLoading = false
@@ -72,11 +81,18 @@ class LoginViewModel : ObservableObject {
                     //save token
                     //save usermodel
                     if let data = data {
-                        saveToken(token: data.accessToken)
-                        saveUser(userModel: data.user)
-                        self.token = getToken() ?? ""
-                        self.userModel = loadUser()
-                        onSuccess(true)
+                        if data.success == true {
+                            saveToken(token: data.accessToken ?? "")
+                            saveUser(userModel: data.user)
+                            self.token = getToken() ?? ""
+                            self.userModel = loadUser()
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = "Login Failed.."
+                            onSuccess(false)
+                        }
                     } else {
                         self.isErrorOccurred = true
                         self.isLoading = false
@@ -178,11 +194,11 @@ struct LoginRequestModel : Codable {
 
 struct LoginResponseModel : Codable {
     
-    
-    var success:Bool
+    var statusCode: Int?
+    var success:Bool?
     var message:String
-    var user: UserModel
-    var accessToken:String
+    var user: UserModel?
+    var accessToken:String?
 }
 
 struct UserModel: Codable {

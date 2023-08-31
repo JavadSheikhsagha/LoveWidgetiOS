@@ -19,9 +19,9 @@ func getToken() -> String? {
     return UserDefaults(suiteName: appSuitName)?.string(forKey: "token")
 }
 
-func saveUser(userModel: UserModel) {
+func saveUser(userModel: UserModel?) {
     
-    if let encoded = try? JSONEncoder().encode(userModel) {
+    if let encoded = try? JSONEncoder().encode(userModel){
         UserDefaults(suiteName: appSuitName)!.setValue(encoded, forKey: "user")
     }
     

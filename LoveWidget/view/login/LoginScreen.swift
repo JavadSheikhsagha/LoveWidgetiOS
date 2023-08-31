@@ -120,7 +120,13 @@ struct LoginScreen: View {
 //                        }
                         
                         loginViewModel.skipLogin(onSuccess: { bool in
-                            
+                            if bool {
+                                withAnimation {
+                                    mainViewModel.SCREEN_VIEW = .MainMenu
+                                }
+                            } else {
+                                
+                            }
                         })
                         
                         
@@ -141,6 +147,8 @@ struct LoginScreen: View {
                     loginViewModel.isErrorOccurred = false
                 }
             }
+            
+            
             ActivityIndicator(isAnimating: $loginViewModel.isLoading, style: .large)
                 .opacity(isLoading ? 1.0 : 0.0)
             
