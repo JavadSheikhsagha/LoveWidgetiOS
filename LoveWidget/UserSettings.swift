@@ -39,7 +39,7 @@ func loadUser() -> UserModel? {
 }
 
 func isUserGuest() -> Bool {
-    if loadUser()?.username.contains("guest-") ?? true {
+    if !(loadUser()?.isVerified ?? false) {
         return true
     } else {
         return false

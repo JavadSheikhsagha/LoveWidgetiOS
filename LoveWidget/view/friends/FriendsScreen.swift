@@ -21,7 +21,9 @@ struct FriendsScreen: View {
             Color(hex: "#F9FBFD")
                 .ignoresSafeArea()
                 .onAppear {
-                    friednsViewModel.getFriends { bool in }
+                    if !isUserGuest() {
+                        friednsViewModel.getFriends { bool in }
+                    }
                 }
             
             friendsListView

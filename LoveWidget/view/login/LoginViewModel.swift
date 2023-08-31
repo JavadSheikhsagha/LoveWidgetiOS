@@ -187,6 +187,7 @@ struct LoginRequestModel : Codable {
 //        "code": "1693420436995",
 //        "profileImage": "http://157.90.30.203/widget-ios/userprofile/logo7.svg",
 //        "id": "64ef8b9508142a82a9d4f1bc"
+//"isVerified": false,
 //    },
 //    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmOGI5NTA4MTQyYTgyYTlkNGYxYmMiLCJ0b2tlblR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE2OTM0NzAwNTQsImV4cCI6MTY5MzQ4MjA1NH0.Af-nP7_nf44M6HtwcCiPaiRjQhG6kfkBo1js-zolu04"
 //}
@@ -207,5 +208,6 @@ struct UserModel: Codable {
     var code:String?
     var profileImage:String
     var id:String
+    var isVerified: Bool?
     
 }
