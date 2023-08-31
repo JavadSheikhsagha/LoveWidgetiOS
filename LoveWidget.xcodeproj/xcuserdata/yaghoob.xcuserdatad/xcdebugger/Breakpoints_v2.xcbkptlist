@@ -3,4 +3,69 @@
    uuid = "0855C8B2-9DF0-4EB2-9B28-0DE88997E766"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E22E10A-65C3-4B97-BB34-FEE6D37B476C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoveWidget/view/login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "fetchLoginWithEmail(email:password:onResponse:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1E22E10A-65C3-4B97-BB34-FEE6D37B476C - 3b2f862430c02f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in LoveWidget.LoginViewModel.fetchLoginWithEmail(email: Swift.String, password: Swift.String, onResponse: (LoveWidget.DataState&lt;Swift.Optional&lt;LoveWidget.LoginResponseModel&gt;, LoveWidget.ErrorType, Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LoveWidget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaghoob/Documents/LoveWidgetiOS/LoveWidget/view/login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "1E22E10A-65C3-4B97-BB34-FEE6D37B476C - 3b2f862430c02d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in LoveWidget.LoginViewModel.fetchLoginWithEmail(email: Swift.String, password: Swift.String, onResponse: (LoveWidget.DataState&lt;Swift.Optional&lt;LoveWidget.LoginResponseModel&gt;, LoveWidget.ErrorType, Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LoveWidget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaghoob/Documents/LoveWidgetiOS/LoveWidget/view/login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "1E22E10A-65C3-4B97-BB34-FEE6D37B476C - 3b2f862430c02d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in LoveWidget.LoginViewModel.fetchLoginWithEmail(email: Swift.String, password: Swift.String, onResponse: (LoveWidget.DataState&lt;Swift.Optional&lt;LoveWidget.LoginResponseModel&gt;, LoveWidget.ErrorType, Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LoveWidget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaghoob/Documents/LoveWidgetiOS/LoveWidget/view/login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "656">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -11,6 +11,7 @@ import EnigmaSystemDesign
 struct LoginScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
+    @EnvironmentObject var loginViewModel : LoginViewModel
     
     @State var isButtonEnabled = false
     @State var isLoading = false
@@ -87,7 +88,15 @@ struct LoginScreen: View {
                     
                     
                     Button {
-                        // login later
+                        loginViewModel.loginWithEmail(email: email, password: passwordText) { bool in
+                            if bool {
+                                withAnimation {
+                                    mainViewModel.SCREEN_VIEW = .MainMenu
+                                }
+                            } else {
+                                
+                            }
+                        }
                         
                     } label: {
                         ZStack {
@@ -121,8 +130,12 @@ struct LoginScreen: View {
                 }
                 
             }
-            
-            ActivityIndicator(isAnimating: $isLoading, style: .large)
+            .alert(loginViewModel.errorMessage, isPresented: $loginViewModel.isErrorOccurred) {
+                Button("ok") {
+                    loginViewModel.isErrorOccurred = false
+                }
+            }
+            ActivityIndicator(isAnimating: $loginViewModel.isLoading, style: .large)
                 .opacity(isLoading ? 1.0 : 0.0)
             
             

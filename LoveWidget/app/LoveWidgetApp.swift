@@ -13,6 +13,7 @@ struct LoveWidgetApp: App {
     @StateObject var mainViewModel = MainViewModel()
     @StateObject var friendsViewModel = FriendsViewModel()
     @StateObject var widgetViewModel = WidgetViewModel()
+    @StateObject var loginViewModel = LoginViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +21,7 @@ struct LoveWidgetApp: App {
                 .environmentObject(mainViewModel)
                 .environmentObject(friendsViewModel)
                 .environmentObject(widgetViewModel)
+                .environmentObject(loginViewModel)
         }
     }
 }

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
+		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
+		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
+		3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D92AA07FD9006BA057 /* DataState.swift */; };
+		3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */; };
+		3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DB2AA07FD9006BA057 /* Utils.swift */; };
+		3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799E22AA08393006BA057 /* SwiftyJSON */; };
+		3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799E42AA085FA006BA057 /* UserSettings.swift */; };
 		3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */; };
 		3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */; };
 		3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */; };
@@ -25,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F4799D72AA07FD9006BA057 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		3F4799D82AA07FD9006BA057 /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
+		3F4799D92AA07FD9006BA057 /* DataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDecoder.swift; sourceTree = "<group>"; };
+		3F4799DB2AA07FD9006BA057 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		3F4799E42AA085FA006BA057 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		3F4799E62AA08A8C006BA057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
 		3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHistoryScreen.swift; sourceTree = "<group>"; };
@@ -48,7 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */,
 				806CA8F62A9DD8C500599C14 /* EnigmaSystemDesign in Frameworks */,
+				3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +95,11 @@
 		3F4799D32AA07D52006BA057 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				3F4799D82AA07FD9006BA057 /* ApiServices.swift */,
+				3F4799D92AA07FD9006BA057 /* DataState.swift */,
+				3F4799D72AA07FD9006BA057 /* ErrorType.swift */,
+				3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */,
+				3F4799DB2AA07FD9006BA057 /* Utils.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -121,12 +143,14 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				3F4799E62AA08A8C006BA057 /* Info.plist */,
 				3F4799D32AA07D52006BA057 /* api */,
-				3F4799D22AA07D47006BA057 /* app */,
 				3F4799D12AA07D3E006BA057 /* view */,
+				3F4799D22AA07D47006BA057 /* app */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
 				806CA8E72A9DD21B00599C14 /* Preview Content */,
+				3F4799E42AA085FA006BA057 /* UserSettings.swift */,
 			);
 			path = LoveWidget;
 			sourceTree = "<group>";
@@ -175,6 +199,8 @@
 			name = LoveWidget;
 			packageProductDependencies = (
 				806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */,
+				3F4799D52AA07E34006BA057 /* Alamofire */,
+				3F4799E22AA08393006BA057 /* SwiftyJSON */,
 			);
 			productName = LoveWidget;
 			productReference = 806CA8DD2A9DD21900599C14 /* LoveWidget.app */;
@@ -206,6 +232,8 @@
 			mainGroup = 806CA8D42A9DD21900599C14;
 			packageReferences = (
 				806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */,
+				3F4799D42AA07E34006BA057 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 806CA8DE2A9DD21900599C14 /* Products */;
 			projectDirPath = "";
@@ -234,15 +262,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
+				3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */,
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
 				3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
+				3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
 				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
+				3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */,
+				3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */,
+				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
+				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
 				3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */,
 			);
@@ -373,6 +407,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoveWidget/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -413,6 +448,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoveWidget/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -464,6 +500,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F4799D42AA07E34006BA057 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/padram39/EnigmaSystemDesign.git";
@@ -475,6 +527,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F4799D52AA07E34006BA057 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F4799D42AA07E34006BA057 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3F4799E22AA08393006BA057 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */;
