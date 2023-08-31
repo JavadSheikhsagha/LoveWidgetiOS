@@ -21,7 +21,7 @@ class FriendsViewModel : ObservableObject {
     func getFriends(onSuccess: @escaping (Bool) -> Void) {
         
         let url = "\(base_url)/user/friends/show"
-        print(getToken())
+        
         let header = ["Authorization": "Bearer \(getToken() ?? "")"]
         GetApiService<GetFriendsResponseModel>(url: url, header: header).fetch { dataState in
             switch(dataState) {
@@ -63,6 +63,54 @@ class FriendsViewModel : ObservableObject {
         }
     }
     
+    func deleteFriend(friendId: String, onSuccess : @escaping (Bool) -> Void) {
+        
+        let url = "\(base_url)/user/friends/delete"
+        
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        let parameter = ["friendId":friendId]
+        DeleteApiService<DeleteUserResponseModel>(parameters: parameter, header: header, url: url).fetch { dataState in
+            switch(dataState) {
+                
+            case .success(data: let data, message: _):
+                if let data = data {
+                    if data.success == true {
+                        self.getFriends { bool in
+                            onSuccess(bool)
+                        }
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Failed to Delete Friend.."
+                        onSuccess(false)
+                    }
+                    
+                } else {
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = "failed to delete friend."
+                    onSuccess(false)
+                }
+                self.isLoading = false
+                
+            case .error(error: _, message: let msg):
+                self.isErrorOccurred = true
+                self.isLoading = false
+                self.errorMessage = (msg ?? "Failed to delete friend from your friend list.") ?? "Failed to delete friend from your friend list."
+                
+                
+            case .loading(message: _):
+                self.isLoading = true
+                self.isErrorOccurred = false
+                self.errorMessage = ""
+                
+            case .idle(message: _):
+                break
+            }
+        }
+        
+    }
+    
 }
 
 
@@ -84,5 +132,10 @@ struct GetFriendsResponseModel : Codable {
     var data : [UserModel]?
 }
 
-
+struct DeleteFriendResponseModel : Codable {
+    
+    var success:Bool?
+    var message:String?
+    var data : UserModel?
+}
 

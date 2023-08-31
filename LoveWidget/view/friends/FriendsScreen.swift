@@ -149,7 +149,13 @@ struct FriendsScreen: View {
                                 .contextMenu(menuItems: {
                                     Button("Remove friend") {
                                         // call api
-                                        
+                                        friednsViewModel.deleteFriend(friendId: friend.id) { bool in
+                                            if bool {
+                                                
+                                            } else {
+                                                
+                                            }
+                                        }
                                     }
                                 })
                             
