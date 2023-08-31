@@ -250,11 +250,7 @@ struct MainScreen: View {
                         
                         Spacer()
                         
-                        Button {
-                            // edit name dialog
-                        } label: {
-                            Image("imgEditNameIcon")
-                        }
+                        Image("imgEditNameIcon")
 
                         
                     }.padding()
@@ -267,6 +263,13 @@ struct MainScreen: View {
                 
                 Button(action: {
                     //save name
+                    mainViewModel.changeUsername(newUsername: changeNameText) { bool in
+                        if bool {
+                            withAnimation {
+                                showEditNameDialog = false
+                            }
+                        }
+                    }
                 }, label: {
                     Image("btnSave")
                         .resizable()
@@ -275,6 +278,9 @@ struct MainScreen: View {
                     
                 Button(action: {
                     //discard saving
+                    withAnimation {
+                        showEditNameDialog = false
+                    }
                 }, label: {
                     Image("btnDiscard")
                         .resizable()
@@ -447,7 +453,8 @@ struct MainScreen: View {
                 
             }
             
-        }.sheet(isPresented: $showFriendsBottomSheet) {
+        }
+        .sheet(isPresented: $showFriendsBottomSheet) {
             FriendsScreen()
         }
         .alert(mainViewModel.errorMessage, isPresented: $mainViewModel.isErrorOccurred) {
