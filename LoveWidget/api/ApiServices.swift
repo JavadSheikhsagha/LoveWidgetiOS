@@ -76,7 +76,7 @@ class PostApiService<DataModel:Codable> {
         let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
-        AF.request(link, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
+        AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
             .responseJSON { (response) in
             
             switch response.result{

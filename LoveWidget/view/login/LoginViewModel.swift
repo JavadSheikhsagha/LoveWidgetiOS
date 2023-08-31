@@ -38,6 +38,9 @@ class LoginViewModel : ObservableObject {
                     self.userModel = loadUser()
                     onSuccess(true)
                 } else {
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = "Login Failed.."
                     onSuccess(false)
                 }
                 self.isLoading = false
@@ -58,10 +61,51 @@ class LoginViewModel : ObservableObject {
         }
     }
     
+    func skipLogin(onSuccess: @escaping (Bool) -> Void) {
+        let url =  "\(base_url)/auth/skip-login"
+        PostApiService<LoginResponseModel>(parameters: nil, header: nil, url: url)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    //save token
+                    //save usermodel
+                    if let data = data {
+                        saveToken(token: data.accessToken)
+                        saveUser(userModel: data.user)
+                        self.token = getToken() ?? ""
+                        self.userModel = loadUser()
+                        onSuccess(true)
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Login Failed.."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: let error, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? error!.localizedDescription) ?? "Failed to login.."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+                
+                
+            }
+    }
+    
     private func fetchLoginWithEmail(email:String, password : String, onResponse : @escaping (DataState<LoginResponseModel?, ErrorType, String>) -> Void) {
         
         let url =  "\(base_url)/auth/login"
-        guard let url = URL(string: "https://\(url)") else { return }
         
         let parameters : [String:String] = [
             "email":email,
@@ -97,6 +141,8 @@ class LoginViewModel : ObservableObject {
         }
         
     }
+    
+    
     
     
 }

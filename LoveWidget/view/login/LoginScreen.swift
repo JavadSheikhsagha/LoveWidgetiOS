@@ -115,9 +115,15 @@ struct LoginScreen: View {
                     
                     Button {
                         // login later
-                        withAnimation {
-                            mainViewModel.SCREEN_VIEW = .MainMenu
-                        }
+//                        withAnimation {
+//                            mainViewModel.SCREEN_VIEW = .MainMenu
+//                        }
+                        
+                        loginViewModel.skipLogin(onSuccess: { bool in
+                            
+                        })
+                        
+                        
                     } label: {
                         Image("loginLaterButton")
                             .resizable()
