@@ -18,6 +18,53 @@ class FriendsViewModel : ObservableObject {
     @Published var isErrorOccurred = false
     
     
+    func addFriend(friendId: String, onSuccess: @escaping (Bool) -> Void) {
+        
+        let url = "\(base_url)/user/friends/add"
+        
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        let parameters = ["friendCode": friendId]
+        
+        PatchApiService<DeleteFriendResponseModel>(parameters: parameters, header: header, url: url).fetch { dataState in
+            switch(dataState) {
+                
+            case .success(data: let data, message: _):
+                if let data = data {
+                    if data.success == true {
+                        self.getFriends { bool in
+                            onSuccess(bool)
+                        }
+                    } else {
+                        self.isErrorOccurred = true
+                        self.errorMessage = "Failed to add Friend.."
+                        onSuccess(false)
+                    }
+                    
+                } else {
+                    self.isErrorOccurred = true
+                    
+                    self.errorMessage = "failed to add friend."
+                    onSuccess(false)
+                }
+                self.isLoading = false
+                
+            case .error(error: _, message: let msg):
+                self.isErrorOccurred = true
+                self.isLoading = false
+                self.errorMessage = (msg ?? "Failed to add friend.") ?? "Failed to add friend."
+                
+                
+            case .loading(message: _):
+                self.isLoading = true
+                self.isErrorOccurred = false
+                self.errorMessage = ""
+                
+            case .idle(message: _):
+                break
+            }
+        }
+    }
+    
     func getFriends(onSuccess: @escaping (Bool) -> Void) {
         
         let url = "\(base_url)/user/friends/show"

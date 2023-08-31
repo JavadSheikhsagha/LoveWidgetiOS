@@ -125,7 +125,7 @@ struct MainScreen: View {
                             Spacer()
                             
                             Button {
-                                UIPasteboard.general.setValue("TEXT TO COPY", // text
+                                UIPasteboard.general.setValue(loadUser()?.code ?? "", // text
                                             forPasteboardType: UTType.plainText.identifier)
                             } label: {
                                 Image("iconCopyToClipboard")
@@ -140,7 +140,7 @@ struct MainScreen: View {
                     Spacer()
                         .frame(height: 24)
                     
-                    ShareLink(item: "TEXT TO SHARE") {
+                    ShareLink(item: loadUser()?.code ?? "") {
                         Image("imgShareMyCodeButton")
                             .resizable()
                             .frame(width: UIScreen.screenWidth - 65 ,height: 55)

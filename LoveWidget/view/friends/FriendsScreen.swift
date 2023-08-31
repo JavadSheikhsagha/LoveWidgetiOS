@@ -80,6 +80,15 @@ struct FriendsScreen: View {
                         
                         Button {
                             // add friend by code
+                            friednsViewModel.addFriend(friendId: friendCode) { bool in
+                                if bool {
+                                    withAnimation {
+                                        showAddFriendDialog = false
+                                    }
+                                } else {
+                                    
+                                }
+                            }
                         } label: {
                             Image(.btnAdd)
                                 .resizable()
