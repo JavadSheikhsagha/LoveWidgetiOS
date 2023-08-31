@@ -14,6 +14,7 @@ struct MainScreen: View {
     
     
     @EnvironmentObject var mainViewModel : MainViewModel
+    @EnvironmentObject var friednsViewModel : FriendsViewModel
     
     @State var showFriendsBottomSheet = false
     @State var showEditNameDialog = false
@@ -75,7 +76,7 @@ struct MainScreen: View {
                     Spacer()
                         .frame(height: 24)
                     
-                    AsyncImage(url: URL(string: "imgUrl")!) { image in
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -389,7 +390,7 @@ struct MainScreen: View {
             Color(hex: "#EEF1FF")
                 .ignoresSafeArea()
                 .onAppear {
-                    
+                    friednsViewModel.getFriends { bool in }
                 }
             
             VStack {

@@ -204,7 +204,7 @@ struct LoginResponseModel : Codable {
 struct UserModel: Codable {
     
     var username:String
-    var code:String
+    var code:String?
     var profileImage:String
     var id:String
     

@@ -20,6 +20,9 @@ struct FriendsScreen: View {
             
             Color(hex: "#F9FBFD")
                 .ignoresSafeArea()
+                .onAppear {
+                    friednsViewModel.getFriends { bool in }
+                }
             
             friendsListView
                 .onChange(of: showAddFriendDialog) { newValue in
@@ -30,6 +33,11 @@ struct FriendsScreen: View {
             
             addFriendDialog
             
+        }
+        .alert(friednsViewModel.errorMessage, isPresented: $friednsViewModel.isErrorOccurred) {
+            Button("ok") {
+                friednsViewModel.isErrorOccurred = false
+            }
         }
     }
     
@@ -109,7 +117,7 @@ struct FriendsScreen: View {
                 
                 Spacer().frame(height: 48)
                 
-                ForEach(friednsViewModel.friends, id: \.self) { friend in
+                ForEach(friednsViewModel.friends, id: \.id) { friend in
                     
                     ZStack {
                         
@@ -118,14 +126,23 @@ struct FriendsScreen: View {
                         
                         HStack(spacing: 14) {
                             
-                            Image(.imgUserSample)
-                                .resizable()
-                                .frame(width: 52, height: 52)
                             
-                            Text(friend)
+                            AsyncImage(url: URL(string: friend.profileImage)!) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        Image(.imgUserSample)
+                                            .resizable()
+                                            .frame(width: 52, height: 52)
+                                    }.frame(width: 52, height: 52)
+                                .clipShape(RoundedRectangle(cornerRadius: 42))
+                            
+                            
+                            Text(friend.username)
                                 .font(.system(size: 16))
                                 .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
-
+                            
                             Spacer()
                             
                             Image(.img3Dots)
