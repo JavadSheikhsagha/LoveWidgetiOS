@@ -19,6 +19,7 @@ struct MainScreen: View {
     @State var showEditNameDialog = false
     @State var showLogoutDialog = false
     @State var showDeleteAccountDialog = false
+    @State var changeNameText = ""
     
     
     var cardTopView : some View {
@@ -52,12 +53,14 @@ struct MainScreen: View {
                                     Text("Logout")
                                 }
                                 
-                                Button {
-                                    withAnimation {
-                                        showDeleteAccountDialog = true
+                                if !isUserGuest() {
+                                    Button {
+                                        withAnimation {
+                                            showDeleteAccountDialog = true
+                                        }
+                                    } label: {
+                                        Text("Delete Account")
                                     }
-                                } label: {
-                                    Text("Delete Account")
                                 }
                                 
                             }
@@ -88,7 +91,7 @@ struct MainScreen: View {
                         
                         HStack(alignment:.bottom) {
                             
-                            Text("Hello")
+                            Text(loadUser()?.username ?? "Username")
                                 .font(.system(size: 16))
                             
                             Spacer()
@@ -115,7 +118,7 @@ struct MainScreen: View {
                         
                         HStack(alignment:.bottom) {
                             
-                            Text("Hello")
+                            Text(loadUser()?.code ?? "Code")
                                 .font(.system(size: 16))
                             
                             Spacer()
@@ -242,7 +245,7 @@ struct MainScreen: View {
                     
                     HStack(alignment:.bottom) {
                         
-                        Text("Hello") // todo : Chhange to textField
+                        TextField("Username", text: $changeNameText)
                             .font(.system(size: 16))
                         
                         Spacer()
@@ -305,7 +308,14 @@ struct MainScreen: View {
                         Image("btnCancel")
                     })
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        saveToken(token: "")
+                        saveUser(userModel: nil)
+                        withAnimation {
+                            showLogoutDialog = false
+                            mainViewModel.SCREEN_VIEW = .Login
+                        }
+                    }, label: {
                         Image("btnLogout")
                     })
                     
@@ -425,6 +435,11 @@ struct MainScreen: View {
                 
                 
                 changeNameDialog
+                    .onChange(of: showEditNameDialog) { newValue in
+                        if newValue {
+                            changeNameText = loadUser()?.username ?? ""
+                        }
+                    }
                 
                 logoutDialog
                 

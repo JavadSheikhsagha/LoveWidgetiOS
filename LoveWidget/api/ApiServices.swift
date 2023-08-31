@@ -25,10 +25,10 @@ class GetApiService<DataModel:Codable> {
     }
     
     func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
-        let link = "\(BASE_URL)facts"
+//        let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
-        AF.request(link, method: .get, encoding: JSONEncoding.default,headers: HTTPHeaders(header))
+        AF.request(url, method: .get, encoding: JSONEncoding.default,headers: HTTPHeaders(header))
             .responseJSON { (response) in
             
             switch response.result{
@@ -73,7 +73,7 @@ class PostApiService<DataModel:Codable> {
     }
     
     func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
-        let link = "\(BASE_URL)facts"
+//        let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
         AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
@@ -120,10 +120,10 @@ class DeleteApiService<DataModel:Codable> {
     }
     
     func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
-        let link = "\(BASE_URL)facts"
+//        let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
-        AF.request(link, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
+        AF.request(url, method: .delete, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
             .responseJSON { (response) in
             
             switch response.result{
@@ -167,10 +167,10 @@ class PatchApiService<DataModel:Codable> {
     }
     
     func fetch(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>) -> Void) {
-        let link = "\(BASE_URL)facts"
+//        let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""))
-        AF.request(link, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
+        AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: HTTPHeaders(header))
             .responseJSON { (response) in
             
             switch response.result{

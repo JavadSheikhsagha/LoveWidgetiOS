@@ -23,14 +23,23 @@ class MainViewModel : ObservableObject {
         
         let url =  "\(base_url)/auth/delete-account"
         let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        PostApiService<LoginResponseModel>(parameters: nil, header: header, url: url)
+        print(getToken())
+        
+        DeleteApiService<DeleteUserResponseModel>(parameters: nil, header: header, url: url)
             .fetch { dataState in
                 
                 switch(dataState) {
                     
                 case .success(data: let data, message: _):
                     if let data = data {
-                        onSuccess(true)
+                        if data.success == true {
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = "Delete user Failed.."
+                            onSuccess(false)
+                        }
                     } else {
                         self.isErrorOccurred = true
                         self.isLoading = false
@@ -69,4 +78,11 @@ enum Screens {
     case Login
     case History 
     case CreateWidget
+}
+
+
+struct DeleteUserResponseModel : Codable {
+    
+    var success : Bool?
+    var message:String
 }

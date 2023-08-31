@@ -37,3 +37,20 @@ func loadUser() -> UserModel? {
     }
     return nil
 }
+
+func isUserGuest() -> Bool {
+    if loadUser()?.username.contains("guest-") ?? true {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+func isUserLoggedIn() -> Bool {
+    if loadUser()?.username.count ?? 0 > 0 {
+        return true
+    } else {
+        return false
+    }
+}
