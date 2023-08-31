@@ -55,6 +55,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F4799D12AA07D3E006BA057 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				806CA8F92A9DDD1200599C14 /* main */,
+				3F7927A02A9F10EA00D5F1F5 /* friends */,
+				3FE3E5A52A9E6F56003CD376 /* widget */,
+				806CA8F12A9DD7D600599C14 /* login */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		3F4799D22AA07D47006BA057 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */,
+				806CA8E22A9DD21900599C14 /* ContentView.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		3F4799D32AA07D52006BA057 /* api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 		3F7927A02A9F10EA00D5F1F5 /* friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,8 +96,8 @@
 			children = (
 				3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */,
 				3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */,
-				3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */,
 				3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */,
+				3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -94,12 +121,9 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
-				806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */,
-				806CA8E22A9DD21900599C14 /* ContentView.swift */,
-				806CA8F92A9DDD1200599C14 /* main */,
-				3F7927A02A9F10EA00D5F1F5 /* friends */,
-				3FE3E5A52A9E6F56003CD376 /* widget */,
-				806CA8F12A9DD7D600599C14 /* login */,
+				3F4799D32AA07D52006BA057 /* api */,
+				3F4799D22AA07D47006BA057 /* app */,
+				3F4799D12AA07D3E006BA057 /* view */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
 				806CA8E72A9DD21B00599C14 /* Preview Content */,
