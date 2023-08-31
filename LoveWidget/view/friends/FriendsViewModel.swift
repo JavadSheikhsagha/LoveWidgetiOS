@@ -36,7 +36,7 @@ class FriendsViewModel : ObservableObject {
                         }
                     } else {
                         self.isErrorOccurred = true
-                        self.errorMessage = "Failed to add Friend.."
+                        self.errorMessage = data.message ?? "Failed to add friend.."
                         onSuccess(false)
                     }
                     
@@ -81,7 +81,7 @@ class FriendsViewModel : ObservableObject {
                     } else {
                         self.isErrorOccurred = true
                         self.isLoading = false
-                        self.errorMessage = "Failed to get Friends.."
+                        self.errorMessage = data.message ?? "Failed to get friend list."
                         onSuccess(false)
                     }
                     
@@ -128,7 +128,7 @@ class FriendsViewModel : ObservableObject {
                     } else {
                         self.isErrorOccurred = true
                         self.isLoading = false
-                        self.errorMessage = "Failed to Delete Friend.."
+                        self.errorMessage = data.message
                         onSuccess(false)
                     }
                     

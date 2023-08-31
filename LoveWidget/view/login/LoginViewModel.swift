@@ -42,7 +42,7 @@ class LoginViewModel : ObservableObject {
                     } else {
                         self.isErrorOccurred = true
                         self.isLoading = false
-                        self.errorMessage = "Login Failed.."
+                        self.errorMessage = data.message
                         onSuccess(false)
                     }
                     
@@ -90,7 +90,7 @@ class LoginViewModel : ObservableObject {
                         } else {
                             self.isErrorOccurred = true
                             self.isLoading = false
-                            self.errorMessage = "Login Failed.."
+                            self.errorMessage = data.message
                             onSuccess(false)
                         }
                     } else {

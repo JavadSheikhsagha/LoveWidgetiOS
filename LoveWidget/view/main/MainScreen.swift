@@ -264,12 +264,17 @@ struct MainScreen: View {
                 
                 Button(action: {
                     //save name
-                    mainViewModel.changeUsername(newUsername: changeNameText) { bool in
-                        if bool {
-                            withAnimation {
-                                showEditNameDialog = false
+                    if changeNameText.count > 4 {
+                        mainViewModel.changeUsername(newUsername: changeNameText) { bool in
+                            if bool {
+                                withAnimation {
+                                    showEditNameDialog = false
+                                }
                             }
                         }
+                    } else {
+                        mainViewModel.isErrorOccurred = true
+                        mainViewModel.errorMessage = "User must have at least 4 characters."
                     }
                 }, label: {
                     Image("btnSave")
