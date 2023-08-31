@@ -107,7 +107,7 @@ struct FriendsScreen: View {
             
             ScrollView {
                 
-                Spacer().frame(height: 24)
+                Spacer().frame(height: 48)
                 
                 ForEach(friednsViewModel.friends, id: \.self) { friend in
                     

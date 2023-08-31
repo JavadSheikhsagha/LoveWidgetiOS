@@ -167,6 +167,9 @@ struct MainScreen: View {
             
             HStack {
                 
+                Spacer()
+                    .frame(width: 48)
+                
                 Image("inviteFriendsText")
                 
                 Spacer()
@@ -360,7 +363,7 @@ struct MainScreen: View {
                 ScrollView(showsIndicators: false) {
                     
                     Spacer()
-                        .frame(height: 48)
+                        .frame(height: 0)
                     
                     cardTopView
                     
@@ -369,7 +372,7 @@ struct MainScreen: View {
                     widgetListView
                     
                     Spacer()
-                        .frame(height: 100)
+                        .frame(height: 48)
                 }
                 
                 
@@ -380,7 +383,7 @@ struct MainScreen: View {
                 ZStack {
                     
                     Color.white
-                        .opacity(0.8)
+                        .opacity(0.9)
                         .ignoresSafeArea()
                         .frame(width: UIScreen.screenWidth, height: 80)
                         .blur(radius: 3.0)
