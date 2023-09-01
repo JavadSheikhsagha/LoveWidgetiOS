@@ -20,6 +20,7 @@ struct MainScreen: View {
     @State var showEditNameDialog = false
     @State var showLogoutDialog = false
     @State var showDeleteAccountDialog = false
+    @State var showAskForLoginDialog = false
     @State var changeNameText = ""
     
     
@@ -76,7 +77,7 @@ struct MainScreen: View {
                     Spacer()
                         .frame(height: 24)
                     
-                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "")!) { image in
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -92,18 +93,26 @@ struct MainScreen: View {
                         
                         HStack(alignment:.bottom) {
                             
-                            Text(loadUser()?.username ?? "Username")
+                            Text(isUserGuest() ? "Guest" : loadUser()?.username ?? "Username")
                                 .font(.system(size: 16))
                             
                             Spacer()
                             
                             Button {
                                 // edit name dialog
-                                withAnimation {
-                                    showEditNameDialog.toggle()
+                                if !isUserGuest() {
+                                    withAnimation {
+                                        showEditNameDialog.toggle()
+                                    }
                                 }
                             } label: {
-                                Image("imgEditNameIcon")
+                                if isUserGuest() {
+                                    Image("imgEditNameIcon")
+                                        .opacity(0.2)
+                                } else {
+                                    Image("imgEditNameIcon")
+                                }
+                                    
                             }
 
                             
@@ -112,38 +121,73 @@ struct MainScreen: View {
                         
                     }.frame(width: UIScreen.screenWidth - 65, height: 67)
                     
-                    ZStack {
-                        Image("imgIdText")
-                            .resizable()
-                            .frame(width: UIScreen.screenWidth - 65, height: 67)
+                    if isUserGuest() {
                         
-                        HStack(alignment:.bottom) {
-                            
-                            Text(loadUser()?.code ?? "Code")
-                                .font(.system(size: 16))
-                            
+                        VStack {
                             Spacer()
                             
-                            Button {
-                                UIPasteboard.general.setValue(loadUser()?.code ?? "", // text
-                                            forPasteboardType: UTType.plainText.identifier)
-                            } label: {
-                                Image("iconCopyToClipboard")
-                            }
+                            Text("For using all features please login first")
+                            .font(Font.custom("SF UI Text", size: 16))
+                            .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
 
                             
-                        }.padding()
-                            .offset(y: 5)
+                        }.frame(width: UIScreen.screenWidth - 65, height: 67)
                         
-                    }.frame(width: UIScreen.screenWidth - 65, height: 67)
+                    } else {
+                        ZStack {
+                            Image("imgIdText")
+                                .resizable()
+                                .frame(width: UIScreen.screenWidth - 65, height: 67)
+                            
+                            HStack(alignment:.bottom) {
+                                
+                                Text(loadUser()?.code ?? "Code")
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Button {
+                                    UIPasteboard.general.setValue(loadUser()?.code ?? "", // text
+                                                forPasteboardType: UTType.plainText.identifier)
+                                } label: {
+                                    Image("iconCopyToClipboard")
+                                }
+
+                                
+                            }.padding()
+                                .offset(y: 5)
+                            
+                        }.frame(width: UIScreen.screenWidth - 65, height: 67)
+                    }
                     
                     Spacer()
                         .frame(height: 24)
                     
-                    ShareLink(item: loadUser()?.code ?? "") {
-                        Image("imgShareMyCodeButton")
-                            .resizable()
-                            .frame(width: UIScreen.screenWidth - 65 ,height: 55)
+                    if isUserGuest() {
+                        Button {
+                            withAnimation {
+                                showAskForLoginDialog = true
+                            }
+                            
+                        } label: {
+                            ZStack {
+                                
+                                Color(hex:"#6D8DF7")
+                                
+                                Text("Login")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.white)
+                                
+                                
+                            }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                    } else {
+                        ShareLink(item: loadUser()?.code ?? "") {
+                            Image("imgShareMyCodeButton")
+                                .resizable()
+                                .frame(width: UIScreen.screenWidth - 65 ,height: 55)
+                        }
                     }
 
                 }
@@ -162,7 +206,13 @@ struct MainScreen: View {
                 .frame(height: 28)
             
             Button(action: {
-                showFriendsBottomSheet = true
+                if isUserGuest() {
+                    withAnimation {
+                        showAskForLoginDialog = true
+                    }
+                } else {
+                    showFriendsBottomSheet = true
+                }
             }, label: {
                 Image("imgInviteFriends")
                     .resizable()
@@ -343,6 +393,52 @@ struct MainScreen: View {
         .offset(y: showLogoutDialog ? 0 : UIScreen.screenHeight)
     }
     
+    var askForLoginDialog : some View {
+        ZStack {
+            
+            Color(hex: "#FFFFFF")
+                .frame(width: UIScreen.screenWidth - 64, height: 180)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack(spacing: 20) {
+                
+                HStack {
+                    Text("Please login first")
+                    
+                }.padding(.horizontal, 24)
+                
+                Text("For using this app, please log in first")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(hex: "#707070"))
+                
+                
+                HStack(spacing: 32) {
+                    
+                    Button(action: {
+                        withAnimation {
+                            showAskForLoginDialog = false
+                        }
+                    }, label: {
+                        Image("btnCancel")
+                    })
+                    
+                    Button(action: {
+                        withAnimation {
+                            showAskForLoginDialog = false
+                            mainViewModel.SCREEN_VIEW = .Login
+                        }
+                    }, label: {
+                        Image("btnLoginSmall")
+                    })
+                    
+                }
+            }
+        }
+        .frame(width: UIScreen.screenWidth - 64, height: 180)
+        .opacity(showAskForLoginDialog ? 1.0 : 0.0)
+        .offset(y: showAskForLoginDialog ? 0 : UIScreen.screenHeight)
+    }
+    
     
     var deleteAccountDialog : some View {
         ZStack {
@@ -435,18 +531,21 @@ struct MainScreen: View {
                 
                 Color.black.opacity(showLogoutDialog ||
                                     showEditNameDialog ||
+                                    showAskForLoginDialog ||
                                     showDeleteAccountDialog ?
                                     0.6 : 0.0)
                 .ignoresSafeArea()
                 .offset(y: showLogoutDialog ||
                         showEditNameDialog ||
-                        showDeleteAccountDialog ?
+                        showDeleteAccountDialog ||
+                        showAskForLoginDialog ?
                         0 : UIScreen.screenHeight)
                 .onTapGesture {
                     withAnimation {
                         showLogoutDialog = false
                         showEditNameDialog = false
                         showDeleteAccountDialog = false
+                        showAskForLoginDialog = false
                     }
                 }
                 
@@ -461,6 +560,8 @@ struct MainScreen: View {
                 logoutDialog
                 
                 deleteAccountDialog
+                
+                askForLoginDialog
                 
             }
             
