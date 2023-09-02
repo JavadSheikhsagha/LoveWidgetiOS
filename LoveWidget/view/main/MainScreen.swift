@@ -15,6 +15,7 @@ struct MainScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var friednsViewModel : FriendsViewModel
+    @EnvironmentObject var widgetViewModel : WidgetViewModel
     
     @State var showFriendsBottomSheet = false
     @State var showEditNameDialog = false
@@ -492,6 +493,7 @@ struct MainScreen: View {
                 .ignoresSafeArea()
                 .onAppear {
                     friednsViewModel.getFriends { bool in }
+                    widgetViewModel.getWidgets { bool in }
                 }
             
             VStack {

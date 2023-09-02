@@ -12,6 +12,7 @@ import UIKit
 class WidgetViewModel : ObservableObject {
     
     @Published var historyWidgets = [WidgetServerModel]()
+    @Published var allWidgetsMain = [WidgetServerModel]()
     @Published var selectedWidgetModel : WidgetServerModel? = nil
     
     @Published var isLoading = false
@@ -21,6 +22,56 @@ class WidgetViewModel : ObservableObject {
     @Published var selectedImage : UIImage? = nil
     
     func uploadImageToHistory(onSuccess: @escaping (Bool)-> Void) {
+        
+    }
+    
+    func getWidgets(onSuccess: @escaping (Bool) -> Void ) {
+        
+        let url = "\(base_url)/widget/home"
+        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
+        
+        GetApiService<GetAllWidgetResponseModel>(url: url, header: header)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    if let data = data {
+                        if data.success == true {
+                            
+                            if let d = data.data {
+                                self.allWidgetsMain = d
+                            }
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.errorMessage = data.message ?? "Failed to get widgets.."
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        
+                        self.errorMessage = "failed to get widgets."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: _, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? "Failed to get widgets.") ?? "Failed to get widgets."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+                
+            }
         
     }
     
@@ -151,4 +202,27 @@ struct WidgetServerModel: Codable {
     let contents:[String]?
     let reactions:[String]?
     let id:String?
+}
+
+//{
+//    "success": true,
+//    "message": "widget history",
+//    "data": [
+//        {
+//            "id": "64f2feb852be8d120932d07d",
+//            "name": "Asdasd",
+//            "contents": []
+//        },
+//        {
+//            "id": "64f2fec152be8d120932d083",
+//            "name": "Wid2",
+//            "contents": []
+//        }
+//    ]
+//}
+
+struct GetAllWidgetResponseModel : Codable {
+    let success:Bool?
+    let message:String?
+    let data: [WidgetServerModel]?
 }

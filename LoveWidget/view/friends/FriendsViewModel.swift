@@ -71,6 +71,8 @@ class FriendsViewModel : ObservableObject {
         
         let url = "\(base_url)/user/friends/show"
         
+        print(getToken())
+        
         let header = ["Authorization": "Bearer \(getToken() ?? "")"]
         GetApiService<GetFriendsResponseModel>(url: url, header: header).fetch { dataState in
             switch(dataState) {
