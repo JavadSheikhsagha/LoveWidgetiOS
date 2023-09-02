@@ -248,7 +248,6 @@ struct MainScreen: View {
                     .frame(height: 30)
                 
                 Text("Haven’t added any widget yet")
-                    .bold()
                     .font(.system(size: 20))
                 
                 Spacer()

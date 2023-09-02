@@ -14,6 +14,8 @@ struct FriendsScreen: View {
     @Environment(\.dismiss) var dismiss
     
     @State var showAddFriendDialog = false
+    @State var showRemoveFriendDialog = false
+    @State var selectedFriendToRemove : UserModel? = nil
     @State var friendCode = ""
     
     var doNeedSelectFriend = false
@@ -38,12 +40,74 @@ struct FriendsScreen: View {
             
             addFriendDialog
             
+            ZStack {
+                Color.black.opacity(showRemoveFriendDialog ? 0.5 : 0.0)
+                    .ignoresSafeArea()
+                    .offset(y: showRemoveFriendDialog ? 0 : UIScreen.screenHeight)
+                    .onTapGesture {
+                        withAnimation {
+                            showRemoveFriendDialog = false
+                        }
+                    }
+                
+                removeFriendDialog
+            }
+            
+            
         }
         .alert(friednsViewModel.errorMessage, isPresented: $friednsViewModel.isErrorOccurred) {
             Button("ok") {
                 friednsViewModel.isErrorOccurred = false
             }
         }
+    }
+    
+    var removeFriendDialog : some View {
+        ZStack {
+            
+            Color(hex: "#FFFFFF")
+                .frame(width: UIScreen.screenWidth - 64, height: 120)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack(spacing: 20) {
+                
+                Text("Are you sure you want to remove your friend?")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(hex: "#707070"))
+                
+                
+                HStack(spacing: 32) {
+                    
+                    Button(action: {
+                        withAnimation {
+                            showRemoveFriendDialog = false
+                        }
+                    }, label: {
+                        Image("btnCancel")
+                    })
+                    
+                    Button(action: {
+                        
+                        friednsViewModel.deleteFriend(friendId: selectedFriendToRemove?.id ?? "") { bool in
+                            if bool {
+                                withAnimation {
+                                    showRemoveFriendDialog = false
+                                }
+                            } else {
+                                
+                            }
+                        }
+                        
+                    }, label: {
+                        Image("btnDelete")
+                    })
+                    
+                }
+            }
+        }
+        .frame(width: UIScreen.screenWidth - 64, height: 120)
+        .opacity(showRemoveFriendDialog ? 1.0 : 0.0)
+        .offset(y: showRemoveFriendDialog ? 0 : UIScreen.screenHeight)
     }
     
     var addFriendDialog : some View {
@@ -131,59 +195,77 @@ struct FriendsScreen: View {
                 
                 Spacer().frame(height: 48)
                 
-                ForEach(friednsViewModel.friends, id: \.id) { friend in
+                if friednsViewModel.friends.count == 0 {
+                    Spacer()
+                        .frame(height: 80)
                     
-                    ZStack {
+                    Image("emptyWidgetList")
                         
-                        Color(hex: "#EEF1FF")
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+                    Spacer()
+                        .frame(height: 30)
+                    
+                    
+                    Text("You don’t added any friends yet")
+                      .font(Font.custom("SF UI Text", size: 16))
+                      .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                    
+                    Spacer()
+                        .frame(height: 60)
+                } else {
+                    ForEach(friednsViewModel.friends, id: \.id) { friend in
                         
-                        HStack(spacing: 14) {
+                        ZStack {
                             
+                            Color(hex: "#EEF1FF")
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             
-                            AsyncImage(url: URL(string: friend.profileImage)!) { image in
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                    } placeholder: {
-                                        Image(.imgUserSample)
-                                            .resizable()
-                                            .frame(width: 52, height: 52)
-                                    }.frame(width: 52, height: 52)
-                                .clipShape(RoundedRectangle(cornerRadius: 42))
-                            
-                            
-                            Text(friend.username)
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
-                            
-                            Spacer()
-                            
-                            Image(.img3Dots)
-                                .contextMenu(menuItems: {
-                                    Button("Remove friend") {
-                                        // call api
-                                        friednsViewModel.deleteFriend(friendId: friend.id) { bool in
-                                            if bool {
-                                                
-                                            } else {
-                                                
+                            HStack(spacing: 14) {
+                                
+                                
+                                AsyncImage(url: URL(string: friend.profileImage)!) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+                                            Image(.imgUserSample)
+                                                .resizable()
+                                                .frame(width: 52, height: 52)
+                                        }.frame(width: 52, height: 52)
+                                    .clipShape(RoundedRectangle(cornerRadius: 42))
+                                
+                                
+                                Text(friend.username)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                                
+                                Spacer()
+                                
+                                Image(.img3Dots)
+                                    .contextMenu(menuItems: {
+                                        Button("Remove friend") {
+                                            // call api
+                                            withAnimation {
+                                                showRemoveFriendDialog = true
                                             }
+                                            selectedFriendToRemove = friend
                                         }
-                                    }
-                                })
+                                    })
+                                
+                            }.padding()
                             
-                        }.padding()
-                        
-                    }.frame(width: UIScreen.screenWidth - 40, height: 72)
-                        .onTapGesture {
-                            if doNeedSelectFriend {
-                                friednsViewModel.selectedFriend = friend
-                                dismiss()
+                        }.frame(width: UIScreen.screenWidth - 40, height: 72)
+                            .onTapGesture {
+                                if doNeedSelectFriend {
+                                    friednsViewModel.selectedFriend = friend
+                                    dismiss()
+                                }
                             }
-                        }
-                    
+                        
+                    }
                 }
+                
+                
                 
             }
             
