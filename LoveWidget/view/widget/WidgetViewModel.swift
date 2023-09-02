@@ -14,12 +14,64 @@ class WidgetViewModel : ObservableObject {
     @Published var historyWidgets = [WidgetServerModel]()
     @Published var allWidgetsMain = [WidgetServerModel]()
     @Published var selectedWidgetModel : WidgetServerModel? = nil
+    @Published var getSingleWidgetData : WidgetFullData? = nil
     
     @Published var isLoading = false
     @Published var errorMessage = ""
     @Published var isErrorOccurred = false
     
     @Published var selectedImage : UIImage? = nil
+    
+    func getSingleWidget(onSuccess: @escaping (Bool) -> Void) {
+        
+        let url = "\(base_url)/widget/single/\(selectedWidgetModel?.id ?? "")"
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        
+        GetApiService<GetSingleWidgetResponseModel>(url: url, header: header)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    if let data = data {
+                        if data.success == true {
+                            
+                            if let d = data.data {
+                                self.getSingleWidgetData = d
+                                print(d)
+                                
+                            }
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.errorMessage = data.message ?? "Failed to get widget data.."
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        
+                        self.errorMessage = "failed to get widget data."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: _, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? "Failed to get widget data.") ?? "Failed to get widget data."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+                
+            }
+    }
     
     func uploadImageToHistory(onSuccess: @escaping (Bool)-> Void) {
         
@@ -29,6 +81,10 @@ class WidgetViewModel : ObservableObject {
         
         let url = "\(base_url)/widget/home"
         let header = ["Authorization":"Bearer \(getToken() ?? "")"]
+        
+        if let widgets = loadWidgets() {
+            self.allWidgetsMain = widgets
+        }
         
         GetApiService<GetAllWidgetResponseModel>(url: url, header: header)
             .fetch { dataState in
@@ -41,6 +97,7 @@ class WidgetViewModel : ObservableObject {
                             
                             if let d = data.data {
                                 self.allWidgetsMain = d
+                                saveAllWidgetsToDatabase(widgets: d)
                             }
                             onSuccess(true)
                         } else {
@@ -199,7 +256,7 @@ struct CreateWidgetResponseModel : Codable {
 struct WidgetServerModel: Codable {
     let name:String?
     let creator:String?
-    let contents:[String]?
+    let contents:[ContentModel]?
     let reactions:[String]?
     let id:String?
 }
@@ -225,4 +282,29 @@ struct GetAllWidgetResponseModel : Codable {
     let success:Bool?
     let message:String?
     let data: [WidgetServerModel]?
+}
+
+
+struct ContentModel : Codable {
+    let type:String
+    let data:String
+    let sender : String
+    let reaction : Int
+}
+
+
+struct GetSingleWidgetResponseModel : Codable {
+    let success: Bool?
+    let message:String?
+    let data: WidgetFullData?
+}
+
+struct WidgetFullData : Codable {
+    
+let name:String
+    let members :[UserModel]
+    let contents : [ContentModel]
+    let creator:String
+    let id:String
+    
 }

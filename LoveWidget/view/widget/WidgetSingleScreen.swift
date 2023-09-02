@@ -24,6 +24,10 @@ struct WidgetSingleScreen: View {
             
             Color(hex: "#EEF1FF")
                 .ignoresSafeArea()
+                .onAppear {
+                    widgetViewModel.getSingleWidget { bool in }
+                    
+                }
             
             
             VStack {
@@ -223,8 +227,8 @@ struct WidgetSingleScreen: View {
             
             HStack(spacing: 15) {
                 
-                VStack {
-                    AsyncImage(url: URL(string: "imgUrl")!) { image in
+                VStack(spacing: 10) {
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "imgUrl")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -234,35 +238,45 @@ struct WidgetSingleScreen: View {
                             }.frame(width: 84, height: 84)
                         .clipShape(RoundedRectangle(cornerRadius: 42))
                     
-                    Text("Zeynab")
+                    Text(loadUser()?.username ?? "Username")
                       .font(Font.custom("SF UI Text", size: 14))
                       .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                 }
                 
                 Button {
-                    
+                    //send notif
                 } label: {
                     Image(.imgHeartMiss)
                 }.offset(y: -10)
 
                 
-                VStack(spacing: 20) {
+                VStack(spacing: 0) {
                     
-                    AsyncImage(url: URL(string: "imgUrl")!) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                            } placeholder: {
-//                                    Image(systemName: "photo.fill")
+                    Button {
+                        
+                    } label: {
+                        VStack(spacing:10) {
+                            if widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 {
+                                AsyncImage(url: URL(string: widgetViewModel.getSingleWidgetData?.members[0].profileImage ?? "imgUrl")!) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+            //                                    Image(systemName: "photo.fill")
+                                            Image(.imgUserSample)
+                                        }.frame(width: 84, height: 84)
+                                    .clipShape(RoundedRectangle(cornerRadius: 42))
+                            } else {
                                 Image(.imgUserSample)
-                            }.frame(width: 84, height: 84)
-                        .clipShape(RoundedRectangle(cornerRadius: 42))
-                    
-                
-                    
-                    Text("Zeynab")
-                      .font(Font.custom("SF UI Text", size: 14))
-                      .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                            }
+                            
+                            Text(widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 ?
+                                  widgetViewModel.getSingleWidgetData?.members[0].username ?? "Username" : "Add Friend")
+                              .font(Font.custom("SF UI Text", size: 14))
+                              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        }
+                    }
+
                 }
             }
         }
@@ -285,7 +299,7 @@ struct WidgetSingleScreen: View {
             
             Spacer()
 
-            Text(appName)
+            Text(widgetViewModel.selectedWidgetModel?.name ?? appName)
                 .bold()
                 .font(.system(size: 16))
             

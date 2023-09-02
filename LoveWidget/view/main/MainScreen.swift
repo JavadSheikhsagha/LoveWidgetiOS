@@ -236,7 +236,7 @@ struct MainScreen: View {
     
     var widgetListView : some View {
         VStack {
-            if mainViewModel.widgets.count < 1 && mainViewModel.isLoading == false {
+            if widgetViewModel.allWidgetsMain.count < 1 && widgetViewModel.isLoading == false {
                 
                 Spacer()
                     .frame(height: 80)
@@ -256,6 +256,27 @@ struct MainScreen: View {
             } else {
                 // LazyHStack for each widget
                 
+                HStack {
+                    
+                    Spacer()
+                    
+                    VStack {
+                        ForEach(widgetViewModel.allWidgetsMain, id: \.id) { widget in
+                            
+                            WidgetListSingleView(widget: widget)
+                                .onTapGesture {
+                                    widgetViewModel.selectedWidgetModel = widget
+                                    withAnimation {
+                                        mainViewModel.SCREEN_VIEW = .WidgetSingle
+                                    }
+                                }
+                            
+                            Spacer()
+                                .frame(height: 40)
+                        }
+                    }
+                    
+                }.padding(.horizontal, 20)
                 
             }
         }
@@ -592,6 +613,44 @@ extension UIScreen {
     }
     static var screenHeight : CGFloat {
         UIScreen.main.bounds.height
+    }
+    
+}
+
+
+struct WidgetListSingleView : View {
+    
+    @State var widget : WidgetServerModel
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            
+            VStack {
+                
+                if widget.contents?.count ?? 0 > 0 {
+                    AsyncImage(url: URL(string: widget.contents![0].data)!) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                Image(systemName: "photo.fill")
+                            }
+                } else {
+                    Image("emptyWidgetImage")
+                        .resizable()
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .frame(width: (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
+            
+            
+            
+            Text(widget.name ?? "widget")
+              .font(Font.custom("SF UI  Text", size: 14))
+              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+            
+        }
+        .frame(width: (UIScreen.screenWidth - 64) / 2, height: ((UIScreen.screenWidth - 64) / 2) + 20)
     }
     
 }
