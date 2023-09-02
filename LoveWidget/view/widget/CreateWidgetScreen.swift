@@ -10,8 +10,12 @@ import SwiftUI
 struct CreateWidgetScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
+    @EnvironmentObject var widgetViewModel : WidgetViewModel
+    @EnvironmentObject var friendViewModel : FriendsViewModel
+    
     @State var widgetName = ""
     @State var isButtonEnabled : Bool = false
+    @State var showFriendsSheet = false
     
     var body: some View {
         ZStack {
@@ -26,37 +30,55 @@ struct CreateWidgetScreen: View {
                 
                 userImagesTop
                 
-                VStack {
-                    Spacer()
-                    
-                    Button {
-                        // create widget in server
-                        
-                    } label: {
-                        ZStack {
-                            
-                            Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
-                            
-                            Text("Save")
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                            
-                            
-                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                    
-                    Button {
-                        // show tutorial
-                        
-                    } label: {
-                        Image(.addToHomeBtn)
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                    }
-
-                }
+                createWidgetButton
             }
+        }
+        .sheet(isPresented: $showFriendsSheet) {
+            FriendsScreen(doNeedSelectFriend: true)
+        }
+    }
+    
+    var createWidgetButton : some View {
+        VStack {
+            Spacer()
+            
+            Button {
+                // create widget in server
+                if isButtonEnabled {
+                    widgetViewModel.createWidget(name: widgetName, friendId: friendViewModel.selectedFriend?.id) { bool in
+                        if bool {
+                            withAnimation {
+                                mainViewModel.SCREEN_VIEW = .WidgetSingle
+                            }
+                        } else {
+                            
+                        }
+                    }
+                }
+                
+            } label: {
+                ZStack {
+                    
+                    Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
+                    
+                    Text("Save")
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                    
+                    
+                }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            
+//            Button {
+//                // show tutorial
+//                
+//            } label: {
+//                Image(.addToHomeBtn)
+//                    .resizable()
+//                    .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+//            }
+
         }
     }
     
@@ -70,6 +92,13 @@ struct CreateWidgetScreen: View {
                 TextField("Widget name", text: $widgetName, prompt: Text("Widget name"))
                     .padding()
                     .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                    .onChange(of: widgetName) { newValue in
+                        if widgetName.count > 3 {
+                            isButtonEnabled = true
+                        } else {
+                            isButtonEnabled = false
+                        }
+                    }
                     
                     
             }.cornerRadius(10) /// make the background rounded
@@ -89,17 +118,19 @@ struct CreateWidgetScreen: View {
             HStack(spacing: 15) {
                 
                 VStack {
-                    AsyncImage(url: URL(string: "imgUrl")!) { image in
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "imageUrl")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                             } placeholder: {
                                 Image(.imgUserSample)
-                                
+                                    .resizable()
                             }.frame(width: 84, height: 84)
                         .clipShape(RoundedRectangle(cornerRadius: 42))
                     
-                    Text("Zeynab")
+                    Text(loadUser()?.username ?? "Username")
+                        .multilineTextAlignment(.center)
+                        .frame(width: 100)
                       .font(Font.custom("SF UI Text", size: 14))
                       .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                 }
@@ -110,28 +141,32 @@ struct CreateWidgetScreen: View {
                 
                 Button {
                     // open friends bottom sheet
-                    
+                    showFriendsSheet = true
                 } label: {
                     VStack(spacing: 20) {
                         
-                        AsyncImage(url: URL(string: "imgUrl")!) { image in
+                        AsyncImage(url: URL(string: friendViewModel.selectedFriend?.profileImage ?? "imageUrl")!) { image in
                                     image
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                 } placeholder: {
-    //                                    Image(systemName: "photo.fill")
+//                                    Image(systemName: "photo.fill")
                                     Image(.imgUserSample)
+                                        .resizable()
                                 }.frame(width: 84, height: 84)
                             .clipShape(RoundedRectangle(cornerRadius: 42))
                         
                     
                         
-                        Text("Zeynab")
+                        Text(friendViewModel.selectedFriend?.username ?? "Add Friend")
+                            .multilineTextAlignment(.center)
+                            .frame(width: 100)
                           .font(Font.custom("SF UI Text", size: 14))
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        
                     }
                 }
-
+                
             }
         }
     }

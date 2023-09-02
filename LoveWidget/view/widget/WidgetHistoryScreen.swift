@@ -35,7 +35,7 @@ struct WidgetHistoryScreen: View {
             
             VStack {
                 
-                ForEach(widgetViewModel.historyWidgets, id: \.self) { widget in
+                ForEach(widgetViewModel.historyWidgets, id: \.id) { widget in
                     
                     HStack {
                         VStack {

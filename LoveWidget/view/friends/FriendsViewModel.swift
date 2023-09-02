@@ -12,10 +12,12 @@ class FriendsViewModel : ObservableObject {
     
     
     @Published var friends = [UserModel]()
+    @Published var selectedFriend : UserModel? = nil
     
     @Published var isLoading = false
     @Published var errorMessage = ""
     @Published var isErrorOccurred = false
+    
     
     
     func addFriend(friendId: String, onSuccess: @escaping (Bool) -> Void) {

@@ -11,9 +11,12 @@ struct FriendsScreen: View {
     
     @EnvironmentObject var friednsViewModel : FriendsViewModel
     
+    @Environment(\.dismiss) var dismiss
     
     @State var showAddFriendDialog = false
     @State var friendCode = ""
+    
+    var doNeedSelectFriend = false
     
     var body: some View {
         ZStack {
@@ -173,6 +176,12 @@ struct FriendsScreen: View {
                         }.padding()
                         
                     }.frame(width: UIScreen.screenWidth - 40, height: 72)
+                        .onTapGesture {
+                            if doNeedSelectFriend {
+                                friednsViewModel.selectedFriend = friend
+                                dismiss()
+                            }
+                        }
                     
                 }
                 
