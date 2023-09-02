@@ -33,6 +33,11 @@ struct CreateWidgetScreen: View {
                 createWidgetButton
             }
         }
+        .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
+            Button("ok") {
+                widgetViewModel.isErrorOccurred = false
+            }
+        }
         .sheet(isPresented: $showFriendsSheet) {
             FriendsScreen(doNeedSelectFriend: true)
         }

@@ -474,7 +474,7 @@ struct MainScreen: View {
                             }
                         }
                     }, label: {
-                        Image("btnLogout")
+                        Image("btnDelete")
                     })
                     
                 }

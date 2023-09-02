@@ -10,6 +10,10 @@ import SwiftUI
 struct WidgetSingleScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
+    @EnvironmentObject var widgetViewModel : WidgetViewModel
+    
+    @State var showDeleteWidgetDialog = false
+    
     
     var body: some View {
         ZStack {
@@ -33,7 +37,79 @@ struct WidgetSingleScreen: View {
                 
             }
             
+            ZStack {
+                
+                Color.black
+                    .opacity(showDeleteWidgetDialog ? 0.5 : 0.0)
+                    .offset(y: showDeleteWidgetDialog ? 0 : UIScreen.screenHeight)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            showDeleteWidgetDialog = false
+                        }
+                    }
+                
+                deleteWidgetDialog
+                
+            }
+            
         }
+        .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
+            Button("ok") {
+                widgetViewModel.isErrorOccurred = false
+            }
+        }
+    }
+    
+    var deleteWidgetDialog : some View {
+        ZStack {
+            
+            Color(hex: "#FFFFFF")
+                .frame(width: UIScreen.screenWidth - 64, height: 120)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            VStack(spacing: 20) {
+                
+                Text("Are you sure you want to Delete this widget?")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(hex: "#707070"))
+                
+                
+                HStack(spacing: 32) {
+                    
+                    Button(action: {
+                        withAnimation {
+                            showDeleteWidgetDialog = false
+                        }
+                    }, label: {
+                        Image("btnCancel")
+                    })
+                    
+                    Button(action: {
+                        
+                        widgetViewModel.deleteWidget { bool in
+                            if bool {
+                                withAnimation {
+                                    showDeleteWidgetDialog = false
+                                    mainViewModel.SCREEN_VIEW = .MainMenu
+                                }
+                                
+                            } else {
+                                
+                            }
+                        }
+                        
+                        
+                    }, label: {
+                        Image("btnDelete")
+                    })
+                    
+                }
+            }
+        }
+        .frame(width: UIScreen.screenWidth - 64, height: 120)
+        .opacity(showDeleteWidgetDialog ? 1.0 : 0.0)
+        .offset(y: showDeleteWidgetDialog ? 0 : UIScreen.screenHeight)
     }
     
     var addWidgetToHomeScreenBtn : some View {
@@ -178,6 +254,9 @@ struct WidgetSingleScreen: View {
                 .contextMenu {
                     Button("Delete Widget") {
                         // delete widget
+                        withAnimation {
+                            showDeleteWidgetDialog = true
+                        }
                     }
                 }
 
