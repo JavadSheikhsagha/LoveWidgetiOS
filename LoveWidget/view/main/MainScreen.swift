@@ -260,22 +260,36 @@ struct MainScreen: View {
                     Spacer()
                     
                     VStack {
-                        ForEach(widgetViewModel.allWidgetsMain, id: \.id) { widget in
+                        LazyVGrid(columns: [
+                            GridItem(),
+                            GridItem(),
+                        ]) {
                             
-                            WidgetListSingleView(widget: widget)
-                                .onTapGesture {
-                                    widgetViewModel.selectedWidgetModel = widget
-                                    withAnimation {
-                                        mainViewModel.SCREEN_VIEW = .WidgetSingle
-                                    }
+                            ForEach(widgetViewModel.allWidgetsMain, id: \.id) { widget in
+                                
+                                VStack {
+                                    WidgetListSingleView(widget: widget)
+                                        .onTapGesture {
+                                            widgetViewModel.selectedWidgetModel = widget
+                                            withAnimation {
+                                                mainViewModel.SCREEN_VIEW = .WidgetSingle
+                                            }
+                                        }
+                                        .frame(width:UIScreen.screenWidth - 64/2)
+                                
+                                    Spacer()
+                                        .frame(height: 40)
                                 }
+                            }
+                        
                             
-                            Spacer()
-                                .frame(height: 40)
                         }
+                        
+                        
+
                     }
                     
-                }.padding(.horizontal, 20)
+                }
                 
             }
         }
