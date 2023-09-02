@@ -21,6 +21,7 @@
 		3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */; };
 		3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */; };
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
+		3FCE39EB2AA324CA006401FE /* DonePhotoWidgetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* DonePhotoWidgetScreen.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
 		806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E22A9DD21900599C14 /* ContentView.swift */; };
@@ -46,6 +47,7 @@
 		3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
 		3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWidgetScreen.swift; sourceTree = "<group>"; };
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3FCE39EA2AA324CA006401FE /* DonePhotoWidgetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePhotoWidgetScreen.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveWidgetApp.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */,
 				3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */,
 				3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */,
+				3FCE39EA2AA324CA006401FE /* DonePhotoWidgetScreen.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */,
+				3FCE39EB2AA324CA006401FE /* DonePhotoWidgetScreen.swift in Sources */,
 				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,

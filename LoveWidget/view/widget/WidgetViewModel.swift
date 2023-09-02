@@ -18,8 +18,9 @@ class WidgetViewModel : ObservableObject {
     @Published var errorMessage = ""
     @Published var isErrorOccurred = false
     
+    @Published var selectedImage : UIImage? = nil
     
-    func addImageToHistory(uiImage:UIImage, onSuccess: @escaping (Bool)-> Void) {
+    func uploadImageToHistory(uiImage:UIImage, onSuccess: @escaping (Bool)-> Void) {
         
     }
     
