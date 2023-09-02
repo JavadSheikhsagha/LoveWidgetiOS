@@ -11,13 +11,14 @@ struct WidgetSingleScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    @EnvironmentObject var friendsViewModel : FriendsViewModel
     
     @State var showDeleteWidgetDialog = false
+    @State var showFriendsBottomSheet = false
     @State var showAction: Bool = false
     @State var showImagePicker: Bool = false
     @State var showCameraPicker: Bool = false
     @State var uiImage: UIImage? = nil
-    
     
     var body: some View {
         ZStack {
@@ -87,6 +88,15 @@ struct WidgetSingleScreen: View {
                     mainViewModel.SCREEN_VIEW = .UploadImageScreen
                 }
             }
+        }
+        .sheet(isPresented: $showFriendsBottomSheet) {
+            FriendsScreen(doNeedSelectFriend: true)
+                .onChange(of: showFriendsBottomSheet) { newValue in
+                    if !showFriendsBottomSheet && friendsViewModel.selectedFriend != nil {
+                        // add friend to widget
+                        friendsViewModel.selectedFriend = nil
+                    }
+                }
         }
     }
     
@@ -186,7 +196,9 @@ struct WidgetSingleScreen: View {
                 .frame(height: 36)
             
             Button {
-                
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .History
+                }
             } label: {
                 Image(.checkHistoryCard)
                     .resizable()
@@ -204,7 +216,7 @@ struct WidgetSingleScreen: View {
             HStack(spacing: 24) {
                 
                 Button {
-                    self.showAction = true
+                    
                 } label: {
                     Image(.addQuoteCard)
                         .resizable()
@@ -212,7 +224,7 @@ struct WidgetSingleScreen: View {
                 }
 
                 Button {
-                    
+                    self.showAction = true
                 } label: {
                     Image(.addImageCard)
                         .resizable()
@@ -252,28 +264,29 @@ struct WidgetSingleScreen: View {
                 
                 VStack(spacing: 0) {
                     
-                    Button {
+                    VStack(spacing:10) {
+                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 {
+                            AsyncImage(url: URL(string: widgetViewModel.getSingleWidgetData?.members[0].profileImage ?? "imgUrl")!) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        
+                                        Image(.imgUserSample)
+                                    }.frame(width: 84, height: 84)
+                                .clipShape(RoundedRectangle(cornerRadius: 42))
+                        } else {
+                            Image(.imgUserSample)
+                        }
                         
-                    } label: {
-                        VStack(spacing:10) {
-                            if widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 {
-                                AsyncImage(url: URL(string: widgetViewModel.getSingleWidgetData?.members[0].profileImage ?? "imgUrl")!) { image in
-                                            image
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                        } placeholder: {
-            //                                    Image(systemName: "photo.fill")
-                                            Image(.imgUserSample)
-                                        }.frame(width: 84, height: 84)
-                                    .clipShape(RoundedRectangle(cornerRadius: 42))
-                            } else {
-                                Image(.imgUserSample)
-                            }
-                            
-                            Text(widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 ?
-                                  widgetViewModel.getSingleWidgetData?.members[0].username ?? "Username" : "Add Friend")
-                              .font(Font.custom("SF UI Text", size: 14))
-                              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        Text(widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 ?
+                             widgetViewModel.getSingleWidgetData?.members[0].username ?? "" : widgetViewModel.isLoading ? "..." : "Add Friend")
+                          .font(Font.custom("SF UI Text", size: 14))
+                          .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        
+                    }.onTapGesture {
+                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 0 {
+                            showFriendsBottomSheet = true
                         }
                     }
 
