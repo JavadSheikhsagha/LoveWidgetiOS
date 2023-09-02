@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 
 class WidgetViewModel : ObservableObject {
@@ -123,8 +125,67 @@ class WidgetViewModel : ObservableObject {
         
     }
     
-    func uploadImageToHistory(onSuccess: @escaping (Bool)-> Void) {
+    func uploadImageToHistory(image : UIImage?, onResponse : @escaping (Bool) -> Void) {
         
+        if let image1 = image?.jpegData(compressionQuality: 0.2) {
+            
+            let link = "\(base_url)/widget/add-content/\(selectedWidgetModel?.id ?? "")"
+            
+            
+            print(link)
+            let headers: HTTPHeaders = [
+                "Content-Type": "multipart/form-data",
+                "Authorization" : "Bearer \(getToken() ?? "")"
+            ]
+            
+            print(headers)
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(image1, withName: "image", fileName: "img123.jpg", mimeType: "image/jpeg")
+                multipartFormData.append("text".data(using: .utf8)!, withName: "type")
+            },to: link , method: .post , headers: headers)
+                .uploadProgress(closure: { progress in
+                    print("upload \(progress)")
+                }).downloadProgress(closure: { progress in
+                    print("download \(progress)")
+                })
+                .validate()
+                .responseJSON(completionHandler: { response in
+                    
+                    switch response.result{
+                        case .success(let value):
+                            print(value)
+                        
+                        if let data = response.data {
+                            let decoded = MyDecoder<CreateWidgetResponseModel>().decodeJSON(json: data)
+                            switch decoded {
+                                case .success(_):
+                                self.getSingleWidget { bol in }
+                                    break
+                                case .failure(let error):
+                                self.isErrorOccurred = true
+                                self.isLoading = false
+                                self.errorMessage = (error?.localizedDescription ?? "Failed to get widgets.") 
+                                    break
+                            }
+                        }
+                        
+                            
+                            onResponse(true)
+                            
+                            break
+                        case .failure(let error):
+                        onResponse(false)
+                        
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = (error.localizedDescription ) 
+                                            
+                    }
+                   
+                })
+            
+        }
     }
     
     func getWidgets(onSuccess: @escaping (Bool) -> Void ) {

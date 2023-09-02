@@ -30,6 +30,10 @@ struct UploadImageScreen: View {
                 
             }
             
+        }.alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
+            Button("ok") {
+                widgetViewModel.isErrorOccurred = false
+            }
         }
     }
     
@@ -37,7 +41,9 @@ struct UploadImageScreen: View {
         VStack(spacing: 30) {
             
             Button {
-                
+                widgetViewModel.uploadImageToHistory(image: widgetViewModel.selectedImage) { bool in
+                    
+                }
             } label: {
                 Image("btnSend")
                     .resizable()
