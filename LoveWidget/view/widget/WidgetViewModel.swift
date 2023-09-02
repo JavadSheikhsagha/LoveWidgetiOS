@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class WidgetViewModel : ObservableObject {
@@ -16,6 +17,11 @@ class WidgetViewModel : ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage = ""
     @Published var isErrorOccurred = false
+    
+    
+    func addImageToHistory(uiImage:UIImage, onSuccess: @escaping (Bool)-> Void) {
+        
+    }
     
     func deleteWidget(onSuccess: @escaping (Bool) -> Void) {
         

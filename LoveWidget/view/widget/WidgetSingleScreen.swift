@@ -13,6 +13,10 @@ struct WidgetSingleScreen: View {
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     
     @State var showDeleteWidgetDialog = false
+    @State var showAction: Bool = false
+    @State var showImagePicker: Bool = false
+    @State var showCameraPicker: Bool = false
+    @State var uiImage: UIImage? = nil
     
     
     var body: some View {
@@ -59,6 +63,41 @@ struct WidgetSingleScreen: View {
                 widgetViewModel.isErrorOccurred = false
             }
         }
+        .actionSheet(isPresented: $showAction) {
+            sheet
+        }
+        .sheet(isPresented: $showImagePicker, onDismiss: {
+                    self.showImagePicker = false
+                }, content: {
+                    ImagePicker(isShown: self.$showImagePicker, uiImage: self.$uiImage, sourceType: .photoLibrary)
+                })
+        .sheet(isPresented: $showCameraPicker, onDismiss: {
+                    self.showCameraPicker = false
+                }, content: {
+                    ImagePicker(isShown: self.$showCameraPicker, uiImage: self.$uiImage, sourceType: .camera)
+                })
+    }
+    
+    var sheet: ActionSheet {
+        ActionSheet(
+            title: Text("Action"),
+            message: Text("Quotemark"),
+            buttons: [
+                .default(Text("Gallery"), action: {
+                    self.showAction = false
+                    self.showImagePicker = true
+                    self.uiImage = nil
+                }),
+                .cancel(Text("Close"), action: {
+                    self.showAction = false
+                    
+                }),
+                .default(Text("Camera"), action: {
+                    self.showAction = false
+                    self.uiImage = nil
+                    self.showCameraPicker = true
+                })
+            ])
     }
     
     var deleteWidgetDialog : some View {
@@ -153,9 +192,7 @@ struct WidgetSingleScreen: View {
             HStack(spacing: 24) {
                 
                 Button {
-                    withAnimation {
-                        mainViewModel.SCREEN_VIEW = .History
-                    }
+                    self.showAction = true
                 } label: {
                     Image(.addQuoteCard)
                         .resizable()
@@ -267,4 +304,53 @@ struct WidgetSingleScreen: View {
 
 #Preview {
     WidgetSingleScreen()
+}
+
+
+struct ImagePicker: UIViewControllerRepresentable {
+
+    @Binding var isShown: Bool
+    @Binding var uiImage: UIImage?
+    
+    var sourceType : UIImagePickerController.SourceType
+
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+        @Binding var isShown: Bool
+        @Binding var uiImage: UIImage?
+
+        init(isShown: Binding<Bool>, uiImage: Binding<UIImage?>) {
+            _isShown = isShown
+            _uiImage = uiImage
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController,
+                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+            uiImage = imagePicked
+            isShown = false
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            isShown = false
+        }
+
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(isShown: $isShown, uiImage: $uiImage)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        picker.sourceType = sourceType
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController,
+                                context: UIViewControllerRepresentableContext<ImagePicker>) {
+
+    }
+
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-var appSuitName = "app.love"
+var appSuitName = "group.app.love"
 
 func saveToken(token:String) {
     
@@ -53,4 +53,21 @@ func isUserLoggedIn() -> Bool {
     } else {
         return false
     }
+}
+
+func saveAllWidgetsToDatabase(widgets:[WidgetServerModel]) {
+    if let encoded = try? JSONEncoder().encode(widgets) {
+        UserDefaults(suiteName: appSuitName)?.set(encoded, forKey: "SavedWidgets")
+    }
+}
+
+func loadWidgets() -> [WidgetServerModel]? {
+    if let data = UserDefaults(suiteName: appSuitName)?.data(forKey: "SavedWidgets") {
+        if let decoded = try? JSONDecoder().decode([WidgetServerModel].self, from: data) {
+//
+//            decoded.reverse()
+            return decoded
+        }
+    }
+    return nil
 }
