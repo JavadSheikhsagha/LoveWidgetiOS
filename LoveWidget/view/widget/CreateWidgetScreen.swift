@@ -24,6 +24,7 @@ struct CreateWidgetScreen: View {
                 .ignoresSafeArea()
             
             VStack {
+                
                 header
                 
                 widgetNameTextField
@@ -31,6 +32,7 @@ struct CreateWidgetScreen: View {
                 userImagesTop
                 
                 createWidgetButton
+                
             }
         }
         .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
@@ -55,6 +57,7 @@ struct CreateWidgetScreen: View {
                             withAnimation {
                                 mainViewModel.SCREEN_VIEW = .WidgetSingle
                             }
+                            friendViewModel.selectedFriend = nil
                         } else {
                             
                         }

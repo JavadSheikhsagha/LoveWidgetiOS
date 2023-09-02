@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct DonePhotoWidgetScreen: View {
+struct UploadImageScreen: View {
     
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    
     
     var body: some View {
         ZStack {
@@ -45,6 +46,7 @@ struct DonePhotoWidgetScreen: View {
             
             
             Button {
+                widgetViewModel.selectedImage = nil
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .WidgetSingle
                 }
@@ -65,8 +67,9 @@ struct DonePhotoWidgetScreen: View {
             
             HStack {
                 
-                Image(uiImage: widgetViewModel.selectedImage!)
+                Image(uiImage: widgetViewModel.selectedImage ?? UIImage())
                     .resizable()
+                    .scaledToFill()
                     .frame(width:UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
                 
             }.clipShape(RoundedRectangle(cornerRadius: 10))
@@ -80,6 +83,7 @@ struct DonePhotoWidgetScreen: View {
             
             Button {
                 //back to main
+                widgetViewModel.selectedImage = nil
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .WidgetSingle
                 }
@@ -116,5 +120,5 @@ struct DonePhotoWidgetScreen: View {
 }
 
 #Preview {
-    DonePhotoWidgetScreen()
+    UploadImageScreen()
 }

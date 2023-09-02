@@ -76,6 +76,14 @@ struct WidgetSingleScreen: View {
                 }, content: {
                     ImagePicker(isShown: self.$showCameraPicker, uiImage: self.$uiImage, sourceType: .camera)
                 })
+        .onChange(of: self.uiImage) { newValue in
+            if let image = self.uiImage {
+                widgetViewModel.selectedImage = image
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .UploadImageScreen
+                }
+            }
+        }
     }
     
     var sheet: ActionSheet {

@@ -26,6 +26,8 @@ struct ContentView: View {
                     WidgetHistoryScreen()
                 case .CreateWidget:
                     CreateWidgetScreen()
+            case .UploadImageScreen:
+                UploadImageScreen()
             }
         }.onAppear {
             if isUserLoggedIn() {

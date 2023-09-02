@@ -20,7 +20,7 @@ class WidgetViewModel : ObservableObject {
     
     @Published var selectedImage : UIImage? = nil
     
-    func uploadImageToHistory(uiImage:UIImage, onSuccess: @escaping (Bool)-> Void) {
+    func uploadImageToHistory(onSuccess: @escaping (Bool)-> Void) {
         
     }
     
