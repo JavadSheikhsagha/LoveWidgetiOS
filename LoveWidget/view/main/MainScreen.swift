@@ -700,7 +700,8 @@ struct WidgetListSingleView : View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .frame(width: (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
             
-            
+            Spacer()
+                .frame(height: 10)
             
             Text(widget.name ?? "widget")
               .font(Font.custom("SF UI  Text", size: 14))

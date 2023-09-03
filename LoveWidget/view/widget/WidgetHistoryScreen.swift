@@ -152,6 +152,8 @@ struct SenderIsGuest : View {
                 AsyncImage(url: URL(string: historyItemModel.data)!) { image in
                     image
                         .resizable()
+                        .scaledToFill()
+                        .frame(width: 165, height: 165)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         } placeholder: {
                             Image(.imgUserSample)
@@ -198,6 +200,8 @@ struct SenderIsUser : View {
                 AsyncImage(url: URL(string: historyItemModel.data)!) { image in
                     image
                         .resizable()
+                        .scaledToFill()
+                        .frame(width: 165, height: 165)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         } placeholder: {
                             Image(.imgUserSample)

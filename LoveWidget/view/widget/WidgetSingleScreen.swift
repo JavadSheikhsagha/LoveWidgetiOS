@@ -267,7 +267,7 @@ struct WidgetSingleScreen: View {
                     
                     VStack(spacing:10) {
                         if widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 {
-                            AsyncImage(url: URL(string: widgetViewModel.getSingleWidgetData?.members[0].profileImage ?? "imgUrl")!) { image in
+                            AsyncImage(url: URL(string: widgetViewModel.getSecondMember()?.profileImage ?? "imgUrl")!) { image in
                                         image
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
@@ -280,13 +280,13 @@ struct WidgetSingleScreen: View {
                             Image(.imgUserSample)
                         }
                         
-                        Text(widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 ?
-                             widgetViewModel.getSingleWidgetData?.members[0].username ?? "" : widgetViewModel.isLoading ? "..." : "Add Friend")
+                        Text(widgetViewModel.getSingleWidgetData?.members.count ?? 1 > 1 ?
+                             widgetViewModel.getSecondMember()?.username ?? "" : widgetViewModel.isLoading ? "..." : "Add Friend")
                           .font(Font.custom("SF UI Text", size: 14))
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                         
                     }.onTapGesture {
-                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 0 {
+                        if widgetViewModel.getSingleWidgetData?.members.count ?? 1 == 1 {
                             showFriendsBottomSheet = true
                         }
                     }

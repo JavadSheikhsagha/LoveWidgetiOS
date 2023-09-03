@@ -25,6 +25,18 @@ class WidgetViewModel : ObservableObject {
     @Published var selectedImage : UIImage? = nil
     
     
+    func getSecondMember() -> UserModel? {
+        
+        for i in getSingleWidgetData?.members ?? [] {
+            if i.id != loadUser()?.id {
+                return i
+            }
+        }
+        
+        return nil
+    }
+    
+    
     func reactToContent(contentId:String, widgetId:String, onSuccess: @escaping (Bool) -> Void) {
         let url = "\(base_url)/widget/add-reaction/\(widgetId)/\(contentId)"
         let header = ["Authorization": "Bearer \(getToken() ?? "")"]
