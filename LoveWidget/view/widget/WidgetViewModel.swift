@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class WidgetViewModel : ObservableObject {
     
-    @Published var historyWidgets = [WidgetServerModel]()
+    @Published var historyWidgets = [HistoryModel]()
     @Published var allWidgetsMain = [WidgetServerModel]()
     @Published var selectedWidgetModel : WidgetServerModel? = nil
     @Published var getSingleWidgetData : WidgetFullData? = nil
@@ -23,6 +23,56 @@ class WidgetViewModel : ObservableObject {
     @Published var isErrorOccurred = false
     
     @Published var selectedImage : UIImage? = nil
+    
+    
+    func getHistoryList(onSuccess: @escaping (Bool) -> Void) {
+        
+        let url = "\(base_url)/widget/history/app/\(selectedWidgetModel?.id ?? "")"
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        
+        GetApiService<GetHistoryResponseModel>(url: url, header: header)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    if let data = data {
+                        if data.success == true {
+                            
+                            if let history = data.data{
+                                self.historyWidgets = history
+                            }
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.errorMessage = data.message ?? "Failed to get widget data.."
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        
+                        self.errorMessage = "failed to get widget data."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: _, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? "Failed to get widget data.") ?? "Failed to get widget data."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+                
+            }
+    }
     
     func getSingleWidget(onSuccess: @escaping (Bool) -> Void) {
         
@@ -418,4 +468,30 @@ let name:String
     let creator:String
     let id:String
     
+}
+
+
+struct GetHistoryResponseModel: Codable {
+    
+    let success:Bool?
+    let message:String?
+    let data : [HistoryModel]?
+    
+}
+
+struct HistoryModel : Codable {
+    
+    let showTime:String
+    let data : [HistoryItemModel]
+    
+}
+
+
+struct HistoryItemModel : Codable {
+    let sender : UserModel
+    let type:String
+    let data:String // image url
+    let reaction : Int
+    let createdAt: String
+    let id:String
 }
