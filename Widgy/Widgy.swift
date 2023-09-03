@@ -75,10 +75,12 @@ struct WidgyEntryView : View {
             
             if let widget = entry.widgetModel  {
                 
-                if widget.contents != nil {
-                    NetworkImage(url: URL(string: widget.contents!.data))
+                if widget.contents?.data != nil {
+//                    NetworkImage(url: URL(string: "https://i.stack.imgur.com/Tq8IR.png"))
+                    NetworkImage(url: URL(string: widget.contents!.data ?? "imageUrl"))
                 } else {
-                    Text("No Image Set.")
+                    Text("No Image Added yet.")
+                        .multilineTextAlignment(.center)
                 }
                 
             } else {

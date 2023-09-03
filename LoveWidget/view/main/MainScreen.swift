@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import WidgetKit
 
 var appName = "Love Widget"
 
@@ -410,6 +411,8 @@ struct MainScreen: View {
                     })
                     
                     Button(action: {
+                        widgetViewModel.allWidgetsMain = []
+                        widgetViewModel.historyWidgets = []
                         saveToken(token: "")
                         saveUser(userModel: nil)
                         withAnimation {
@@ -528,6 +531,7 @@ struct MainScreen: View {
                 .onAppear {
                     friednsViewModel.getFriends { bool in }
                     widgetViewModel.getWidgets { bool in }
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
             
             VStack {
@@ -633,6 +637,8 @@ extension UIScreen {
 
 struct WidgetListSingleView : View {
     
+    @EnvironmentObject var widgetViewModel : WidgetViewModel
+    
     @State var widget : WidgetServerModel
     
     var body: some View {
@@ -641,13 +647,51 @@ struct WidgetListSingleView : View {
             VStack {
                 
                 if widget.contents != nil {
-                    AsyncImage(url: URL(string: widget.contents!.data)!) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                            } placeholder: {
-                                Image(systemName: "photo.fill")
+                    ZStack(alignment: .bottomTrailing) {
+                        if let imageUrl = widget.contents!.data {
+                            AsyncImage(url: URL(string: imageUrl)!) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
+                                    } placeholder: {
+                                        Image(.imgUserSample)
+                                    }
+                            
+                            Button {
+                                widgetViewModel.reactToContent(
+                                    contentId: widget.contents?.id ?? "",
+                                    widgetId: widget.id ?? "")
+                                { bool in
+                                    
+//                                    if bool {
+//                                        widget.contents?.reaction = 1
+//                                    } else {
+//                                        widget.contents?.reaction = 0
+//                                    }
+                                    let wid = loadWidget(by: widget.id ?? "")
+                                    widget.contents?.reaction = wid?.contents?.reaction
+                                    print(wid?.contents?.reaction ?? 100)
+                                    
+                                }
+                            } label: {
+                                VStack {
+                                    if widget.contents?.reaction ?? 0 > 0 {
+                                        Image(.imgLikeFilled)
+                                    } else {
+                                        Image(.imgLikeBorder)
+                                    }
+                                }.padding(10)
                             }
+                             
+                        } else {
+                            Image("emptyWidgetImage")
+                                .resizable()
+                        }
+                        
+
+
+                    }
                 } else {
                     Image("emptyWidgetImage")
                         .resizable()

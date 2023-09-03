@@ -27,7 +27,8 @@ struct WidgetSingleScreen: View {
                 .ignoresSafeArea()
                 .onAppear {
                     widgetViewModel.getSingleWidget { bool in }
-                    
+                    widgetViewModel.historyWidgets = []
+                    widgetViewModel.selectedImage = nil
                 }
             
             

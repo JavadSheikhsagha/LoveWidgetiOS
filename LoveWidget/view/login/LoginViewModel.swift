@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let base_url = "http://157.90.30.203/widget-ios"
+let base_url = "https://back.a2mp.site/widget-ios"
 
 
 @MainActor

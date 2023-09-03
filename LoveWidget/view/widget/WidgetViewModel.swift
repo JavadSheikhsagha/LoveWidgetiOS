@@ -25,6 +25,53 @@ class WidgetViewModel : ObservableObject {
     @Published var selectedImage : UIImage? = nil
     
     
+    func reactToContent(contentId:String, widgetId:String, onSuccess: @escaping (Bool) -> Void) {
+        let url = "\(base_url)/widget/add-reaction/\(widgetId)/\(contentId)"
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        let parameter = ["type":"like"]
+        
+        PatchApiService<ReactToContentResponseModel>(parameters: parameter, header: header, url: url)
+            .fetch { dataState in
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    if let data = data {
+                        if data.success == true {
+                            self.getWidgets { bool in
+                                onSuccess(true)
+                            }
+                            
+                        } else {
+                            self.isErrorOccurred = true
+                            self.errorMessage = data.message ?? "Failed to get widget data.."
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        
+                        self.errorMessage = "failed to get widget data."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: _, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? "Failed to get widget data.") ?? "Failed to get widget data."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+            }
+        
+    }
+    
     func getHistoryList(onSuccess: @escaping (Bool) -> Void) {
         
         let url = "\(base_url)/widget/history/app/\(selectedWidgetModel?.id ?? "")"
@@ -204,22 +251,22 @@ class WidgetViewModel : ObservableObject {
                     
                     switch response.result{
                         case .success(let value):
-                            print(value)
+                            print(JSON(value))
                         
-                        if let data = response.data {
-                            let decoded = MyDecoder<CreateWidgetResponseModel>().decodeJSON(json: data)
-                            switch decoded {
-                                case .success(_):
-                                self.getSingleWidget { bol in }
-                                    break
-                                case .failure(let error):
-                                self.isErrorOccurred = true
-                                self.isLoading = false
-                                self.errorMessage = (error?.localizedDescription ?? "Failed to get widgets.") 
-                                    break
-                            }
-                        }
-                        
+//                        if let data = response.data {
+//                            let decoded = MyDecoder<CreateWidgetResponseModel>().decodeJSON(json: data)
+//                            switch decoded {
+//                                case .success(_):
+//                                self.getSingleWidget { bol in }
+//                                    break
+//                                case .failure(let error):
+//                                self.isErrorOccurred = true
+//                                self.isLoading = false
+//                                self.errorMessage = (error?.localizedDescription ?? "Failed to get widgets.") 
+//                                    break
+//                            }
+//                        }
+//                        
                             
                             onResponse(true)
                             
@@ -417,7 +464,7 @@ struct CreateWidgetResponseModel : Codable {
 struct WidgetServerModel: Codable {
     let name:String?
     let creator:String?
-    let contents:ContentModel?
+    var contents:ContentModel?
     let reactions:[String]?
     let id:String?
 }
@@ -447,10 +494,11 @@ struct GetAllWidgetResponseModel : Codable {
 
 
 struct ContentModel : Codable {
-    let type:String
-    let data:String
-    let sender : String
-    let reaction : Int
+    let type:String?
+    let data:String?
+    let sender : String?
+    let id : String?
+    var reaction : Int?
 }
 
 
@@ -462,9 +510,9 @@ struct GetSingleWidgetResponseModel : Codable {
 
 struct WidgetFullData : Codable {
     
-let name:String
+    let name:String
     let members :[UserModel]
-    let contents : [ContentModel]
+    let contents : ContentModel
     let creator:String
     let id:String
     
@@ -495,3 +543,12 @@ struct HistoryItemModel : Codable {
     let createdAt: String
     let id:String
 }
+
+
+struct ReactToContentResponseModel: Codable {
+    
+    let success:Bool?
+    let message:String?
+    
+}
+
