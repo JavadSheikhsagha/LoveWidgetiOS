@@ -19,5 +19,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>MyWidgetIntentIntent</string>
+	</array>
 </dict>
 </plist>

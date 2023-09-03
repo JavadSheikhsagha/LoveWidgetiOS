@@ -71,3 +71,15 @@ func loadWidgets() -> [WidgetServerModel]? {
     }
     return nil
 }
+
+func loadWidget(by id : String) -> WidgetServerModel? {
+    
+    if let widgets = loadWidgets() {
+        for i in widgets {
+            if i.id == id {
+                return i
+            }
+        }
+    }
+    return nil
+}
