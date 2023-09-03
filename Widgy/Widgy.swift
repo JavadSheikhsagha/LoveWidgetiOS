@@ -39,7 +39,7 @@ struct Provider<Intent:INIntent>: IntentTimelineProvider {
             let widget = loadWidget(by: identifier)
             
             let currentDate = Date()
-            for hourOffset in 0 ..< 5 {
+            for hourOffset in 0 ..< 100 {
                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
                 let entry = SimpleEntry(date: entryDate, emoji: "😀", widgetModel: widget)
                 entries.append(entry)
@@ -49,17 +49,12 @@ struct Provider<Intent:INIntent>: IntentTimelineProvider {
             //show idle widget
             // Generate a timeline consisting of five entries an hour apart, starting from the current date.
             let currentDate = Date()
-            for hourOffset in 0 ..< 5 {
+            for hourOffset in 0 ..< 100 {
                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
                 let entry = SimpleEntry(date: entryDate, emoji: "😀", widgetModel: nil)
                 entries.append(entry)
             }
         }
-        
-        
-        
-
-        
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
@@ -78,14 +73,16 @@ struct WidgyEntryView : View {
     var body: some View {
         VStack {
             
-            if let widget = entry.widgetModel {
-                Text(widget.name!)
+            if let widget = entry.widgetModel  {
+                
+                if widget.contents != nil {
+                    NetworkImage(url: URL(string: widget.contents!.data))
+                } else {
+                    Text("No Image Set.")
+                }
+                
             } else {
-                Text("Time:")
-                Text(entry.date, style: .time)
-
-                Text("Emoji:")
-                Text(entry.emoji)
+                Text("Please set your widget to show.")
             }
             
         }
@@ -115,4 +112,31 @@ struct Widgy: Widget {
         .contentMarginsDisabled()
         .supportedFamilies([.systemSmall, .systemLarge])
     }
+}
+
+
+struct NetworkImage: View {
+
+  let url: URL?
+
+  var body: some View {
+
+    Group {
+     if let url = url, let imageData = try? Data(contentsOf: url),
+       let uiImage = UIImage(data: imageData) {
+
+       Image(uiImage: uiImage)
+         .resizable()
+         .aspectRatio(contentMode: .fill)
+      }
+      else {
+          VStack {
+              Image(.imgUserSample)
+              Text("Loading..")
+                  .font(.system(size: 13))
+          }
+      }
+    }
+  }
+
 }

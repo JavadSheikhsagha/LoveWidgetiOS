@@ -42,6 +42,8 @@
 		3F14916D2AA44D0B00850ED8 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 3F14916C2AA44D0B00850ED8 /* EnigmaSystemDesign */; };
 		3F14916F2AA44D1200850ED8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F14916E2AA44D1200850ED8 /* Alamofire */; };
 		3F1491712AA44D1500850ED8 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1491702AA44D1500850ED8 /* EnigmaSystemDesign */; };
+		3F1D3E812AA4632000C7EAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
+		3F1D3E822AA4632100C7EAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
 		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
@@ -451,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1D3E812AA4632000C7EAC9 /* Assets.xcassets in Resources */,
 				3F1491362AA4413700850ED8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1D3E822AA4632100C7EAC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

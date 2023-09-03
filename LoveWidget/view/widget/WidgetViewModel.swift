@@ -417,7 +417,7 @@ struct CreateWidgetResponseModel : Codable {
 struct WidgetServerModel: Codable {
     let name:String?
     let creator:String?
-    let contents:[ContentModel]?
+    let contents:ContentModel?
     let reactions:[String]?
     let id:String?
 }

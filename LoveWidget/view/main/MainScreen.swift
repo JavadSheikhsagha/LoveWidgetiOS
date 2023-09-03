@@ -640,8 +640,8 @@ struct WidgetListSingleView : View {
             
             VStack {
                 
-                if widget.contents?.count ?? 0 > 0 {
-                    AsyncImage(url: URL(string: widget.contents![0].data)!) { image in
+                if widget.contents != nil {
+                    AsyncImage(url: URL(string: widget.contents!.data)!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)

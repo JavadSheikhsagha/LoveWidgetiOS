@@ -26,16 +26,7 @@ class IntentHandler: INExtension {
             
         } else {
             
-            
-            options.append(LoveWidgetTypeModel(identifier: "iden1", display: "disp1"))
-            options.append(LoveWidgetTypeModel(identifier: "iden2", display: "disp2"))
         }
-        
-//
-        
-        
-        
-        
         
         return INObjectCollection(items: options)
     }
