@@ -286,7 +286,7 @@ struct WidgetSingleScreen: View {
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                         
                     }.onTapGesture {
-                        if widgetViewModel.getSingleWidgetData?.members.count ?? 1 == 1 {
+                        if widgetViewModel.getSecondMember() == nil {
                             showFriendsBottomSheet = true
                         }
                     }

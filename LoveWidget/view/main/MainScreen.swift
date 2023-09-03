@@ -415,6 +415,7 @@ struct MainScreen: View {
                         widgetViewModel.historyWidgets = []
                         saveToken(token: "")
                         saveUser(userModel: nil)
+                        saveAllWidgetsToDatabase(widgets: [])
                         withAnimation {
                             showLogoutDialog = false
                             mainViewModel.SCREEN_VIEW = .Login
@@ -531,6 +532,7 @@ struct MainScreen: View {
                 .onAppear {
                     friednsViewModel.getFriends { bool in }
                     widgetViewModel.getWidgets { bool in }
+                    friednsViewModel.selectedFriend = nil
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             
