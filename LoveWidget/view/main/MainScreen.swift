@@ -261,6 +261,10 @@ struct MainScreen: View {
                     Spacer()
                     
                     VStack {
+                        
+                        Spacer()
+                            .frame(height: 20)
+                        
                         LazyVGrid(columns: [
                             GridItem(),
                             GridItem(),

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 
 var appSuitName = "group.app.love"
@@ -82,4 +83,46 @@ func loadWidget(by id : String) -> WidgetServerModel? {
         }
     }
     return nil
+}
+
+func updateWidget(widget:WidgetFullData) -> Bool {
+    
+    var widgets = loadWidgets() ?? []
+    for i in 0..<widgets.count {
+        
+        if widgets[i].id == widget.id {
+            widgets[i] = WidgetServerModel(name: widget.name,
+                                           creator: widget.creator,
+                                           contents: widget.contents,
+                                           reactions: [],
+                                           id: widget.id)
+            saveAllWidgetsToDatabase(widgets: widgets)
+            return true
+        }
+        
+    }
+    return false
+}
+
+func updateWidgetReaction(widgetid:String) -> Bool {
+    let widget = loadWidget(by: widgetid)!
+    var widgets = loadWidgets() ?? []
+    for i in 0..<widgets.count {
+        
+        if widgets[i].id == widget.id {
+            widgets[i] = WidgetServerModel(name: widget.name,
+                                           creator: widget.creator,
+                                           contents: ContentModel(type: widget.contents?.type,
+                                                                  data: widget.contents?.data,
+                                                                  sender: widget.contents?.sender,
+                                                                  id: widget.contents?.id,
+                                                                  reaction: 1),
+                                           reactions: [],
+                                           id: widget.id)
+            saveAllWidgetsToDatabase(widgets: widgets)
+            return true
+        }
+        
+    }
+    return false
 }

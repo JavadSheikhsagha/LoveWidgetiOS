@@ -197,7 +197,7 @@ struct FriendsScreen: View {
                 
                 if friednsViewModel.friends.count == 0 {
                     Spacer()
-                        .frame(height: 80)
+                        .frame(height: 180)
                     
                     Image("emptyWidgetList")
                         

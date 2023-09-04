@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import AppIntents
 
 struct Provider<Intent:INIntent>: IntentTimelineProvider {
     
@@ -71,13 +72,29 @@ struct WidgyEntryView : View {
     var entry: SimpleEntry
 
     var body: some View {
-        VStack {
+        ZStack {
             
             if let widget = entry.widgetModel  {
                 
                 if widget.contents?.data != nil {
 //                    NetworkImage(url: URL(string: "https://i.stack.imgur.com/Tq8IR.png"))
-                    NetworkImage(url: URL(string: widget.contents!.data ?? "imageUrl"))
+                    ZStack(alignment:.bottomTrailing) {
+                        GeometryReader { proxy in
+                            NetworkImage(url: URL(string: widget.contents!.data ?? "imageUrl"))
+                                .frame(width: proxy.frame(in: .local).width, height: proxy.frame(in: .local).height)
+                        }
+                        
+                        Button(intent: ReactToWidgetIntent(widgetId: widget.id ?? "",
+                                                           contentId: widget.contents?.id ?? "")) {
+                            VStack {
+                                if widget.contents?.reaction ?? 0 > 0 {
+                                    Image(.imgLikeFilled)
+                                } else {
+                                    Image(.imgLikeBorder)
+                                }
+                            }
+                        }
+                    }
                 } else {
                     Text("No Image Added yet.")
                         .multilineTextAlignment(.center)
@@ -87,9 +104,80 @@ struct WidgyEntryView : View {
                 Text("Please set your widget to show.")
             }
             
+            
         }
     }
 }
+
+struct ReactToWidgetIntent : AppIntent {
+    // watch the video for how to pass data to intent
+    static var title: LocalizedStringResource = "React to widget"
+
+
+    @Parameter(title: "widgetId")
+    var widgetId:String
+
+
+    @Parameter(title: "ContentId")
+    var contentId:String
+
+
+    init() { }
+
+    init(widgetId: String, contentId: String) {
+        self.widgetId = widgetId
+        self.contentId = contentId
+    }
+
+
+    func perform() async throws -> some IntentResult {
+        if UserDefaults(suiteName: appSuitName) != nil {
+            
+            _ = try? await WidgetNetworkManager().reactToContent(widgetId: widgetId, contentId: contentId)
+
+            _ = try? await WidgetNetworkManager().getHistoryForWidget(widgetId: widgetId)
+
+            return .result()
+        }
+        return .result()
+    }
+
+}
+
+struct UpdateWidgetIntent : AppIntent {
+    
+    static var title: LocalizedStringResource = "Configuration"
+    static var description = IntentDescription("This is an example widget.")
+    
+    
+    @Parameter(title: "widgetId")
+    var widgetId:String
+    
+    
+    init() {
+        
+    }
+    
+    init(widgetId: String) {
+        self.widgetId = widgetId
+        print(widgetId)
+    }
+    
+    func perform() async throws -> some IntentResult {
+        if UserDefaults(suiteName: appSuitName) != nil {
+            
+            _ = try? await WidgetNetworkManager().getHistoryForWidget(widgetId: widgetId)
+            
+
+            // save widget to database
+            
+            return .result()
+        }
+        return .result()
+    }
+    
+}
+
 
 typealias LoveWidgetProvider = Provider<MyWidgetIntentIntent>
 

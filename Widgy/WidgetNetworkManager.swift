@@ -11,14 +11,22 @@ class WidgetNetworkManager {
     
     func getHistoryForWidget(widgetId:String) async throws -> WidgetFullData? {
         
-        let url = URL(string: "\(base_url)/widget/history/widget/\(widgetId)")!
-//        var request = URLRequest(url: url)
+        let url = URL(string: "\(base_url)/widget/single/\(widgetId)")!
+        var request = URLRequest(url: url)
+        request.setValue(
+            "Bearer \(getToken() ?? "")",
+            forHTTPHeaderField: "Authorization"
+        )
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await URLSession.shared.data(for: request)
         
         let decoded = try? JSONDecoder().decode(GetSingleWidgetResponseModel.self, from: data)
-        
         print(decoded ?? "")
+        
+        if let data = decoded?.data {
+            _ = updateWidget(widget: data)
+            
+        }
         
         return decoded?.data
     }
@@ -45,35 +53,13 @@ class WidgetNetworkManager {
         request.httpBody = bodyData
         
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { (data, response, error) in
 
-            if let error = error {
-                // Handle HTTP request error
-            } else if let data = data {
-                // Handle HTTP request response
-            } else {
-                // Handle unexpected error
-            }
-        }
-        task.resume()
+        let task = try? await session.data(for: request)
+        
         
         return nil
     }
     
-    
-    
-    static func fetchRandomDog() async throws -> String {
-        
-        let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
-        
-        
-        let (data, _) = try await URLSession.shared.data(from: url)
-        
-        
-        print(data.count)
-        
-        return String(data.count) ?? "hl"
-    }
     
 }
 
