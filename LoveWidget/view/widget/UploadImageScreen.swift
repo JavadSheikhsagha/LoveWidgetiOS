@@ -42,7 +42,12 @@ struct UploadImageScreen: View {
             
             Button {
                 widgetViewModel.uploadImageToHistory(image: widgetViewModel.selectedImage) { bool in
-                    
+                    if bool {
+                        widgetViewModel.isImageUplaoded = true
+                        withAnimation {
+                            mainViewModel.SCREEN_VIEW = .WidgetSingle
+                        }
+                    }
                 }
             } label: {
                 Image("btnSend")

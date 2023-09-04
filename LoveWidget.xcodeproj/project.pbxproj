@@ -55,6 +55,7 @@
 		3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DB2AA07FD9006BA057 /* Utils.swift */; };
 		3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799E22AA08393006BA057 /* SwiftyJSON */; };
 		3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799E42AA085FA006BA057 /* UserSettings.swift */; };
+		3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52DCCE2AA625D500F6CD80 /* BannerView.swift */; };
 		3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */; };
 		3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */; };
 		3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */; };
@@ -135,6 +136,7 @@
 		3F4799DB2AA07FD9006BA057 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3F4799E42AA085FA006BA057 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		3F4799E62AA08A8C006BA057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F52DCCE2AA625D500F6CD80 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
 		3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHistoryScreen.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
 				806CA8E72A9DD21B00599C14 /* Preview Content */,
 				3F4799E42AA085FA006BA057 /* UserSettings.swift */,
+				3F52DCCE2AA625D500F6CD80 /* BannerView.swift */,
 			);
 			path = LoveWidget;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
+				3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */,
 				3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */,
 				3FFDB4192AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,

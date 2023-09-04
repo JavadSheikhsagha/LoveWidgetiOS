@@ -23,6 +23,7 @@ class WidgetViewModel : ObservableObject {
     @Published var isErrorOccurred = false
     
     @Published var selectedImage : UIImage? = nil
+    @Published var isImageUplaoded = false
     
     
     func getSecondMember() -> UserModel? {

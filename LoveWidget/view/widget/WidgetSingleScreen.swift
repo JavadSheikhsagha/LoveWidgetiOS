@@ -18,7 +18,9 @@ struct WidgetSingleScreen: View {
     @State var showAction: Bool = false
     @State var showImagePicker: Bool = false
     @State var showCameraPicker: Bool = false
+    @State var showBanner = true
     @State var uiImage: UIImage? = nil
+    @State var bannerData = BannerData(title: "Success", detail: "The Image uploaded successfully.", type: .success)
     
     var body: some View {
         ZStack {
@@ -102,6 +104,7 @@ struct WidgetSingleScreen: View {
                 
             }
         }
+        .banner(data: $bannerData, show: $widgetViewModel.isImageUplaoded)
     }
     
     var sheet: ActionSheet {
