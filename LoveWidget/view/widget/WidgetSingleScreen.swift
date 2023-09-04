@@ -92,19 +92,21 @@ struct WidgetSingleScreen: View {
         }
         .sheet(isPresented: $showFriendsBottomSheet) {
             FriendsScreen(doNeedSelectFriend: true)
-                .onChange(of: showFriendsBottomSheet) { newValue in
-                    if !showFriendsBottomSheet && friendsViewModel.selectedFriend != nil {
-                        // add friend to widget
-                        friendsViewModel.selectedFriend = nil
-                    }
+                
+        }.onChange(of: showFriendsBottomSheet) { newValue in
+            if !newValue {
+                // add friend to widget
+                widgetViewModel.addFriendToWidget(friendId: friendsViewModel.selectedFriend?.id ?? "") { bool in
+                    friendsViewModel.selectedFriend = nil
                 }
+                
+            }
         }
     }
     
     var sheet: ActionSheet {
         ActionSheet(
-            title: Text("Action"),
-            message: Text("Quotemark"),
+            title: Text("Choose image to send to your friend."),
             buttons: [
                 .default(Text("Gallery"), action: {
                     self.showAction = false

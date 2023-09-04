@@ -202,7 +202,10 @@ class WidgetViewModel : ObservableObject {
                             if let d = data.data {
                                 self.getSingleWidgetData = d
                             }
-                            onSuccess(true)
+                            self.getWidgets { bool in
+                                onSuccess(true)
+                            }
+                            
                         } else {
                             self.isErrorOccurred = true
                             self.errorMessage = data.message ?? "Failed to get widgets.."
