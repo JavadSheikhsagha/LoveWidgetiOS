@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>110755347622-pdl9n6si6i5s27pfvb13mdvopjg90eks.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.110755347622-pdl9n6si6i5s27pfvb13mdvopjg90eks</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCpFtCgS-wqTs9pirsGM4uhhZvrJt15NY4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>110755347622</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.a2mp.LoveWidget</string>
+	<key>PROJECT_ID</key>
+	<string>lovewidget-6c4bb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lovewidget-6c4bb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:110755347622:ios:d7d587049871216b80c867</string>
+</dict>
+</plist>
