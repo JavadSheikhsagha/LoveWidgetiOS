@@ -74,7 +74,7 @@ struct LoginScreen: View {
                                 .padding()
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: passwordText) { newValue in
-                                    if textFieldValidatorEmail(email) && newValue.isValidPassword() {
+                                    if textFieldValidatorEmail(email) && passwordText.count > 5 {
                                         isButtonEnabled = true
                                     } else {
                                         isButtonEnabled = false
@@ -122,6 +122,7 @@ struct LoginScreen: View {
 //                        withAnimation {
 //                            mainViewModel.SCREEN_VIEW = .MainMenu
 //                        }
+                        
                         UIApplication.shared.endEditing()
                         loginViewModel.skipLogin(onSuccess: { bool in
                             if bool {
