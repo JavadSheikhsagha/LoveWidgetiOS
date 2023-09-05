@@ -54,7 +54,7 @@ class WidgetNetworkManager {
         
         let session = URLSession.shared
 
-        let task = try? await session.data(for: request)
+        _ = try? await session.data(for: request)
         
         
         return nil

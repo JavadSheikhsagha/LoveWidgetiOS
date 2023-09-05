@@ -216,7 +216,7 @@ class UploadImageApiService<DataModel:Codable> {
     }
     
     func fetchFactsAboutCats(onResponse: @escaping (DataState<DataModel?, ErrorType?, String?>,_ progress:Float) -> Void) {
-        let link = "\(BASE_URL)facts"
+//        let link = "\(BASE_URL)facts"
         print("data fetch ")
         onResponse(.loading(message: ""),0)
         // todo add upload func
