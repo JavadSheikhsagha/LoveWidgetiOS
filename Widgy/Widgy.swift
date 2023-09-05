@@ -98,7 +98,7 @@ struct WidgyEntryView : View {
                         }
                     }
                 } else {
-                    Image(.emptyWidget)
+                    Image(.imgWidgetEmptyBg)
                 }
                 
             } else {

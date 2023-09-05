@@ -32,7 +32,7 @@ class NotificationService: UNNotificationServiceExtension {
         }
         if let bestAttemptContent = bestAttemptContent {
             OneSignalExtension.didReceiveNotificationExtensionRequest(self.receivedRequest, with: self.bestAttemptContent)
-//            WidgetViewModel().getWidgets { bool in }
+            WidgetViewModel()
             contentHandler(bestAttemptContent)
         }
     }

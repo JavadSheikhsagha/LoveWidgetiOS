@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import OneSignalFramework
 
 let base_url = "https://back.a2mp.site/widget-ios"
 
@@ -38,6 +39,7 @@ class LoginViewModel : ObservableObject {
                         saveUser(userModel: data.user)
                         self.token = getToken() ?? ""
                         self.userModel = loadUser()
+                        OneSignal.login(self.userModel?.id ?? "")
                         onSuccess(true)
                     } else {
                         self.isErrorOccurred = true
