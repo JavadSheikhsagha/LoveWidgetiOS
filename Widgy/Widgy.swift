@@ -38,7 +38,9 @@ struct Provider<Intent:INIntent>: IntentTimelineProvider {
         if let identifier = identifier {
             
             let widget = loadWidget(by: identifier)
-            
+            Task {
+                try? await WidgetNetworkManager().getHistoryForWidget(widgetId: identifier)
+            }
             let currentDate = Date()
             for hourOffset in 0 ..< 100 {
                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
@@ -96,8 +98,7 @@ struct WidgyEntryView : View {
                         }
                     }
                 } else {
-                    Text("No Image Added yet.")
-                        .multilineTextAlignment(.center)
+                    Image(.emptyWidget)
                 }
                 
             } else {

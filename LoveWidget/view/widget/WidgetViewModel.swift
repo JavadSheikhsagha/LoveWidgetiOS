@@ -100,7 +100,7 @@ class WidgetViewModel : ObservableObject {
                         if data.success == true {
                             
                             if let history = data.data{
-                                self.historyWidgets = history
+                                self.historyWidgets = history.reversed()
                             }
                             onSuccess(true)
                         } else {
@@ -305,7 +305,7 @@ class WidgetViewModel : ObservableObject {
         let header = ["Authorization":"Bearer \(getToken() ?? "")"]
         
         if let widgets = loadWidgets() {
-            self.allWidgetsMain = widgets
+            self.allWidgetsMain = widgets.reversed()
         }
         
         GetApiService<GetAllWidgetResponseModel>(url: url, header: header)
@@ -318,7 +318,7 @@ class WidgetViewModel : ObservableObject {
                         if data.success == true {
                             
                             if let d = data.data {
-                                self.allWidgetsMain = d
+                                self.allWidgetsMain = d.reversed()
                                 saveAllWidgetsToDatabase(widgets: d)
                             }
                             onSuccess(true)

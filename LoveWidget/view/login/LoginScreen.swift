@@ -52,7 +52,7 @@ struct LoginScreen: View {
                             }.textContentType(.emailAddress).padding()
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: email) { newValue in
-                                    if textFieldValidatorEmail(newValue) && passwordText.isValidPassword() {
+                                    if textFieldValidatorEmail(newValue) && passwordText.count > 5 {
                                         isButtonEnabled = true
                                     } else {
                                         isButtonEnabled = false

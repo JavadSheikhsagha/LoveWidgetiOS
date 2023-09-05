@@ -13,6 +13,7 @@ var appName = "Love Widget"
 
 struct MainScreen: View {
     
+    let timer = Timer.publish(every: 20, on: .main, in: .common).autoconnect()
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var friednsViewModel : FriendsViewModel
@@ -359,7 +360,7 @@ struct MainScreen: View {
                 
                 Button(action: {
                     //save name
-                    if changeNameText.count > 4 {
+                    if changeNameText.count > 0 {
                         mainViewModel.changeUsername(newUsername: changeNameText) { bool in
                             if bool {
                                 withAnimation {
@@ -369,7 +370,7 @@ struct MainScreen: View {
                         }
                     } else {
                         mainViewModel.isErrorOccurred = true
-                        mainViewModel.errorMessage = "User must have at least 4 characters."
+                        mainViewModel.errorMessage = "User must have at least 1 characters."
                     }
                 }, label: {
                     Image("btnSave")
@@ -546,6 +547,11 @@ struct MainScreen: View {
                 }
                 .onTapGesture {
                     UIApplication.shared.endEditing()
+                }
+                .onReceive(timer) { time in
+                    friednsViewModel.getFriends { bool in }
+                    widgetViewModel.getWidgets { bool in }
+                    friednsViewModel.selectedFriend = nil
                 }
             
             VStack {
