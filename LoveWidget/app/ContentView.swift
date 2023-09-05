@@ -28,6 +28,8 @@ struct ContentView: View {
                     CreateWidgetScreen()
             case .UploadImageScreen:
                 UploadImageScreen()
+            case .EditQuoteScreen:
+                EditQuoteScreen()
             }
         }.onAppear {
             if isUserLoggedIn() {

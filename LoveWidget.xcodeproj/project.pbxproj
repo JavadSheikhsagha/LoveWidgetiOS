@@ -61,6 +61,14 @@
 		3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */; };
 		3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */; };
 		3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */; };
+		3FC27A062AA70CE100EC59A1 /* EditQuoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */; };
+		3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */; };
+		3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A092AA7106500EC59A1 /* Sacramento.ttf */; };
+		3FC27A112AA7106500EC59A1 /* Yomogi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0A2AA7106500EC59A1 /* Yomogi.ttf */; };
+		3FC27A122AA7106500EC59A1 /* SF UI TEXT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0B2AA7106500EC59A1 /* SF UI TEXT.ttf */; };
+		3FC27A132AA7106500EC59A1 /* Purple Purse.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0C2AA7106500EC59A1 /* Purple Purse.ttf */; };
+		3FC27A142AA7106500EC59A1 /* Wendy One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0D2AA7106500EC59A1 /* Wendy One.ttf */; };
+		3FC27A152AA7106500EC59A1 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */; };
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
 		3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
@@ -142,6 +150,14 @@
 		3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHistoryScreen.swift; sourceTree = "<group>"; };
 		3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
 		3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWidgetScreen.swift; sourceTree = "<group>"; };
+		3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuoteScreen.swift; sourceTree = "<group>"; };
+		3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF Pro Text.ttf"; sourceTree = "<group>"; };
+		3FC27A092AA7106500EC59A1 /* Sacramento.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sacramento.ttf; sourceTree = "<group>"; };
+		3FC27A0A2AA7106500EC59A1 /* Yomogi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yomogi.ttf; sourceTree = "<group>"; };
+		3FC27A0B2AA7106500EC59A1 /* SF UI TEXT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF UI TEXT.ttf"; sourceTree = "<group>"; };
+		3FC27A0C2AA7106500EC59A1 /* Purple Purse.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Purple Purse.ttf"; sourceTree = "<group>"; };
+		3FC27A0D2AA7106500EC59A1 /* Wendy One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wendy One.ttf"; sourceTree = "<group>"; };
+		3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageScreen.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
@@ -270,12 +286,27 @@
 			path = friends;
 			sourceTree = "<group>";
 		};
+		3FC27A072AA7106500EC59A1 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */,
+				3FC27A092AA7106500EC59A1 /* Sacramento.ttf */,
+				3FC27A0A2AA7106500EC59A1 /* Yomogi.ttf */,
+				3FC27A0B2AA7106500EC59A1 /* SF UI TEXT.ttf */,
+				3FC27A0C2AA7106500EC59A1 /* Purple Purse.ttf */,
+				3FC27A0D2AA7106500EC59A1 /* Wendy One.ttf */,
+				3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		3FE3E5A52A9E6F56003CD376 /* widget */ = {
 			isa = PBXGroup;
 			children = (
 				3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */,
 				3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */,
 				3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */,
+				3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */,
 				3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */,
 				3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */,
 			);
@@ -317,6 +348,7 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				3FC27A072AA7106500EC59A1 /* font */,
 				3F4799E62AA08A8C006BA057 /* Info.plist */,
 				3F4799D32AA07D52006BA057 /* api */,
 				3F4799D12AA07D3E006BA057 /* view */,
@@ -496,8 +528,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */,
 				806CA8E92A9DD21B00599C14 /* Preview Assets.xcassets in Resources */,
+				3FC27A152AA7106500EC59A1 /* Kreon.ttf in Resources */,
+				3FC27A142AA7106500EC59A1 /* Wendy One.ttf in Resources */,
+				3FC27A112AA7106500EC59A1 /* Yomogi.ttf in Resources */,
 				806CA8E52A9DD21B00599C14 /* Assets.xcassets in Resources */,
+				3FC27A132AA7106500EC59A1 /* Purple Purse.ttf in Resources */,
+				3FC27A122AA7106500EC59A1 /* SF UI TEXT.ttf in Resources */,
+				3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +604,7 @@
 				3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */,
 				806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */,
 				3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */,
+				3FC27A062AA70CE100EC59A1 /* EditQuoteScreen.swift in Sources */,
 				3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */,
 				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,

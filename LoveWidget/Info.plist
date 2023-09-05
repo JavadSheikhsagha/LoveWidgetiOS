@@ -23,5 +23,15 @@
 	<array>
 		<string>MyWidgetIntentIntent</string>
 	</array>
+    <key>UIAppFonts</key>
+    <array>
+        <string>SF UI TEXT.ttf</string>
+        <string>Kreon.ttf</string>
+        <string>Purple Purse.ttf</string>
+        <string>Yomogi.ttf</string>
+        <string>SF Pro Text.ttf</string>
+        <string>Sacramento.ttf</string>
+        <string>Wendy One.ttf</string>
+    </array>
 </dict>
 </plist>

@@ -126,7 +126,7 @@ enum Screens {
     case History 
     case CreateWidget
     case UploadImageScreen
-    
+    case EditQuoteScreen
 }
 
 

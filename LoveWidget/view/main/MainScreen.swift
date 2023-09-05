@@ -554,6 +554,13 @@ struct MainScreen: View {
                     
                     Spacer()
                         .frame(height: 48)
+                }.refreshable {
+                    widgetViewModel.getWidgets { bool in
+                        
+                    }
+                    friednsViewModel.getFriends { Bool in
+                        
+                    }
                 }
                 
                 

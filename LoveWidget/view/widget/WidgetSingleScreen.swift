@@ -222,7 +222,9 @@ struct WidgetSingleScreen: View {
             HStack(spacing: 24) {
                 
                 Button {
-                    
+                    withAnimation {
+                        mainViewModel.SCREEN_VIEW = .EditQuoteScreen
+                    }
                 } label: {
                     Image(.addQuoteCard)
                         .resizable()
