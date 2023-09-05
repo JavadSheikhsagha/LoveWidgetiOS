@@ -309,8 +309,14 @@ struct MainScreen: View {
     var btnAddNewWidget : some View {
         VStack {
             Button(action: {
-                withAnimation {
-                    mainViewModel.SCREEN_VIEW = .CreateWidget
+                if loadUser()?.isVerified == false {
+                    withAnimation {
+                        showAskForLoginDialog = true
+                    }
+                } else {
+                    withAnimation {
+                        mainViewModel.SCREEN_VIEW = .CreateWidget
+                    }
                 }
             }, label: {
                 Image("btnAddNewWidget")
