@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct WidgetSingleScreen: View {
     
@@ -20,6 +21,7 @@ struct WidgetSingleScreen: View {
     @State var showCameraPicker: Bool = false
     @State var showBanner = true
     @State var uiImage: UIImage? = nil
+    @State var playLottie = true
     @State var bannerData = BannerData(title: "Success", detail: "The Image uploaded successfully.", type: .success)
     
     var body: some View {
@@ -67,6 +69,12 @@ struct WidgetSingleScreen: View {
                 deleteWidgetDialog
                 
             }
+            
+            LottieView(name: "loading.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
         }
         .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {

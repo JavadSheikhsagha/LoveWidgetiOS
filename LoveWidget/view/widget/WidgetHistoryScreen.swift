@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct WidgetHistoryScreen: View {
     
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     @EnvironmentObject var mainViewModel : MainViewModel
+    
+    @State var playLottie = true
     
     var body: some View {
         ZStack {
@@ -34,6 +37,12 @@ struct WidgetHistoryScreen: View {
                 
                 
             }
+            
+            LottieView(name: "loading.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
         }
     }

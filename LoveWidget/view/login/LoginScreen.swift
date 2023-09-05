@@ -7,6 +7,7 @@
 
 import SwiftUI
 import EnigmaSystemDesign
+import LottieSwiftUI
 
 struct LoginScreen: View {
     
@@ -17,6 +18,7 @@ struct LoginScreen: View {
     @State var isLoading = false
     @State var passwordText = ""
     @State var email: String = ""
+    @State var playLottie = true
     
     var body: some View {
         ZStack {
@@ -159,7 +161,13 @@ struct LoginScreen: View {
             
             
             ActivityIndicator(isAnimating: $loginViewModel.isLoading, style: .large)
-                .opacity(isLoading ? 1.0 : 0.0)
+                .opacity(loginViewModel.isLoading ? 1.0 : 0.0)
+            
+            LottieView(name: "loading.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(loginViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: loginViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
             
         }

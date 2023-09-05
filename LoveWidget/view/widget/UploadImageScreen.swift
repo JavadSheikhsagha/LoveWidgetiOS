@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct UploadImageScreen: View {
     
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    
+    @State var playLottie = true
     
     
     var body: some View {
@@ -32,6 +35,12 @@ struct UploadImageScreen: View {
                 bottomButtons
                 
             }
+            
+            LottieView(name: "loading.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
         }.alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
             Button("ok") {
