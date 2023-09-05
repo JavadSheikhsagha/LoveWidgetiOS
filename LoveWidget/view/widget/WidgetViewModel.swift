@@ -191,7 +191,7 @@ class WidgetViewModel : ObservableObject {
         let header = ["Authorization":"Bearer \(getToken() ?? "")"]
         let parameter = ["userId": friendId]
         
-        PatchApiService<GetSingleWidgetResponseModel>(parameters: parameter, header: header, url: url)
+        PatchApiService<AddFriendToWidgetResponse>(parameters: parameter, header: header, url: url)
             .fetch { dataState in
                 
                 switch(dataState) {
@@ -200,9 +200,7 @@ class WidgetViewModel : ObservableObject {
                     if let data = data {
                         if data.success == true {
                             
-                            if let d = data.data {
-                                self.getSingleWidgetData = d
-                            }
+                            
                             self.getWidgets { bool in
                                 onSuccess(true)
                             }
@@ -506,6 +504,11 @@ struct GetAllWidgetResponseModel : Codable {
     let success:Bool?
     let message:String?
     let data: [WidgetServerModel]?
+}
+
+struct AddFriendToWidgetResponse : Codable {
+    let success:Bool?
+    let message:String?
 }
 
 
