@@ -135,7 +135,7 @@ struct CreateWidgetScreen: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                             } placeholder: {
-                                Image(.imgUserSample)
+                                Image(.addBtn)
                                     .resizable()
                             }.frame(width: 84, height: 84)
                         .clipShape(RoundedRectangle(cornerRadius: 42))
@@ -163,7 +163,7 @@ struct CreateWidgetScreen: View {
                                         .aspectRatio(contentMode: .fill)
                                 } placeholder: {
 //                                    Image(systemName: "photo.fill")
-                                    Image(.imgUserSample)
+                                    Image(.addBtn)
                                         .resizable()
                                 }.frame(width: 84, height: 84)
                             .clipShape(RoundedRectangle(cornerRadius: 42))

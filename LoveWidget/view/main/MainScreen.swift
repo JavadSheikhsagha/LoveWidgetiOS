@@ -46,28 +46,33 @@ struct MainScreen: View {
                         
                         Spacer()
                         
-                        Image("img3Dots")
-                            .padding()
-                            .contextMenu {
+                        Menu {
+                            Button {
+                                withAnimation {
+                                    showLogoutDialog = true
+                                }
+                            } label: {
+                                Text("Logout")
+                            }
+                            
+                            if !isUserGuest() {
                                 Button {
                                     withAnimation {
-                                        showLogoutDialog = true
+                                        showDeleteAccountDialog = true
                                     }
                                 } label: {
-                                    Text("Logout")
+                                    Text("Delete Account")
+                                        .foregroundStyle(.red)
                                 }
-                                
-                                if !isUserGuest() {
-                                    Button {
-                                        withAnimation {
-                                            showDeleteAccountDialog = true
-                                        }
-                                    } label: {
-                                        Text("Delete Account")
-                                    }
-                                }
-                                
                             }
+                        } label: {
+                            Image("img3Dots")
+                                .padding()
+                                
+                        }
+
+                        
+
                         
                     }
                     
@@ -557,6 +562,7 @@ struct MainScreen: View {
                     
                     Spacer()
                         .frame(height: 48)
+                    
                 }.refreshable {
                     widgetViewModel.getWidgets { bool in
                         

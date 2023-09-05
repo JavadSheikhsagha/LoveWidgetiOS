@@ -330,18 +330,20 @@ struct WidgetSingleScreen: View {
             Spacer()
             
             
-            Image("img3Dots")
-                .resizable()
-                .frame(width: 24, height: 24)
-                .padding()
-                .contextMenu {
-                    Button("Delete Widget") {
-                        // delete widget
-                        withAnimation {
-                            showDeleteWidgetDialog = true
-                        }
+            Menu {
+                Button("Delete Widget") {
+                    // delete widget
+                    withAnimation {
+                        showDeleteWidgetDialog = true
                     }
                 }
+            } label: {
+                Image("img3Dots")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .padding()
+            }
+
 
             
         }

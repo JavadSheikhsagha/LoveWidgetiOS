@@ -247,16 +247,19 @@ struct FriendsScreen: View {
                                 
                                 Spacer()
                                 
-                                Image(.img3Dots)
-                                    .contextMenu(menuItems: {
-                                        Button("Remove friend") {
-                                            // call api
-                                            withAnimation {
-                                                showRemoveFriendDialog = true
-                                            }
-                                            selectedFriendToRemove = friend
+                                Menu {
+                                    Button("Remove friend") {
+                                        // call api
+                                        withAnimation {
+                                            showRemoveFriendDialog = true
                                         }
-                                    })
+                                        selectedFriendToRemove = friend
+                                    }
+                                } label: {
+                                    Image(.img3Dots)
+                                        
+                                }
+
                                 
                             }.padding()
                             

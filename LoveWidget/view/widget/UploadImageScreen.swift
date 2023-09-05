@@ -122,11 +122,6 @@ struct UploadImageScreen: View {
                 .frame(width: 24, height: 24)
                 .padding()
                 .opacity(0.0)
-                .contextMenu {
-                    Button("Delete Widget") {
-                        
-                    }
-                }
 
             
         }
