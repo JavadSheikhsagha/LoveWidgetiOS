@@ -30,6 +30,9 @@ struct FriendsScreen: View {
                         friednsViewModel.getFriends { bool in }
                     }
                 }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             friendsListView
                 .onChange(of: showAddFriendDialog) { newValue in
@@ -39,6 +42,9 @@ struct FriendsScreen: View {
                 }
             
             addFriendDialog
+                .onChange(of: showAddFriendDialog) { neVa in
+                    UIApplication.shared.endEditing()
+                }
             
             ZStack {
                 Color.black.opacity(showRemoveFriendDialog ? 0.5 : 0.0)

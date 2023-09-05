@@ -26,6 +26,9 @@ struct LoginScreen: View {
                 .onAppear {
                     
                 }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             VStack {
                 
@@ -97,6 +100,7 @@ struct LoginScreen: View {
                                 
                             }
                         }
+                        UIApplication.shared.endEditing()
                         
                     } label: {
                         ZStack {
@@ -118,7 +122,7 @@ struct LoginScreen: View {
 //                        withAnimation {
 //                            mainViewModel.SCREEN_VIEW = .MainMenu
 //                        }
-                        
+                        UIApplication.shared.endEditing()
                         loginViewModel.skipLogin(onSuccess: { bool in
                             if bool {
                                 withAnimation {
@@ -143,6 +147,10 @@ struct LoginScreen: View {
                 
             }
             .alert(loginViewModel.errorMessage, isPresented: $loginViewModel.isErrorOccurred) {
+                Button("ok") {
+                    loginViewModel.isErrorOccurred = false
+                }
+            }.alert(loginViewModel.errorMessage, isPresented: $loginViewModel.isErrorOccurred) {
                 Button("ok") {
                     loginViewModel.isErrorOccurred = false
                 }

@@ -32,6 +32,9 @@ struct WidgetSingleScreen: View {
                     widgetViewModel.historyWidgets = []
                     widgetViewModel.selectedImage = nil
                 }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             
             VStack {

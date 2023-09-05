@@ -539,6 +539,9 @@ struct MainScreen: View {
                     friednsViewModel.selectedFriend = nil
                     WidgetCenter.shared.reloadAllTimelines()
                 }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             VStack {
                 ScrollView(showsIndicators: false) {
@@ -608,6 +611,7 @@ struct MainScreen: View {
                         if newValue {
                             changeNameText = loadUser()?.username ?? ""
                         }
+                        UIApplication.shared.endEditing()
                     }
                 
                 logoutDialog

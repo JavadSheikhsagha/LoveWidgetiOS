@@ -22,6 +22,9 @@ struct WidgetHistoryScreen: View {
                         
                     }
                 }
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             VStack {
                 

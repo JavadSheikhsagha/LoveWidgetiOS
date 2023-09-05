@@ -19,6 +19,9 @@ struct UploadImageScreen: View {
             
             Color(hex: "#EEF1FF")
                 .ignoresSafeArea()
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
             
             VStack {
                 
