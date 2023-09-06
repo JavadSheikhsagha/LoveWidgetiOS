@@ -38,7 +38,7 @@ struct WidgetHistoryScreen: View {
                 
             }
             
-            LottieView(name: "loading.json", play: $playLottie)
+            LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
                 .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)

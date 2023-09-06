@@ -52,10 +52,6 @@
 		3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799E22AA08393006BA057 /* SwiftyJSON */; };
 		3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799E42AA085FA006BA057 /* UserSettings.swift */; };
 		3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52DCCE2AA625D500F6CD80 /* BannerView.swift */; };
-		3F6F1E082AA794AC009E7230 /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6F1E072AA794AC009E7230 /* OneSignalExtension */; };
-		3F6F1E0A2AA794AC009E7230 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6F1E092AA794AC009E7230 /* OneSignalFramework */; };
-		3F6F1E0C2AA794AC009E7230 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6F1E0B2AA794AC009E7230 /* OneSignalInAppMessages */; };
-		3F6F1E0E2AA794AC009E7230 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6F1E0D2AA794AC009E7230 /* OneSignalLocation */; };
 		3F6F1E162AA79643009E7230 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F1E152AA79643009E7230 /* NotificationService.swift */; };
 		3F6F1E1A2AA79643009E7230 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F6F1E132AA79643009E7230 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F6F1E292AA79985009E7230 /* Widgy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491332AA4413400850ED8 /* Widgy.swift */; };
@@ -92,6 +88,12 @@
 		3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */; };
 		3F7927A62A9F14D300D5F1F5 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */; };
 		3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */; };
+		3F83A6092AA88EA90072A380 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 3F83A6082AA88EA90072A380 /* OneSignalFramework */; };
+		3F83A60B2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
+		3F83A60C2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
+		3F83A60D2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
+		3F83A60E2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
+		3F892A292AA87EFF0030698C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 3F892A282AA87EFF0030698C /* OneSignalExtension */; };
 		3FC27A062AA70CE100EC59A1 /* EditQuoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */; };
 		3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */; };
 		3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A092AA7106500EC59A1 /* Sacramento.ttf */; };
@@ -195,6 +197,7 @@
 		3F7927A32A9F149900D5F1F5 /* WidgetHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHistoryScreen.swift; sourceTree = "<group>"; };
 		3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
 		3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWidgetScreen.swift; sourceTree = "<group>"; };
+		3F83A60A2AA89A5E0072A380 /* loading2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading2.json; sourceTree = "<group>"; };
 		3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuoteScreen.swift; sourceTree = "<group>"; };
 		3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF Pro Text.ttf"; sourceTree = "<group>"; };
 		3FC27A092AA7106500EC59A1 /* Sacramento.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sacramento.ttf; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6F1E3D2AA79BAD009E7230 /* SwiftyJSON in Frameworks */,
+				3F892A292AA87EFF0030698C /* OneSignalExtension in Frameworks */,
 				3F6F1E3F2AA79BB1009E7230 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,18 +260,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F6F1E0E2AA794AC009E7230 /* OneSignalLocation in Frameworks */,
 				3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */,
 				3F6FA8E92AA7835F005EA60B /* LottieSwiftUI in Frameworks */,
 				3F6FA8E62AA780D9005EA60B /* FirebaseRemoteConfigSwift in Frameworks */,
 				806CA8F62A9DD8C500599C14 /* EnigmaSystemDesign in Frameworks */,
+				3F83A6092AA88EA90072A380 /* OneSignalFramework in Frameworks */,
 				3F6FA8DE2AA780D9005EA60B /* FirebaseAnalytics in Frameworks */,
-				3F6F1E082AA794AC009E7230 /* OneSignalExtension in Frameworks */,
-				3F6F1E0C2AA794AC009E7230 /* OneSignalInAppMessages in Frameworks */,
 				3F6FA8E42AA780D9005EA60B /* FirebaseRemoteConfig in Frameworks */,
 				3F6FA8E22AA780D9005EA60B /* FirebaseCrashlytics in Frameworks */,
 				3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */,
-				3F6F1E0A2AA794AC009E7230 /* OneSignalFramework in Frameworks */,
 				3F6FA8E02AA780D9005EA60B /* FirebaseAnalyticsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +425,7 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				3F83A60A2AA89A5E0072A380 /* loading2.json */,
 				3F6FA8EA2AA7850F005EA60B /* loading.json */,
 				3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */,
 				3FC27A072AA7106500EC59A1 /* font */,
@@ -529,6 +531,7 @@
 			packageProductDependencies = (
 				3F6F1E3C2AA79BAD009E7230 /* SwiftyJSON */,
 				3F6F1E3E2AA79BB1009E7230 /* Alamofire */,
+				3F892A282AA87EFF0030698C /* OneSignalExtension */,
 			);
 			productName = OneSignalNotificationServiceExtension;
 			productReference = 3F6F1E132AA79643009E7230 /* OneSignalNotificationServiceExtension.appex */;
@@ -561,10 +564,7 @@
 				3F6FA8E32AA780D9005EA60B /* FirebaseRemoteConfig */,
 				3F6FA8E52AA780D9005EA60B /* FirebaseRemoteConfigSwift */,
 				3F6FA8E82AA7835F005EA60B /* LottieSwiftUI */,
-				3F6F1E072AA794AC009E7230 /* OneSignalExtension */,
-				3F6F1E092AA794AC009E7230 /* OneSignalFramework */,
-				3F6F1E0B2AA794AC009E7230 /* OneSignalInAppMessages */,
-				3F6F1E0D2AA794AC009E7230 /* OneSignalLocation */,
+				3F83A6082AA88EA90072A380 /* OneSignalFramework */,
 			);
 			productName = LoveWidget;
 			productReference = 806CA8DD2A9DD21900599C14 /* LoveWidget.app */;
@@ -630,6 +630,7 @@
 			files = (
 				3F1D3E812AA4632000C7EAC9 /* Assets.xcassets in Resources */,
 				3F1491362AA4413700850ED8 /* Assets.xcassets in Resources */,
+				3F83A60C2AA89A5F0072A380 /* loading2.json in Resources */,
 				3F6FA8EC2AA7850F005EA60B /* loading.json in Resources */,
 				3F6FA8DA2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 			);
@@ -640,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1D3E822AA4632100C7EAC9 /* Assets.xcassets in Resources */,
+				3F83A60D2AA89A5F0072A380 /* loading2.json in Resources */,
 				3F6FA8DB2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 				3F6FA8ED2AA7850F005EA60B /* loading.json in Resources */,
 			);
@@ -649,6 +651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F83A60E2AA89A5F0072A380 /* loading2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */,
+				3F83A60B2AA89A5F0072A380 /* loading2.json in Resources */,
 				806CA8E92A9DD21B00599C14 /* Preview Assets.xcassets in Resources */,
 				3FC27A152AA7106500EC59A1 /* Kreon.ttf in Resources */,
 				3FC27A142AA7106500EC59A1 /* Wendy One.ttf in Resources */,
@@ -796,7 +800,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgyExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -831,7 +835,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgyExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -864,7 +868,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetEditIntent/WidgetEditIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -897,7 +901,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetEditIntent/WidgetEditIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -930,7 +934,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -967,7 +971,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1116,11 +1120,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Love Widget";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need this permission to capture image from camera and send that to your friend's widget";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need this permission to pick an image from gallery and send that to your friend's widget";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1129,6 +1134,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1160,11 +1166,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Love Widget";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need this permission to capture image from camera and send that to your friend's widget";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need this permission to pick an image from gallery and send that to your friend's widget";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1173,6 +1180,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1336,26 +1344,6 @@
 			package = 3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		3F6F1E072AA794AC009E7230 /* OneSignalExtension */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalExtension;
-		};
-		3F6F1E092AA794AC009E7230 /* OneSignalFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalFramework;
-		};
-		3F6F1E0B2AA794AC009E7230 /* OneSignalInAppMessages */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalInAppMessages;
-		};
-		3F6F1E0D2AA794AC009E7230 /* OneSignalLocation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalLocation;
-		};
 		3F6F1E3C2AA79BAD009E7230 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
@@ -1395,6 +1383,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F6FA8E72AA7835F005EA60B /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
 			productName = LottieSwiftUI;
+		};
+		3F83A6082AA88EA90072A380 /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		3F892A282AA87EFF0030698C /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
 		};
 		806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */ = {
 			isa = XCSwiftPackageProductDependency;

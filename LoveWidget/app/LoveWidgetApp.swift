@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     FirebaseApp.configure()
       
       // Remove this method to stop OneSignal Debugging
-      OneSignal.Debug.setLogLevel(.LL_VERBOSE)
+      OneSignal.Debug.setLogLevel(.LL_DEBUG)
        
       // OneSignal initialization
       OneSignal.initialize("11e4a8c0-931b-481e-a40b-1b3cace50c35", withLaunchOptions: launchOptions)

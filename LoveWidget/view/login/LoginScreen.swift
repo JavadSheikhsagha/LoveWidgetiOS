@@ -42,7 +42,15 @@ struct LoginScreen: View {
                 
                 VStack(spacing: 16) {
                     
+                    Text("Log in")
+                      .font(
+                        Font.custom("SF UI Text", size: 24)
+                          .weight(.semibold)
+                      )
+                      .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                     
+                    Spacer()
+                        .frame(height: 14)
                     
                     VStack(spacing: 12) {
                         
@@ -89,6 +97,18 @@ struct LoginScreen: View {
                                 .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
                         )
                             
+                        HStack {
+                            
+                            Text("forget password?")
+                              .font(Font.custom("SF UI  Text", size: 12))
+                              .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                              .onTapGesture {
+                                  //go to forget password
+                              }
+                            
+                            Spacer()
+                            
+                        }.padding(.horizontal, 32)
                     }
                     
                     
@@ -143,6 +163,19 @@ struct LoginScreen: View {
                             .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     }
                     
+                    HStack {
+                        Text("Don’t have an account? ")
+                          .font(Font.custom("SF UI  Text", size: 12))
+                          .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        
+                        Text("Sign up")
+                            .font(Font.custom("SF UI  Text", size: 12))
+                            .foregroundStyle(Color(hex:"#87A2FB"))
+                            .onTapGesture {
+                                // go to sign up
+                            }
+                    }
+                    
                     Spacer()
                         .frame(height: 24)
                     
@@ -159,11 +192,7 @@ struct LoginScreen: View {
                 }
             }
             
-            
-            ActivityIndicator(isAnimating: $loginViewModel.isLoading, style: .large)
-                .opacity(loginViewModel.isLoading ? 1.0 : 0.0)
-            
-            LottieView(name: "loading.json", play: $playLottie)
+            LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
                 .opacity(loginViewModel.isLoading ? 1.0 : 0.0)

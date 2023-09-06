@@ -1,14 +1,6 @@
-//
-//  NotificationService.swift
-//  OneSignalNotificationServiceExtension
-//
-//  Created by Javad on 9/5/23.
-//
-
 import UserNotifications
 
 import OneSignalExtension
-
 
 class NotificationService: UNNotificationServiceExtension {
     
@@ -29,11 +21,6 @@ class NotificationService: UNNotificationServiceExtension {
             // bestAttemptContent.body = "[Modified] " + bestAttemptContent.body
             
             OneSignalExtension.didReceiveNotificationExtensionRequest(self.receivedRequest, with: bestAttemptContent, withContentHandler: self.contentHandler)
-        }
-        if let bestAttemptContent = bestAttemptContent {
-            OneSignalExtension.didReceiveNotificationExtensionRequest(self.receivedRequest, with: self.bestAttemptContent)
-            WidgetViewModel()
-            contentHandler(bestAttemptContent)
         }
     }
     

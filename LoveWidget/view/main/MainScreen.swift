@@ -8,6 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import WidgetKit
+import OneSignalFramework
 
 var appName = "Love Widget"
 
@@ -432,6 +433,7 @@ struct MainScreen: View {
                         saveToken(token: "")
                         saveUser(userModel: nil)
                         saveAllWidgetsToDatabase(widgets: [])
+                        OneSignal.logout()
                         withAnimation {
                             showLogoutDialog = false
                             mainViewModel.SCREEN_VIEW = .Login
@@ -554,11 +556,11 @@ struct MainScreen: View {
                 .onTapGesture {
                     UIApplication.shared.endEditing()
                 }
-                .onReceive(timer) { time in
-                    friednsViewModel.getFriends { bool in }
-                    widgetViewModel.getWidgets { bool in }
-                    friednsViewModel.selectedFriend = nil
-                }
+//                .onReceive(timer) { time in
+//                    friednsViewModel.getFriends { bool in }
+//                    widgetViewModel.getWidgets { bool in }
+//                    friednsViewModel.selectedFriend = nil
+//                }
             
             VStack {
                 ScrollView(showsIndicators: false) {
