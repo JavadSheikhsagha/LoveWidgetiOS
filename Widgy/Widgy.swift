@@ -86,13 +86,28 @@ struct WidgyEntryView : View {
                                 .frame(width: proxy.frame(in: .local).width, height: proxy.frame(in: .local).height)
                         }
                         
-                        Button(intent: ReactToWidgetIntent(widgetId: widget.id ?? "",
-                                                           contentId: widget.contents?.id ?? "")) {
-                            VStack {
-                                if widget.contents?.reaction ?? 0 > 0 {
-                                    Image(.imgLikeFilled)
-                                } else {
-                                    Image(.imgLikeBorder)
+                        VStack {
+                            HStack {
+                                
+                                Button(intent: UpdateWidgetIntent(widgetId: widget.id ?? "")) {
+                                    VStack {
+                                        Image(.btnReload)
+                                    }
+                                }
+                                Spacer()
+                            }
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Button(intent: ReactToWidgetIntent(widgetId: widget.id ?? "",
+                                                                   contentId: widget.contents?.id ?? "")) {
+                                    VStack {
+                                        if widget.contents?.reaction ?? 0 > 0 {
+                                            Image(.imgLikeFilled)
+                                        } else {
+                                            Image(.imgLikeBorder)
+                                        }
+                                    }
                                 }
                             }
                         }

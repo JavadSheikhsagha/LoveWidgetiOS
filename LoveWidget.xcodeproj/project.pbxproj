@@ -54,8 +54,6 @@
 		3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52DCCE2AA625D500F6CD80 /* BannerView.swift */; };
 		3F6F1E162AA79643009E7230 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F1E152AA79643009E7230 /* NotificationService.swift */; };
 		3F6F1E1A2AA79643009E7230 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F6F1E132AA79643009E7230 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3F6F1E292AA79985009E7230 /* Widgy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491332AA4413400850ED8 /* Widgy.swift */; };
-		3F6F1E2A2AA79986009E7230 /* Widgy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491332AA4413400850ED8 /* Widgy.swift */; };
 		3F6F1E2B2AA799A2009E7230 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DB2AA07FD9006BA057 /* Utils.swift */; };
 		3F6F1E2C2AA799A3009E7230 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DB2AA07FD9006BA057 /* Utils.swift */; };
 		3F6F1E2E2AA79A0E009E7230 /* WidgyBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491312AA4413400850ED8 /* WidgyBundle.swift */; };
@@ -712,7 +710,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F6F1E2A2AA79986009E7230 /* Widgy.swift in Sources */,
 				3F1491582AA44CA500850ED8 /* WidgetViewModel.swift in Sources */,
 				3F14915F2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F6F1E2B2AA799A2009E7230 /* Utils.swift in Sources */,
@@ -755,7 +752,6 @@
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
 				3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */,
-				3F6F1E292AA79985009E7230 /* Widgy.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
@@ -946,7 +942,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M2RP89S8N2;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -983,7 +979,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M2RP89S8N2;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1132,7 +1128,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M2RP89S8N2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1178,7 +1174,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M2RP89S8N2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
