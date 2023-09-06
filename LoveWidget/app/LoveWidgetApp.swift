@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       OneSignal.Debug.setLogLevel(.LL_VERBOSE)
        
       // OneSignal initialization
-      OneSignal.initialize("YOUR_ONESIGNAL_APP_ID", withLaunchOptions: launchOptions)
+      OneSignal.initialize("11e4a8c0-931b-481e-a40b-1b3cace50c35", withLaunchOptions: launchOptions)
 
       // requestPermission will show the native iOS notification permission prompt.
       // We recommend removing the following code and instead using an In-App Message to prompt for notification permission

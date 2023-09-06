@@ -5,6 +5,7 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.a2mp.LoveWidget.onesignal</string>
+		<string>group.app.love</string>
 	</array>
 </dict>
 </plist>
