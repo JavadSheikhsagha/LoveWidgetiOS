@@ -30,6 +30,12 @@ struct ContentView: View {
                 UploadImageScreen()
             case .EditQuoteScreen:
                 EditQuoteScreen()
+            case .SignUp:
+                SignupScreen()
+            case .ForgetPasswordScreen:
+                ForgetPasswordScreen()
+            case .ResetPasswordScreen:
+                ResetPasswordScreen()
             }
         }.onAppear {
             if isUserLoggedIn() {

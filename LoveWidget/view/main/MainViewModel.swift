@@ -123,10 +123,13 @@ enum Screens {
     case Friends
     case WidgetSingle
     case Login
-    case History 
+    case SignUp
+    case History
     case CreateWidget
     case UploadImageScreen
     case EditQuoteScreen
+    case ForgetPasswordScreen
+    case ResetPasswordScreen
 }
 
 

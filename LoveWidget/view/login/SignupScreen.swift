@@ -1,24 +1,25 @@
 //
-//  LoginScreen.swift
+//  SignupScreen.swift
 //  LoveWidget
 //
-//  Created by enigma 1 on 8/29/23.
+//  Created by Javad on 9/6/23.
 //
 
 import SwiftUI
-import EnigmaSystemDesign
 import LottieSwiftUI
 
-struct LoginScreen: View {
+struct SignupScreen: View {
     
-    @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var loginViewModel : LoginViewModel
+    @EnvironmentObject var mainViewModel : MainViewModel
     
     @State var isButtonEnabled = false
     @State var isLoading = false
     @State var passwordText = ""
+    @State var confirmPasswordText = ""
     @State var email: String = ""
     @State var playLottie = true
+    @State var isTermsAndConditionsChecked = false
     
     var body: some View {
         ZStack {
@@ -34,17 +35,13 @@ struct LoginScreen: View {
             
             VStack {
                 
-                Spacer()
-                    .frame(height: 36)
-                
                 Image("loginImage")
                 
                 Spacer()
-                    .frame(height: 52)
                 
-                VStack(spacing: 16) {
+                VStack(spacing: 12) {
                     
-                    Text("Log in")
+                    Text("Sign up")
                       .font(
                         Font.custom("SF UI Text", size: 24)
                           .weight(.semibold)
@@ -64,7 +61,10 @@ struct LoginScreen: View {
                             }.textContentType(.emailAddress).padding()
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: email) { newValue in
-                                    if textFieldValidatorEmail(newValue) && passwordText.count > 5 {
+                                    if textFieldValidatorEmail(newValue) 
+                                        && passwordText.count > 5
+                                        && passwordText == confirmPasswordText
+                                        && isTermsAndConditionsChecked {
                                         isButtonEnabled = true
                                     } else {
                                         isButtonEnabled = false
@@ -77,16 +77,39 @@ struct LoginScreen: View {
                                 .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
                         )
                         
-                        
-                        
-                        
                         ZStack {
                             
                             SecureField ("Password", text: $passwordText)
                                 .padding()
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: passwordText) { newValue in
-                                    if textFieldValidatorEmail(email) && passwordText.count > 5 {
+                                    if textFieldValidatorEmail(email)
+                                        && passwordText.count > 5
+                                        && passwordText == confirmPasswordText
+                                        && isTermsAndConditionsChecked  {
+                                        isButtonEnabled = true
+                                    } else {
+                                        isButtonEnabled = false
+                                    }
+                                }
+                            
+                        }.cornerRadius(10) /// make the background rounded
+                        .overlay( /// apply a rounded border
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                        )
+                        
+                        ZStack {
+                            
+                            SecureField ("Confirm Password", text: $confirmPasswordText)
+                                .padding()
+                                .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                                .onChange(of: confirmPasswordText) { newValue in
+                                    if textFieldValidatorEmail(email) 
+                                        && passwordText.count > 5
+                                        && passwordText == confirmPasswordText
+                                        && isTermsAndConditionsChecked {
+                                        
                                         isButtonEnabled = true
                                     } else {
                                         isButtonEnabled = false
@@ -101,15 +124,15 @@ struct LoginScreen: View {
                             
                         HStack {
                             
-                            Text("forget password?")
-                              .font(Font.custom("SF UI  Text", size: 12))
+                            Button {
+                                isTermsAndConditionsChecked.toggle()
+                            } label: {
+                                Image(isTermsAndConditionsChecked ? .fillCheck : .emptyCheck)
+                            }
+
+                            Text("Agree all terms & conditions")
+                              .font(Font.custom("SF UI Text", size: 12))
                               .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-                              .onTapGesture {
-                                  //go to forget password
-                                  withAnimation {
-                                      mainViewModel.SCREEN_VIEW = .ForgetPasswordScreen
-                                  }
-                              }
                             
                             Spacer()
                             
@@ -118,14 +141,8 @@ struct LoginScreen: View {
                     
                     
                     Button {
-                        loginViewModel.loginWithEmail(email: email, password: passwordText) { bool in
-                            if bool {
-                                withAnimation {
-                                    mainViewModel.SCREEN_VIEW = .MainMenu
-                                }
-                            } else {
-                                
-                            }
+                        if isButtonEnabled {
+                            // sign up request
                         }
                         UIApplication.shared.endEditing()
                         
@@ -134,7 +151,7 @@ struct LoginScreen: View {
                             
                             Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
                             
-                            Text("Log in")
+                            Text("Sign up")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
                             
@@ -143,27 +160,49 @@ struct LoginScreen: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     
+                    Button {
+                        // login later
+//                        withAnimation {
+//                            mainViewModel.SCREEN_VIEW = .MainMenu
+//                        }
+                        
+                        UIApplication.shared.endEditing()
+                        loginViewModel.skipLogin(onSuccess: { bool in
+                            if bool {
+                                withAnimation {
+                                    mainViewModel.SCREEN_VIEW = .MainMenu
+                                }
+                            } else {
+                                
+                            }
+                        })
+                        
+                        
+                    } label: {
+                        Image("loginLaterButton")
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+                    }
                     
                     
                     HStack {
-                        Text("Don’t have an account? ")
+                        Text("Already have an account? ")
                           .font(Font.custom("SF UI  Text", size: 12))
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                         
-                        Text("Sign up")
+                        Text("Log in")
                             .font(Font.custom("SF UI  Text", size: 12))
                             .foregroundStyle(Color(hex:"#87A2FB"))
                             .onTapGesture {
+                                // go to sign up
                                 withAnimation {
-                                    mainViewModel.SCREEN_VIEW = .SignUp
+                                    mainViewModel.SCREEN_VIEW = .Login
                                 }
                             }
                     }
                     
                     Spacer()
                         .frame(height: 24)
-                    
-                    Spacer()
                     
                 }
                 
@@ -188,8 +227,6 @@ struct LoginScreen: View {
         }
     }
     
-
-    
     func textFieldValidatorEmail(_ string: String) -> Bool {
         if string.count > 100 {
             return false
@@ -199,62 +236,8 @@ struct LoginScreen: View {
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: string)
     }
-    
 }
 
-extension String {
-    
-    public func isValidPassword() -> Bool {
-        let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
-        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
-    }
-}
-
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
-    }
-}
-
-
-extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
-        switch hex.count {
-        case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-        default:
-            (a, r, g, b) = (1, 1, 1, 0)
-        }
-
-        self.init(
-            .sRGB,
-            red: Double(r) / 255,
-            green: Double(g) / 255,
-            blue:  Double(b) / 255,
-            opacity: Double(a) / 255
-        )
-    }
-}
-
-
-struct ActivityIndicator: UIViewRepresentable {
-
-    @Binding var isAnimating: Bool
-    let style: UIActivityIndicatorView.Style
-
-    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: style)
-    }
-
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
-        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
-    }
+#Preview {
+    SignupScreen()
 }

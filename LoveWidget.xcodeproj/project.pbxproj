@@ -93,6 +93,9 @@
 		3F83A60C2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
 		3F83A60D2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
 		3F83A60E2AA89A5F0072A380 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F83A60A2AA89A5E0072A380 /* loading2.json */; };
+		3F83A6102AA89D5B0072A380 /* SignupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83A60F2AA89D5B0072A380 /* SignupScreen.swift */; };
+		3F83A6152AA8A3880072A380 /* ForgetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83A6142AA8A3880072A380 /* ForgetPasswordScreen.swift */; };
+		3F83A6172AA8A5980072A380 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83A6162AA8A5980072A380 /* ResetPasswordScreen.swift */; };
 		3F892A292AA87EFF0030698C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 3F892A282AA87EFF0030698C /* OneSignalExtension */; };
 		3FC27A062AA70CE100EC59A1 /* EditQuoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */; };
 		3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */; };
@@ -198,6 +201,9 @@
 		3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
 		3F7927A72A9F259B00D5F1F5 /* CreateWidgetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWidgetScreen.swift; sourceTree = "<group>"; };
 		3F83A60A2AA89A5E0072A380 /* loading2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading2.json; sourceTree = "<group>"; };
+		3F83A60F2AA89D5B0072A380 /* SignupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreen.swift; sourceTree = "<group>"; };
+		3F83A6142AA8A3880072A380 /* ForgetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordScreen.swift; sourceTree = "<group>"; };
+		3F83A6162AA8A5980072A380 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
 		3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuoteScreen.swift; sourceTree = "<group>"; };
 		3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF Pro Text.ttf"; sourceTree = "<group>"; };
 		3FC27A092AA7106500EC59A1 /* Sacramento.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sacramento.ttf; sourceTree = "<group>"; };
@@ -455,6 +461,9 @@
 			children = (
 				806CA8EF2A9DD27100599C14 /* LoginScreen.swift */,
 				806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */,
+				3F83A60F2AA89D5B0072A380 /* SignupScreen.swift */,
+				3F83A6142AA8A3880072A380 /* ForgetPasswordScreen.swift */,
+				3F83A6162AA8A5980072A380 /* ResetPasswordScreen.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -763,8 +772,11 @@
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
+				3F83A6102AA89D5B0072A380 /* SignupScreen.swift in Sources */,
+				3F83A6172AA8A5980072A380 /* ResetPasswordScreen.swift in Sources */,
 				3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */,
 				3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
+				3F83A6152AA8A3880072A380 /* ForgetPasswordScreen.swift in Sources */,
 				3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */,
 				3FFDB4192AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 			);
