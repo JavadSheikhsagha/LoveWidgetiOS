@@ -84,7 +84,13 @@ struct ForgetPasswordScreen: View {
                     
                     Button {
                         if isButtonEnabled {
-                            // sign up request
+                            loginViewModel.sendForgetPassword(email: email) { bool in
+                                if bool {
+                                    withAnimation {
+                                        mainViewModel.SCREEN_VIEW = .ResetPasswordScreen
+                                    }
+                                }
+                            }
                         }
                         UIApplication.shared.endEditing()
                         

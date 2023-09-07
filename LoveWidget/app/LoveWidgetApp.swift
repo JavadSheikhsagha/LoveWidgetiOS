@@ -12,28 +12,21 @@ import OneSignalUser
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-      
-      // Remove this method to stop OneSignal Debugging
-      OneSignal.Debug.setLogLevel(.LL_DEBUG)
-       
-      // OneSignal initialization
-      OneSignal.initialize("11e4a8c0-931b-481e-a40b-1b3cace50c35", withLaunchOptions: launchOptions)
-
-      // requestPermission will show the native iOS notification permission prompt.
-      // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
-      OneSignal.Notifications.requestPermission({ accepted in
-          print("User accepted notifications: \(accepted)")
-          
-      }, fallbackToSettings: true)
-
-
-    return true
-  }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+       // Remove this method to stop OneSignal Debugging
+        FirebaseApp.configure()
+        
+        
+        OneSignal.Debug.setLogLevel(.LL_FATAL)
+       OneSignal.initialize("11e4a8c0-931b-481e-a40b-1b3cace50c35",
+                            withLaunchOptions: launchOptions)
+       OneSignal.Notifications.requestPermission({ accepted in
+         print("User accepted notifications: \(accepted)")
+       }, fallbackToSettings: true)
+        
+        
+       return true
+    }
 }
 
 @main
@@ -48,6 +41,7 @@ struct LoveWidgetApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
                 .environmentObject(mainViewModel)
                 .environmentObject(friendsViewModel)
                 .environmentObject(widgetViewModel)

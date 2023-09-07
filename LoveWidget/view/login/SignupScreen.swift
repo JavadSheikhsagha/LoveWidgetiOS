@@ -142,7 +142,13 @@ struct SignupScreen: View {
                     
                     Button {
                         if isButtonEnabled {
-                            // sign up request
+                            loginViewModel.registerUser(email: email, password: passwordText) { bool in
+                                if bool {
+                                    withAnimation {
+                                        mainViewModel.SCREEN_VIEW = .MainMenu
+                                    }
+                                }
+                            }
                         }
                         UIApplication.shared.endEditing()
                         
@@ -158,6 +164,17 @@ struct SignupScreen: View {
                             
                         }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    .onChange(of: isTermsAndConditionsChecked) { newValue in
+                        if textFieldValidatorEmail(email)
+                            && passwordText.count > 5
+                            && passwordText == confirmPasswordText
+                            && isTermsAndConditionsChecked {
+                            
+                            isButtonEnabled = true
+                        } else {
+                            isButtonEnabled = false
+                        }
                     }
                     
                     Button {

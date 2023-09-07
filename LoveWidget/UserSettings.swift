@@ -47,6 +47,14 @@ func isUserGuest() -> Bool {
     }
 }
 
+func saveEmail(email:String) {
+    UserDefaults(suiteName: appSuitName)?.set(email, forKey: "email")
+}
+
+func loadEmail() -> String? {
+    return UserDefaults(suiteName: appSuitName)?.string(forKey: "email")
+}
+
 
 func isUserLoggedIn() -> Bool {
     if loadUser()?.username.count ?? 0 > 0 {

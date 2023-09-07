@@ -1,6 +1,9 @@
-import UserNotifications
 
+
+
+import UserNotifications
 import OneSignalExtension
+
 
 class NotificationService: UNNotificationServiceExtension {
     
@@ -17,8 +20,8 @@ class NotificationService: UNNotificationServiceExtension {
             /* DEBUGGING: Uncomment the 2 lines below to check this extension is executing
                           Note, this extension only runs when mutable-content is set
                           Setting an attachment or action buttons automatically adds this */
-            // print("Running NotificationServiceExtension")
-            // bestAttemptContent.body = "[Modified] " + bestAttemptContent.body
+             print("Running NotificationServiceExtension")
+             bestAttemptContent.body = "[Modified] " + bestAttemptContent.body
             
             OneSignalExtension.didReceiveNotificationExtensionRequest(self.receivedRequest, with: bestAttemptContent, withContentHandler: self.contentHandler)
         }

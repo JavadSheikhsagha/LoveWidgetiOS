@@ -25,6 +25,171 @@ class LoginViewModel : ObservableObject {
     @Published var userModel  :UserModel? = nil
     
     
+    func resetPassword(password:String, onSuccess : @escaping (Bool)-> Void) {
+        
+        let url = "\(base_url)/auth/forget-password"
+        let parameter = [
+            "email":loadEmail()?.lowercased() ?? "",
+            "password":password,
+        ]
+        
+        PostApiService<LoginResponseModel>(parameters: parameter, header: nil, url: url)
+            .fetch { dataState in
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    //save token
+                    //save usermodel
+                    if let data = data {
+                        if data.success == true {
+                            saveEmail(email: "")
+                            saveToken(token: data.accessToken ?? "")
+                            saveUser(userModel: data.user)
+                            self.token = getToken() ?? ""
+                            self.userModel = loadUser()
+                            OneSignal.login(self.userModel?.id ?? "")
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = data.message
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Login Failed.."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: let error, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? error?.localizedDescription) ?? "Failed to change password"
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+            }
+    }
+    
+    func sendForgetPassword(email:String, onSuccess : @escaping (Bool)-> Void) {
+        
+        let url = "\(base_url)/auth/send-forget-email"
+        let parameter = [
+            "email":email.lowercased(),
+        ]
+        
+        PostApiService<LoginResponseModel>(parameters: parameter, header: nil, url: url)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    //save token
+                    //save usermodel
+                    if let data = data {
+                        if data.success == true {
+                            saveEmail(email: email)
+                            self.isLoading = false
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = data.message
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "sending email Failed.."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: let error, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? error?.localizedDescription) ?? "sending email failed."
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+            }
+    }
+    
+    
+    func registerUser(email:String, password:String, onSuccess : @escaping (Bool)-> Void) {
+        
+        
+        let url = "\(base_url)/auth/signup"
+        let parameter = [
+            "email":email.lowercased(),
+            "password":password,
+            "playerId":"pid"
+        ]
+        
+        PostApiService<LoginResponseModel>(parameters: parameter, header: nil, url: url)
+            .fetch { dataState in
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    //save token
+                    //save usermodel
+                    if let data = data {
+                        if data.success == true {
+                            saveToken(token: data.accessToken ?? "")
+                            saveUser(userModel: data.user)
+                            self.token = getToken() ?? ""
+                            self.userModel = loadUser()
+                            OneSignal.login(self.userModel?.id ?? "")
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = data.message
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Registration Failed.."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: let error, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? error?.localizedDescription) ?? "Failed to Register"
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+            }
+        
+    }
+    
+    
     func loginWithEmail(email:String, password:String, onSuccess : @escaping (Bool)-> Void) {
         
         fetchLoginWithEmail(email: email, password: password) { dataState in
@@ -126,7 +291,7 @@ class LoginViewModel : ObservableObject {
         let url =  "\(base_url)/auth/login"
         
         let parameters : [String:String] = [
-            "email":email,
+            "email":email.lowercased(),
             "password":password,
             "playerId":"pid"
         ]
