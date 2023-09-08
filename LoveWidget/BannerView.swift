@@ -47,18 +47,23 @@ struct BannerModifier: ViewModifier {
             if show {
                 VStack {
                     HStack {
+                        Image(.imgSuccessBanner)
                         VStack(alignment: .leading, spacing: 2) {
                             Text(data.title)
-                                .bold()
-                            Text(data.detail)
-                                .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                              .font(Font.custom("SF UI Text", size: 14))
+                              .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                         }
                         Spacer()
+                        Image(.imgClosebanner)
                     }
                     .foregroundColor(Color.white)
                     .padding(12)
-                    .background(data.type.tintColor)
-                    .cornerRadius(8)
+                    .background(data.type == .success ? Color(hex: "#EEFFF3") : Color(hex: ""))
+                    .cornerRadius(12) /// make the background rounded
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color(hex: "#23A047"), lineWidth: 1)
+                    )
                     .shadow(radius: 20)
                     Spacer()
                 }
@@ -66,6 +71,7 @@ struct BannerModifier: ViewModifier {
                 .animation(.easeInOut(duration: 1.2))
                 .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
 
+                
                 .onTapGesture {
                     withAnimation {
                         self.show = false

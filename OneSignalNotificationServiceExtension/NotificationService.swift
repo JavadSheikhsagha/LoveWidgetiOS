@@ -21,7 +21,7 @@ class NotificationService: UNNotificationServiceExtension {
                           Note, this extension only runs when mutable-content is set
                           Setting an attachment or action buttons automatically adds this */
              print("Running NotificationServiceExtension")
-             bestAttemptContent.body = "[Modified] " + bestAttemptContent.body
+//             WidgetNetworkManager
             
             OneSignalExtension.didReceiveNotificationExtensionRequest(self.receivedRequest, with: bestAttemptContent, withContentHandler: self.contentHandler)
         }

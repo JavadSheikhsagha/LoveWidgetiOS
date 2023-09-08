@@ -79,8 +79,9 @@ struct SignupScreen: View {
                         
                         ZStack {
                             
-                            SecureField ("Password", text: $passwordText)
-                                .padding()
+                            loginPasswordTextFieldView(text: $passwordText,
+                                                       title: "Password",
+                                                       showTitle: false)
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: passwordText) { newValue in
                                     if textFieldValidatorEmail(email)
@@ -101,15 +102,15 @@ struct SignupScreen: View {
                         
                         ZStack {
                             
-                            SecureField ("Confirm Password", text: $confirmPasswordText)
-                                .padding()
+                            loginPasswordTextFieldView(text: $confirmPasswordText,
+                                                       title: "Confirm Password",
+                                                       showTitle: false)
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: confirmPasswordText) { newValue in
-                                    if textFieldValidatorEmail(email) 
+                                    if textFieldValidatorEmail(email)
                                         && passwordText.count > 5
                                         && passwordText == confirmPasswordText
-                                        && isTermsAndConditionsChecked {
-                                        
+                                        && isTermsAndConditionsChecked  {
                                         isButtonEnabled = true
                                     } else {
                                         isButtonEnabled = false

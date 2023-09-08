@@ -32,9 +32,35 @@ struct MainScreen: View {
         VStack {
             
             
-            Text(appName)
-                .bold()
-                .font(.system(size: 16))
+            HStack {
+                
+                AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            Image(systemName: "photo.fill")
+                        }.frame(width: 50, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 42))
+                    .onTapGesture {
+                        withAnimation {
+                            mainViewModel.SCREEN_VIEW = .Profile
+                        }
+                    }
+                
+                Spacer()
+                
+                Text(appName)
+                    .bold()
+                    .font(.system(size: 16))
+                
+                Spacer()
+                
+                Circle().frame(width: 50, height: 50)
+                    .opacity(0.0)
+                
+                
+            }.padding(.horizontal, 16)
             
             ZStack {
                 
@@ -42,93 +68,11 @@ struct MainScreen: View {
                     .frame(width: UIScreen.screenWidth - 40)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     
-                VStack {
-                    
-                    HStack {
-                        
-                        Spacer()
-                        
-                        Menu {
-                            Button {
-                                withAnimation {
-                                    showLogoutDialog = true
-                                }
-                            } label: {
-                                Text("Logout")
-                            }
-                            
-                            if !isUserGuest() {
-                                Button {
-                                    withAnimation {
-                                        showDeleteAccountDialog = true
-                                    }
-                                } label: {
-                                    Text("Delete Account")
-                                        .foregroundStyle(.red)
-                                }
-                            }
-                        } label: {
-                            Image("img3Dots")
-                                .padding()
-                                
-                        }
-
-                        
-
-                        
-                    }
-                    
-                    Spacer()
-                }
                 
                 VStack {
                     
                     Spacer()
-                        .frame(height: 24)
-                    
-                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                            } placeholder: {
-                                Image(systemName: "photo.fill")
-                            }.frame(width: 84, height: 84)
-                        .clipShape(RoundedRectangle(cornerRadius: 42))
-                    
-                    ZStack {
-                        Image("imgEditTextName")
-                            .resizable()
-                            .frame(width: UIScreen.screenWidth - 65, height: 67)
-                        
-                        HStack(alignment:.bottom) {
-                            
-                            Text(isUserGuest() ? "Guest" : loadUser()?.username ?? "Username")
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Button {
-                                // edit name dialog
-                                if !isUserGuest() {
-                                    withAnimation {
-                                        showEditNameDialog.toggle()
-                                    }
-                                }
-                            } label: {
-                                if isUserGuest() {
-                                    Image("imgEditNameIcon")
-                                        .opacity(0.2)
-                                } else {
-                                    Image("imgEditNameIcon")
-                                }
-                                    
-                            }
-
-                            
-                        }.padding()
-                            .offset(y: 5)
-                        
-                    }.frame(width: UIScreen.screenWidth - 65, height: 67)
+                        .frame(height: 16)
                     
                     if isUserGuest() {
                         
@@ -203,7 +147,7 @@ struct MainScreen: View {
                 
                 
             }
-            .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth)
+            .frame(width: UIScreen.screenWidth - 40, height: 220)
             
         }
     }

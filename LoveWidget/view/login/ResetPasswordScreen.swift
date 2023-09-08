@@ -55,8 +55,9 @@ struct ResetPasswordScreen: View {
                     
                     ZStack {
                         
-                        SecureField ("Password", text: $passwordText)
-                            .padding()
+                        loginPasswordTextFieldView(text: $passwordText,
+                                                   title: "",
+                                                   showTitle: false)
                             .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                             .onChange(of: passwordText) { newValue in
                                 if passwordText.count > 5 {

@@ -82,8 +82,19 @@ struct LoginScreen: View {
                         
                         ZStack {
                             
-                            SecureField ("Password", text: $passwordText)
-                                .padding()
+//                            SecureField ("Password", text: $passwordText)
+//                                .padding()
+//                                .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+//                                .onChange(of: passwordText) { newValue in
+//                                    if textFieldValidatorEmail(email) && passwordText.count > 5 {
+//                                        isButtonEnabled = true
+//                                    } else {
+//                                        isButtonEnabled = false
+//                                    }
+//                                }
+                            loginPasswordTextFieldView(text: $passwordText,
+                                                       title: "Password",
+                                                       showTitle: false)
                                 .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                                 .onChange(of: passwordText) { newValue in
                                     if textFieldValidatorEmail(email) && passwordText.count > 5 {
@@ -215,6 +226,140 @@ struct LoginScreen_Previews: PreviewProvider {
         LoginScreen()
     }
 }
+
+struct loginPasswordTextFieldView: View {
+    @Binding var text : String
+    var title : String
+    var showTitle : Bool = true
+    var body: some View {
+        VStack(spacing: 4) {
+            if showTitle {
+                HStack{
+                    Text(title).font(.system(size: 14)).bold()
+                        .font(.system(size: 12))
+                    Spacer()
+                }
+            }
+            
+            ZStack(alignment: .center) {
+                VStack {
+                    Spacer().frame(height: 70)
+                    HStack {
+                        Spacer()
+                    }
+                }
+                HybridTextField(text: $text, titleKey: title)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 12)
+                    .frame(height: 70)
+                VStack {
+                    Spacer()
+                }
+                
+            }
+            
+            
+            HStack {
+                
+                
+                
+                Spacer()
+            }
+            
+        }
+    }
+}
+
+struct HybridTextField: View {
+    @Binding var text: String
+    @State var isSecure: Bool = true
+    var titleKey: String
+    var body: some View {
+        HStack{
+            Group{
+//                if isSecure{
+//                    SecureField(titleKey, text: $text)
+//
+//                }else{
+//                    TextField(titleKey, text: $text, prompt: Text(titleKey))
+//
+//                }
+                SecureEnhancedTextField(text: $text, isSecure: $isSecure, placeHolder: titleKey)
+            }.animation(.easeInOut(duration: 0.1), value: isSecure)
+            //Add any common modifiers here so they dont have to be repeated for each Field
+            Button(action: {
+                isSecure.toggle()
+            }, label: {
+                Image(uiImage: UIImage(named: !isSecure ? "iconOpenedEe" : "iconClosedEye")! )
+                    
+            })
+        }//Add any modifiers shared by the Button and the Fields here
+    }
+}
+
+struct SecureEnhancedTextField: UIViewRepresentable {
+    @Binding var text: String
+    @Binding var isSecure : Bool
+    var placeHolder : String
+    
+  
+    init(text: Binding<String>, isSecure : Binding<Bool>,placeHolder: String) {
+        self._text = text
+        self.placeHolder = placeHolder
+        self._isSecure = isSecure
+  }
+
+  func makeUIView(context: Context) -> ModifiedTextField {
+    let textField = ModifiedTextField(frame: .zero)
+    textField.delegate = context.coordinator
+      textField.placeholder = placeHolder
+      textField.font =  UIFont.init(name: "Helvetica Neue", size: 16.0)
+      textField.isSecureTextEntry = isSecure
+    return textField
+  }
+  
+
+  func updateUIView(_ uiView: ModifiedTextField, context: Context) {
+      uiView.isSecureTextEntry = isSecure
+    uiView.text = text
+  }
+
+
+  func makeCoordinator() -> Coordinator {
+    Coordinator(self)
+  }
+  
+  
+  class Coordinator: NSObject, UITextFieldDelegate {
+    let parent: SecureEnhancedTextField
+
+    init(_ parent: SecureEnhancedTextField) {
+      self.parent = parent
+    }
+  
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+      parent.text = textField.text ?? ""
+    }
+  }
+}
+
+class ModifiedTextField: UITextField {
+  let padding = UIEdgeInsets(top: 12, left: 5, bottom: 12, right: 5)
+
+  override open func textRect(forBounds bounds: CGRect) -> CGRect {
+    bounds.inset(by: padding)
+  }
+
+  override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    bounds.inset(by: padding)
+  }
+
+  override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+    bounds.inset(by: padding)
+  }
+}
+
 
 
 extension Color {

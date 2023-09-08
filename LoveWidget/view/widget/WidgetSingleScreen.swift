@@ -291,11 +291,11 @@ struct WidgetSingleScreen: View {
                                             .aspectRatio(contentMode: .fill)
                                     } placeholder: {
                                         
-                                        Image(.imgUserSample)
+                                        Image(.addBtn)
                                     }.frame(width: 84, height: 84)
                                 .clipShape(RoundedRectangle(cornerRadius: 42))
                         } else {
-                            Image(.imgUserSample)
+                            Image(.addBtn)
                         }
                         
                         Text(widgetViewModel.getSingleWidgetData?.members.count ?? 1 > 1 ?

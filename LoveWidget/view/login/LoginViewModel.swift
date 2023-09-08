@@ -376,5 +376,6 @@ struct UserModel: Codable {
     var profileImage:String
     var id:String
     var isVerified: Bool?
+    var email:String?
     
 }

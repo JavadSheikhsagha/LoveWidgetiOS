@@ -36,6 +36,8 @@ struct ContentView: View {
                 ForgetPasswordScreen()
             case .ResetPasswordScreen:
                 ResetPasswordScreen()
+            case .Profile:
+                ProfileScreen()
             }
         }.onAppear {
             if isUserLoggedIn() {

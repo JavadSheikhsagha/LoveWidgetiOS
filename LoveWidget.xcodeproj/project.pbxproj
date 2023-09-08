@@ -43,6 +43,7 @@
 		3F1D3E842AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
 		3F1D3E852AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
 		3F1D3E862AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
+		3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F14D02AAAF98700A065B2 /* ProfileScreen.swift */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
 		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
@@ -168,6 +169,7 @@
 		3F1491522AA4424800850ED8 /* WidgetEditIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetEditIntent.entitlements; sourceTree = "<group>"; };
 		3F1491532AA4425300850ED8 /* WidgyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgyExtension.entitlements; sourceTree = "<group>"; };
 		3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNetworkManager.swift; sourceTree = "<group>"; };
+		3F1F14D02AAAF98700A065B2 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		3F4799D72AA07FD9006BA057 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		3F4799D82AA07FD9006BA057 /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		3F4799D92AA07FD9006BA057 /* DataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			children = (
 				806CA8F72A9DDD0E00599C14 /* MainScreen.swift */,
 				3FC586522A9E19B200D85919 /* MainViewModel.swift */,
+				3F1F14D02AAAF98700A065B2 /* ProfileScreen.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */,
 				3F6F1E302AA79A28009E7230 /* IntentHandler.swift in Sources */,
 				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
+				3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
@@ -782,7 +786,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgyExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -797,7 +801,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.Widgy;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.Widgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -817,7 +821,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgyExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -832,7 +836,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.Widgy;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.Widgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -850,7 +854,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetEditIntent/WidgetEditIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -865,7 +869,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.WidgetEditIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.WidgetEditIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -883,7 +887,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetEditIntent/WidgetEditIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -898,7 +902,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.WidgetEditIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.WidgetEditIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -915,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -930,7 +934,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -947,7 +951,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -962,7 +966,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1092,7 +1096,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1117,7 +1121,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1139,7 +1143,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
-				DEVELOPMENT_TEAM = M2RP89S8N2;
+				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1164,7 +1168,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.a2mp.LoveWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
