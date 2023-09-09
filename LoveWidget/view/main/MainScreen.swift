@@ -21,9 +21,6 @@ struct MainScreen: View {
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     
     @State var showFriendsBottomSheet = false
-    @State var showEditNameDialog = false
-    @State var showLogoutDialog = false
-    @State var showDeleteAccountDialog = false
     @State var showAskForLoginDialog = false
     @State var changeNameText = ""
     
@@ -269,131 +266,7 @@ struct MainScreen: View {
             
         }
     }
-    
-    var changeNameDialog : some View {
-        ZStack {
-            Color(hex: "#EEF1FF").clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            VStack {
-                
-                Spacer()
-                    .frame(height: 28)
-                
-                Text("Edit Name")
-                    .bold()
-                    .font(.system(size: 20))
-                
-                Spacer()
-                    .frame(height: 36)
-                
-                ZStack {
-                    Image("imgEditTextName")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 65, height: 67)
-                    
-                    HStack(alignment:.bottom) {
-                        
-                        TextField("Username", text: $changeNameText)
-                            .font(.system(size: 16))
-                        
-                        Spacer()
-                        
-                        Image("imgEditNameIcon")
-
-                        
-                    }.padding()
-                        .offset(y: 5)
-                    
-                }.frame(width: UIScreen.screenWidth - 65, height: 67)
-                
-                Spacer()
-                    .frame(height: 42)
-                
-                Button(action: {
-                    //save name
-                    if changeNameText.count > 0 {
-                        mainViewModel.changeUsername(newUsername: changeNameText) { bool in
-                            if bool {
-                                withAnimation {
-                                    showEditNameDialog = false
-                                }
-                            }
-                        }
-                    } else {
-                        mainViewModel.isErrorOccurred = true
-                        mainViewModel.errorMessage = "User must have at least 1 characters."
-                    }
-                }, label: {
-                    Image("btnSave")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
-                    
-                Button(action: {
-                    //discard saving
-                    withAnimation {
-                        showEditNameDialog = false
-                    }
-                }, label: {
-                    Image("btnDiscard")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
-            }
-            
-        }
-        .frame(width: UIScreen.screenWidth - 40, height:  UIScreen.screenWidth)
-        .opacity(showEditNameDialog ? 1.0 : 0.0)
-        .offset(y: showEditNameDialog ? 0 : UIScreen.screenHeight)
-    }
-    
-    var logoutDialog : some View {
-        ZStack {
-            
-            Color(hex: "#FFFFFF")
-                .frame(width: UIScreen.screenWidth - 64, height: 120)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            VStack(spacing: 20) {
-                
-                Text("Are you sure you want to logout?")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(hex: "#707070"))
-                
-                
-                HStack(spacing: 32) {
-                    
-                    Button(action: {
-                        withAnimation {
-                            showLogoutDialog = false
-                        }
-                    }, label: {
-                        Image("btnCancel")
-                    })
-                    
-                    Button(action: {
-                        widgetViewModel.allWidgetsMain = []
-                        widgetViewModel.historyWidgets = []
-                        saveToken(token: "")
-                        saveUser(userModel: nil)
-                        saveAllWidgetsToDatabase(widgets: [])
-                        OneSignal.logout()
-                        withAnimation {
-                            showLogoutDialog = false
-                            mainViewModel.SCREEN_VIEW = .Login
-                        }
-                    }, label: {
-                        Image("btnLogout")
-                    })
-                    
-                }
-            }
-        }
-        .frame(width: UIScreen.screenWidth - 64, height: 120)
-        .opacity(showLogoutDialog ? 1.0 : 0.0)
-        .offset(y: showLogoutDialog ? 0 : UIScreen.screenHeight)
-    }
-    
+        
     var askForLoginDialog : some View {
         ZStack {
             
@@ -440,52 +313,7 @@ struct MainScreen: View {
         .offset(y: showAskForLoginDialog ? 0 : UIScreen.screenHeight)
     }
     
-    
-    var deleteAccountDialog : some View {
-        ZStack {
-            
-            Color(hex: "#FFFFFF")
-                .frame(width: UIScreen.screenWidth - 64, height: 120)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            VStack(spacing: 20) {
-                
-                Text("Are you sure you want to delete your account?")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(hex: "#707070"))
-                
-                
-                HStack(spacing: 32) {
-                    
-                    Button(action: {
-                        withAnimation {
-                            showDeleteAccountDialog = false
-                        }
-                    }, label: {
-                        Image("btnCancel")
-                    })
-                    
-                    Button(action: {
-                        mainViewModel.deleteUser { bool in
-                            if bool {
-                                withAnimation {
-                                    showDeleteAccountDialog = false
-                                    mainViewModel.SCREEN_VIEW = .Login
-                                }
-                            }
-                        }
-                    }, label: {
-                        Image("btnDelete")
-                    })
-                    
-                }
-            }
-        }
-        .frame(width: UIScreen.screenWidth - 64, height: 120)
-        .opacity(showDeleteAccountDialog ? 1.0 : 0.0)
-        .offset(y: showDeleteAccountDialog ? 0 : UIScreen.screenHeight)
-    }
-    
+     
     var body: some View {
         ZStack {
             
@@ -549,38 +377,17 @@ struct MainScreen: View {
             
             ZStack {
                 
-                Color.black.opacity(showLogoutDialog ||
-                                    showEditNameDialog ||
-                                    showAskForLoginDialog ||
-                                    showDeleteAccountDialog ?
+                Color.black.opacity(showAskForLoginDialog ?
                                     0.6 : 0.0)
                 .ignoresSafeArea()
-                .offset(y: showLogoutDialog ||
-                        showEditNameDialog ||
-                        showDeleteAccountDialog ||
-                        showAskForLoginDialog ?
+                .offset(y: showAskForLoginDialog ?
                         0 : UIScreen.screenHeight)
                 .onTapGesture {
                     withAnimation {
-                        showLogoutDialog = false
-                        showEditNameDialog = false
-                        showDeleteAccountDialog = false
                         showAskForLoginDialog = false
                     }
                 }
                 
-                
-                changeNameDialog
-                    .onChange(of: showEditNameDialog) { newValue in
-                        if newValue {
-                            changeNameText = loadUser()?.username ?? ""
-                        }
-                        UIApplication.shared.endEditing()
-                    }
-                
-                logoutDialog
-                
-                deleteAccountDialog
                 
                 askForLoginDialog
                 
