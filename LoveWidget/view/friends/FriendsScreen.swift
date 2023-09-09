@@ -223,6 +223,9 @@ struct FriendsScreen: View {
                 } else {
                     ForEach(friednsViewModel.friends, id: \.id) { friend in
                         
+                        Spacer()
+                            .frame(height: 28)
+                        
                         ZStack {
                             
                             Color(hex: "#EEF1FF")
