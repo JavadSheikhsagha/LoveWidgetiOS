@@ -24,6 +24,63 @@ class LoginViewModel : ObservableObject {
     @Published var token : String = ""
     @Published var userModel  :UserModel? = nil
     
+    func changePasswordProfileScreen(password:String, oldPassword:String, onSuccess : @escaping (Bool)-> Void) {
+        
+        let url = "\(base_url)/auth/edit-password"
+        let parameter = [
+            "password":password,
+            "oldPassword":oldPassword
+        ]
+        
+        let header = [
+            "Authorization":"Bearer \(getToken() ?? "")"
+        ]
+        
+        PostApiService<LoginResponseModel>(parameters: parameter, header: header, url: url)
+            .fetch { dataState in
+                
+                switch(dataState) {
+                    
+                case .success(data: let data, message: _):
+                    if let data = data {
+                        if data.success == true {
+                            saveToken(token: data.accessToken ?? "")
+                            saveUser(userModel: data.user)
+                            self.token = getToken() ?? ""
+                            self.userModel = loadUser()
+                            onSuccess(true)
+                        } else {
+                            self.isErrorOccurred = true
+                            self.isLoading = false
+                            self.errorMessage = data.message
+                            onSuccess(false)
+                        }
+                        
+                    } else {
+                        self.isErrorOccurred = true
+                        self.isLoading = false
+                        self.errorMessage = "Login Failed.."
+                        onSuccess(false)
+                    }
+                    self.isLoading = false
+                    
+                case .error(error: let error, message: let msg):
+                    self.isErrorOccurred = true
+                    self.isLoading = false
+                    self.errorMessage = (msg ?? error?.localizedDescription) ?? ""
+                    
+                case .loading(message: _):
+                    self.isLoading = true
+                    self.isErrorOccurred = false
+                    self.errorMessage = ""
+                    
+                case .idle(message: _):
+                    break
+                }
+            }
+        
+    }
+    
     
     func resetPassword(password:String, onSuccess : @escaping (Bool)-> Void) {
         

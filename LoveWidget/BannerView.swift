@@ -58,11 +58,11 @@ struct BannerModifier: ViewModifier {
                     }
                     .foregroundColor(Color.white)
                     .padding(12)
-                    .background(data.type == .success ? Color(hex: "#EEFFF3") : Color(hex: ""))
+                    .background(data.type == .success ? Color(hex: "#EEFFF3") : Color(red: 1, green: 0.75, blue: 0.8))
                     .cornerRadius(12) /// make the background rounded
                     .overlay( /// apply a rounded border
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color(hex: "#23A047"), lineWidth: 1)
+                            .stroke(data.type == .success ? Color(hex: "#23A047") : Color(red: 1, green: 0.51, blue: 0.6), lineWidth: 1)
                     )
                     .shadow(radius: 20)
                     Spacer()

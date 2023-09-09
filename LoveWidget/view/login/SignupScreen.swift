@@ -143,7 +143,9 @@ struct SignupScreen: View {
                     
                     Button {
                         if isButtonEnabled {
+                            isButtonEnabled = false
                             loginViewModel.registerUser(email: email, password: passwordText) { bool in
+                                isButtonEnabled = true
                                 if bool {
                                     withAnimation {
                                         mainViewModel.SCREEN_VIEW = .MainMenu
@@ -185,15 +187,17 @@ struct SignupScreen: View {
 //                        }
                         
                         UIApplication.shared.endEditing()
-                        loginViewModel.skipLogin(onSuccess: { bool in
-                            if bool {
-                                withAnimation {
-                                    mainViewModel.SCREEN_VIEW = .MainMenu
+                        if isButtonEnabled {
+                            loginViewModel.skipLogin(onSuccess: { bool in
+                                if bool {
+                                    withAnimation {
+                                        mainViewModel.SCREEN_VIEW = .MainMenu
+                                    }
+                                } else {
+                                    
                                 }
-                            } else {
-                                
-                            }
-                        })
+                            })
+                        }
                         
                         
                     } label: {
