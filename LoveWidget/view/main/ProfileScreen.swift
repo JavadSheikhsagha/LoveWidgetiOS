@@ -282,7 +282,7 @@ struct ProfileScreen: View {
                     .frame(height: 36)
                 
                 ZStack {
-                    Image("imgEditTextName")
+                    Image(.outlinePassword)
                         .resizable()
                         .frame(width: UIScreen.screenWidth - 65, height: 67)
                     
@@ -301,7 +301,7 @@ struct ProfileScreen: View {
                     .frame(height: 20)
                 
                 ZStack {
-                    Image("imgEditTextName")
+                    Image(.outlineNewPassword)
                         .resizable()
                         .frame(width: UIScreen.screenWidth - 65, height: 67)
                     
@@ -318,7 +318,7 @@ struct ProfileScreen: View {
                 
                 
                 ZStack {
-                    Image("imgEditTextName")
+                    Image(.outlineConfirmPassword)
                         .resizable()
                         .frame(width: UIScreen.screenWidth - 65, height: 67)
                     
@@ -519,14 +519,13 @@ struct ProfileScreen: View {
                         
                         
                         ZStack {
-                            Image("outlinePassword")
+                            Image(.outlinePasswordFilled)
                                 .resizable()
                                 .frame(width: UIScreen.screenWidth - 65, height: 67)
                             
                             HStack(alignment:.bottom) {
                                 
-                                Text("*Password*")
-                                    .font(.system(size: 16))
+                                
                                 
                                 Spacer()
                                 
