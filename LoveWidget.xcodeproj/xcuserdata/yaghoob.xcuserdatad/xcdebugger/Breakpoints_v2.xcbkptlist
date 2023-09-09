@@ -3,4 +3,54 @@
    uuid = "0855C8B2-9DF0-4EB2-9B28-0DE88997E766"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E11903FE-3D96-412E-B1DD-46916DBCC585"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoveWidget/view/widget/WidgetViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "uploadImageToHistory(image:onResponse:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E11903FE-3D96-412E-B1DD-46916DBCC585 - 12de599edc653a87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in LoveWidget.WidgetViewModel.uploadImageToHistory(image: Swift.Optional&lt;__C.UIImage&gt;, onResponse: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "LoveWidget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaghoob/Documents/LoveWidgetiOS/LoveWidget/view/widget/WidgetViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "266"
+                  endingLineNumber = "266"
+                  offsetFromSymbolStart = "704">
+               </Location>
+               <Location
+                  uuid = "E11903FE-3D96-412E-B1DD-46916DBCC585 - 12de599edc653a87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in LoveWidget.WidgetViewModel.uploadImageToHistory(image: Swift.Optional&lt;__C.UIImage&gt;, onResponse: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "LoveWidget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaghoob/Documents/LoveWidgetiOS/LoveWidget/view/widget/WidgetViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "266"
+                  endingLineNumber = "266"
+                  offsetFromSymbolStart = "724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

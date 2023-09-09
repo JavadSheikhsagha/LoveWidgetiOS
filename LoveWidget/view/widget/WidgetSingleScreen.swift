@@ -19,6 +19,7 @@ struct WidgetSingleScreen: View {
     @State var showAction: Bool = false
     @State var showImagePicker: Bool = false
     @State var showCameraPicker: Bool = false
+    @State var showIntroScreen = false
     @State var showBanner = true
     @State var uiImage: UIImage? = nil
     @State var playLottie = true
@@ -106,7 +107,8 @@ struct WidgetSingleScreen: View {
         .sheet(isPresented: $showFriendsBottomSheet) {
             FriendsScreen(doNeedSelectFriend: true)
                 
-        }.onChange(of: showFriendsBottomSheet) { newValue in
+        }
+        .onChange(of: showFriendsBottomSheet) { newValue in
             if !newValue {
                 // add friend to widget
                 widgetViewModel.addFriendToWidget(friendId: friendsViewModel.selectedFriend?.id ?? "") { bool in
@@ -116,6 +118,9 @@ struct WidgetSingleScreen: View {
             }
         }
         .banner(data: $bannerData, show: $widgetViewModel.isImageUplaoded)
+        .sheet(isPresented: $showIntroScreen, content: {
+            IntroScreen()
+        })
     }
     
     var sheet: ActionSheet {
@@ -196,7 +201,7 @@ struct WidgetSingleScreen: View {
             Spacer()
             
             Button {
-                
+                showIntroScreen = true
             } label: {
                 Image(.addToHomeBtn)
                     .resizable()

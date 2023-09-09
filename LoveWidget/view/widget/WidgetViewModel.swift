@@ -262,7 +262,7 @@ class WidgetViewModel : ObservableObject {
                 })
                 .validate()
                 .responseJSON(completionHandler: { response in
-                    
+                    print(JSON(response.data))
                     switch response.result{
                         case .success(let value):
                             print(JSON(value))

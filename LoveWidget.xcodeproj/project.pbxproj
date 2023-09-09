@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F068DC12AAC4D2B008D7C8D /* intro_vid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3F068DC02AAC4D2B008D7C8D /* intro_vid.mp4 */; };
+		3F068DC32AAC4D3C008D7C8D /* IntroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */; };
 		3F14912E2AA4413400850ED8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14910F2AA43ED900850ED8 /* WidgetKit.framework */; };
 		3F14912F2AA4413400850ED8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1491112AA43ED900850ED8 /* SwiftUI.framework */; };
 		3F1491362AA4413700850ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1491352AA4413700850ED8 /* Assets.xcassets */; };
@@ -153,6 +155,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F068DC02AAC4D2B008D7C8D /* intro_vid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro_vid.mp4; sourceTree = "<group>"; };
+		3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreen.swift; sourceTree = "<group>"; };
 		3F14910F2AA43ED900850ED8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3F1491112AA43ED900850ED8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3F1491222AA43EE400850ED8 /* WidgetZyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetZyExtension.entitlements; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				3F7927A02A9F10EA00D5F1F5 /* friends */,
 				3FE3E5A52A9E6F56003CD376 /* widget */,
 				806CA8F12A9DD7D600599C14 /* login */,
+				3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				3F068DC02AAC4D2B008D7C8D /* intro_vid.mp4 */,
 				3F83A60A2AA89A5E0072A380 /* loading2.json */,
 				3F6FA8EA2AA7850F005EA60B /* loading.json */,
 				3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */,
@@ -662,6 +668,7 @@
 				3FC27A132AA7106500EC59A1 /* Purple Purse.ttf in Resources */,
 				3F6FA8D92AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 				3FC27A122AA7106500EC59A1 /* SF UI TEXT.ttf in Resources */,
+				3F068DC12AAC4D2B008D7C8D /* intro_vid.mp4 in Resources */,
 				3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +732,7 @@
 			files = (
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
 				3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */,
+				3F068DC32AAC4D3C008D7C8D /* IntroScreen.swift in Sources */,
 				3F1D3E842AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
