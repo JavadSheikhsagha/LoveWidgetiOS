@@ -9,7 +9,7 @@ import Foundation
 import WidgetKit
 
 
-var appSuitName = "group.app.love"
+var appSuitName = "group.pedram.widget"
 
 func saveToken(token:String) {
     

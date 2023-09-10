@@ -91,7 +91,7 @@ struct WidgyEntryView : View {
                                 
                                 Button(intent: UpdateWidgetIntent(widgetId: widget.id ?? "")) {
                                     VStack {
-                                        Image(.btnReload)
+                                        Image("btnReload")
                                     }
                                 }
                                 Spacer()

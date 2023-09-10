@@ -139,6 +139,7 @@ struct EditQuoteScreen: View {
                         .foregroundStyle(.white)
                     
                 }.frame(width: 64, height: 28)
+                    .padding(.trailing, 16)
             }
 
 
@@ -386,58 +387,60 @@ struct WidgetEditScreenFooter : View {
                     
                     Spacer()
                     
-                    HStack {
-                        
-                        Button {
-                            withAnimation {
-                                txtIndex = 3
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            
+                            Button {
+                                withAnimation {
+                                    txtIndex = 3
+                                }
+                            } label: {
+                                Text("Default Text")
+                                    .frame(width: 100)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(txtIndex == 3 ? "textColorAccent" : "textColorUnselected"))
                             }
-                        } label: {
-                            Text("Default Text")
-                                .frame(width: 100)
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(txtIndex == 3 ? "textColorAccent" : "textColorUnselected"))
-                        }
-                        
-                        Button {
-                            withAnimation {
-                                txtIndex = 0
+                            
+                            Button {
+                                withAnimation {
+                                    txtIndex = 0
+                                }
+                            } label: {
+                                Text("Background")
+                                    .frame(width: 100)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(txtIndex == 0 ? "textColorAccent" : "textColorUnselected"))
                             }
-                        } label: {
-                            Text("Background")
-                                .frame(width: 100)
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(txtIndex == 0 ? "textColorAccent" : "textColorUnselected"))
-                        }
+
+                                
+                            Button {
+                                withAnimation {
+                                    txtIndex = 1
+                                }
+                            } label: {
+                                Text("Text font")
+                                    .frame(width: 100)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(txtIndex == 1 ? "textColorAccent" : "textColorUnselected"))
+                            }
+
+                                
+                            
+                            Button {
+                                withAnimation {
+                                    txtIndex = 2
+                                }
+                            } label: {
+                                Text("Text Color")
+                                    .frame(width: 100)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(txtIndex == 2 ? "textColorAccent" : "textColorUnselected"))
+                            }
 
                             
-                        Button {
-                            withAnimation {
-                                txtIndex = 1
-                            }
-                        } label: {
-                            Text("Text font")
-                                .frame(width: 100)
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(txtIndex == 1 ? "textColorAccent" : "textColorUnselected"))
                         }
-
-                            
-                        
-                        Button {
-                            withAnimation {
-                                txtIndex = 2
-                            }
-                        } label: {
-                            Text("Text Color")
-                                .frame(width: 100)
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(txtIndex == 2 ? "textColorAccent" : "textColorUnselected"))
-                        }
-
-                        
+                        .padding(.horizontal, 24)
                     }
-                    .padding(.horizontal, 24)
                     
                 }.frame(height: 80)
                 
