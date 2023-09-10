@@ -39,6 +39,7 @@ struct EditQuoteScreen: View {
                 // view
                 
                 editQuoteView
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 // view
                 
@@ -66,8 +67,16 @@ struct EditQuoteScreen: View {
                     }
                 
                 TextField("Enter your text", text: $textFieldText)
+                    .lineLimit(nil)
                     .multilineTextAlignment(.center)
-                    .frame(maxWidth: 200)
+                    .frame(width: 200, height: 200)
+                    .font(.custom(textFont, size: 22))
+                    .foregroundStyle(Color(fontColor))
+                    .opacity(textFieldText.count > 0 ? 0.0 : 1.0)
+                
+                Text(textFieldText)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 200, height: 200)
                     .font(.custom(textFont, size: 22))
                     .foregroundStyle(Color(fontColor))
                 
@@ -89,6 +98,7 @@ struct EditQuoteScreen: View {
                     }
                 
                 TextField("Enter your text", text: $textFieldText)
+                    .lineLimit(4)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 200)
                     .font(.custom(textFont, size: 22))
@@ -138,14 +148,14 @@ struct EditQuoteScreen: View {
                     Text("Save")
                         .foregroundStyle(.white)
                     
-                }.frame(width: 64, height: 28)
+                }.frame(width: 100, height: 28)
                     .padding(.trailing, 16)
             }
 
 
             
         }
-        .padding(.horizontal, 30)
+        .padding(.horizontal, 0)
     }
     
 }

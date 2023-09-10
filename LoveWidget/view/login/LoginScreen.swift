@@ -112,6 +112,8 @@ struct LoginScreen: View {
                             
                         HStack {
                             
+                            Spacer()
+                            
                             Text("forget password?")
                               .font(Font.custom("SF UI  Text", size: 12))
                               .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
@@ -121,8 +123,6 @@ struct LoginScreen: View {
                                       mainViewModel.SCREEN_VIEW = .ForgetPasswordScreen
                                   }
                               }
-                            
-                            Spacer()
                             
                         }.padding(.horizontal, 32)
                     }
@@ -188,6 +188,11 @@ struct LoginScreen: View {
                     loginViewModel.isErrorOccurred = false
                 }
             }
+            
+            Color.white
+                .ignoresSafeArea()
+                .opacity(loginViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: loginViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
             
             LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)

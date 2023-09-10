@@ -124,12 +124,18 @@ struct ForgetPasswordScreen: View {
                 }
             }
             
+            Color.white
+                .ignoresSafeArea()
+                .opacity(loginViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: loginViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
             LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
                 .opacity(loginViewModel.isLoading ? 1.0 : 0.0)
                 .offset(y: loginViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
+
             
         }
     }

@@ -113,7 +113,12 @@ struct WidgyEntryView : View {
                         }
                     }
                 } else {
-                    Image(.imgWidgetEmptyBg)
+                    GeometryReader { proxy in
+                        Image(.imgWidgetEmptyBg)
+                            .resizable()
+                            .frame(width: proxy.frame(in: .local).width, height: proxy.frame(in: .local).height)
+                    }
+                    
                 }
                 
             } else {

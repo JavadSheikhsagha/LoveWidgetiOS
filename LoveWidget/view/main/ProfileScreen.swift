@@ -88,6 +88,12 @@ struct ProfileScreen: View {
                 
                 askForLoginDialog
                 
+                Color.white
+                    .ignoresSafeArea()
+                    .opacity(mainViewModel.isLoading ? 0.4 : 0.0)
+                    .offset(y: mainViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+                    
+                
             }
             
         }
@@ -142,7 +148,7 @@ struct ProfileScreen: View {
             VStack {
                 
                 Spacer()
-                    .frame(height: 28)
+                    .frame(height: 8)
                 
                 Text("Edit Name")
                     .bold()
@@ -209,7 +215,7 @@ struct ProfileScreen: View {
             }
             
         }
-        .frame(width: UIScreen.screenWidth - 40, height:  UIScreen.screenWidth)
+        .frame(width: UIScreen.screenWidth - 40, height:  340)
         .opacity(showEditNameDialog ? 1.0 : 0.0)
         .offset(y: showEditNameDialog ? 0 : UIScreen.screenHeight)
     }
@@ -432,7 +438,7 @@ struct ProfileScreen: View {
                     Spacer()
                 }
                 
-                VStack {
+                VStack(spacing: 16) {
                     
                     Spacer()
                         .frame(height: 24)
@@ -500,7 +506,7 @@ struct ProfileScreen: View {
                     } else {
                         
                         ZStack {
-                            Image("imgEditTextName")
+                            Image(.outlineEmail)
                                 .resizable()
                                 .frame(width: UIScreen.screenWidth - 65, height: 67)
                             

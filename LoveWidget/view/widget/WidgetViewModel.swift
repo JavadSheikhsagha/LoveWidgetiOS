@@ -100,6 +100,9 @@ class WidgetViewModel : ObservableObject {
                         if data.success == true {
                             
                             if let history = data.data{
+                                for i in 0..<self.historyWidgets.count {
+                                    self.historyWidgets[i].data = self.historyWidgets[i].data.reversed()
+                                }
                                 self.historyWidgets = history.reversed()
                             }
                             onSuccess(true)
@@ -549,7 +552,7 @@ struct GetHistoryResponseModel: Codable {
 struct HistoryModel : Codable {
     
     let showTime:String
-    let data : [HistoryItemModel]
+    var data : [HistoryItemModel]
     
 }
 

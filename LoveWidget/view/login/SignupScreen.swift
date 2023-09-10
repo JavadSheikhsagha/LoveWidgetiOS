@@ -213,7 +213,7 @@ struct SignupScreen: View {
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                         
                         Text("Log in")
-                            .font(Font.custom("SF UI  Text", size: 12))
+                            .font(Font.custom("SF UI  Text", size: 14))
                             .foregroundStyle(Color(hex:"#87A2FB"))
                             .onTapGesture {
                                 // go to sign up
@@ -224,7 +224,7 @@ struct SignupScreen: View {
                     }
                     
                     Spacer()
-                        .frame(height: 24)
+                        .frame(height: 48)
                     
                 }
                 
@@ -239,12 +239,18 @@ struct SignupScreen: View {
                 }
             }
             
+            Color.white
+                .ignoresSafeArea()
+                .opacity(loginViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: loginViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
             LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
                 .opacity(loginViewModel.isLoading ? 1.0 : 0.0)
                 .offset(y: loginViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
+
             
         }
     }

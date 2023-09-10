@@ -38,6 +38,11 @@ struct WidgetHistoryScreen: View {
                 
             }
             
+            Color.white
+                .ignoresSafeArea()
+                .opacity(widgetViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
             LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
@@ -52,38 +57,56 @@ struct WidgetHistoryScreen: View {
             
             VStack {
                 
-                ForEach(widgetViewModel.historyWidgets, id: \.showTime) { widget in
+                if widgetViewModel.historyWidgets.count == 0 && !widgetViewModel.isLoading {
                     
-                    VStack {
+                    Spacer()
+                        .frame(height: UIScreen.screenWidth/2)
+                    
+                    Image(.emptyWidgetList)
+                    
+                    Spacer()
+                        .frame(height: 16)
+                    // body text
+                    Text("You don’t have any history yet")
+                      .font(Font.custom("SF UI Text", size: 16))
+                      .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                    
+                    Spacer()
+                    
+                } else {
+                    ForEach(widgetViewModel.historyWidgets, id: \.showTime) { widget in
                         
-                        Spacer()
-                            .frame(height: 20)
-                        
-                        Text(widget.showTime)
-                          .font(Font.custom("SF UI  Text", size: 14))
-                          .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-                        
-                        Spacer()
-                            .frame(height: 20)
-                        
-                        ForEach(widget.data, id:\.id) { item in
+                        VStack {
                             
-                            VStack {
+                            Spacer()
+                                .frame(height: 20)
+                            
+                            Text(widget.showTime)
+                              .font(Font.custom("SF UI  Text", size: 14))
+                              .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                            
+                            Spacer()
+                                .frame(height: 20)
+                            
+                            ForEach(widget.data, id:\.id) { item in
                                 
-                                if item.sender.username == loadUser()?.username {
-                                    SenderIsUser(historyItemModel: item)
-                                } else {
-                                    SenderIsGuest(historyItemModel: item)
+                                VStack {
+                                    
+                                    if item.sender.username == loadUser()?.username {
+                                        SenderIsUser(historyItemModel: item)
+                                    } else {
+                                        SenderIsGuest(historyItemModel: item)
+                                    }
+                                    
+                                    Spacer()
+                                        .frame(height: 16)
+                                    
                                 }
-                                
-                                Spacer()
-                                    .frame(height: 16)
-                                
                             }
+                            
                         }
                         
                     }
-                    
                 }
                 
                 

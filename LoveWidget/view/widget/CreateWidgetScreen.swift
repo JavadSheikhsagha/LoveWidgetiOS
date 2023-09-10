@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct CreateWidgetScreen: View {
     
@@ -16,6 +17,8 @@ struct CreateWidgetScreen: View {
     @State var widgetName = ""
     @State var isButtonEnabled : Bool = false
     @State var showFriendsSheet = false
+    @State var showIntroScreen = false
+    @State var playLottie = true
     
     var body: some View {
         ZStack {
@@ -37,6 +40,19 @@ struct CreateWidgetScreen: View {
                 createWidgetButton
                 
             }
+            
+            Color.white
+                .ignoresSafeArea()
+                .opacity(widgetViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
+            LottieView(name: "loading2.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
+            
+
         }
         .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
             Button("ok") {
@@ -45,6 +61,9 @@ struct CreateWidgetScreen: View {
         }
         .sheet(isPresented: $showFriendsSheet) {
             FriendsScreen(doNeedSelectFriend: true)
+        }
+        .sheet(isPresented: $showIntroScreen) {
+            IntroScreen()
         }
     }
     
@@ -82,14 +101,14 @@ struct CreateWidgetScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
-//            Button {
-//                // show tutorial
-//                
-//            } label: {
-//                Image(.addToHomeBtn)
-//                    .resizable()
-//                    .frame(width: UIScreen.main.bounds.width - 64, height: 55)
-//            }
+            Button {
+                // show tutorial
+                showIntroScreen = true
+            } label: {
+                Image(.addToHomeBtn)
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width - 64, height: 55)
+            }
 
         }
     }
@@ -97,7 +116,7 @@ struct CreateWidgetScreen: View {
     var widgetNameTextField : some View {
         VStack {
             Spacer()
-                .frame(height: 80)
+                .frame(height: 60)
             
             ZStack {
                 
@@ -105,7 +124,7 @@ struct CreateWidgetScreen: View {
                     .padding()
                     .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     .onChange(of: widgetName) { newValue in
-                        if widgetName.count > 3 {
+                        if widgetName.count > 1 {
                             isButtonEnabled = true
                         } else {
                             isButtonEnabled = false

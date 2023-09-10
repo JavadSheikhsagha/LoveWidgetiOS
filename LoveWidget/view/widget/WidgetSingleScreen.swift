@@ -71,6 +71,12 @@ struct WidgetSingleScreen: View {
                 
             }
             
+            
+            Color.white
+                .ignoresSafeArea()
+                .opacity(widgetViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: widgetViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
             LottieView(name: "loading2.json", play: $playLottie)
                 .frame(width: 200, height: 200)
                 .lottieLoopMode(.loop)
@@ -282,7 +288,7 @@ struct WidgetSingleScreen: View {
                 Button {
                     //send notif
                 } label: {
-                    Image(.imgHeartMiss)
+                    Image(.imgHeartMissyou)
                 }.offset(y: -10)
 
                 

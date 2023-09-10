@@ -23,6 +23,8 @@ struct MainScreen: View {
     @State var showFriendsBottomSheet = false
     @State var showAskForLoginDialog = false
     @State var changeNameText = ""
+    @State var showBanner = false
+    @State var bannerData = BannerData(title: "Copied to clipboard.", detail: "", type: .success)
     
     
     var cardTopView : some View {
@@ -59,6 +61,9 @@ struct MainScreen: View {
                 
             }.padding(.horizontal, 16)
             
+            Spacer()
+                .frame(height: 48)
+            
             ZStack {
                 
                 Color.white
@@ -67,9 +72,6 @@ struct MainScreen: View {
                     
                 
                 VStack {
-                    
-                    Spacer()
-                        .frame(height: 16)
                     
                     if isUserGuest() {
                         
@@ -99,6 +101,7 @@ struct MainScreen: View {
                                 Button {
                                     UIPasteboard.general.setValue(loadUser()?.code ?? "", // text
                                                 forPasteboardType: UTType.plainText.identifier)
+                                    showBanner = true
                                 } label: {
                                     Image("iconCopyToClipboard")
                                 }
@@ -133,7 +136,7 @@ struct MainScreen: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     } else {
-                        ShareLink(item: loadUser()?.code ?? "") {
+                        ShareLink(item: "Hello. I am \(loadUser()?.username ?? "") and this is my code in love widget. \n\(loadUser()?.code ?? "") \nIf you don't have the love widget app yet, you can install it through the link below.\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
                             Image("imgShareMyCodeButton")
                                 .resizable()
                                 .frame(width: UIScreen.screenWidth - 65 ,height: 55)
@@ -144,7 +147,7 @@ struct MainScreen: View {
                 
                 
             }
-            .frame(width: UIScreen.screenWidth - 40, height: 220)
+            .frame(width: UIScreen.screenWidth - 40, height: 200)
             
         }
     }
@@ -338,7 +341,7 @@ struct MainScreen: View {
                 ScrollView(showsIndicators: false) {
                     
                     Spacer()
-                        .frame(height: 0)
+                        .frame(height: 12)
                     
                     cardTopView
                     
@@ -394,6 +397,7 @@ struct MainScreen: View {
             }
             
         }
+        .banner(data: $bannerData, show: $showBanner)
         .sheet(isPresented: $showFriendsBottomSheet) {
             FriendsScreen()
         }

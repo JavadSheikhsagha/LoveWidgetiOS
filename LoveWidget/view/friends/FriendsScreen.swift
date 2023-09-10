@@ -61,6 +61,11 @@ struct FriendsScreen: View {
                 removeFriendDialog
             }
             
+            Color.white
+                .ignoresSafeArea()
+                .opacity(friednsViewModel.isLoading ? 0.4 : 0.0)
+                .offset(y: friednsViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
+            
             
         }
         .alert(friednsViewModel.errorMessage, isPresented: $friednsViewModel.isErrorOccurred) {
@@ -107,7 +112,7 @@ struct FriendsScreen: View {
                         }
                         
                     }, label: {
-                        Image("btnDelete")
+                        Image(.btnRemove)
                     })
                     
                 }
@@ -133,7 +138,7 @@ struct FriendsScreen: View {
             ZStack {
                 
                 Color(hex: "#EEF1FF")
-                    .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 64)
+                    .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 100)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 VStack {
