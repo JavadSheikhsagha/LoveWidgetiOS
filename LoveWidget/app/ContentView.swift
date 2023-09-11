@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyStoreKit
 
 struct ContentView: View {
     
@@ -38,12 +39,31 @@ struct ContentView: View {
                 ResetPasswordScreen()
             case .Profile:
                 ProfileScreen()
+            case .Purchase:
+                PurchaseScreen()
             }
+            
         }.onAppear {
             if isUserLoggedIn() {
                 mainViewModel.SCREEN_VIEW = .MainMenu
             } else {
                 mainViewModel.SCREEN_VIEW = .Login
+            }
+            
+            retrieveProducts()
+        }
+    }
+    
+    func retrieveProducts() {
+        
+        SwiftyStoreKit.retrieveProductsInfo(["Monthly__Subscription","Yearly_Subscription","Lifetime"]) { result in
+            
+            for i in result.retrievedProducts {
+                for j in 0..<purchaseIds.count {
+                    if i.productIdentifier == purchaseIds[j] {
+                        purchaseIds[j] = i.localizedPrice ?? "$$$"
+                    }
+                }
             }
         }
     }

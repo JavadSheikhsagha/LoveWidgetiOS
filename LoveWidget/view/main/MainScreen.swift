@@ -24,6 +24,7 @@ struct MainScreen: View {
     @State var showAskForLoginDialog = false
     @State var changeNameText = ""
     @State var showBanner = false
+    @State var showIntroScreen = false
     @State var bannerData = BannerData(title: "Copied to clipboard.", detail: "", type: .success)
     
     
@@ -52,11 +53,16 @@ struct MainScreen: View {
                 Text(appName)
                     .bold()
                     .font(.system(size: 16))
+                    .offset(y: -10)
                 
                 Spacer()
                 
-                Circle().frame(width: 50, height: 50)
-                    .opacity(0.0)
+                Button {
+                    showIntroScreen = true
+                } label: {
+                    Image(.iconInfo)
+                        .frame(width: 50, height: 50)
+                }
                 
                 
             }.padding(.horizontal, 16)
@@ -136,7 +142,7 @@ struct MainScreen: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     } else {
-                        ShareLink(item: "Hello. I am \(loadUser()?.username ?? "") and this is my code in love widget. \n\(loadUser()?.code ?? "") \nIf you don't have the love widget app yet, you can install it through the link below.\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
+                        ShareLink(item: "Hey there! I just came across this awesome app that lets us connect and make each other's day a little brighter :)\n\nThis is my code inside this program: \(loadUser()?.code ?? "")\n\nYou can simply download it by clicking on the link provided below.\n\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
                             Image("imgShareMyCodeButton")
                                 .resizable()
                                 .frame(width: UIScreen.screenWidth - 65 ,height: 55)
@@ -406,6 +412,9 @@ struct MainScreen: View {
                 mainViewModel.isErrorOccurred = false
             }
         }
+        .sheet(isPresented: $showIntroScreen) {
+            IntroScreen()
+        }
     }
 }
 
@@ -493,7 +502,14 @@ struct WidgetListSingleView : View {
             .frame(width: (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
             
             Spacer()
-                .frame(height: 10)
+                .frame(height: 5)
+            
+            Text("Me \(widget.member != nil ? "& \(widget.member!)" : "")")
+                .font(.system(size: 10))
+                .foregroundStyle(Color(hex: "#767676"))
+            
+            Spacer()
+                .frame(height: 7)
             
             Text(widget.name ?? "widget")
               .font(Font.custom("SF UI  Text", size: 14))

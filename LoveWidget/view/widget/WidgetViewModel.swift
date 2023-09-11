@@ -241,7 +241,7 @@ class WidgetViewModel : ObservableObject {
     
     func uploadImageToHistory(image : UIImage?, onResponse : @escaping (Bool) -> Void) {
         
-        if let image1 = image?.jpegData(compressionQuality: 0.2) {
+        if let image1 = image?.jpegData(compressionQuality: 1.0) {
             
             let link = "\(base_url)/widget/add-content/\(selectedWidgetModel?.id ?? "")"
             
@@ -362,7 +362,7 @@ class WidgetViewModel : ObservableObject {
         let url = "\(base_url)/widget/delete/\(selectedWidgetModel?.id ?? "")"
         let header = ["Authorization":"Bearer \(getToken() ?? "")"]
         
-        DeleteApiService<CreateWidgetResponseModel>(parameters: nil, header: header, url: url)
+        DeleteApiService<DeleteWidgetResponseModel>(parameters: nil, header: header, url: url)
             .fetch { dataState in
                 
                 switch(dataState) {
@@ -484,6 +484,12 @@ struct WidgetServerModel: Codable {
     var contents:ContentModel?
     let reactions:[String]?
     let id:String?
+    let member : String?
+}
+
+struct DeleteWidgetResponseModel: Codable {
+    var success: Bool?
+    var message:String?
 }
 
 //{

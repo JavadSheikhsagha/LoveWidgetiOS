@@ -15,6 +15,7 @@ struct ProfileScreen: View {
     @EnvironmentObject var loginViewModel : LoginViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     
+    @State var showIntroScreen = false
     @State var showFriendsBottomSheet = false
     @State var showEditNameDialog = false
     @State var showEditPassDialog = false
@@ -97,6 +98,9 @@ struct ProfileScreen: View {
             }
             
         }
+        .sheet(isPresented: $showIntroScreen) {
+            IntroScreen()
+        }
         .banner(data: $bannerData, show: $showBanner)
     }
     
@@ -117,7 +121,7 @@ struct ProfileScreen: View {
             }
             
             Spacer()
-
+            
             Text(appName)
                 .bold()
                 .font(.system(size: 16))
@@ -125,19 +129,17 @@ struct ProfileScreen: View {
             Spacer()
             
             
-            Menu {
-                
+            Button {
+                showIntroScreen = true
             } label: {
-                Image("img3Dots")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .padding()
-                    .opacity(0.0)
+                Image(.iconInfo)
+                    .frame(width: 50, height: 50)
             }
+            
 
 
             
-        }
+        }.padding(.horizontal, 16)
     }
     
     

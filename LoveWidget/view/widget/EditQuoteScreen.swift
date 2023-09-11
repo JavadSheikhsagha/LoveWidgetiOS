@@ -388,7 +388,7 @@ struct WidgetEditScreenFooter : View {
                             }
                             
                         }
-                    }.padding(.horizontal, 20)
+                    }.padding(.horizontal, 0)
                     
                     Spacer()
                 }

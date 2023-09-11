@@ -103,9 +103,11 @@ struct CreateWidgetScreen: View {
             
             Button {
                 // show tutorial
-                showIntroScreen = true
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = .MainMenu
+                }
             } label: {
-                Image(.addToHomeBtn)
+                Image(.btnDiscard)
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width - 64, height: 55)
             }
@@ -225,11 +227,12 @@ struct CreateWidgetScreen: View {
             
             Spacer()
             
-            Image("img3Dots")
-                .resizable()
-                .frame(width: 24, height: 24)
-                .padding()
-                .opacity(0.0)
+            Button {
+                showIntroScreen = true
+            } label: {
+                Image(.iconInfo)
+            }
+
             
             
         }

@@ -96,6 +96,8 @@
 		3FC27A142AA7106500EC59A1 /* Wendy One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0D2AA7106500EC59A1 /* Wendy One.ttf */; };
 		3FC27A152AA7106500EC59A1 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */; };
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
+		3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */; };
+		3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */; };
 		3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
 		3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
@@ -205,6 +207,8 @@
 		3FC27A0D2AA7106500EC59A1 /* Wendy One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wendy One.ttf"; sourceTree = "<group>"; };
 		3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseScreen.swift; sourceTree = "<group>"; };
+		3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PurchaseFile.storekit; sourceTree = "<group>"; };
 		3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageScreen.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactToWidgetIntent.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 		3F4799D12AA07D3E006BA057 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				3FC6F7362AAF032B004F959F /* purhcase */,
 				806CA8F92A9DDD1200599C14 /* main */,
 				3F7927A02A9F10EA00D5F1F5 /* friends */,
 				3FE3E5A52A9E6F56003CD376 /* widget */,
@@ -369,6 +374,14 @@
 				3FC27A0E2AA7106500EC59A1 /* Kreon.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		3FC6F7362AAF032B004F959F /* purhcase */ = {
+			isa = PBXGroup;
+			children = (
+				3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */,
+			);
+			path = purhcase;
 			sourceTree = "<group>";
 		};
 		3FE3E5A52A9E6F56003CD376 /* widget */ = {
@@ -435,6 +448,7 @@
 				806CA8E72A9DD21B00599C14 /* Preview Content */,
 				3F4799E42AA085FA006BA057 /* UserSettings.swift */,
 				3F52DCCE2AA625D500F6CD80 /* BannerView.swift */,
+				3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */,
 			);
 			path = LoveWidget;
 			sourceTree = "<group>";
@@ -666,6 +680,7 @@
 				3FC27A112AA7106500EC59A1 /* Yomogi.ttf in Resources */,
 				806CA8E52A9DD21B00599C14 /* Assets.xcassets in Resources */,
 				3FC27A132AA7106500EC59A1 /* Purple Purse.ttf in Resources */,
+				3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */,
 				3F6FA8D92AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 				3FC27A122AA7106500EC59A1 /* SF UI TEXT.ttf in Resources */,
 				3F068DC12AAC4D2B008D7C8D /* intro_vid.mp4 in Resources */,
@@ -740,6 +755,7 @@
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
+				3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */,
 				3F14913F2AA441A000850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
 				3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */,

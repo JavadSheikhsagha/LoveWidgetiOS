@@ -23,7 +23,7 @@ struct WidgetSingleScreen: View {
     @State var showBanner = true
     @State var uiImage: UIImage? = nil
     @State var playLottie = true
-    @State var bannerData = BannerData(title: "Success", detail: "The Image uploaded successfully.", type: .success)
+    @State var bannerData = BannerData(title: "Image successfully uploaded.", detail: "The Image uploaded successfully.", type: .success)
     
     var body: some View {
         ZStack {

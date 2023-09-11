@@ -182,7 +182,7 @@ struct SenderIsGuest : View {
             Spacer()
                 .frame(width: 30)
             
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 
                 AsyncImage(url: URL(string: historyItemModel.data)!) { image in
                     image
@@ -194,6 +194,23 @@ struct SenderIsGuest : View {
                             Image(.imgUserSample)
 //                            Image(systemName: "photo.fill")
                         }
+                
+                ZStack {
+                    
+                    Color(hex: "#76767680")
+                        .frame(width: 24, height: 10)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
+                    HStack(spacing: 2) {
+                        
+                        Text(String(historyItemModel.reaction))
+                            .foregroundStyle(.white)
+                            .font(.system(size: 10))
+                        
+                        Image(.iconHeartSmall)
+                    }
+                    
+                }.padding(8)
                 
             }.frame(width: 165, height: 165)
             

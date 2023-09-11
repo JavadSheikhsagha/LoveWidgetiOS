@@ -103,7 +103,7 @@ func updateWidget(widget:WidgetFullData) -> Bool {
                                            creator: widget.creator,
                                            contents: widget.contents,
                                            reactions: [],
-                                           id: widget.id)
+                                           id: widget.id, member: "")
             saveAllWidgetsToDatabase(widgets: widgets)
             return true
         }
@@ -126,11 +126,20 @@ func updateWidgetReaction(widgetid:String) -> Bool {
                                                                   id: widget.contents?.id,
                                                                   reaction: 1),
                                            reactions: [],
-                                           id: widget.id)
+                                           id: widget.id, member: "")
             saveAllWidgetsToDatabase(widgets: widgets)
             return true
         }
         
     }
     return false
+}
+
+
+func setIsPro(_ bool:Bool) {
+    UserDefaults(suiteName: appSuitName)!.set(bool, forKey: "isPro")
+}
+
+func getIsPro() -> Bool {
+    return UserDefaults(suiteName: appSuitName)!.bool(forKey: "isPro")
 }

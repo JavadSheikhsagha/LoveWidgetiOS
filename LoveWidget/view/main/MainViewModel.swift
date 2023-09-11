@@ -17,6 +17,7 @@ class MainViewModel : ObservableObject {
     
     @Published var widgets = [String]()
     
+    @Published var BACKSTACK_PURCHASE : Screens? = nil
     @Published var SCREEN_VIEW : Screens = .Login
     
     func deleteUser(onSuccess : @escaping (Bool) -> Void) {
@@ -126,6 +127,7 @@ enum Screens {
     case SignUp
     case History
     case Profile
+    case Purchase
     case CreateWidget
     case UploadImageScreen
     case EditQuoteScreen

@@ -9,11 +9,28 @@ import FirebaseCore
 import SwiftUI
 import OneSignalFramework
 import OneSignalUser
+import SwiftyStoreKit
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-       // Remove this method to stop OneSignal Debugging
+       
+        
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+                for purchase in purchases {
+                    switch purchase.transaction.transactionState {
+                    case .purchased, .restored:
+                        if purchase.needsFinishTransaction {
+                            // Deliver content from server, then:
+                            SwiftyStoreKit.finishTransaction(purchase.transaction)
+                        }
+                        // Unlock content
+                    case .failed, .purchasing, .deferred:
+                        break // do nothing
+                    }
+                }
+            }
+        
         FirebaseApp.configure()
         
         
