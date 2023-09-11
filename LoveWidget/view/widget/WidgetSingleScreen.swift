@@ -20,9 +20,10 @@ struct WidgetSingleScreen: View {
     @State var showImagePicker: Bool = false
     @State var showCameraPicker: Bool = false
     @State var showIntroScreen = false
-    @State var showBanner = true
+    @State var showBanner = false
     @State var uiImage: UIImage? = nil
     @State var playLottie = true
+    @State var sendMissYou = true
     @State var bannerData = BannerData(title: "Image successfully uploaded.", detail: "The Image uploaded successfully.", type: .success)
     
     var body: some View {
@@ -124,6 +125,7 @@ struct WidgetSingleScreen: View {
             }
         }
         .banner(data: $bannerData, show: $widgetViewModel.isImageUplaoded)
+        .banner(data: $bannerData, show: $showBanner)
         .sheet(isPresented: $showIntroScreen, content: {
             IntroScreen()
         })
@@ -267,6 +269,16 @@ struct WidgetSingleScreen: View {
     var userImagesTop : some View {
         VStack {
             
+            HStack {
+                
+                Spacer()
+                    .frame(width: 60)
+                
+                Image(.imgMissYouNotifHeader)
+                
+                Spacer()
+            }
+            
             HStack(spacing: 15) {
                 
                 VStack(spacing: 10) {
@@ -287,6 +299,20 @@ struct WidgetSingleScreen: View {
                 
                 Button {
                     //send notif
+                    if sendMissYou {
+                        sendMissYou = false
+                        widgetViewModel.sendMissYouNotif { bool in
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                sendMissYou = true
+                            }
+                            showBanner = true
+                            if bool {
+                                bannerData = BannerData(title: "you sent a Miss you message", detail: "", type: .success)
+                            } else {
+                                bannerData = BannerData(title: "Failed to send Miss you message", detail: "", type: .error)
+                            }
+                        }
+                    }
                 } label: {
                     Image(.imgHeartMissyou)
                 }.offset(y: -10)

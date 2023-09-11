@@ -213,6 +213,9 @@ struct MainScreen: View {
             } else {
                 // LazyHStack for each widget
                 
+                Spacer()
+                    .frame(height: 20)
+                
                 HStack {
                     
                     Spacer()
@@ -465,11 +468,6 @@ struct WidgetListSingleView : View {
                                     widgetId: widget.id ?? "")
                                 { bool in
                                     
-//                                    if bool {
-//                                        widget.contents?.reaction = 1
-//                                    } else {
-//                                        widget.contents?.reaction = 0
-//                                    }
                                     let wid = loadWidget(by: widget.id ?? "")
                                     widget.contents?.reaction = wid?.contents?.reaction
                                     print(wid?.contents?.reaction ?? 100)
@@ -490,8 +488,6 @@ struct WidgetListSingleView : View {
                                 .resizable()
                         }
                         
-
-
                     }
                 } else {
                     Image("emptyWidgetImage")
@@ -505,7 +501,7 @@ struct WidgetListSingleView : View {
                 .frame(height: 5)
             
             Text("Me \(widget.member != nil ? "& \(widget.member!)" : "")")
-                .font(.system(size: 10))
+                .font(.system(size: 12))
                 .foregroundStyle(Color(hex: "#767676"))
             
             Spacer()

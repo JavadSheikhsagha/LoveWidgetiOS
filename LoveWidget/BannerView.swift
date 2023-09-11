@@ -54,7 +54,7 @@ struct BannerModifier: ViewModifier {
                               .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                         }
                         Spacer()
-                        Image(.imgClosebanner)
+                        Image(data.type == .success ? .imgClosebanner : .snackbarError)
                     }
                     .foregroundColor(Color.white)
                     .padding(12)
