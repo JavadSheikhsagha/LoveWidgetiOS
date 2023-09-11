@@ -226,7 +226,7 @@ struct SenderIsUser : View {
             Spacer()
                 .frame(width: 14)
             
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 
 //                Image(.addImageCard)
 //                    .resizable()
@@ -243,6 +243,23 @@ struct SenderIsUser : View {
                                 .resizable()
 //                            Image(systemName: "photo.fill")
                         }
+                
+                ZStack {
+                    
+                    Color(hex: "#76767680")
+                        .frame(width: 24, height: 10)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                    
+                    HStack(spacing: 2) {
+                        
+                        Text(String(historyItemModel.reaction))
+                            .foregroundStyle(.white)
+                            .font(.system(size: 10))
+                        
+                        Image(.iconHeartSmall)
+                    }
+                    
+                }.padding(8)
                 
             }.frame(width: 165, height: 165)
             

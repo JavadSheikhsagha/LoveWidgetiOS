@@ -19,7 +19,7 @@ struct SignupScreen: View {
     @State var confirmPasswordText = ""
     @State var email: String = ""
     @State var playLottie = true
-    @State var isTermsAndConditionsChecked = false
+    @State var isTermsAndConditionsChecked = true
     
     var body: some View {
         ZStack {
@@ -122,22 +122,22 @@ struct SignupScreen: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
                         )
-                            
-                        HStack {
-                            
-                            Button {
-                                isTermsAndConditionsChecked.toggle()
-                            } label: {
-                                Image(isTermsAndConditionsChecked ? .fillCheck : .emptyCheck)
-                            }
-
-                            Text("Agree all terms & conditions")
-                              .font(Font.custom("SF UI Text", size: 12))
-                              .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-                            
-                            Spacer()
-                            
-                        }.padding(.horizontal, 32)
+//                            // terms and conditions text
+//                        HStack {
+//                            
+//                            Button {
+//                                isTermsAndConditionsChecked.toggle()
+//                            } label: {
+//                                Image(isTermsAndConditionsChecked ? .fillCheck : .emptyCheck)
+//                            }
+//
+//                            Text("Agree all terms & conditions")
+//                              .font(Font.custom("SF UI Text", size: 12))
+//                              .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+//                            
+//                            Spacer()
+//                            
+//                        }.padding(.horizontal, 32)
                     }
                     
                     
