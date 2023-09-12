@@ -187,7 +187,7 @@ struct SignupScreen: View {
 //                        }
                         
                         UIApplication.shared.endEditing()
-                        if isButtonEnabled {
+                        if !loginViewModel.isLoading {
                             loginViewModel.skipLogin(onSuccess: { bool in
                                 if bool {
                                     withAnimation {

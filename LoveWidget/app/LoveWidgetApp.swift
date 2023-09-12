@@ -15,6 +15,7 @@ import SwiftyStoreKit
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
        
+        UIScrollView.appearance().bounces = false
         
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
                 for purchase in purchases {
@@ -24,6 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                             // Deliver content from server, then:
                             SwiftyStoreKit.finishTransaction(purchase.transaction)
                         }
+                        setIsPro(true)
                         // Unlock content
                     case .failed, .purchasing, .deferred:
                         break // do nothing

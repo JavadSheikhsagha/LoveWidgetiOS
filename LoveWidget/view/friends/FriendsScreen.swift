@@ -146,7 +146,7 @@ struct FriendsScreen: View {
             ZStack {
                 
                 Color(hex: "#EEF1FF")
-                    .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 100)
+                    .frame(width: UIScreen.screenWidth - 40, height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 VStack {
@@ -166,7 +166,29 @@ struct FriendsScreen: View {
                     
                     Spacer()
                     
-                    VStack(spacing: 16) {
+                    HStack(spacing: 16) {
+                        
+                        Button {
+                            withAnimation {
+                                showAddFriendDialog = false
+                            }
+                        } label: {
+                            ZStack {
+                                Color(hex: "")
+                                
+                                Text("Cancel")
+                                    .font(.system(size: 14))
+                                    .foregroundStyle(Color(hex: "#6D8DF7"))
+                                
+                            }.frame(width: 140, height: 40)
+                                .cornerRadius(10) /// make the background rounded
+                                .overlay( /// apply a rounded border
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(hex: "#6D8DF7"), lineWidth: 2)
+                                )
+                        }
+                        
+                        Spacer()
                         
                         Button {
                             // add friend by code
@@ -186,29 +208,23 @@ struct FriendsScreen: View {
                                 }
                             }
                         } label: {
-                            Image(.btnAdd)
-                                .resizable()
-                                .frame(width: UIScreen.screenWidth - 64, height: 55)
+                            ZStack {
+                                Color(hex: "#6D8DF7")
+                                
+                                Text("Add")
+                                    .font(.system(size: 14))
+                                    .foregroundStyle(.white)
+                                
+                            }.frame(width: 140, height: 40)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
-
-                        
-                        Button {
-                            withAnimation {
-                                showAddFriendDialog = false
-                            }
-                        } label: {
-                            Image(.btnCancelBig)
-                                .resizable()
-                                .frame(width: UIScreen.screenWidth - 64, height: 55)
-                        }
-
                         
                     }
-                }.padding(.horizontal, 20)
+                }.frame(width: UIScreen.screenWidth - 82)
                     .padding(.vertical, 36)
                 
             }
-                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 64)
+                .frame(width: UIScreen.screenWidth - 40, height: 200)
                 .offset(y: showAddFriendDialog ? 0 : UIScreen.screenHeight)
             
             

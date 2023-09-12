@@ -250,7 +250,8 @@ struct MainScreen: View {
                             
                         }
                         
-                        
+                        Spacer()
+                            .frame(height: 40)
 
                     }
                     
@@ -500,7 +501,7 @@ struct WidgetListSingleView : View {
             Spacer()
                 .frame(height: 5)
             
-            Text("Me \(widget.member != nil ? "& \(widget.member!)" : "")")
+            Text("Me \(widget.member != "" ? "& \(widget.member!)" : "")")
                 .font(.system(size: 12))
                 .foregroundStyle(Color(hex: "#767676"))
             

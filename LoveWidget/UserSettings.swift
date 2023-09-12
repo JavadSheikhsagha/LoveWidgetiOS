@@ -143,3 +143,15 @@ func setIsPro(_ bool:Bool) {
 func getIsPro() -> Bool {
     return UserDefaults(suiteName: appSuitName)!.bool(forKey: "isPro")
 }
+
+
+func getMissYouCount() -> Int {
+    return UserDefaults(suiteName: appSuitName)!.integer(forKey: "miss_you")
+}
+
+func addToMissYou() {
+    UserDefaults(suiteName: appSuitName)!
+        .set((UserDefaults(suiteName: appSuitName)?
+            .integer(forKey: "miss_you"))! + 1, forKey: "miss_you"
+        )
+}

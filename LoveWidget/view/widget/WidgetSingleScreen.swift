@@ -300,18 +300,26 @@ struct WidgetSingleScreen: View {
                 
                 Button {
                     //send notif
-                    if sendMissYou {
-                        sendMissYou = false
-                        widgetViewModel.sendMissYouNotif { bool in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                sendMissYou = true
+                    if getMissYouCount() < 3 {
+                        if sendMissYou {
+                            sendMissYou = false
+                            widgetViewModel.sendMissYouNotif { bool in
+                                addToMissYou()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    sendMissYou = true
+                                }
+                                showBanner = true
+                                if bool {
+                                    bannerData = BannerData(title: "you sent a Miss you message", detail: "", type: .success)
+                                } else {
+                                    bannerData = BannerData(title: "Failed to send Miss you message", detail: "", type: .error)
+                                }
                             }
-                            showBanner = true
-                            if bool {
-                                bannerData = BannerData(title: "you sent a Miss you message", detail: "", type: .success)
-                            } else {
-                                bannerData = BannerData(title: "Failed to send Miss you message", detail: "", type: .error)
-                            }
+                        }
+                    } else {
+                        withAnimation {
+                            mainViewModel.BACKSTACK_PURCHASE = .WidgetSingle
+                            mainViewModel.SCREEN_VIEW = .Purchase
                         }
                     }
                 } label: {

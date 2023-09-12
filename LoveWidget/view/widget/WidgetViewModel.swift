@@ -61,7 +61,6 @@ class WidgetViewModel : ObservableObject {
             }
     }
     
-    
     func getSecondMember() -> UserModel? {
         
         for i in getSingleWidgetData?.members ?? [] {

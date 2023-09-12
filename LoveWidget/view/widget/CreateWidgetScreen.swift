@@ -126,7 +126,7 @@ struct CreateWidgetScreen: View {
                     .padding()
                     .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     .onChange(of: widgetName) { newValue in
-                        if widgetName.count > 1 {
+                        if widgetName.count > 0 {
                             isButtonEnabled = true
                         } else {
                             isButtonEnabled = false

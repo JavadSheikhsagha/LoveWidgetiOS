@@ -145,7 +145,7 @@ struct EditQuoteScreen: View {
                     Color(hex: "#6D8DF7")
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                     
-                    Text("Save")
+                    Text("Next")
                         .foregroundStyle(.white)
                     
                 }.frame(width: 100, height: 28)

@@ -43,9 +43,15 @@ struct ProfileScreen: View {
                 
                 header
                 
-                cardTopView
+                ScrollView(.vertical) {
+                    VStack {
+                        Spacer()
+                            .frame(height: 24)
+                        cardTopView
+                            .frame(width: UIScreen.screenWidth - 40, height: 650)
+                    }
+                }
                 
-                Spacer()
             }
             
             ZStack {
@@ -581,11 +587,51 @@ struct ProfileScreen: View {
                                 .frame(width: UIScreen.screenWidth - 65 ,height: 55)
                         }
                     }
+                    
+                    Button {
+                        withAnimation {
+                            mainViewModel.BACKSTACK_PURCHASE = .Profile
+                            mainViewModel.SCREEN_VIEW = .Purchase
+                        }
+                    } label: {
+                        ZStack {
+                            
+                            Color(hex: "#FF8B8B")
+                                .frame(width: UIScreen.screenWidth - 64, height: 56)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
+                            HStack {
+                                
+                                Text("Premium")
+                                    .font(.system(size: 20))
+                                    .foregroundStyle(.white)
+                                
+                                Spacer()
+                                    .frame(width: 10)
+                                
+                                Image(.iconPremium)
+                                
+                            }
+                        }
+                    }
+                    
+                    HStack {
+                        
+                        Spacer()
+                            .frame(width: 36)
+                        
+                        Image(.imgPremiumClick)
+                        
+                        Spacer()
+                        
+                    }
 
+                    
+                    Spacer()
                 }
                 
             }
-            .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth + 120)
+            .frame(width: UIScreen.screenWidth - 40, height: 650)
             
         }
     }

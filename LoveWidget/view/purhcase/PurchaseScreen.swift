@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftyStoreKit
 import EnigmaSystemDesign
+import LottieSwiftUI
 
 var purchaseIds : [String] = [
     "Monthly__Subscription",
@@ -23,6 +24,7 @@ struct PurchaseScreen: View {
     @State var showError = false
     @State var showIndicator = false
     @State var showSubTerms = false
+    @State var playLottie = true
     
     var titles = [
         "Unlimited notification",
@@ -45,6 +47,7 @@ struct PurchaseScreen: View {
     ]
     
     var body: some View {
+        
         ZStack {
             
             Image(.purchaseBackground)
@@ -53,49 +56,61 @@ struct PurchaseScreen: View {
             
             VStack {
                 
-                header
-                
-                titlesView
-                
-                purchaseCards
-                
-                Spacer()
-                
-                HStack {
+                ScrollView {
                     
-                    Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-privacy-policy/2ad76052-1031-414a-b241-1786eda6f863/privacy")!) {
-                        Text("Privacy Policy")
-                            .foregroundStyle(.gray)
-                            .font(.system(size: 13))
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        showSubTerms = true
-                    } label: {
-                        Text("Subscription Terms")
-                            .foregroundStyle(.gray)
-                            .font(.system(size: 13))
-                    }
-
-                    
-                    Spacer()
-                    
-                    Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-terms-of-use/1f962d22-bfab-4da0-b166-ca8a347f8ee1/terms")!) {
-                        Text("Terms of use")
-                            .foregroundStyle(.gray)
-                            .font(.system(size: 13))
-                    }
-                    
-                }.padding(.horizontal, 26)
-                
-                Spacer()
+                        
+                        header
+                        
+                        titlesView
+                        
+                        purchaseCards
+                        
+                        Spacer()
+                        
+                        HStack {
+                            
+                            Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-privacy-policy/2ad76052-1031-414a-b241-1786eda6f863/privacy")!) {
+                                Text("Privacy Policy")
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 13))
+                            }
+                            
+                            Spacer()
+                            
+                            Button {
+                                showSubTerms = true
+                            } label: {
+                                Text("Subscription Terms")
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 13))
+                            }
+                            
+                            Spacer()
+                            
+                            Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-terms-of-use/1f962d22-bfab-4da0-b166-ca8a347f8ee1/terms")!) {
+                                Text("Terms of use")
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 13))
+                            }
+                            
+                        }.padding(.horizontal, 26)
+                        
+                }
             }
             
-            ActivityIndicator(isAnimating: $showError, style: .large)
-                .opacity(showIndicator ? 1.0 : 0.0)
+            Color.white
+                .ignoresSafeArea()
+                .opacity(showIndicator ? 0.4 : 0.0)
                 .offset(y: showIndicator ? 0.0 : UIScreen.screenHeight)
+                .onTapGesture {
+                    
+                }
+            
+            LottieView(name: "loading2.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(showIndicator ? 1.0 : 0.0)
+                .offset(y: showIndicator ? 0 : UIScreen.screenHeight)
             
         }
         .alert("Subscription Terms", isPresented: $showSubTerms, actions: {
@@ -222,6 +237,9 @@ struct PurchaseScreen: View {
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = mainViewModel.BACKSTACK_PURCHASE ?? .MainMenu
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    mainViewModel.BACKSTACK_PURCHASE = nil
+                }
             } label: {
                 Image(.purchaseBack)
                     .frame(width: 24, height: 24)
@@ -238,7 +256,6 @@ struct PurchaseScreen: View {
             Spacer()
             
             Button {
-                //Restore
                 restoreProducts()
             } label: {
                 Text("RESTORE")
@@ -281,6 +298,12 @@ struct PurchaseScreen: View {
                 setIsPro(true)
                 showIndicator = false
 //                verifyReceipt(item: purchaseId)
+                withAnimation {
+                    mainViewModel.SCREEN_VIEW = mainViewModel.BACKSTACK_PURCHASE ?? .MainMenu
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    mainViewModel.BACKSTACK_PURCHASE = nil
+                }
                 if purchase.needsFinishTransaction {
                     SwiftyStoreKit.finishTransaction(purchase.transaction)
                 }
@@ -315,7 +338,7 @@ struct PurchaseScreen: View {
     }
     
     func verifyReceipt(item: String) {
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "8355d43268fc4c00a340b9614269891a")
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
