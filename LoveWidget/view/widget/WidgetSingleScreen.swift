@@ -300,7 +300,12 @@ struct WidgetSingleScreen: View {
                 
                 Button {
                     //send notif
-                    if getMissYouCount() < 3 {
+                    if getMissYouCount() >= 3 && !getIsPro() {
+                        withAnimation {
+                            mainViewModel.BACKSTACK_PURCHASE = .WidgetSingle
+                            mainViewModel.SCREEN_VIEW = .Purchase
+                        }
+                    } else {
                         if sendMissYou {
                             sendMissYou = false
                             widgetViewModel.sendMissYouNotif { bool in
@@ -316,11 +321,7 @@ struct WidgetSingleScreen: View {
                                 }
                             }
                         }
-                    } else {
-                        withAnimation {
-                            mainViewModel.BACKSTACK_PURCHASE = .WidgetSingle
-                            mainViewModel.SCREEN_VIEW = .Purchase
-                        }
+                        
                     }
                 } label: {
                     Image(.imgHeartMissyou)

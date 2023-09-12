@@ -242,6 +242,9 @@ class WidgetViewModel : ObservableObject {
                             self.getWidgets { bool in
                                 onSuccess(true)
                             }
+                            self.getSingleWidget { bool in
+                                
+                            }
                             
                         } else {
                             self.isErrorOccurred = true

@@ -46,6 +46,10 @@ struct PurchaseScreen: View {
                       identifier: "Lifetime"),
     ]
     
+    init() {
+        UIScrollView.appearance().bounces = false
+    }
+    
     var body: some View {
         
         ZStack {
