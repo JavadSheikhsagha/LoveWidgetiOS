@@ -19,6 +19,7 @@ struct IntroScreen: View {
                 .ignoresSafeArea()
                 .onAppear(perform: {
                     player.play()
+                    player.rate = 1.5
                 })
             
             VideoPlayer(player: player)

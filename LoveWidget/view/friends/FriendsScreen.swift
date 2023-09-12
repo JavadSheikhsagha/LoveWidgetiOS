@@ -8,10 +8,12 @@
 import SwiftUI
 import SwiftyStoreKit
 import EnigmaSystemDesign
+import LottieSwiftUI
 
 struct FriendsScreen: View {
     
     @EnvironmentObject var friednsViewModel : FriendsViewModel
+    @EnvironmentObject var mainViewModel : MainViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -19,6 +21,7 @@ struct FriendsScreen: View {
     @State var showRemoveFriendDialog = false
     @State var selectedFriendToRemove : UserModel? = nil
     @State var friendCode = ""
+    @State var playLottie = true
     
     var doNeedSelectFriend = false
     
@@ -66,6 +69,11 @@ struct FriendsScreen: View {
                 .opacity(friednsViewModel.isLoading ? 0.4 : 0.0)
                 .offset(y: friednsViewModel.isLoading ? 0.0 : UIScreen.screenHeight)
             
+            LottieView(name: "loading2.json", play: $playLottie)
+                .frame(width: 200, height: 200)
+                .lottieLoopMode(.loop)
+                .opacity(friednsViewModel.isLoading ? 1.0 : 0.0)
+                .offset(y: friednsViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
         }
         .alert(friednsViewModel.errorMessage, isPresented: $friednsViewModel.isErrorOccurred) {
@@ -162,13 +170,19 @@ struct FriendsScreen: View {
                         
                         Button {
                             // add friend by code
-                            friednsViewModel.addFriend(friendId: friendCode) { bool in
-                                if bool {
-                                    withAnimation {
-                                        showAddFriendDialog = false
+                            if friednsViewModel.friends.count > 0 && !getIsPro() {
+                                withAnimation {
+                                    mainViewModel.SCREEN_VIEW = .Purchase
+                                }
+                            } else {
+                                friednsViewModel.addFriend(friendId: friendCode) { bool in
+                                    if bool {
+                                        withAnimation {
+                                            showAddFriendDialog = false
+                                        }
+                                    } else {
+                                        
                                     }
-                                } else {
-                                    
                                 }
                             }
                         } label: {

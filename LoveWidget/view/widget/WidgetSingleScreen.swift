@@ -33,8 +33,9 @@ struct WidgetSingleScreen: View {
                 .ignoresSafeArea()
                 .onAppear {
                     widgetViewModel.getSingleWidget { bool in }
-                    widgetViewModel.historyWidgets = []
+                    widgetViewModel.getHistoryList { bool in }
                     widgetViewModel.selectedImage = nil
+                    
                 }
                 .onTapGesture {
                     UIApplication.shared.endEditing()

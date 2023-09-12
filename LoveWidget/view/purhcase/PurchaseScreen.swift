@@ -22,6 +22,7 @@ struct PurchaseScreen: View {
     @State var errorMessage:String = ""
     @State var showError = false
     @State var showIndicator = false
+    @State var showSubTerms = false
     
     var titles = [
         "Unlimited notification",
@@ -59,6 +60,37 @@ struct PurchaseScreen: View {
                 purchaseCards
                 
                 Spacer()
+                
+                HStack {
+                    
+                    Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-privacy-policy/2ad76052-1031-414a-b241-1786eda6f863/privacy")!) {
+                        Text("Privacy Policy")
+                            .foregroundStyle(.gray)
+                            .font(.system(size: 13))
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        showSubTerms = true
+                    } label: {
+                        Text("Subscription Terms")
+                            .foregroundStyle(.gray)
+                            .font(.system(size: 13))
+                    }
+
+                    
+                    Spacer()
+                    
+                    Link(destination: URL(string: "https://doc-hosting.flycricket.io/love-noteit-widget-by-sendit-terms-of-use/1f962d22-bfab-4da0-b166-ca8a347f8ee1/terms")!) {
+                        Text("Terms of use")
+                            .foregroundStyle(.gray)
+                            .font(.system(size: 13))
+                    }
+                    
+                }.padding(.horizontal, 26)
+                
+                Spacer()
             }
             
             ActivityIndicator(isAnimating: $showError, style: .large)
@@ -66,6 +98,13 @@ struct PurchaseScreen: View {
                 .offset(y: showIndicator ? 0.0 : UIScreen.screenHeight)
             
         }
+        .alert("Subscription Terms", isPresented: $showSubTerms, actions: {
+            Button("ok") {
+                
+            }
+        }, message: {
+            Text("- Subscription automatically renews unless auto-renew is turned off at least\n24-hours before the end of the current period.\n - Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal.\n- Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's")
+        })
         .alert(errorMessage, isPresented: $showError) {
             Button("ok") {
                 

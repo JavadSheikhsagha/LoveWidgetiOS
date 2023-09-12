@@ -233,6 +233,8 @@ struct CreateWidgetScreen: View {
                 Image(.iconInfo)
             }
 
+            Spacer()
+                .frame(width: 26)
             
             
         }

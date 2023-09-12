@@ -59,11 +59,18 @@ struct UploadImageScreen: View {
         VStack(spacing: 30) {
             
             Button {
-                widgetViewModel.uploadImageToHistory(image: widgetViewModel.selectedImage) { bool in
-                    if bool {
-                        widgetViewModel.isImageUplaoded = true
-                        withAnimation {
-                            mainViewModel.SCREEN_VIEW = .WidgetSingle
+                if widgetViewModel.historyWidgets.count > 1 && !getIsPro() {
+                    withAnimation {
+                        mainViewModel.BACKSTACK_PURCHASE = .UploadImageScreen
+                        mainViewModel.SCREEN_VIEW = .Purchase
+                    }
+                } else {
+                    widgetViewModel.uploadImageToHistory(image: widgetViewModel.selectedImage) { bool in
+                        if bool {
+                            widgetViewModel.isImageUplaoded = true
+                            withAnimation {
+                                mainViewModel.SCREEN_VIEW = .WidgetSingle
+                            }
                         }
                     }
                 }
