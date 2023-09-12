@@ -45,6 +45,10 @@ struct EditQuoteScreen: View {
                 
                 Spacer()
                 
+                editText
+                
+                Spacer()
+                
                 // BottomViews
                 
                 WidgetEditScreenFooter(colorGradient: $colorGradient,
@@ -54,6 +58,22 @@ struct EditQuoteScreen: View {
                 
             }
         }
+    }
+    
+    var editText : some View {
+        
+        VStack {
+            
+            TextEditor(text: $textFieldText)
+                .multilineTextAlignment(.center)
+                .frame(width: UIScreen.screenWidth - 53, height: 60)
+                
+            
+        }.overlay( /// apply a rounded border
+            RoundedRectangle(cornerRadius: 0)
+                .stroke(Color.black, lineWidth: 1)
+        )
+        
     }
     
     var editQuoteView : some View {
@@ -405,7 +425,7 @@ struct WidgetEditScreenFooter : View {
                                     txtIndex = 3
                                 }
                             } label: {
-                                Text("Default Text")
+                                Text("Suggested quotes")
                                     .frame(width: 100)
                                     .font(.system(size: 16))
                                     .foregroundColor(Color(txtIndex == 3 ? "textColorAccent" : "textColorUnselected"))
