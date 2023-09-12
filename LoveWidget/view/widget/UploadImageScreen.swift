@@ -59,7 +59,7 @@ struct UploadImageScreen: View {
         VStack(spacing: 30) {
             
             Button {
-                if widgetViewModel.historyWidgets.count > 1 && !getIsPro() {
+                if widgetViewModel.historyWidgets.count > 0 && !getIsPro() {
                     withAnimation {
                         mainViewModel.BACKSTACK_PURCHASE = .UploadImageScreen
                         mainViewModel.SCREEN_VIEW = .Purchase
