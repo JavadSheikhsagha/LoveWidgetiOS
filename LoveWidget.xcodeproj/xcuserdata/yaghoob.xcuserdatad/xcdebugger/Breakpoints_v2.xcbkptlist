@@ -14,8 +14,8 @@
             filePath = "LoveWidget/view/widget/WidgetViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "uploadImageToHistory(image:onResponse:)"
             landmarkType = "7">
             <Locations>

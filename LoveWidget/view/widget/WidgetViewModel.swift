@@ -13,6 +13,9 @@ import SwiftyJSON
 
 class WidgetViewModel : ObservableObject {
     
+    private let widgetRepository = WidgetRepository()
+    
+    
     @Published var historyWidgets = [HistoryModel]()
     @Published var allWidgetsMain = [WidgetServerModel]()
     @Published var selectedWidgetModel : WidgetServerModel? = nil
@@ -27,11 +30,7 @@ class WidgetViewModel : ObservableObject {
     
     func sendMissYouNotif(onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/miss-you/\(selectedWidgetModel?.id ?? "")"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        
-        PostApiService<GetSingleWidgetResponseModel>(parameters: nil, header: header, url: url)
-            .fetch { dataState in
+        widgetRepository.sendMissYouNotif(widgetId: selectedWidgetModel?.id ?? "") { dataState in
                 switch(dataState) {
                     
                 case .success(data: let data, message: _):
@@ -74,12 +73,8 @@ class WidgetViewModel : ObservableObject {
     
     
     func reactToContent(contentId:String, widgetId:String, onSuccess: @escaping (Bool) -> Void) {
-        let url = "\(base_url)/widget/add-reaction/\(widgetId)/\(contentId)"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        let parameter = ["type":"like"]
         
-        PatchApiService<ReactToContentResponseModel>(parameters: parameter, header: header, url: url)
-            .fetch { dataState in
+        widgetRepository.reactToContent(contentId: contentId, widgetId: widgetId) { dataState in
                 switch(dataState) {
                     
                 case .success(data: let data, message: _):
@@ -122,11 +117,7 @@ class WidgetViewModel : ObservableObject {
     
     func getHistoryList(onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/history/app/\(selectedWidgetModel?.id ?? "")"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        
-        GetApiService<GetHistoryResponseModel>(url: url, header: header)
-            .fetch { dataState in
+        widgetRepository.getHistoryList(widgetId: self.selectedWidgetModel?.id ?? "") { dataState in
                 
                 switch(dataState) {
                     
@@ -174,11 +165,7 @@ class WidgetViewModel : ObservableObject {
     
     func getSingleWidget(onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/single/\(selectedWidgetModel?.id ?? "")"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        
-        GetApiService<GetSingleWidgetResponseModel>(url: url, header: header)
-            .fetch { dataState in
+        widgetRepository.getSingleWidget(widgetId: self.selectedWidgetModel?.id ?? "") { dataState in
                 
                 switch(dataState) {
                     
@@ -225,12 +212,7 @@ class WidgetViewModel : ObservableObject {
     
     func addFriendToWidget(friendId: String, onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/add-user/\(selectedWidgetModel?.id ?? "")"
-        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
-        let parameter = ["userId": friendId]
-        
-        PatchApiService<AddFriendToWidgetResponse>(parameters: parameter, header: header, url: url)
-            .fetch { dataState in
+        widgetRepository.addFriendToWidget(friendId: friendId, widgetId: self.selectedWidgetModel?.id ?? "") { dataState in
                 
                 switch(dataState) {
                     
@@ -342,15 +324,7 @@ class WidgetViewModel : ObservableObject {
     
     func getWidgets(onSuccess: @escaping (Bool) -> Void ) {
         
-        let url = "\(base_url)/widget/home"
-        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
-        
-        if let widgets = loadWidgets() {
-            self.allWidgetsMain = widgets.reversed()
-        }
-        
-        GetApiService<GetAllWidgetResponseModel>(url: url, header: header)
-            .fetch { dataState in
+        self.widgetRepository.getWidgets { dataState in
                 
                 switch(dataState) {
                     
@@ -397,11 +371,7 @@ class WidgetViewModel : ObservableObject {
     
     func deleteWidget(onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/delete/\(selectedWidgetModel?.id ?? "")"
-        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
-        
-        DeleteApiService<DeleteWidgetResponseModel>(parameters: nil, header: header, url: url)
-            .fetch { dataState in
+        widgetRepository.deleteWidget(widgetId: self.selectedWidgetModel?.id ?? ""){ dataState in
                 
                 switch(dataState) {
                     
@@ -443,20 +413,7 @@ class WidgetViewModel : ObservableObject {
     
     func createWidget(name: String, friendId: String?, onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/widget/create"
-        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
-        var parameters = [
-            "name":name
-        ]
-        if let friendId = friendId {
-            parameters = [
-                "name":name,
-                "friendId":friendId
-            ]
-        }
-        
-        PostApiService<CreateWidgetResponseModel>(parameters: parameters, header: header, url: url)
-            .fetch { dataState in
+        widgetRepository.createWidget(name: name, friendId: friendId) { dataState in
                 switch(dataState) {
                     
                 case .success(data: let data, message: _):
@@ -499,17 +456,6 @@ class WidgetViewModel : ObservableObject {
 }
 
 
-//{
-//    "success": true,
-//    "message": "widget created successfully",
-//    "data": {
-//        "name": "new widget",
-//        "creator": "64f2c823ce210fdecd128775",
-//        "contents": [],
-//        "reactions": [],
-//        "id": "64f2c89ace210fdecd128782"
-//    }
-//}
 struct CreateWidgetResponseModel : Codable {
     let success:Bool?
     let message:String?
@@ -529,23 +475,6 @@ struct DeleteWidgetResponseModel: Codable {
     var success: Bool?
     var message:String?
 }
-
-//{
-//    "success": true,
-//    "message": "widget history",
-//    "data": [
-//        {
-//            "id": "64f2feb852be8d120932d07d",
-//            "name": "Asdasd",
-//            "contents": []
-//        },
-//        {
-//            "id": "64f2fec152be8d120932d083",
-//            "name": "Wid2",
-//            "contents": []
-//        }
-//    ]
-//}
 
 struct GetAllWidgetResponseModel : Codable {
     let success:Bool?
