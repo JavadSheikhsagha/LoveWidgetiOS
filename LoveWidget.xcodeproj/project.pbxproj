@@ -127,13 +127,10 @@
 		3FD031762AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
 		3FD031772AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
 		3FD031782AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
+		3FD0317A2AB32CC10020414C /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031792AB32CC10020414C /* EntryModel.swift */; };
+		3FD0317C2AB32CE80020414C /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0317B2AB32CE80020414C /* WidgetView.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
-		3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
-		3FFDB4152AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
-		3FFDB4162AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
-		3FFDB4192AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */; };
 		3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */; };
-		3FFDB41B2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
 		806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E22A9DD21900599C14 /* ContentView.swift */; };
 		806CA8E52A9DD21B00599C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
@@ -250,8 +247,9 @@
 		3FD0316D2AB32BB00020414C /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		3FD031712AB32C220020414C /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		3FD031752AB32C490020414C /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		3FD031792AB32CC10020414C /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
+		3FD0317B2AB32CE80020414C /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
-		3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactToWidgetIntent.swift; sourceTree = "<group>"; };
 		3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWidgetIntent.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveWidgetApp.swift; sourceTree = "<group>"; };
@@ -329,13 +327,13 @@
 		3F1491302AA4413400850ED8 /* Widgy */ = {
 			isa = PBXGroup;
 			children = (
-				3F1491312AA4413400850ED8 /* WidgyBundle.swift */,
-				3F1491332AA4413400850ED8 /* Widgy.swift */,
-				3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */,
+				3FD0317D2AB32D650020414C /* core */,
+				3FD0317F2AB32D750020414C /* view */,
+				3FD0317E2AB32D6F0020414C /* api */,
+				3FFDB4172AA50DBB00E44674 /* app intents */,
 				3F1491352AA4413700850ED8 /* Assets.xcassets */,
 				3F1491372AA4413700850ED8 /* Info.plist */,
 				3F14913E2AA441A000850ED8 /* MyWidgetIntentFile.intentdefinition */,
-				3FFDB4172AA50DBB00E44674 /* app intents */,
 			);
 			path = Widgy;
 			sourceTree = "<group>";
@@ -458,6 +456,32 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		3FD0317D2AB32D650020414C /* core */ = {
+			isa = PBXGroup;
+			children = (
+				3F1491312AA4413400850ED8 /* WidgyBundle.swift */,
+				3F1491332AA4413400850ED8 /* Widgy.swift */,
+				3FD031792AB32CC10020414C /* EntryModel.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		3FD0317E2AB32D6F0020414C /* api */ = {
+			isa = PBXGroup;
+			children = (
+				3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		3FD0317F2AB32D750020414C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3FD0317B2AB32CE80020414C /* WidgetView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		3FE3E5A52A9E6F56003CD376 /* widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,7 +498,6 @@
 		3FFDB4172AA50DBB00E44674 /* app intents */ = {
 			isa = PBXGroup;
 			children = (
-				3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */,
 				3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */,
 			);
 			path = "app intents";
@@ -777,6 +800,7 @@
 				3F6F1E312AA79A6A009E7230 /* Widgy.swift in Sources */,
 				3F14915E2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F1491622AA44CC300850ED8 /* DataState.swift in Sources */,
+				3FD0317A2AB32CC10020414C /* EntryModel.swift in Sources */,
 				3FD031692AB32B860020414C /* WidgetApiService.swift in Sources */,
 				3F2325562AB302C6000FCCC6 /* LoginViewModel.swift in Sources */,
 				3F6F1E2C2AA799A3009E7230 /* Utils.swift in Sources */,
@@ -790,10 +814,10 @@
 				3F1491642AA44CC600850ED8 /* ApiServices.swift in Sources */,
 				3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 				3F1491562AA44C9400850ED8 /* UserSettings.swift in Sources */,
-				3FFDB4152AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F1491402AA441A500850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3FD031672AB32B4B0020414C /* UserModel.swift in Sources */,
 				3F14915C2AA44CB700850ED8 /* MyDecoder.swift in Sources */,
+				3FD0317C2AB32CE80020414C /* WidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,9 +839,7 @@
 				3F14915D2AA44CB800850ED8 /* MyDecoder.swift in Sources */,
 				3F1491572AA44C9500850ED8 /* UserSettings.swift in Sources */,
 				3FD031682AB32B4C0020414C /* UserModel.swift in Sources */,
-				3FFDB41B2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 				3FD031782AB32C490020414C /* WidgetModel.swift in Sources */,
-				3FFDB4162AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F14914A2AA4423A00850ED8 /* IntentHandler.swift in Sources */,
 				3F1D3E862AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
 				3FD0316A2AB32B860020414C /* WidgetApiService.swift in Sources */,
@@ -877,10 +899,8 @@
 				3F83A6102AA89D5B0072A380 /* SignupScreen.swift in Sources */,
 				3F83A6172AA8A5980072A380 /* ResetPasswordScreen.swift in Sources */,
 				3F52DCCF2AA625D500F6CD80 /* BannerView.swift in Sources */,
-				3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F83A6152AA8A3880072A380 /* ForgetPasswordScreen.swift in Sources */,
 				3F7927A22A9F110900D5F1F5 /* FriendsViewModel.swift in Sources */,
-				3FFDB4192AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
