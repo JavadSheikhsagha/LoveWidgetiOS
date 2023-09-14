@@ -151,30 +151,3 @@ class FriendsViewModel : ObservableObject {
     }
     
 }
-
-
-//{
-//    "success": true,
-//    "message": "user successfully added to friends",
-//    "data": [
-//        {
-//            "username": "guest-1693484574003",
-//            "profileImage": "http://157.90.30.203/widget-ios/userprofile/logo3.svg",
-//            "id": "64f0861e9300ee5453f250ee"
-//        }
-//    ]
-//}
-struct GetFriendsResponseModel : Codable {
-    
-    var success:Bool?
-    var message:String?
-    var data : [UserModel]?
-}
-
-struct DeleteFriendResponseModel : Codable {
-    
-    var success:Bool?
-    var message:String?
-    var data : UserModel?
-}
-

@@ -111,6 +111,22 @@
 		3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */; };
 		3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */; };
 		3FD031632AB3297D0020414C /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031622AB3297D0020414C /* WidgetRepository.swift */; };
+		3FD031662AB32B2D0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
+		3FD031672AB32B4B0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
+		3FD031682AB32B4C0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
+		3FD031692AB32B860020414C /* WidgetApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */; };
+		3FD0316A2AB32B860020414C /* WidgetApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */; };
+		3FD0316B2AB32B890020414C /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031622AB3297D0020414C /* WidgetRepository.swift */; };
+		3FD0316C2AB32B890020414C /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031622AB3297D0020414C /* WidgetRepository.swift */; };
+		3FD0316E2AB32BB00020414C /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0316D2AB32BB00020414C /* AuthModel.swift */; };
+		3FD0316F2AB32BB30020414C /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0316D2AB32BB00020414C /* AuthModel.swift */; };
+		3FD031702AB32BB30020414C /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0316D2AB32BB00020414C /* AuthModel.swift */; };
+		3FD031722AB32C220020414C /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031712AB32C220020414C /* FriendModel.swift */; };
+		3FD031732AB32C220020414C /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031712AB32C220020414C /* FriendModel.swift */; };
+		3FD031742AB32C220020414C /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031712AB32C220020414C /* FriendModel.swift */; };
+		3FD031762AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
+		3FD031772AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
+		3FD031782AB32C490020414C /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031752AB32C490020414C /* WidgetModel.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
 		3FFDB4142AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
 		3FFDB4152AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */; };
@@ -230,6 +246,10 @@
 		3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PurchaseFile.storekit; sourceTree = "<group>"; };
 		3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageScreen.swift; sourceTree = "<group>"; };
 		3FD031622AB3297D0020414C /* WidgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRepository.swift; sourceTree = "<group>"; };
+		3FD031652AB32B2D0020414C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3FD0316D2AB32BB00020414C /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		3FD031712AB32C220020414C /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		3FD031752AB32C490020414C /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		3FFDB4132AA50D4A00E44674 /* ReactToWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactToWidgetIntent.swift; sourceTree = "<group>"; };
 		3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWidgetIntent.swift; sourceTree = "<group>"; };
@@ -352,7 +372,7 @@
 			name = repository;
 			sourceTree = "<group>";
 		};
-		3F4799D12AA07D3E006BA057 /* view */ = {
+		3F4799D12AA07D3E006BA057 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
 				3FC6F7362AAF032B004F959F /* purhcase */,
@@ -362,7 +382,7 @@
 				806CA8F12A9DD7D600599C14 /* login */,
 				3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */,
 			);
-			path = view;
+			path = presentation;
 			sourceTree = "<group>";
 		};
 		3F4799D22AA07D47006BA057 /* app */ = {
@@ -427,6 +447,17 @@
 			path = purhcase;
 			sourceTree = "<group>";
 		};
+		3FD031642AB32B110020414C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3FD031652AB32B2D0020414C /* UserModel.swift */,
+				3FD0316D2AB32BB00020414C /* AuthModel.swift */,
+				3FD031712AB32C220020414C /* FriendModel.swift */,
+				3FD031752AB32C490020414C /* WidgetModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		3FE3E5A52A9E6F56003CD376 /* widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,9 +514,10 @@
 				3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */,
 				3FC27A072AA7106500EC59A1 /* font */,
 				3F4799E62AA08A8C006BA057 /* Info.plist */,
+				3FD031642AB32B110020414C /* model */,
 				3F4799D32AA07D52006BA057 /* api */,
 				3F2325452AB2F286000FCCC6 /* repository */,
-				3F4799D12AA07D3E006BA057 /* view */,
+				3F4799D12AA07D3E006BA057 /* presentation */,
 				3F4799D22AA07D47006BA057 /* app */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
@@ -740,21 +772,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1491592AA44CA600850ED8 /* WidgetViewModel.swift in Sources */,
+				3FD0316F2AB32BB30020414C /* AuthModel.swift in Sources */,
+				3FD0316C2AB32B890020414C /* WidgetRepository.swift in Sources */,
 				3F6F1E312AA79A6A009E7230 /* Widgy.swift in Sources */,
 				3F14915E2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F1491622AA44CC300850ED8 /* DataState.swift in Sources */,
+				3FD031692AB32B860020414C /* WidgetApiService.swift in Sources */,
 				3F2325562AB302C6000FCCC6 /* LoginViewModel.swift in Sources */,
 				3F6F1E2C2AA799A3009E7230 /* Utils.swift in Sources */,
 				3F6F1E2E2AA79A0E009E7230 /* WidgyBundle.swift in Sources */,
 				3F1D3E852AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
+				3FD031732AB32C220020414C /* FriendModel.swift in Sources */,
 				3F23255A2AB30316000FCCC6 /* LoginApiService.swift in Sources */,
 				3F1491552AA4452500850ED8 /* IntentHandler.swift in Sources */,
+				3FD031772AB32C490020414C /* WidgetModel.swift in Sources */,
 				3F2325582AB3030C000FCCC6 /* LoginRepository.swift in Sources */,
 				3F1491642AA44CC600850ED8 /* ApiServices.swift in Sources */,
 				3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 				3F1491562AA44C9400850ED8 /* UserSettings.swift in Sources */,
 				3FFDB4152AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F1491402AA441A500850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
+				3FD031672AB32B4B0020414C /* UserModel.swift in Sources */,
 				3F14915C2AA44CB700850ED8 /* MyDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,20 +801,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD031702AB32BB30020414C /* AuthModel.swift in Sources */,
 				3F1491582AA44CA500850ED8 /* WidgetViewModel.swift in Sources */,
 				3F14915F2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F6F1E2B2AA799A2009E7230 /* Utils.swift in Sources */,
 				3F2325592AB3030C000FCCC6 /* LoginRepository.swift in Sources */,
+				3FD031742AB32C220020414C /* FriendModel.swift in Sources */,
 				3F1491542AA442E800850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3F1491632AA44CC400850ED8 /* DataState.swift in Sources */,
 				3F2325572AB302C7000FCCC6 /* LoginViewModel.swift in Sources */,
+				3FD0316B2AB32B890020414C /* WidgetRepository.swift in Sources */,
 				3F1491652AA44CC700850ED8 /* ApiServices.swift in Sources */,
 				3F14915D2AA44CB800850ED8 /* MyDecoder.swift in Sources */,
 				3F1491572AA44C9500850ED8 /* UserSettings.swift in Sources */,
+				3FD031682AB32B4C0020414C /* UserModel.swift in Sources */,
 				3FFDB41B2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
+				3FD031782AB32C490020414C /* WidgetModel.swift in Sources */,
 				3FFDB4162AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F14914A2AA4423A00850ED8 /* IntentHandler.swift in Sources */,
 				3F1D3E862AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
+				3FD0316A2AB32B860020414C /* WidgetApiService.swift in Sources */,
 				3F23255B2AB30317000FCCC6 /* LoginApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,16 +838,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				806CA8F32A9DD7E200599C14 /* LoginViewModel.swift in Sources */,
+				3FD0316E2AB32BB00020414C /* AuthModel.swift in Sources */,
 				3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */,
 				3F068DC32AAC4D3C008D7C8D /* IntroScreen.swift in Sources */,
 				3F1D3E842AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				3F2325432AB2F138000FCCC6 /* MainApiService.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
+				3FD031662AB32B2D0020414C /* UserModel.swift in Sources */,
 				3F2325502AB3024E000FCCC6 /* LoginRepository.swift in Sources */,
 				3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */,
+				3FD031762AB32C490020414C /* WidgetModel.swift in Sources */,
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
 				3F2325492AB2F5CB000FCCC6 /* FriendsApiService.swift in Sources */,
 				3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */,
@@ -821,6 +868,7 @@
 				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
 				3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */,
 				3F23255D2AB30DF8000FCCC6 /* WidgetApiService.swift in Sources */,
+				3FD031722AB32C220020414C /* FriendModel.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F2325472AB2F29F000FCCC6 /* MainRepository.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,

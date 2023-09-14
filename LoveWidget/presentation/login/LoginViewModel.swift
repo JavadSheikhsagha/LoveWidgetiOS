@@ -317,31 +317,3 @@ class LoginViewModel : ObservableObject {
     
 }
 
-
-struct LoginRequestModel : Codable {
-    
-    var email:String
-    var password: String
-    var playerId:String
-    
-}
-
-struct LoginResponseModel : Codable {
-    
-    var statusCode: Int?
-    var success:Bool?
-    var message:String
-    var user: UserModel?
-    var accessToken:String?
-}
-
-struct UserModel: Codable {
-    
-    var username:String
-    var code:String?
-    var profileImage:String
-    var id:String
-    var isVerified: Bool?
-    var email:String?
-    
-}

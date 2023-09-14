@@ -129,27 +129,3 @@ enum Screens {
 }
 
 
-struct DeleteUserResponseModel : Codable {
-    
-    var success : Bool?
-    var message:String
-}
-
-
-//{
-//    "success": true,
-//    "message": "user successfully added to friends",
-//    "data": {
-//        "username": "moho",
-//        "code": "1693479636132",
-//        "profileImage": "http://157.90.30.203/widget-ios/userprofile/logo7.svg",
-//        "id": "64f072d4eabd7759e8c7e917"
-//    }
-//}
-
-struct ChangeUsernameResponseModel : Codable {
-    
-    var success:Bool?
-    var message:String?
-    var data:UserModel?
-}
