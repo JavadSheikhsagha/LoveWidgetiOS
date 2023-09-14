@@ -46,6 +46,8 @@
 		3F1D3E852AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
 		3F1D3E862AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
 		3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F14D02AAAF98700A065B2 /* ProfileScreen.swift */; };
+		3F2325432AB2F138000FCCC6 /* MainApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2325422AB2F138000FCCC6 /* MainApiService.swift */; };
+		3F2325472AB2F29F000FCCC6 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2325462AB2F29F000FCCC6 /* MainRepository.swift */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
 		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
@@ -176,6 +178,8 @@
 		3F1491532AA4425300850ED8 /* WidgyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgyExtension.entitlements; sourceTree = "<group>"; };
 		3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNetworkManager.swift; sourceTree = "<group>"; };
 		3F1F14D02AAAF98700A065B2 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		3F2325422AB2F138000FCCC6 /* MainApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiService.swift; sourceTree = "<group>"; };
+		3F2325462AB2F29F000FCCC6 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		3F4799D72AA07FD9006BA057 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		3F4799D82AA07FD9006BA057 /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		3F4799D92AA07FD9006BA057 /* DataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
@@ -310,6 +314,22 @@
 			path = WidgetEditIntent;
 			sourceTree = "<group>";
 		};
+		3F2325442AB2F1B1000FCCC6 /* api services */ = {
+			isa = PBXGroup;
+			children = (
+				3F2325422AB2F138000FCCC6 /* MainApiService.swift */,
+			);
+			path = "api services";
+			sourceTree = "<group>";
+		};
+		3F2325452AB2F286000FCCC6 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				3F2325462AB2F29F000FCCC6 /* MainRepository.swift */,
+			);
+			name = repository;
+			sourceTree = "<group>";
+		};
 		3F4799D12AA07D3E006BA057 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +360,7 @@
 				3F4799D72AA07FD9006BA057 /* ErrorType.swift */,
 				3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */,
 				3F4799DB2AA07FD9006BA057 /* Utils.swift */,
+				3F2325442AB2F1B1000FCCC6 /* api services */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -441,6 +462,7 @@
 				3FC27A072AA7106500EC59A1 /* font */,
 				3F4799E62AA08A8C006BA057 /* Info.plist */,
 				3F4799D32AA07D52006BA057 /* api */,
+				3F2325452AB2F286000FCCC6 /* repository */,
 				3F4799D12AA07D3E006BA057 /* view */,
 				3F4799D22AA07D47006BA057 /* app */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
@@ -750,6 +772,7 @@
 				3F068DC32AAC4D3C008D7C8D /* IntroScreen.swift in Sources */,
 				3F1D3E842AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
+				3F2325432AB2F138000FCCC6 /* MainApiService.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
 				3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
@@ -768,6 +791,7 @@
 				3F4799E52AA085FA006BA057 /* UserSettings.swift in Sources */,
 				3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
+				3F2325472AB2F29F000FCCC6 /* MainRepository.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */,
 				3F83A6102AA89D5B0072A380 /* SignupScreen.swift in Sources */,

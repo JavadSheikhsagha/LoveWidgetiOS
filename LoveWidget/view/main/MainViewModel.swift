@@ -10,6 +10,8 @@ import Foundation
 
 class MainViewModel : ObservableObject {
     
+    private let mainRepository = MainRepository()
+    
     @Published var isLoading = false
     @Published var errorMessage = ""
     @Published var isErrorOccurred = false
@@ -22,12 +24,7 @@ class MainViewModel : ObservableObject {
     
     func deleteUser(onSuccess : @escaping (Bool) -> Void) {
         
-        let url =  "\(base_url)/auth/delete-account"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        print(getToken())
-        
-        DeleteApiService<DeleteUserResponseModel>(parameters: nil, header: header, url: url)
-            .fetch { dataState in
+        mainRepository.deleteUser { dataState in
                 
                 switch(dataState) {
                     
@@ -69,12 +66,8 @@ class MainViewModel : ObservableObject {
     }
     
     func changeUsername(newUsername:String, onSuccess: @escaping (Bool)-> Void) {
-        let url =  "\(base_url)/user/edit-username"
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        let parameters = ["username": newUsername]
         
-        PatchApiService<ChangeUsernameResponseModel>(parameters: parameters, header: header, url: url)
-            .fetch { dataState in
+        mainRepository.changeUsername(newUsername: newUsername) { dataState in
                 
                 switch(dataState) {
                     
