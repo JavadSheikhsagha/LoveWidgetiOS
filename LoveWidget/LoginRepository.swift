@@ -7,10 +7,8 @@
 
 import Foundation
 
-
 class LoginRepository : LoginApiService {
 
-    
     
     private let loginApiService = LoginApiService_Impl()
     
@@ -30,7 +28,7 @@ class LoginRepository : LoginApiService {
         loginApiService.resetPassword(password: password, onResponse: onResponse)
     }
     
-    func sendForgetPassword(email: String, 
+    func sendForgetPassword(email: String,
                             onResponse: @escaping (DataState<LoginResponseModel?, ErrorType?, String?>) -> Void) {
         loginApiService.sendForgetPassword(email: email, onResponse: onResponse)
     }

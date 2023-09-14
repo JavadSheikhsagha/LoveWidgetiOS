@@ -24,7 +24,7 @@ class LoginViewModel : ObservableObject {
     @Published var isErrorOccurred = false
     
     @Published var token : String = ""
-    @Published var userModel  :UserModel? = nil
+    @Published var userModel : UserModel? = nil
     
     func changePasswordProfileScreen(password:String, oldPassword:String, onSuccess : @escaping (Bool)-> Void) {
         

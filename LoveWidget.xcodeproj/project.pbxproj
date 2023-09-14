@@ -24,8 +24,6 @@
 		3F1491572AA44C9500850ED8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799E42AA085FA006BA057 /* UserSettings.swift */; };
 		3F1491582AA44CA500850ED8 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */; };
 		3F1491592AA44CA600850ED8 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */; };
-		3F14915A2AA44CAC00850ED8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
-		3F14915B2AA44CAC00850ED8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
 		3F14915C2AA44CB700850ED8 /* MyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */; };
 		3F14915D2AA44CB800850ED8 /* MyDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799DA2AA07FD9006BA057 /* MyDecoder.swift */; };
 		3F14915E2AA44CBD00850ED8 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
@@ -51,7 +49,13 @@
 		3F2325492AB2F5CB000FCCC6 /* FriendsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2325482AB2F5CB000FCCC6 /* FriendsApiService.swift */; };
 		3F23254B2AB2F81D000FCCC6 /* FriendsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254A2AB2F81D000FCCC6 /* FriendsRepository.swift */; };
 		3F23254D2AB2F90C000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
-		3F23254F2AB2FBCD000FCCC6 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */; };
+		3F2325502AB3024E000FCCC6 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */; };
+		3F2325562AB302C6000FCCC6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
+		3F2325572AB302C7000FCCC6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8F22A9DD7E200599C14 /* LoginViewModel.swift */; };
+		3F2325582AB3030C000FCCC6 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */; };
+		3F2325592AB3030C000FCCC6 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */; };
+		3F23255A2AB30316000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
+		3F23255B2AB30317000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
 		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
@@ -733,17 +737,19 @@
 				3F6F1E312AA79A6A009E7230 /* Widgy.swift in Sources */,
 				3F14915E2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F1491622AA44CC300850ED8 /* DataState.swift in Sources */,
+				3F2325562AB302C6000FCCC6 /* LoginViewModel.swift in Sources */,
 				3F6F1E2C2AA799A3009E7230 /* Utils.swift in Sources */,
 				3F6F1E2E2AA79A0E009E7230 /* WidgyBundle.swift in Sources */,
 				3F1D3E852AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
+				3F23255A2AB30316000FCCC6 /* LoginApiService.swift in Sources */,
 				3F1491552AA4452500850ED8 /* IntentHandler.swift in Sources */,
+				3F2325582AB3030C000FCCC6 /* LoginRepository.swift in Sources */,
 				3F1491642AA44CC600850ED8 /* ApiServices.swift in Sources */,
 				3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 				3F1491562AA44C9400850ED8 /* UserSettings.swift in Sources */,
 				3FFDB4152AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F1491402AA441A500850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3F14915C2AA44CB700850ED8 /* MyDecoder.swift in Sources */,
-				3F14915B2AA44CAC00850ED8 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,16 +760,18 @@
 				3F1491582AA44CA500850ED8 /* WidgetViewModel.swift in Sources */,
 				3F14915F2AA44CBD00850ED8 /* ErrorType.swift in Sources */,
 				3F6F1E2B2AA799A2009E7230 /* Utils.swift in Sources */,
+				3F2325592AB3030C000FCCC6 /* LoginRepository.swift in Sources */,
 				3F1491542AA442E800850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3F1491632AA44CC400850ED8 /* DataState.swift in Sources */,
+				3F2325572AB302C7000FCCC6 /* LoginViewModel.swift in Sources */,
 				3F1491652AA44CC700850ED8 /* ApiServices.swift in Sources */,
 				3F14915D2AA44CB800850ED8 /* MyDecoder.swift in Sources */,
 				3F1491572AA44C9500850ED8 /* UserSettings.swift in Sources */,
-				3F14915A2AA44CAC00850ED8 /* LoginViewModel.swift in Sources */,
 				3FFDB41B2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */,
 				3FFDB4162AA50D4A00E44674 /* ReactToWidgetIntent.swift in Sources */,
 				3F14914A2AA4423A00850ED8 /* IntentHandler.swift in Sources */,
 				3F1D3E862AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */,
+				3F23255B2AB30317000FCCC6 /* LoginApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,7 +794,7 @@
 				3F79279F2A9F10E600D5F1F5 /* FriendsScreen.swift in Sources */,
 				3F2325432AB2F138000FCCC6 /* MainApiService.swift in Sources */,
 				3F7927A42A9F149900D5F1F5 /* WidgetHistoryScreen.swift in Sources */,
-				3F23254F2AB2FBCD000FCCC6 /* LoginRepository.swift in Sources */,
+				3F2325502AB3024E000FCCC6 /* LoginRepository.swift in Sources */,
 				3F7927A82A9F259B00D5F1F5 /* CreateWidgetScreen.swift in Sources */,
 				806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */,
 				3F4799DF2AA07FD9006BA057 /* MyDecoder.swift in Sources */,
@@ -865,7 +873,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.Widgy;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.Widgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -900,7 +908,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.Widgy;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.Widgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -933,7 +941,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.WidgetEditIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.WidgetEditIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -966,7 +974,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.WidgetEditIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.WidgetEditIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -998,7 +1006,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1030,7 +1038,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget.OneSignalNotificationServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1185,7 +1193,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1232,7 +1240,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pedram.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
