@@ -10,6 +10,8 @@ import Foundation
 
 class FriendsViewModel : ObservableObject {
     
+    private let friendsRepository = FriendsRepository()
+    
     
     @Published var friends = [UserModel]()
     @Published var selectedFriend : UserModel? = nil
@@ -22,12 +24,7 @@ class FriendsViewModel : ObservableObject {
     
     func addFriend(friendId: String, onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/user/friends/add"
-        
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        let parameters = ["friendCode": friendId]
-        
-        PatchApiService<DeleteFriendResponseModel>(parameters: parameters, header: header, url: url).fetch { dataState in
+        friendsRepository.addFriend(friendId: friendId) { dataState in
             switch(dataState) {
                 
             case .success(data: let data, message: _):
@@ -69,12 +66,7 @@ class FriendsViewModel : ObservableObject {
     
     func getFriends(onSuccess: @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/user/friends/show"
-        
-        print(getToken())
-        
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        GetApiService<GetFriendsResponseModel>(url: url, header: header).fetch { dataState in
+        friendsRepository.getFriends { dataState in
             switch(dataState) {
                 
             case .success(data: let data, message: _):
@@ -116,11 +108,7 @@ class FriendsViewModel : ObservableObject {
     
     func deleteFriend(friendId: String, onSuccess : @escaping (Bool) -> Void) {
         
-        let url = "\(base_url)/user/friends/delete"
-        
-        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
-        let parameter = ["friendId":friendId]
-        DeleteApiService<DeleteUserResponseModel>(parameters: parameter, header: header, url: url).fetch { dataState in
+        friendsRepository.deleteFriends(friendId: friendId) { dataState in
             switch(dataState) {
                 
             case .success(data: let data, message: _):
