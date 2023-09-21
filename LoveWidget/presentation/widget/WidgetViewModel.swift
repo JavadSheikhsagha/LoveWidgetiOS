@@ -20,6 +20,7 @@ class WidgetViewModel : ObservableObject {
     @Published var allWidgetsMain = [WidgetServerModel]()
     @Published var selectedWidgetModel : WidgetServerModel? = nil
     @Published var getSingleWidgetData : WidgetFullData? = nil
+    @Published var selectedImageForBigView : WidgetServerModel? = nil
     
     @Published var isLoading = false
     @Published var errorMessage = ""

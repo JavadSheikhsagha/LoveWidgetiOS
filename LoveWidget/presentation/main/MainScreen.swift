@@ -26,6 +26,7 @@ struct MainScreen: View {
     @State var changeNameText = ""
     @State var showBanner = false
     @State var showIntroScreen = false
+    @State var showBigView = false
     @State var bannerData = BannerData(title: "Copied to clipboard.", detail: "", type: .success)
     
     
@@ -230,6 +231,12 @@ struct MainScreen: View {
                                                 mainViewModel.SCREEN_VIEW = .WidgetSingle
                                             }
                                         }
+                                        .onLongPressGesture(perform: {
+                                            widgetViewModel.selectedImageForBigView = widget
+                                            withAnimation {
+                                                showBigView = true
+                                            }
+                                        })
                                         .frame(width:UIScreen.screenWidth - 64/2)
                                 
                                     Spacer()
@@ -393,6 +400,42 @@ struct MainScreen: View {
                 
                 
                 askForLoginDialog
+                
+            }
+            
+            ZStack {
+                
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(showBigView ? 0.5 : 0.0)
+                    .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
+                    .onTapGesture {
+                        withAnimation {
+                            showBigView = false
+                        }
+                    }
+                
+                ZStack(alignment: .topTrailing) {
+                    
+                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView?.contents?.data ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                Image(systemName: "photo.fill")
+                            }.frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                        .clipShape(RoundedRectangle(cornerRadius: 42))
+                        .onTapGesture {
+                            withAnimation {
+                                mainViewModel.SCREEN_VIEW = .Profile
+                            }
+                        }
+                    
+                }
+                .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
+                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
                 
             }
             
