@@ -23,6 +23,7 @@ struct ProfileScreen: View {
     @State var showDeleteAccountDialog = false
     @State var showAskForLoginDialog = false
     @State var showBanner = false
+    @State var isButtonEnabled = true
     @State var changeNameText = ""
     @State var oldPassword = ""
     @State var newPassword = ""
@@ -188,10 +189,12 @@ struct ProfileScreen: View {
                 Spacer()
                     .frame(height: 42)
                 
-                Button(action: {
-                    //save name
+                FilledButton(text: "Save", isEnabled: $isButtonEnabled) {
+                    
                     if changeNameText.count > 0 {
+                        isButtonEnabled = false
                         mainViewModel.changeUsername(newUsername: changeNameText) { bool in
+                            isButtonEnabled = true
                             if bool {
                                 showBanner = true
                                 bannerData = BannerData(title: "Name changed successfully", detail: "", type: .success)
@@ -204,22 +207,14 @@ struct ProfileScreen: View {
                         mainViewModel.isErrorOccurred = true
                         mainViewModel.errorMessage = "User must have at least 1 characters."
                     }
-                }, label: {
-                    Image("btnSave")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
-                    
-                Button(action: {
-                    //discard saving
+                }.frame(width: UIScreen.screenWidth - 64,height: 55)
+                
+                OutlineButton(text: "Discard") {
                     withAnimation {
                         showEditNameDialog = false
                     }
-                }, label: {
-                    Image("btnDiscard")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
+                    
+                }.frame(width: UIScreen.screenWidth - 64,height: 55)
             }
             
         }
@@ -351,13 +346,14 @@ struct ProfileScreen: View {
                 Spacer()
                     .frame(height: 42)
                 
-                Button(action: {
-                    //save name
+                FilledButton(text: "Save", isEnabled: $isButtonEnabled) {
+                    isButtonEnabled = false
                     if !loginViewModel.isLoading {
                         if isConfirmPasswordOk {
                             loginViewModel.changePasswordProfileScreen(password: newPassword,
                                                                        oldPassword: oldPassword)
                             { bool in
+                                isButtonEnabled = true
                                 if bool {
                                     withAnimation {
                                         showEditPassDialog = false
@@ -373,22 +369,13 @@ struct ProfileScreen: View {
                             showBanner = true
                         }
                     }
-                }, label: {
-                    Image("btnSave")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
-                    
-                Button(action: {
-                    //discard saving
+                }.frame(width: UIScreen.screenWidth - 64,height: 55)
+                
+                OutlineButton(text: "Discard") {
                     withAnimation {
                         showEditPassDialog = false
                     }
-                }, label: {
-                    Image("btnDiscard")
-                        .resizable()
-                        .frame(width: UIScreen.screenWidth - 64,height: 55)
-                })
+                }.frame(width: UIScreen.screenWidth - 64,height: 55)
                 
                 Spacer()
                     .frame(height: 16)
