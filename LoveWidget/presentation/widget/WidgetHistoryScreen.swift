@@ -13,6 +13,8 @@ struct WidgetHistoryScreen: View {
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     @EnvironmentObject var mainViewModel : MainViewModel
     
+    @State var showBigView = false
+    
     @State var playLottie = true
     
     var body: some View {
@@ -48,6 +50,40 @@ struct WidgetHistoryScreen: View {
                 .lottieLoopMode(.loop)
                 .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
                 .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
+            
+            ZStack {
+                
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(showBigView ? 0.5 : 0.0)
+                    .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
+                    .onTapGesture {
+                        withAnimation {
+                            showBigView = false
+                        }
+                    }
+                
+                ZStack(alignment: .topTrailing) {
+                    
+                    
+                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                Image(systemName: "photo.fill")
+                            }.frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
+                        
+                    
+                }
+                .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
+                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
+                
+            }
             
         }
     }
@@ -101,6 +137,11 @@ struct WidgetHistoryScreen: View {
                                     Spacer()
                                         .frame(height: 16)
                                     
+                                }.onTapGesture {
+                                    widgetViewModel.selectedImageForBigView = item.data
+                                    withAnimation {
+                                        showBigView = true
+                                    }
                                 }
                             }
                             

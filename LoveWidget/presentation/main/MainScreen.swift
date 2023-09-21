@@ -232,7 +232,7 @@ struct MainScreen: View {
                                             }
                                         }
                                         .onLongPressGesture(perform: {
-                                            widgetViewModel.selectedImageForBigView = widget
+                                            widgetViewModel.selectedImageForBigView = widget.contents?.data
                                             withAnimation {
                                                 showBigView = true
                                             }
@@ -417,19 +417,15 @@ struct MainScreen: View {
                 
                 ZStack(alignment: .topTrailing) {
                     
-                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView?.contents?.data ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                             } placeholder: {
                                 Image(systemName: "photo.fill")
                             }.frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
-                        .clipShape(RoundedRectangle(cornerRadius: 42))
-                        .onTapGesture {
-                            withAnimation {
-                                mainViewModel.SCREEN_VIEW = .Profile
-                            }
-                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        
                     
                 }
                 .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
