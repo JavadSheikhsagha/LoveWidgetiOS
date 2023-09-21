@@ -581,11 +581,17 @@ struct ProfileScreen: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     } else {
-                        ShareLink(item: "Hello. I am \(loadUser()?.username ?? "") and this is my code in love widget. \n\(loadUser()?.code ?? "") \nIf you don't have the love widget app yet, you can install it through the link below.\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
-                            Image("imgShareMyCodeButton")
-                                .resizable()
-                                .frame(width: UIScreen.screenWidth - 65 ,height: 55)
-                        }
+                        ShareLink(item: "Hey there! I just came across this awesome app that lets us connect and make each other's day a little brighter :)\n\nThis is my code inside this program: \(loadUser()?.code ?? "")\n\nYou can simply download it by clicking on the link provided below.\n\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
+                            ZStack {
+                                Color(hex:"#6D8DF7")
+                                
+                                HStack {
+                                    Text("Share my code")
+                                        .font(.system(size: 20))
+                                        .foregroundStyle(.white)
+                                }
+                            }.clipShape(RoundedRectangle(cornerRadius: 10))
+                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     }
                     
                     Button {

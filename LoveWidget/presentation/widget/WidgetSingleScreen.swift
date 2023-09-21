@@ -15,6 +15,7 @@ struct WidgetSingleScreen: View {
     @EnvironmentObject var friendsViewModel : FriendsViewModel
     
     @State var showDeleteWidgetDialog = false
+    @State var isButtonEnabled = true
     @State var showFriendsBottomSheet = false
     @State var showAction: Bool = false
     @State var showImagePicker: Bool = false
@@ -209,13 +210,9 @@ struct WidgetSingleScreen: View {
             
             Spacer()
             
-            Button {
+            FilledButton(text: "Add To Home", isEnabled: $isButtonEnabled) {
                 showIntroScreen = true
-            } label: {
-                Image(.addToHomeBtn)
-                    .resizable()
-                    .frame(width: UIScreen.screenWidth - 48, height: 55)
-            }
+            }.frame(width: UIScreen.screenWidth - 44, height: 55)
 
         }
     }

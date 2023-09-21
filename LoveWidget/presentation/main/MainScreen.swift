@@ -21,6 +21,7 @@ struct MainScreen: View {
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     
     @State var showFriendsBottomSheet = false
+    @State var isButtonEnabled = true
     @State var showAskForLoginDialog = false
     @State var changeNameText = ""
     @State var showBanner = false
@@ -123,30 +124,23 @@ struct MainScreen: View {
                         .frame(height: 24)
                     
                     if isUserGuest() {
-                        Button {
+                        FilledButton(text: "Login", isEnabled: $isButtonEnabled) {
                             withAnimation {
                                 showAskForLoginDialog = true
                             }
-                            
-                        } label: {
-                            ZStack {
-                                
-                                Color(hex:"#6D8DF7")
-                                
-                                Text("Login")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                
-                                
-                            }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }
+                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     } else {
                         ShareLink(item: "Hey there! I just came across this awesome app that lets us connect and make each other's day a little brighter :)\n\nThis is my code inside this program: \(loadUser()?.code ?? "")\n\nYou can simply download it by clicking on the link provided below.\n\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
-                            Image("imgShareMyCodeButton")
-                                .resizable()
-                                .frame(width: UIScreen.screenWidth - 65 ,height: 55)
-                        }
+                            ZStack {
+                                Color(hex:"#6D8DF7")
+                                
+                                HStack {
+                                    Text("Share my code")
+                                        .font(.system(size: 20))
+                                        .foregroundStyle(.white)
+                                }
+                            }.clipShape(RoundedRectangle(cornerRadius: 10))
+                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     }
 
                 }
@@ -164,7 +158,7 @@ struct MainScreen: View {
             Spacer()
                 .frame(height: 28)
             
-            Button(action: {
+            FilledButton(text: "friends",colorBackground: "#FF8B8B", isEnabled: $isButtonEnabled) {
                 if isUserGuest() {
                     withAnimation {
                         showAskForLoginDialog = true
@@ -172,11 +166,7 @@ struct MainScreen: View {
                 } else {
                     showFriendsBottomSheet = true
                 }
-            }, label: {
-                Image("imgInviteFriends")
-                    .resizable()
-                    .frame(width: UIScreen.screenWidth - 44, height: 55)
-            })
+            }.frame(width: UIScreen.screenWidth - 44, height: 55)
             
             HStack {
                 

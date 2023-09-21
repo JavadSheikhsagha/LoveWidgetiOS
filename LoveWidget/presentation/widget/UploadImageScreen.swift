@@ -14,6 +14,8 @@ struct UploadImageScreen: View {
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     
+    @State var isButtonEnabled = true
+    
     @State var playLottie = true
     
     
@@ -56,9 +58,10 @@ struct UploadImageScreen: View {
     }
     
     var bottomButtons : some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 20) {
             
-            Button {
+            FilledButton(text: "Send", isEnabled: $isButtonEnabled) {
+                isButtonEnabled = false
                 if widgetViewModel.historyWidgets.count > 0 && !getIsPro() {
                     withAnimation {
                         mainViewModel.BACKSTACK_PURCHASE = .UploadImageScreen
@@ -66,6 +69,7 @@ struct UploadImageScreen: View {
                     }
                 } else {
                     widgetViewModel.uploadImageToHistory(image: widgetViewModel.selectedImage) { bool in
+                        isButtonEnabled = true
                         if bool {
                             widgetViewModel.isImageUplaoded = true
                             withAnimation {
@@ -74,23 +78,14 @@ struct UploadImageScreen: View {
                         }
                     }
                 }
-            } label: {
-                Image("btnSend")
-                    .resizable()
-                    .frame(width: UIScreen.screenWidth - 40, height: 55)
-            }
+            }.frame(width: UIScreen.screenWidth - 40, height: 55)
             
-            
-            Button {
+            OutlineButton(text: "Cancel") {
                 widgetViewModel.selectedImage = nil
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .WidgetSingle
                 }
-            } label: {
-                Image("btnCancelBig")
-                    .resizable()
-                    .frame(width: UIScreen.screenWidth - 40, height: 55)
-            }
+            }.frame(width: UIScreen.screenWidth - 40, height: 55)
             
         }
     }

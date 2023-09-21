@@ -122,26 +122,10 @@ struct SignupScreen: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
                         )
-//                            // terms and conditions text
-//                        HStack {
-//                            
-//                            Button {
-//                                isTermsAndConditionsChecked.toggle()
-//                            } label: {
-//                                Image(isTermsAndConditionsChecked ? .fillCheck : .emptyCheck)
-//                            }
-//
-//                            Text("Agree all terms & conditions")
-//                              .font(Font.custom("SF UI Text", size: 12))
-//                              .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-//                            
-//                            Spacer()
-//                            
-//                        }.padding(.horizontal, 32)
+                        
                     }
                     
-                    
-                    Button {
+                    FilledButton(text: "Sign up", isEnabled: $isButtonEnabled, onClicked: {
                         if isButtonEnabled {
                             isButtonEnabled = false
                             loginViewModel.registerUser(email: email, password: passwordText) { bool in
@@ -154,20 +138,8 @@ struct SignupScreen: View {
                             }
                         }
                         UIApplication.shared.endEditing()
-                        
-                    } label: {
-                        ZStack {
-                            
-                            Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
-                            
-                            Text("Sign up")
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                            
-                            
-                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
+                    })
+                    .frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     .onChange(of: isTermsAndConditionsChecked) { newValue in
                         if textFieldValidatorEmail(email)
                             && passwordText.count > 5
@@ -180,12 +152,7 @@ struct SignupScreen: View {
                         }
                     }
                     
-                    Button {
-                        // login later
-//                        withAnimation {
-//                            mainViewModel.SCREEN_VIEW = .MainMenu
-//                        }
-                        
+                    OutlineButton(text: "Login later") {
                         UIApplication.shared.endEditing()
                         if !loginViewModel.isLoading {
                             loginViewModel.skipLogin(onSuccess: { bool in
@@ -200,11 +167,7 @@ struct SignupScreen: View {
                         }
                         
                         
-                    } label: {
-                        Image("loginLaterButton")
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                    }
+                    }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     
                     
                     HStack {

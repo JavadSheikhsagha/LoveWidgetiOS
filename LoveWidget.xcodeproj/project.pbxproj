@@ -109,6 +109,7 @@
 		3FC586532A9E19B200D85919 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC586522A9E19B200D85919 /* MainViewModel.swift */; };
 		3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */; };
 		3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */; };
+		3FCDAD662ABC2F75001DA68B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDAD652ABC2F75001DA68B /* ButtonStyles.swift */; };
 		3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */; };
 		3FD031632AB3297D0020414C /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031622AB3297D0020414C /* WidgetRepository.swift */; };
 		3FD031662AB32B2D0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
@@ -241,6 +242,7 @@
 		3FC586522A9E19B200D85919 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseScreen.swift; sourceTree = "<group>"; };
 		3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PurchaseFile.storekit; sourceTree = "<group>"; };
+		3FCDAD652ABC2F75001DA68B /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageScreen.swift; sourceTree = "<group>"; };
 		3FD031622AB3297D0020414C /* WidgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRepository.swift; sourceTree = "<group>"; };
 		3FD031652AB32B2D0020414C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -445,6 +447,24 @@
 			path = purhcase;
 			sourceTree = "<group>";
 		};
+		3FCDAD672ABC3925001DA68B /* view utils */ = {
+			isa = PBXGroup;
+			children = (
+				3FCDAD652ABC2F75001DA68B /* ButtonStyles.swift */,
+			);
+			path = "view utils";
+			sourceTree = "<group>";
+		};
+		3FCDAD682ABC3940001DA68B /* media assets */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B3BFB2AB0A5E200844827 /* intro_vid.mp4 */,
+				3F83A60A2AA89A5E0072A380 /* loading2.json */,
+				3F6FA8EA2AA7850F005EA60B /* loading.json */,
+			);
+			path = "media assets";
+			sourceTree = "<group>";
+		};
 		3FD031642AB32B110020414C /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,16 +551,15 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
-				3F0B3BFB2AB0A5E200844827 /* intro_vid.mp4 */,
-				3F83A60A2AA89A5E0072A380 /* loading2.json */,
-				3F6FA8EA2AA7850F005EA60B /* loading.json */,
 				3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */,
-				3FC27A072AA7106500EC59A1 /* font */,
 				3F4799E62AA08A8C006BA057 /* Info.plist */,
+				3FCDAD682ABC3940001DA68B /* media assets */,
+				3FC27A072AA7106500EC59A1 /* font */,
 				3FD031642AB32B110020414C /* model */,
 				3F4799D32AA07D52006BA057 /* api */,
 				3F2325452AB2F286000FCCC6 /* repository */,
 				3F4799D12AA07D3E006BA057 /* presentation */,
+				3FCDAD672ABC3925001DA68B /* view utils */,
 				3F4799D22AA07D47006BA057 /* app */,
 				806CA8E42A9DD21B00599C14 /* Assets.xcassets */,
 				806CA8E62A9DD21B00599C14 /* LoveWidget.entitlements */,
@@ -876,6 +895,7 @@
 				806CA8F82A9DDD0E00599C14 /* MainScreen.swift in Sources */,
 				3F2325492AB2F5CB000FCCC6 /* FriendsApiService.swift in Sources */,
 				3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */,
+				3FCDAD662ABC2F75001DA68B /* ButtonStyles.swift in Sources */,
 				3F14913F2AA441A000850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
 				3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */,

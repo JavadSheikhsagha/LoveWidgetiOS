@@ -76,7 +76,7 @@ struct ResetPasswordScreen: View {
                     Spacer()
                         .frame(height: 44)
                     
-                    Button {
+                    FilledButton(text: "Save", isEnabled: $isButtonEnabled) {
                         if isButtonEnabled {
                             loginViewModel.resetPassword(password: passwordText) { bool in
                                 if bool {
@@ -87,20 +87,7 @@ struct ResetPasswordScreen: View {
                             }
                         }
                         UIApplication.shared.endEditing()
-                        
-                    } label: {
-                        ZStack {
-                            
-                            Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
-                            
-                            Text("Save")
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                            
-                            
-                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
+                    }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     
                     
                     Spacer()

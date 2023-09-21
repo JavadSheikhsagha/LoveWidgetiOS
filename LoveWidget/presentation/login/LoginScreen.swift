@@ -127,9 +127,10 @@ struct LoginScreen: View {
                         }.padding(.horizontal, 32)
                     }
                     
-                    
-                    Button {
+                    FilledButton(text: "Log in", isEnabled: $isButtonEnabled) {
+                        isButtonEnabled = false
                         loginViewModel.loginWithEmail(email: email, password: passwordText) { bool in
+                            isButtonEnabled = true
                             if bool {
                                 withAnimation {
                                     mainViewModel.SCREEN_VIEW = .MainMenu
@@ -139,20 +140,7 @@ struct LoginScreen: View {
                             }
                         }
                         UIApplication.shared.endEditing()
-                        
-                    } label: {
-                        ZStack {
-                            
-                            Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
-                            
-                            Text("Log in")
-                                .font(.system(size: 20))
-                                .foregroundColor(.white)
-                            
-                            
-                        }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
+                    }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
                     
                     
                     
@@ -164,11 +152,11 @@ struct LoginScreen: View {
                         Text("Sign up")
                             .font(Font.custom("SF UI  Text", size: 12))
                             .foregroundStyle(Color(hex:"#87A2FB"))
-                            .onTapGesture {
-                                withAnimation {
-                                    mainViewModel.SCREEN_VIEW = .SignUp
-                                }
-                            }
+                            
+                    }.onTapGesture {
+                        withAnimation {
+                            mainViewModel.SCREEN_VIEW = .SignUp
+                        }
                     }
                     
                     Spacer()
