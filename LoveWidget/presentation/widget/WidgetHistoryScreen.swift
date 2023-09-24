@@ -20,7 +20,7 @@ struct WidgetHistoryScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     widgetViewModel.getHistoryList { Bool in

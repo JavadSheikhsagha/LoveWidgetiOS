@@ -24,7 +24,7 @@ struct EditQuoteScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onTapGesture {
                     UIApplication.shared.endEditing()
@@ -162,7 +162,7 @@ struct EditQuoteScreen: View {
             } label: {
                 ZStack {
                     
-                    Color(hex: "#6D8DF7")
+                    Color(hex: "#FDA3A3")
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                     
                     Text("Next")
@@ -242,7 +242,7 @@ struct WidgetEditScreenFooter : View {
     var body: some View {
         ZStack {
             
-            Color("headerBackgroundColor")
+            Color(hex: "#FFDBDB")
                 .opacity(0.5)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
                 .ignoresSafeArea()
@@ -259,7 +259,7 @@ struct WidgetEditScreenFooter : View {
                 
                 VStack {
                     ZStack {
-                        Color("headerBackgroundColor")
+                        Color(hex: "#FFDBDB")
                             .cornerRadius(22, corners: [.topLeft,.topRight])
                             .frame(height: 70)
                         
@@ -328,13 +328,13 @@ struct WidgetEditScreenFooter : View {
                                                     ZStack {
                                                         Text(fontText)
                                                             .font(.custom(fontText, size: 14))
-                                                            .foregroundColor(Color("btnBackgroundAccentColor"))
+                                                            .foregroundColor(Color(hex: "#FF8B8B"))
                                                             .font(.system(size: 14))
                                                             .frame(width: 100,height: 40)
                                                     }
                                                     .overlay(
                                                         RoundedRectangle(cornerRadius: 8)
-                                                            .stroke(textFont == fontText ? Color.red.opacity(0.7) : (Color("btnBackgroundAccentColor")).opacity(0.7),
+                                                            .stroke(textFont == fontText ? Color.red.opacity(0.7) : (Color(hex: "#FF8B8B")).opacity(0.7),
                                                                     lineWidth: 5.0
                                                             )
                                                     ).clipShape(RoundedRectangle(cornerRadius: 8))
@@ -428,7 +428,7 @@ struct WidgetEditScreenFooter : View {
                                 Text("Suggested quotes")
                                     .frame(width: 100)
                                     .font(.system(size: 16))
-                                    .foregroundColor(Color(txtIndex == 3 ? "textColorAccent" : "textColorUnselected"))
+                                    .foregroundColor(Color(hex: txtIndex == 3 ? "#FF8B8B" : "#767676"))
                             }
                             
                             Button {
@@ -439,7 +439,7 @@ struct WidgetEditScreenFooter : View {
                                 Text("Background")
                                     .frame(width: 100)
                                     .font(.system(size: 16))
-                                    .foregroundColor(Color(txtIndex == 0 ? "textColorAccent" : "textColorUnselected"))
+                                    .foregroundColor(Color(hex: txtIndex == 0 ? "#FF8B8B" : "#767676"))
                             }
 
                                 
@@ -451,7 +451,7 @@ struct WidgetEditScreenFooter : View {
                                 Text("Text font")
                                     .frame(width: 100)
                                     .font(.system(size: 16))
-                                    .foregroundColor(Color(txtIndex == 1 ? "textColorAccent" : "textColorUnselected"))
+                                    .foregroundColor(Color(hex: txtIndex == 1 ? "#FF8B8B" : "#767676"))
                             }
 
                                 
@@ -464,7 +464,7 @@ struct WidgetEditScreenFooter : View {
                                 Text("Text Color")
                                     .frame(width: 100)
                                     .font(.system(size: 16))
-                                    .foregroundColor(Color(txtIndex == 2 ? "textColorAccent" : "textColorUnselected"))
+                                    .foregroundColor(Color(hex: txtIndex == 2 ? "#FF8B8B" : "#767676"))
                             }
 
                             

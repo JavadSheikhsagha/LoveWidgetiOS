@@ -23,7 +23,7 @@ struct LoginScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     
@@ -49,7 +49,7 @@ struct LoginScreen: View {
                         Font.custom("SF UI Text", size: 24)
                           .weight(.semibold)
                       )
-                      .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                      .foregroundColor(Color(hex: "#767676"))
                     
                     Spacer()
                         .frame(height: 14)
@@ -74,24 +74,11 @@ struct LoginScreen: View {
                         }.cornerRadius(10) /// make the background rounded
                         .overlay( /// apply a rounded border
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                .stroke(Color(hex: "#FF8B8B"), lineWidth: 1)
                         )
-                        
-                        
-                        
                         
                         ZStack {
                             
-//                            SecureField ("Password", text: $passwordText)
-//                                .padding()
-//                                .frame(width: UIScreen.main.bounds.width - 64, height: 55)
-//                                .onChange(of: passwordText) { newValue in
-//                                    if textFieldValidatorEmail(email) && passwordText.count > 5 {
-//                                        isButtonEnabled = true
-//                                    } else {
-//                                        isButtonEnabled = false
-//                                    }
-//                                }
                             loginPasswordTextFieldView(text: $passwordText,
                                                        title: "Password",
                                                        showTitle: false)
@@ -107,7 +94,7 @@ struct LoginScreen: View {
                         }.cornerRadius(10) /// make the background rounded
                         .overlay( /// apply a rounded border
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                .stroke(Color(hex: "#FF8B8B"), lineWidth: 1)
                         )
                             
                         HStack {
@@ -151,7 +138,7 @@ struct LoginScreen: View {
                         
                         Text("Sign up")
                             .font(Font.custom("SF UI  Text", size: 12))
-                            .foregroundStyle(Color(hex:"#87A2FB"))
+                            .foregroundStyle(Color(hex:"#FF8B8B"))
                             
                     }.onTapGesture {
                         withAnimation {

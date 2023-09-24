@@ -24,7 +24,7 @@ struct ResetPasswordScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     
@@ -70,7 +70,7 @@ struct ResetPasswordScreen: View {
                     }.cornerRadius(10) /// make the background rounded
                     .overlay( /// apply a rounded border
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                            .stroke(Color(hex: "#FF8B8B"), lineWidth: 1)
                     )
                     
                     Spacer()

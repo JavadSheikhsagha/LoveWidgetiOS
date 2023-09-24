@@ -24,7 +24,7 @@ struct SignupScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     
@@ -74,7 +74,7 @@ struct SignupScreen: View {
                         }.cornerRadius(10) /// make the background rounded
                         .overlay( /// apply a rounded border
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                .stroke(Color(hex: "#FDA3A3"), lineWidth: 1)
                         )
                         
                         ZStack {
@@ -97,7 +97,7 @@ struct SignupScreen: View {
                         }.cornerRadius(10) /// make the background rounded
                         .overlay( /// apply a rounded border
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                .stroke(Color(hex: "#FDA3A3"), lineWidth: 1)
                         )
                         
                         ZStack {
@@ -120,7 +120,7 @@ struct SignupScreen: View {
                         }.cornerRadius(10) /// make the background rounded
                         .overlay( /// apply a rounded border
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                .stroke(Color(hex: "#FDA3A3"), lineWidth: 1)
                         )
                         
                     }
@@ -177,7 +177,7 @@ struct SignupScreen: View {
                         
                         Text("Log in")
                             .font(Font.custom("SF UI  Text", size: 14))
-                            .foregroundStyle(Color(hex:"#87A2FB"))
+                            .foregroundStyle(Color(hex:"#FF8B8B"))
                             .onTapGesture {
                                 // go to sign up
                                 withAnimation {

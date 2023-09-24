@@ -23,7 +23,7 @@ struct CreateWidgetScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onTapGesture {
                     UIApplication.shared.endEditing()
@@ -71,10 +71,11 @@ struct CreateWidgetScreen: View {
         VStack {
             Spacer()
             
-            Button {
-                // create widget in server
+            FilledButton(text: "Save", isEnabled: $isButtonEnabled) {
                 if isButtonEnabled {
+                    isButtonEnabled = false
                     widgetViewModel.createWidget(name: widgetName, friendId: friendViewModel.selectedFriend?.id) { bool in
+                        isButtonEnabled = true
                         if bool {
                             withAnimation {
                                 mainViewModel.SCREEN_VIEW = .WidgetSingle
@@ -86,31 +87,13 @@ struct CreateWidgetScreen: View {
                     }
                 }
                 UIApplication.shared.endEditing()
-                
-            } label: {
-                ZStack {
-                    
-                    Color(hex:  isButtonEnabled ? "#6D8DF7" : "#C7C7C7")
-                    
-                    Text("Save")
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
-                    
-                    
-                }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            }
+            }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
             
-            Button {
-                // show tutorial
+            OutlineButton(text: "Discard") {
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .MainMenu
                 }
-            } label: {
-                Image(.btnDiscard)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width - 64, height: 55)
-            }
+            }.frame(width: UIScreen.main.bounds.width - 64, height: 55)
 
         }
     }
@@ -137,7 +120,7 @@ struct CreateWidgetScreen: View {
             }.cornerRadius(10) /// make the background rounded
             .overlay( /// apply a rounded border
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                    .stroke(Color(hex: "#FF8B8B"), lineWidth: 1)
             )
             
             Spacer()

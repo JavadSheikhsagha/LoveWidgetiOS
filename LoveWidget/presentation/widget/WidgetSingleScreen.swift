@@ -30,7 +30,7 @@ struct WidgetSingleScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     widgetViewModel.getSingleWidget { bool in }

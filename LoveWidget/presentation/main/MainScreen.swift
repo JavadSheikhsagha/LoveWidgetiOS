@@ -133,7 +133,7 @@ struct MainScreen: View {
                     } else {
                         ShareLink(item: "Hey there! I just came across this awesome app that lets us connect and make each other's day a little brighter :)\n\nThis is my code inside this program: \(loadUser()?.code ?? "")\n\nYou can simply download it by clicking on the link provided below.\n\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
                             ZStack {
-                                Color(hex:"#6D8DF7")
+                                Color(hex:"#FDA3A3")
                                 
                                 HStack {
                                     Text("Share my code")
@@ -159,7 +159,7 @@ struct MainScreen: View {
             Spacer()
                 .frame(height: 28)
             
-            FilledButton(text: "friends",colorBackground: "#FF8B8B", isEnabled: $isButtonEnabled) {
+            FilledButton(text: "friends",colorBackground: "#9BC3FF", isEnabled: $isButtonEnabled) {
                 if isUserGuest() {
                     withAnimation {
                         showAskForLoginDialog = true
@@ -327,7 +327,7 @@ struct MainScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onAppear {
                     friednsViewModel.getFriends { bool in }

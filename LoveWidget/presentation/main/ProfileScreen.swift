@@ -24,6 +24,7 @@ struct ProfileScreen: View {
     @State var showAskForLoginDialog = false
     @State var showBanner = false
     @State var isButtonEnabled = true
+    @State var isLogoutEnable = true
     @State var changeNameText = ""
     @State var oldPassword = ""
     @State var newPassword = ""
@@ -34,7 +35,7 @@ struct ProfileScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onTapGesture {
                     UIApplication.shared.endEditing()
@@ -152,7 +153,7 @@ struct ProfileScreen: View {
     
     var changeNameDialog : some View {
         ZStack {
-            Color(hex: "#EEF1FF").clipShape(RoundedRectangle(cornerRadius: 10))
+            Color(hex: "#FFF8F8").clipShape(RoundedRectangle(cornerRadius: 10))
             
             VStack {
                 
@@ -226,7 +227,7 @@ struct ProfileScreen: View {
     var changePassDialog : some View {
         ZStack {
             
-            Color(hex: "#EEF1FF").clipShape(RoundedRectangle(cornerRadius: 10))
+            Color(hex: "#FFF8F8").clipShape(RoundedRectangle(cornerRadius: 10))
                 .onChange(of: oldPassword) { newValue in
                     isConfirmPasswordOk = (oldPassword.count > 5 &&
                                            newPassword.count > 5 &&
@@ -570,7 +571,7 @@ struct ProfileScreen: View {
                     } else {
                         ShareLink(item: "Hey there! I just came across this awesome app that lets us connect and make each other's day a little brighter :)\n\nThis is my code inside this program: \(loadUser()?.code ?? "")\n\nYou can simply download it by clicking on the link provided below.\n\n https://apps.apple.com/us/app/widgetapp-for-ios-17/id6463491116") {
                             ZStack {
-                                Color(hex:"#6D8DF7")
+                                Color(hex:"#FDA3A3")
                                 
                                 HStack {
                                     Text("Share my code")
@@ -589,7 +590,7 @@ struct ProfileScreen: View {
                     } label: {
                         ZStack {
                             
-                            Color(hex: "#FF8B8B")
+                            Color(hex: "#9BC3FF")
                                 .frame(width: UIScreen.screenWidth - 64, height: 56)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                             
@@ -632,7 +633,7 @@ struct ProfileScreen: View {
     var logoutDialog : some View {
         ZStack {
             
-            Color(hex: "#FFFFFF")
+            Color(hex: "#FFF8F8")
                 .frame(width: UIScreen.screenWidth - 64, height: 120)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
@@ -653,7 +654,8 @@ struct ProfileScreen: View {
                         Image("btnCancel")
                     })
                     
-                    Button(action: {
+                    
+                    FilledButton(text: "Logout", isEnabled: $isLogoutEnable, btnSize: .SMALL) {
                         widgetViewModel.allWidgetsMain = []
                         widgetViewModel.historyWidgets = []
                         saveToken(token: "")
@@ -664,9 +666,7 @@ struct ProfileScreen: View {
                             showLogoutDialog = false
                             mainViewModel.SCREEN_VIEW = .Login
                         }
-                    }, label: {
-                        Image("btnLogout")
-                    })
+                    }.frame(width: 105, height: 38)
                     
                 }
             }
@@ -679,7 +679,7 @@ struct ProfileScreen: View {
     var askForLoginDialog : some View {
         ZStack {
             
-            Color(hex: "#FFFFFF")
+            Color(hex: "#FFF8F8")
                 .frame(width: UIScreen.screenWidth - 64, height: 180)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
@@ -726,7 +726,7 @@ struct ProfileScreen: View {
     var deleteAccountDialog : some View {
         ZStack {
             
-            Color(hex: "#FFFFFF")
+            Color(hex: "#FFF8F8")
                 .frame(width: UIScreen.screenWidth - 64, height: 120)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             

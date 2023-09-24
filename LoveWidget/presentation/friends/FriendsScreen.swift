@@ -28,7 +28,7 @@ struct FriendsScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#F9FBFD")
+            Color(hex: "#FFF8F8")
                 .ignoresSafeArea()
                 .onAppear {
                     if !isUserGuest() {
@@ -86,7 +86,7 @@ struct FriendsScreen: View {
     var removeFriendDialog : some View {
         ZStack {
             
-            Color(hex: "#FFFFFF")
+            Color(hex: "#F9FBFD")
                 .frame(width: UIScreen.screenWidth - 64, height: 120)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
@@ -145,7 +145,7 @@ struct FriendsScreen: View {
             
             ZStack {
                 
-                Color(hex: "#EEF1FF")
+                Color(hex: "#F9FBFD")
                     .frame(width: UIScreen.screenWidth - 40, height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
@@ -159,7 +159,7 @@ struct FriendsScreen: View {
                             .cornerRadius(10) /// make the background rounded
                             .overlay( /// apply a rounded border
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(hex: "#6D8DF7"), lineWidth: 1)
+                                    .stroke(Color(hex: "#FF8B8B"), lineWidth: 1)
                             )
                             
                     }
@@ -178,13 +178,13 @@ struct FriendsScreen: View {
                                 
                                 Text("Cancel")
                                     .font(.system(size: 14))
-                                    .foregroundStyle(Color(hex: "#6D8DF7"))
+                                    .foregroundStyle(Color(hex: "#FDA3A3"))
                                 
                             }.frame(width: 140, height: 40)
                                 .cornerRadius(10) /// make the background rounded
                                 .overlay( /// apply a rounded border
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color(hex: "#6D8DF7"), lineWidth: 2)
+                                        .stroke(Color(hex: "#FDA3A3"), lineWidth: 2)
                                 )
                         }
                         
@@ -209,7 +209,7 @@ struct FriendsScreen: View {
                             }
                         } label: {
                             ZStack {
-                                Color(hex: "#6D8DF7")
+                                Color(hex: "#FDA3A3")
                                 
                                 Text("Add")
                                     .font(.system(size: 14))
@@ -263,7 +263,7 @@ struct FriendsScreen: View {
                         
                         ZStack {
                             
-                            Color(hex: "#EEF1FF")
+                            Color(hex: "#FFE5E5")
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                             HStack(spacing: 14) {
@@ -325,7 +325,7 @@ struct FriendsScreen: View {
             }, label: {
                 Image(.btnAddNewFriends)
                     .resizable()
-                    .frame(width: UIScreen.screenWidth - 44, height: 55)
+                    .frame(width: UIScreen.screenWidth - 44, height: 60)
             })
         }
     }

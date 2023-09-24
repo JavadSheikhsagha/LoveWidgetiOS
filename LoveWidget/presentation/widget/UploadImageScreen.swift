@@ -22,7 +22,7 @@ struct UploadImageScreen: View {
     var body: some View {
         ZStack {
             
-            Color(hex: "#EEF1FF")
+            Color(hex: "#FEEAEA")
                 .ignoresSafeArea()
                 .onTapGesture {
                     UIApplication.shared.endEditing()
