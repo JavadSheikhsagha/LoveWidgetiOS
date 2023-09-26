@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct OnBoardingScreen: View {
     
@@ -77,8 +78,10 @@ struct OnBoardingScreen: View {
                         withAnimation {
                             mainViewModel.SCREEN_VIEW = .Login
                         }
+                        watchedOnBoarding()
                     }, label: {
                         Text("Skip")
+                            .fontWeight(.medium)
                             .foregroundStyle(Color(hex: "#EE5555"))
                             .padding(30)
                     })
@@ -99,6 +102,7 @@ struct OnBoardingScreen: View {
                         }
                     }, label: {
                         Text("Next")
+                            .fontWeight(.medium)
                             .foregroundStyle(Color(hex: "#EE5555"))
                             .padding(30)
                     })
