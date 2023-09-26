@@ -116,6 +116,7 @@
 		3F23255A2AB30316000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
 		3F23255B2AB30317000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
 		3F23255D2AB30DF8000FCCC6 /* WidgetApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */; };
+		3F4548312AC32ACE0058041E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4548302AC32ACE0058041E /* OnBoardingScreen.swift */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
 		3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D82AA07FD9006BA057 /* ApiServices.swift */; };
@@ -342,6 +343,7 @@
 		3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
 		3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetApiService.swift; sourceTree = "<group>"; };
+		3F4548302AC32ACE0058041E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		3F4799D72AA07FD9006BA057 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		3F4799D82AA07FD9006BA057 /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		3F4799D92AA07FD9006BA057 /* DataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
@@ -637,6 +639,22 @@
 			name = repository;
 			sourceTree = "<group>";
 		};
+		3F4548322AC335BC0058041E /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3F4548302AC32ACE0058041E /* OnBoardingScreen.swift */,
+			);
+			path = onboarding;
+			sourceTree = "<group>";
+		};
+		3F4548332AC335C60058041E /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
 		3F4799D12AA07D3E006BA057 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,7 +663,8 @@
 				3F7927A02A9F10EA00D5F1F5 /* friends */,
 				3FE3E5A52A9E6F56003CD376 /* widget */,
 				806CA8F12A9DD7D600599C14 /* login */,
-				3F068DC22AAC4D3C008D7C8D /* IntroScreen.swift */,
+				3F4548332AC335C60058041E /* intro */,
+				3F4548322AC335BC0058041E /* onboarding */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -1239,6 +1258,7 @@
 				3F0963982ABFFCE0007A6473 /* UIViewExtensions.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
 				3F2325472AB2F29F000FCCC6 /* MainRepository.swift in Sources */,
+				3F4548312AC32ACE0058041E /* OnBoardingScreen.swift in Sources */,
 				3F4799DE2AA07FD9006BA057 /* DataState.swift in Sources */,
 				3F0963BF2ABFFCE0007A6473 /* RotationDial.swift in Sources */,
 				3F0963BB2ABFFCE0007A6473 /* RotationDial+Touches.swift in Sources */,

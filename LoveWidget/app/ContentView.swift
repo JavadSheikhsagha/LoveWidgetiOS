@@ -45,13 +45,18 @@ struct ContentView: View {
                 EditImageScreen()
             case .ImageCropperView:
                 ImageCropperScreen()
+            case .OnBoarding:
+                OnBoardingScreen()
             }
-            
         }.onAppear {
             if isUserLoggedIn() {
                 mainViewModel.SCREEN_VIEW = .MainMenu
             } else {
                 mainViewModel.SCREEN_VIEW = .Login
+            }
+            
+            if !didUserWatchOnBoarding() {
+                mainViewModel.SCREEN_VIEW = .OnBoarding
             }
             
             retrieveProducts()

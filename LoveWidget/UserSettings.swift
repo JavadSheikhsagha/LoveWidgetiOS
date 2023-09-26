@@ -155,3 +155,13 @@ func addToMissYou() {
             .integer(forKey: "miss_you"))! + 1, forKey: "miss_you"
         )
 }
+
+func didUserWatchOnBoarding() -> Bool {
+    UserDefaults(suiteName: appSuitName)!
+        .bool(forKey: "first_time")
+}
+
+func watchedOnBoarding() {
+    UserDefaults(suiteName: appSuitName)!
+        .set(true, forKey: "first_time")
+}
