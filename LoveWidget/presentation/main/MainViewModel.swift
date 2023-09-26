@@ -126,6 +126,8 @@ enum Screens {
     case EditQuoteScreen
     case ForgetPasswordScreen
     case ResetPasswordScreen
+    case EditImage
+    case ImageCropperView
 }
 
 

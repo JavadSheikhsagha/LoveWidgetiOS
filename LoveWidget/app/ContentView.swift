@@ -41,6 +41,10 @@ struct ContentView: View {
                 ProfileScreen()
             case .Purchase:
                 PurchaseScreen()
+            case .EditImage:
+                EditImageScreen()
+            case .ImageCropperView:
+                ImageCropperScreen()
             }
             
         }.onAppear {

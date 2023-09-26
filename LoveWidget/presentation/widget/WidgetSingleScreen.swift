@@ -109,7 +109,7 @@ struct WidgetSingleScreen: View {
             if let image = self.uiImage {
                 widgetViewModel.selectedImage = image
                 withAnimation {
-                    mainViewModel.SCREEN_VIEW = .UploadImageScreen
+                    mainViewModel.SCREEN_VIEW = .EditImage
                 }
             }
         }
