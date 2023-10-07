@@ -66,7 +66,7 @@ struct WidgetHistoryScreen: View {
                 ZStack(alignment: .topTrailing) {
                     
                     
-                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "")!) { image in
+                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "imageUrl")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)

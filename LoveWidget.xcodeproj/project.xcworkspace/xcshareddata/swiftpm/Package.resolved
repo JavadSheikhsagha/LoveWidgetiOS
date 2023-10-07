@@ -127,6 +127,15 @@
       }
     },
     {
+      "identity" : "metalpetal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MetalPetal/MetalPetal.git",
+      "state" : {
+        "revision" : "f9b78897bd4214bb097f352a1bde0a4f4a1e2ddb",
+        "version" : "1.25.2"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",
@@ -142,6 +151,15 @@
       "state" : {
         "revision" : "e8300b958a1071307bc73ff861d5a84107c0fd7e",
         "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "pixelenginepackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/j1mmyto9/PixelEnginePackage.git",
+      "state" : {
+        "revision" : "d3eaf69accc4396f807fe8497efe03f4f33c5763",
+        "version" : "1.0.0"
       }
     },
     {

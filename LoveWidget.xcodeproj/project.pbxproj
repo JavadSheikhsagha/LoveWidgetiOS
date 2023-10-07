@@ -191,6 +191,9 @@
 		3FD0317A2AB32CC10020414C /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031792AB32CC10020414C /* EntryModel.swift */; };
 		3FD0317C2AB32CE80020414C /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0317B2AB32CE80020414C /* WidgetView.swift */; };
 		3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */; };
+		3FE402182AD1697800F77F81 /* PixelEnginePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 3FE402172AD1697800F77F81 /* PixelEnginePackage */; };
+		3FE402A12AD1849200F77F81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE402A02AD1849200F77F81 /* AppState.swift */; };
+		3FE402A42AD1860100F77F81 /* MetalPetal in Frameworks */ = {isa = PBXBuildFile; productRef = 3FE402A32AD1860100F77F81 /* MetalPetal */; };
 		3FED11A72ABFF0C6005220D4 /* EditImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */; };
 		3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
@@ -387,6 +390,7 @@
 		3FD031792AB32CC10020414C /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
 		3FD0317B2AB32CE80020414C /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
+		3FE402A02AD1849200F77F81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageScreen.swift; sourceTree = "<group>"; };
 		3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWidgetIntent.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -443,8 +447,10 @@
 				3F569D3C2AA9B1E000A66837 /* OneSignalFramework in Frameworks */,
 				3F6FA8DE2AA780D9005EA60B /* FirebaseAnalytics in Frameworks */,
 				3F6FA8E42AA780D9005EA60B /* FirebaseRemoteConfig in Frameworks */,
+				3FE402A42AD1860100F77F81 /* MetalPetal in Frameworks */,
 				3F6FA8E22AA780D9005EA60B /* FirebaseCrashlytics in Frameworks */,
 				3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */,
+				3FE402182AD1697800F77F81 /* PixelEnginePackage in Frameworks */,
 				3F6FA8E02AA780D9005EA60B /* FirebaseAnalyticsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +670,7 @@
 				3FE3E5A52A9E6F56003CD376 /* widget */,
 				806CA8F12A9DD7D600599C14 /* login */,
 				3F4548332AC335C60058041E /* intro */,
+				3FE4018E2AD1681400F77F81 /* filters */,
 				3F4548322AC335BC0058041E /* onboarding */,
 			);
 			path = presentation;
@@ -800,6 +807,14 @@
 				3F0963C22ABFFD62007A6473 /* ImageCropperScreen.swift */,
 			);
 			path = widget;
+			sourceTree = "<group>";
+		};
+		3FE4018E2AD1681400F77F81 /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				3FE402A02AD1849200F77F81 /* AppState.swift */,
+			);
+			path = filters;
 			sourceTree = "<group>";
 		};
 		3FFDB4172AA50DBB00E44674 /* app intents */ = {
@@ -983,6 +998,8 @@
 				3F6FA8E52AA780D9005EA60B /* FirebaseRemoteConfigSwift */,
 				3F6FA8E82AA7835F005EA60B /* LottieSwiftUI */,
 				3F569D3B2AA9B1E000A66837 /* OneSignalFramework */,
+				3FE402172AD1697800F77F81 /* PixelEnginePackage */,
+				3FE402A32AD1860100F77F81 /* MetalPetal */,
 			);
 			productName = LoveWidget;
 			productReference = 806CA8DD2A9DD21900599C14 /* LoveWidget.app */;
@@ -1041,6 +1058,8 @@
 				3F6FA8DC2AA780D9005EA60B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3F6FA8E72AA7835F005EA60B /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */,
 				3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+				3FE402162AD1697800F77F81 /* XCRemoteSwiftPackageReference "PixelEnginePackage" */,
+				3FE402A22AD1860000F77F81 /* XCRemoteSwiftPackageReference "MetalPetal" */,
 			);
 			productRefGroup = 806CA8DE2A9DD21900599C14 /* Products */;
 			projectDirPath = "";
@@ -1254,6 +1273,7 @@
 				3F23255D2AB30DF8000FCCC6 /* WidgetApiService.swift in Sources */,
 				3F0963A82ABFFCE0007A6473 /* CropDimmingView.swift in Sources */,
 				3F09638B2ABFFCE0007A6473 /* Config.swift in Sources */,
+				3FE402A12AD1849200F77F81 /* AppState.swift in Sources */,
 				3FD031722AB32C220020414C /* FriendModel.swift in Sources */,
 				3F0963982ABFFCE0007A6473 /* UIViewExtensions.swift in Sources */,
 				806CA8F02A9DD27100599C14 /* LoginScreen.swift in Sources */,
@@ -1824,6 +1844,22 @@
 				minimumVersion = 1.2.2;
 			};
 		};
+		3FE402162AD1697800F77F81 /* XCRemoteSwiftPackageReference "PixelEnginePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/j1mmyto9/PixelEnginePackage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		3FE402A22AD1860000F77F81 /* XCRemoteSwiftPackageReference "MetalPetal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MetalPetal/MetalPetal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.25.2;
+			};
+		};
 		806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/padram39/EnigmaSystemDesign.git";
@@ -1914,6 +1950,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F6FA8E72AA7835F005EA60B /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
 			productName = LottieSwiftUI;
+		};
+		3FE402172AD1697800F77F81 /* PixelEnginePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FE402162AD1697800F77F81 /* XCRemoteSwiftPackageReference "PixelEnginePackage" */;
+			productName = PixelEnginePackage;
+		};
+		3FE402A32AD1860100F77F81 /* MetalPetal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FE402A22AD1860000F77F81 /* XCRemoteSwiftPackageReference "MetalPetal" */;
+			productName = MetalPetal;
 		};
 		806CA8F52A9DD8C500599C14 /* EnigmaSystemDesign */ = {
 			isa = XCSwiftPackageProductDependency;

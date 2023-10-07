@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import MetalPetal
 
 struct EditImageScreen: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    @EnvironmentObject var appState: AppState
     @Environment(\.displayScale) var displayScale
     
     @State var colorGradient : String = "colorBackground4"
@@ -30,6 +32,7 @@ struct EditImageScreen: View {
                 }
                 .onAppear {
                     print("here")
+                    appState.image = widgetViewModel.selectedImage
                 }
             
             VStack {
@@ -57,10 +60,19 @@ struct EditImageScreen: View {
     
     var editImageView: some View {
         ZStack {
-            Image(uiImage: widgetViewModel.selectedImage ?? UIImage())
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+//            Image(uiImage: widgetViewModel.selectedImage ?? UIImage())
+//                .resizable()
+//                .scaledToFill()
+//                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+            if appState.image != nil {
+                Image(cpImage: appState.filteredImage != nil ? appState.filteredImage! : appState.image!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+            }
+//            Image(cpImage: appState.filteredImage != nil ? appState.filteredImage! : appState.image!)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
         }
     }
     
@@ -90,9 +102,11 @@ struct EditImageScreen: View {
             Button {
                 // save
 //                widgetViewModel.selectedImage = editQuoteView.clipShape(RoundedRectangle(cornerRadius: 10)).asImage()
+                widgetViewModel.selectedImage = appState.filteredImage
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .UploadImageScreen
                 }
+                
             } label: {
                 ZStack {
                     
@@ -115,7 +129,9 @@ struct EditImageScreen: View {
 
 struct WidgetEditImageFooter2 : View {
     
+    
     @EnvironmentObject var widgetViewModel : WidgetViewModel
+    @EnvironmentObject var appState : AppState
     @EnvironmentObject var mainViewModel : MainViewModel
     
     @State var txtIndex = 2
@@ -142,7 +158,7 @@ struct WidgetEditImageFooter2 : View {
                     ZStack {
                         Color(hex: "#FFDBDB")
                             .cornerRadius(22, corners: [.topLeft,.topRight])
-                            .frame(height: 70)
+                            .frame(height: 135)
                         
                         if txtIndex == 0 {
                             
@@ -175,6 +191,8 @@ struct WidgetEditImageFooter2 : View {
                         } else if txtIndex == 2 {
                             HStack(spacing: 20) {
                                 
+                                CarouselFilterView(image: appState.image, filteredImage: self.$appState.filteredImage)
+                                    .equatable()
                             }
                         }
                         
@@ -215,11 +233,11 @@ struct WidgetEditImageFooter2 : View {
                     }
                     .padding(.horizontal, 24)
                     
-                }.frame(height: 80)
+                }.frame(height: 130)
                 
             }
             
-        }.frame(height: 150)
+        }.frame(height: 200)
     }
     
     @State var cropImageListOptions = [
@@ -234,3 +252,230 @@ struct WidgetEditImageFooter2 : View {
 #Preview {
     EditImageScreen()
 }
+
+
+fileprivate struct CarouselImageFilter: Identifiable {
+    
+    var id: String {
+        filter.rawValue + String(image.hashValue)
+    }
+    
+    var filter: ImageFilter
+    var image: CPImage
+}
+
+struct CarouselFilterView: View {
+    
+    let image: CPImage?
+    @Binding var filteredImage: CPImage?
+    
+    fileprivate var imageFilters: [CarouselImageFilter] {
+        guard let image = self.image else { return [] }
+        return ImageFilter.allCases.map { CarouselImageFilter(filter: $0, image: image) }
+    }
+    
+    var body: some View {
+        VStack {
+            if image != nil {
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: 0) {
+                        ForEach(imageFilters) { imageFilter in
+                            ImageFilterView(observableImageFilter: ImageFilterObservable(image: imageFilter.image, filter: imageFilter.filter), filteredImage: self.$filteredImage)
+                                .padding(.leading, 16)
+                                .padding(.trailing, self.imageFilters.last!.filter == imageFilter.filter ? 16 : 0)
+                        }
+        
+                    }
+                    .frame(height: 80)
+                }
+            }
+        }
+    }
+}
+class ImageFilterObservable: ObservableObject {
+    
+    @Published var filteredImage: CPImage? = nil
+
+    let image: CPImage
+    let filter: ImageFilter
+    
+    init(image: CPImage, filter: ImageFilter) {
+        self.image = image
+        self.filter = filter
+    }
+    
+    func filterImage() {
+        self.filter.performFilter(with: self.image) {
+            self.filteredImage = $0
+        }
+    }
+}
+
+extension CarouselFilterView: Equatable {
+
+    static func == (lhs: CarouselFilterView, rhs: CarouselFilterView) -> Bool {
+        return lhs.image == rhs.image
+    }
+}
+
+
+struct ImageFilterView: View {
+    
+    @ObservedObject var observableImageFilter: ImageFilterObservable
+    @Binding var filteredImage: CPImage?
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                Image(cpImage: observableImageFilter.filteredImage != nil ? observableImageFilter.filteredImage! : observableImageFilter.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60,height: 60)
+                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                
+                if observableImageFilter.filteredImage == nil {
+                    ProgressView()
+                }
+            }
+            
+            Text(observableImageFilter.filter.rawValue)
+                .font(.system(size: 12.0))
+                .foregroundStyle(Color.black.opacity(0.7))
+        }
+        .onAppear(perform: self.observableImageFilter.filterImage)
+        .onTapGesture(perform: handleOnTap)
+    }
+    
+    private func handleOnTap() {
+        guard let filteredImage = observableImageFilter.filteredImage else {
+            return
+        }
+        self.filteredImage = filteredImage
+    }
+}
+
+
+let serialQueue = DispatchQueue(label: "com.alfianlosari.imagefilter")
+
+enum ImageFilter: String, Identifiable, Hashable, CaseIterable {
+    
+    var id: ImageFilter { self }
+    
+    case `default` = "Default"
+    case contrast = "Contrast"
+    case saturation = "Saturation"
+    case pixellate = "Pixellate"
+    case inverted = "Inverted"
+    case dotScreen = "Dot Screen"
+    case vibrance = "Vibrance"
+    case skinSmoothing = "Skin Smoothing"
+    case colorHalfTone = "Halftone"
+    
+    func performFilter(with image: CPImage, queue: DispatchQueue = serialQueue, completion: @escaping(CPImage) -> ()) {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let outputImage: CPImage
+            
+            switch self {
+            case .default:
+                outputImage = image
+                
+            case .pixellate:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIPixellateFilter()
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .saturation:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTISaturationFilter()
+                    filter.saturation = 0
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .dotScreen:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIDotScreenFilter()
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .inverted:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIColorInvertFilter()
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .vibrance:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIVibranceFilter()
+                    filter.amount = 0.5
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .skinSmoothing:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIHighPassSkinSmoothingFilter()
+                    filter.amount = 1
+                    filter.radius = 5
+                    
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .contrast:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIContrastFilter()
+                    filter.contrast = 1.5
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+            case .colorHalfTone:
+                outputImage = self.processFilterWithMetal(image: image) { (inputImage) -> MTIImage? in
+                    let filter = MTIColorHalftoneFilter()
+                    filter.scale = 2
+                    
+                    filter.inputImage = inputImage
+                    return filter.outputImage
+                }
+                
+                
+                
+   
+                
+            }
+            
+            DispatchQueue.main.async {
+                completion(outputImage)
+            }
+        }
+    }
+    
+    private func processFilterWithMetal(image: CPImage, filterHandler: (MTIImage) -> MTIImage?) -> CPImage {
+        guard let ciImage = image.coreImage else {
+            return image
+        }
+        
+        let imageFromCIImage = MTIImage(ciImage: ciImage).unpremultiplyingAlpha()
+        
+        guard let outputFilterImage = filterHandler(imageFromCIImage), let device = MTLCreateSystemDefaultDevice(), let context = try? MTIContext(device: device)  else {
+            return image
+        }
+        do {
+            let outputCGImage = try context.makeCGImage(from: outputFilterImage)
+            let nsImage = outputCGImage.cpImage
+            
+            return nsImage
+        } catch {
+            print(error)
+            return image
+        }
+    }
+}
+
