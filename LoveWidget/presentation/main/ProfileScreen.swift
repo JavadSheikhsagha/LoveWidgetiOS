@@ -439,7 +439,7 @@ struct ProfileScreen: View {
                     Spacer()
                         .frame(height: 24)
                     
-                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)

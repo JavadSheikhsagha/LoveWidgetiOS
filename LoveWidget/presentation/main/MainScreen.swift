@@ -36,7 +36,7 @@ struct MainScreen: View {
             
             HStack {
                 
-                AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                AsyncImage(url: URL(string: loadUser()?.profileImage ?? "")!) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -280,7 +280,7 @@ struct MainScreen: View {
     var askForLoginDialog : some View {
         ZStack {
             
-            Color(hex: "#FFFFFF")
+            Color(hex: "#FFF8F8")
                 .frame(width: UIScreen.screenWidth - 64, height: 180)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
@@ -417,7 +417,7 @@ struct MainScreen: View {
                 
                 ZStack(alignment: .topTrailing) {
                     
-                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "https://img5.downloadha.com/hosein/files/2023/09/Starfield-pc-cover-large.jpg")!) { image in
+                    AsyncImage(url: URL(string: widgetViewModel.selectedImageForBigView ?? "imageUrl")!) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -425,7 +425,6 @@ struct MainScreen: View {
                                 Image(systemName: "photo.fill")
                             }.frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        
                     
                 }
                 .offset(y: showBigView ? 0.0 : UIScreen.screenHeight)
