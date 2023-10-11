@@ -14,6 +14,7 @@ class AppState: ObservableObject {
     init() {}
         
     @Published var filteredImage: CPImage?
+    @Published var selectedImageFilter : String? = nil
     @Published var image: CPImage? {
         didSet {
             self.filteredImage = nil

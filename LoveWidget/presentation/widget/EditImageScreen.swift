@@ -191,7 +191,7 @@ struct WidgetEditImageFooter2 : View {
                         } else if txtIndex == 2 {
                             HStack(spacing: 20) {
                                 
-                                CarouselFilterView(image: appState.image, filteredImage: self.$appState.filteredImage)
+                                CarouselFilterView(image: appState.image, filteredImage: self.$appState.filteredImage, appState: appState)
                                     .equatable()
                             }
                         }
@@ -254,7 +254,7 @@ struct WidgetEditImageFooter2 : View {
 }
 
 
-fileprivate struct CarouselImageFilter: Identifiable {
+struct CarouselImageFilter: Identifiable, Equatable {
     
     var id: String {
         filter.rawValue + String(image.hashValue)
@@ -268,6 +268,8 @@ struct CarouselFilterView: View {
     
     let image: CPImage?
     @Binding var filteredImage: CPImage?
+    @State var appState : AppState
+    @State var selectedFilter : String? = nil
     
     fileprivate var imageFilters: [CarouselImageFilter] {
         guard let image = self.image else { return [] }
@@ -281,9 +283,19 @@ struct CarouselFilterView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .top, spacing: 0) {
                         ForEach(imageFilters) { imageFilter in
-                            ImageFilterView(observableImageFilter: ImageFilterObservable(image: imageFilter.image, filter: imageFilter.filter), filteredImage: self.$filteredImage)
-                                .padding(.leading, 16)
-                                .padding(.trailing, self.imageFilters.last!.filter == imageFilter.filter ? 16 : 0)
+                            VStack {
+                                var x = ImageFilterObservable(image: imageFilter.image,
+                                                                                filter: imageFilter.filter)
+                                ImageFilterView(appState: $appState,
+                                                observableImageFilter: x,
+                                                filteredImage: self.$filteredImage,
+                                                imageFilter: imageFilter)
+                                    .padding(.leading, 16)
+                                    .padding(.trailing, self.imageFilters.last!.filter == imageFilter.filter ? 16 : 0)
+                                    
+                            }
+                            
+                            
                         }
         
                     }
@@ -296,6 +308,7 @@ struct CarouselFilterView: View {
 class ImageFilterObservable: ObservableObject {
     
     @Published var filteredImage: CPImage? = nil
+    @Published var selectedFilter: String? = nil
 
     let image: CPImage
     let filter: ImageFilter
@@ -322,8 +335,11 @@ extension CarouselFilterView: Equatable {
 
 struct ImageFilterView: View {
     
+    @Binding var appState : AppState
     @ObservedObject var observableImageFilter: ImageFilterObservable
     @Binding var filteredImage: CPImage?
+    let imageFilter : CarouselImageFilter
+    @State var selectedFilter : String? = nil
     
     var body: some View {
         VStack {
@@ -348,6 +364,10 @@ struct ImageFilterView: View {
     }
     
     private func handleOnTap() {
+        appState.selectedImageFilter = imageFilter.id
+        print(imageFilter.id)
+        print(appState.selectedImageFilter)
+        
         guard let filteredImage = observableImageFilter.filteredImage else {
             return
         }
