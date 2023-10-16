@@ -49,11 +49,20 @@ struct WidgetSingleScreen: View {
                 
                 userImagesTop
                 
-                addHistoryCards
+                VStack {
+                    ScrollView {
+                        
+                        addHistoryCards
+                        
+                        checkHistoryCard
+                        
+                    }.scrollIndicators(.hidden)
+                    
+                    addWidgetToHomeScreenBtn
+                    
+                }
                 
-                checkHistoryCard
                 
-                addWidgetToHomeScreenBtn
                 
                 
             }
@@ -208,8 +217,6 @@ struct WidgetSingleScreen: View {
     var addWidgetToHomeScreenBtn : some View {
         VStack {
             
-            Spacer()
-            
             FilledButton(text: "Add To Home", isEnabled: $isButtonEnabled) {
                 showIntroScreen = true
             }.frame(width: UIScreen.screenWidth - 44, height: 55)
@@ -221,7 +228,7 @@ struct WidgetSingleScreen: View {
         VStack {
             
             Spacer()
-                .frame(height: 36)
+                .frame(height: 24)
             
             Button {
                 withAnimation {
@@ -249,6 +256,27 @@ struct WidgetSingleScreen: View {
                     }
                 } label: {
                     Image(.addQuoteCard)
+                        .resizable()
+                        .frame(width : (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
+                }
+
+                Button {
+                    self.showAction = true
+                } label: {
+                    Image(.addImageCard)
+                        .resizable()
+                        .frame(width : (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
+                }
+            }
+            
+            HStack(spacing: 24) {
+                
+                Button {
+                    withAnimation {
+                        mainViewModel.SCREEN_VIEW = .Drawing
+                    }
+                } label: {
+                    Image(.imgDrawing)
                         .resizable()
                         .frame(width : (UIScreen.screenWidth - 64) / 2, height: (UIScreen.screenWidth - 64) / 2)
                 }

@@ -38,6 +38,7 @@ struct EditImageScreen: View {
             VStack {
                 
                 header
+                    .zIndex(5)
                 
                 Spacer()
                 
@@ -102,7 +103,12 @@ struct EditImageScreen: View {
             Button {
                 // save
 //                widgetViewModel.selectedImage = editQuoteView.clipShape(RoundedRectangle(cornerRadius: 10)).asImage()
-                widgetViewModel.selectedImage = appState.filteredImage
+                
+                if let image = appState.filteredImage {
+                    widgetViewModel.selectedImage = appState.filteredImage
+                } else {
+                    widgetViewModel.selectedImage = appState.image
+                }
                 withAnimation {
                     mainViewModel.SCREEN_VIEW = .UploadImageScreen
                 }
