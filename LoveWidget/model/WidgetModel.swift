@@ -41,11 +41,12 @@ struct AddFriendToWidgetResponse : Codable {
 
 
 struct ContentModel : Codable {
-    let type:String?
-    let data:String?
-    let sender : String?
-    let id : String?
-    var reaction : Int?
+    let type:String?//image, cute
+    let data:String?//url
+    let sender:String?
+    let id:String?
+    var reaction:Int?
+//    let sentDate:String?
 }
 
 

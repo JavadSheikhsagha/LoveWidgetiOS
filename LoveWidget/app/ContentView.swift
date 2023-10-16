@@ -47,7 +47,11 @@ struct ContentView: View {
                 ImageCropperScreen()
             case .OnBoarding:
                 OnBoardingScreen()
+            case .Drawing:
+                DrawScreen()
             }
+            
+            
         }.onAppear {
             if isUserLoggedIn() {
                 mainViewModel.SCREEN_VIEW = .MainMenu

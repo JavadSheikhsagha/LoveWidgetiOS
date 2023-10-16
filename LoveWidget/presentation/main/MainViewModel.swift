@@ -129,6 +129,7 @@ enum Screens {
     case EditImage
     case ImageCropperView
     case OnBoarding
+    case Drawing
 }
 
 

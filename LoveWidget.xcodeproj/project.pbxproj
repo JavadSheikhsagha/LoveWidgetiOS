@@ -68,6 +68,8 @@
 		3F0963C12ABFFCE1007A6473 /* DialConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0963862ABFFCE0007A6473 /* DialConfig.swift */; };
 		3F0963C32ABFFD63007A6473 /* ImageCropperScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0963C22ABFFD62007A6473 /* ImageCropperScreen.swift */; };
 		3F0B3BFC2AB0A5E200844827 /* intro_vid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B3BFB2AB0A5E200844827 /* intro_vid.mp4 */; };
+		3F10C1512ADBFECC0077FC0B /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F10C1502ADBFECC0077FC0B /* LottieSwiftUI */; };
+		3F10C1542ADC05380077FC0B /* Giffy in Frameworks */ = {isa = PBXBuildFile; productRef = 3F10C1532ADC05380077FC0B /* Giffy */; };
 		3F14912E2AA4413400850ED8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14910F2AA43ED900850ED8 /* WidgetKit.framework */; };
 		3F14912F2AA4413400850ED8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1491112AA43ED900850ED8 /* SwiftUI.framework */; };
 		3F1491362AA4413700850ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1491352AA4413700850ED8 /* Assets.xcassets */; };
@@ -195,6 +197,7 @@
 		3FE402A12AD1849200F77F81 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE402A02AD1849200F77F81 /* AppState.swift */; };
 		3FE402A42AD1860100F77F81 /* MetalPetal in Frameworks */ = {isa = PBXBuildFile; productRef = 3FE402A32AD1860100F77F81 /* MetalPetal */; };
 		3FED11A72ABFF0C6005220D4 /* EditImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */; };
+		3FF3A3D72ADD4D8600CC8DD9 /* DrawScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3A3D62ADD4D8600CC8DD9 /* DrawScreen.swift */; };
 		3FFDB41A2AA50DEE00E44674 /* UpdateWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */; };
 		806CA8E12A9DD21900599C14 /* LoveWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */; };
 		806CA8E32A9DD21900599C14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CA8E22A9DD21900599C14 /* ContentView.swift */; };
@@ -392,6 +395,7 @@
 		3FE3E5A32A9E6F4A003CD376 /* WidgetSingleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSingleScreen.swift; sourceTree = "<group>"; };
 		3FE402A02AD1849200F77F81 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageScreen.swift; sourceTree = "<group>"; };
+		3FF3A3D62ADD4D8600CC8DD9 /* DrawScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawScreen.swift; sourceTree = "<group>"; };
 		3FFDB4182AA50DEE00E44674 /* UpdateWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWidgetIntent.swift; sourceTree = "<group>"; };
 		806CA8DD2A9DD21900599C14 /* LoveWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CA8E02A9DD21900599C14 /* LoveWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveWidgetApp.swift; sourceTree = "<group>"; };
@@ -410,10 +414,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1491692AA44CEE00850ED8 /* SwiftyJSON in Frameworks */,
+				3F10C1512ADBFECC0077FC0B /* LottieSwiftUI in Frameworks */,
 				3F14916B2AA44D0800850ED8 /* Alamofire in Frameworks */,
 				3F14916D2AA44D0B00850ED8 /* EnigmaSystemDesign in Frameworks */,
 				3F14912F2AA4413400850ED8 /* SwiftUI.framework in Frameworks */,
 				3F14912E2AA4413400850ED8 /* WidgetKit.framework in Frameworks */,
+				3F10C1542ADC05380077FC0B /* Giffy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +811,7 @@
 				3F7927A52A9F14D300D5F1F5 /* WidgetViewModel.swift */,
 				3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */,
 				3F0963C22ABFFD62007A6473 /* ImageCropperScreen.swift */,
+				3FF3A3D62ADD4D8600CC8DD9 /* DrawScreen.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -923,6 +930,8 @@
 				3F1491682AA44CEE00850ED8 /* SwiftyJSON */,
 				3F14916A2AA44D0800850ED8 /* Alamofire */,
 				3F14916C2AA44D0B00850ED8 /* EnigmaSystemDesign */,
+				3F10C1502ADBFECC0077FC0B /* LottieSwiftUI */,
+				3F10C1532ADC05380077FC0B /* Giffy */,
 			);
 			productName = WidgyExtension;
 			productReference = 3F14912D2AA4413400850ED8 /* WidgyExtension.appex */;
@@ -1060,6 +1069,7 @@
 				3F6F1E062AA794AC009E7230 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 				3FE402162AD1697800F77F81 /* XCRemoteSwiftPackageReference "PixelEnginePackage" */,
 				3FE402A22AD1860000F77F81 /* XCRemoteSwiftPackageReference "MetalPetal" */,
+				3F10C1522ADC05380077FC0B /* XCRemoteSwiftPackageReference "Giffy" */,
 			);
 			productRefGroup = 806CA8DE2A9DD21900599C14 /* Products */;
 			projectDirPath = "";
@@ -1252,6 +1262,7 @@
 				3F14913F2AA441A000850ED8 /* MyWidgetIntentFile.intentdefinition in Sources */,
 				3FE3E5A42A9E6F4A003CD376 /* WidgetSingleScreen.swift in Sources */,
 				3F0963C32ABFFD63007A6473 /* ImageCropperScreen.swift in Sources */,
+				3FF3A3D72ADD4D8600CC8DD9 /* DrawScreen.swift in Sources */,
 				3F4799E02AA07FD9006BA057 /* Utils.swift in Sources */,
 				3F4799DD2AA07FD9006BA057 /* ApiServices.swift in Sources */,
 				3F23254B2AB2F81D000FCCC6 /* FriendsRepository.swift in Sources */,
@@ -1804,6 +1815,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F10C1522ADC05380077FC0B /* XCRemoteSwiftPackageReference "Giffy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tfmart/Giffy.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		3F4799D42AA07E34006BA057 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1871,6 +1890,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F10C1502ADBFECC0077FC0B /* LottieSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6FA8E72AA7835F005EA60B /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
+			productName = LottieSwiftUI;
+		};
+		3F10C1532ADC05380077FC0B /* Giffy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F10C1522ADC05380077FC0B /* XCRemoteSwiftPackageReference "Giffy" */;
+			productName = Giffy;
+		};
 		3F1491662AA44CE900850ED8 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3F4799E12AA08393006BA057 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
