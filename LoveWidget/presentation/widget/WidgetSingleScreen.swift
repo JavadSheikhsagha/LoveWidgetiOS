@@ -128,10 +128,10 @@ struct WidgetSingleScreen: View {
         }
         .onChange(of: showFriendsBottomSheet) { newValue in
             if !newValue {
-                // add friend to widget
-                widgetViewModel.addFriendToWidget(friendId: friendsViewModel.selectedFriend?.id ?? "") { bool in
-                    friendsViewModel.selectedFriend = nil
-                }
+                // add friend to widget todo
+//                widgetViewModel.addFriendToWidget(friendId: friendsViewModel.selectedFriends?.id ?? "") { bool in
+//                    friendsViewModel.selectedFriend = nil
+//                }
                 
             }
         }

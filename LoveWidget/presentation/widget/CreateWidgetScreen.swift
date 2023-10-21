@@ -37,6 +37,8 @@ struct CreateWidgetScreen: View {
                 
                 userImagesTop
                 
+                selectedFriendsList
+                
                 createWidgetButton
                 
             }
@@ -67,20 +69,81 @@ struct CreateWidgetScreen: View {
         }
     }
     
+    var selectedFriendsList : some View {
+        
+        VStack {
+            
+            ScrollView {
+                VStack {
+                    
+                    ForEach(friendViewModel.selectedFriends, id: \.id) { friend in
+                        
+                        Spacer()
+                            .frame(height: 28)
+                        
+                        ZStack {
+                            
+                            Color(hex: "#FFE5E5")
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
+                            HStack(spacing: 14) {
+                                
+                                
+                                AsyncImage(url: URL(string: friend.profileImage)!) { image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+                                            Image(.imgUserSample)
+                                                .resizable()
+                                                .frame(width: 52, height: 52)
+                                        }.frame(width: 52, height: 52)
+                                    .clipShape(RoundedRectangle(cornerRadius: 42))
+                                
+                                
+                                Text(friend.username)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                                
+                                Spacer()
+                                
+                                Menu {
+                                    Button("Remove") {
+                                        friendViewModel.selectedFriends = friendViewModel.selectedFriends.filter({ item in
+                                            return item.id != friend.id
+                                        })
+                                    }
+                                } label: {
+                                    Image(.img3Dots)
+                                }
+                                
+                            }.padding()
+                            
+                        }.frame(width: UIScreen.screenWidth - 40, height: 72)
+                            .onAppear(perform: {
+                                print("here is tyour friend")
+                            })
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     var createWidgetButton : some View {
         VStack {
-            Spacer()
             
             FilledButton(text: "Save", isEnabled: $isButtonEnabled) {
                 if isButtonEnabled {
                     isButtonEnabled = false
-                    widgetViewModel.createWidget(name: widgetName, friendId: friendViewModel.selectedFriend?.id) { bool in
-                        isButtonEnabled = true
+                    
+                    //create widget
+                    widgetViewModel.createWidgetWithMultipleFriends(widgetName: widgetName, friends: friendViewModel.selectedFriends) { bool in
                         if bool {
                             withAnimation {
                                 mainViewModel.SCREEN_VIEW = .WidgetSingle
                             }
-                            friendViewModel.selectedFriend = nil
+                            friendViewModel.selectedFriends = []
                         } else {
                             
                         }
@@ -161,20 +224,12 @@ struct CreateWidgetScreen: View {
                 } label: {
                     VStack(spacing: 20) {
                         
-                        AsyncImage(url: URL(string: friendViewModel.selectedFriend?.profileImage ?? "imageUrl")!) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                } placeholder: {
-//                                    Image(systemName: "photo.fill")
-                                    Image(.addBtn)
-                                        .resizable()
-                                }.frame(width: 84, height: 84)
-                            .clipShape(RoundedRectangle(cornerRadius: 42))
+                        Image(.addBtn)
+                            .resizable()
+                            .frame(width: 84, height: 84)
+                        .clipShape(RoundedRectangle(cornerRadius: 42))
                         
-                    
-                        
-                        Text(friendViewModel.selectedFriend?.username ?? "Add Friend")
+                        Text("Add Friend")
                             .multilineTextAlignment(.center)
                             .frame(width: 100)
                           .font(Font.custom("SF UI Text", size: 14))

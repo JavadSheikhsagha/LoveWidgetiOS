@@ -332,7 +332,7 @@ struct MainScreen: View {
                 .onAppear {
                     friednsViewModel.getFriends { bool in }
                     widgetViewModel.getWidgets { bool in }
-                    friednsViewModel.selectedFriend = nil
+                    friednsViewModel.selectedFriends = []
                     WidgetCenter.shared.reloadAllTimelines()
                 }
                 .onTapGesture {

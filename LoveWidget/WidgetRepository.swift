@@ -12,6 +12,12 @@ class WidgetRepository : WidgetApiService {
     
     private let widgetApiService : WidgetApiService = WidgetApiService_Impl()
     
+    func createWidgetWithMultipleFriends(widgetName:String,
+                                         friendsIds:[String],
+                                         onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void) {
+        widgetApiService.createWidgetWithMultipleFriends(widgetName: widgetName, friendsIds: friendsIds, onResponse: onResponse)
+    }
+    
     func sendMissYouNotif(widgetId: String, onResponse: @escaping (DataState<GetSingleWidgetResponseModel?, ErrorType?, String?>) -> Void) {
         widgetApiService.sendMissYouNotif(widgetId: widgetId, onResponse: onResponse)
     }

@@ -305,8 +305,17 @@ struct FriendsScreen: View {
                             
                         }.frame(width: UIScreen.screenWidth - 40, height: 72)
                             .onTapGesture {
-                                if doNeedSelectFriend {
-                                    friednsViewModel.selectedFriend = friend
+                                if doNeedSelectFriend
+                                {
+                                    var flag = false
+                                    for i in friednsViewModel.selectedFriends {
+                                        if i.id == friend.id {
+                                            flag = true
+                                        }
+                                    }
+                                    if !flag {
+                                        friednsViewModel.selectedFriends.append(friend)
+                                    }
                                     dismiss()
                                 }
                             }

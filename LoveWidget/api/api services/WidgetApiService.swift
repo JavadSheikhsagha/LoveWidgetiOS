@@ -27,6 +27,9 @@ protocol WidgetApiService {
     func createWidget(name: String,
                       friendId: String?,
                       onSuccess: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void)
+    func createWidgetWithMultipleFriends(widgetName:String,
+                                         friendsIds:[String],
+                                         onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void)
     
 }
 
@@ -132,6 +135,29 @@ class WidgetApiService_Impl : WidgetApiService {
             .fetch(onResponse: onResponse)
     }
     
+    func createWidgetWithMultipleFriends(widgetName:String,
+                                         friendsIds:[String],
+                                         onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void) {
+        
+        let url = "\(base_url)/widget/v2/create"
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        
+        var ids : [String] = []
+        
+        for i in friendsIds {
+            ids.append(i)
+        }
+        
+        let parameters : [String:Any] = [
+            "name":widgetName,
+            "friendsIds":ids
+        ]
+        
+        PostApiService<CreateWidgetResponseModel>(parameters: parameters, header: header, url: url)
+            .fetch(onResponse: onResponse)
+        
+        
+    }
     
     
     

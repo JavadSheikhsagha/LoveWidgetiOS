@@ -29,6 +29,51 @@ class WidgetViewModel : ObservableObject {
     @Published var selectedImage : UIImage? = nil
     @Published var isImageUplaoded = false
     
+    func createWidgetWithMultipleFriends(widgetName:String, friends:[UserModel] ,onSuccess : @escaping (Bool) -> Void) {
+        
+        
+        widgetRepository.createWidgetWithMultipleFriends(widgetName: widgetName, friendsIds: friends.map({ user in
+            user.id
+        })) { dataState in
+            switch(dataState) {
+                
+            case .success(data: let data, message: _):
+                if let data = data {
+                    if data.success == true {
+                        self.selectedWidgetModel = data.data
+                        onSuccess(true)
+                    } else {
+                        self.isErrorOccurred = true
+                        self.errorMessage = data.message ?? "Failed to create widget.."
+                        onSuccess(false)
+                    }
+                    
+                } else {
+                    self.isErrorOccurred = true
+                    
+                    self.errorMessage = "failed to create widget."
+                    onSuccess(false)
+                }
+                self.isLoading = false
+                
+            case .error(error: _, message: let msg):
+                self.isErrorOccurred = true
+                self.isLoading = false
+                self.errorMessage = (msg ?? "Failed to create widget.") ?? "Failed to create widget."
+                
+                
+            case .loading(message: _):
+                self.isLoading = true
+                self.isErrorOccurred = false
+                self.errorMessage = ""
+                
+            case .idle(message: _):
+                break
+            }
+        }
+        
+    }
+    
     func sendMissYouNotif(onSuccess: @escaping (Bool) -> Void) {
         
         widgetRepository.sendMissYouNotif(widgetId: selectedWidgetModel?.id ?? "") { dataState in
