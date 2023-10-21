@@ -9,11 +9,15 @@ import Foundation
 
 
 class MainRepository : MainApiService {
+
+    
     
     private var mainApiServiceImpl = MainApiService_impl()
     
     
-    
+    func notifyFriends(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void) {
+        mainApiServiceImpl.notifyFriends(onResponse: onResponse)
+    }
     
     func deleteUser(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void) {
         mainApiServiceImpl.deleteUser(onResponse: onResponse)

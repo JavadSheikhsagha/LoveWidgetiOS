@@ -12,11 +12,20 @@ protocol MainApiService {
     func deleteUser(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void)
     func changeUsername(newUsername:String,
                         onResponse: @escaping (DataState<ChangeUsernameResponseModel?, ErrorType?, String?>) -> Void)
+    func notifyFriends(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void)
     
 }
 
 
 class MainApiService_impl : MainApiService {
+    
+    func notifyFriends(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void) {
+        let url =  "\(base_url)/widget/v2/notify-friends"
+        let header = ["Authorization": "Bearer \(getToken() ?? "")"]
+        
+        GetApiService<DeleteUserResponseModel>(url: url, header: header)
+            .fetch(onResponse: onResponse)
+    }
     
     func deleteUser(onResponse: @escaping (DataState<DeleteUserResponseModel?, ErrorType?, String?>) -> Void) {
         let url =  "\(base_url)/auth/delete-account"

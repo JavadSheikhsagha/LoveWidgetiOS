@@ -22,6 +22,13 @@ class MainViewModel : ObservableObject {
     @Published var BACKSTACK_PURCHASE : Screens? = nil
     @Published var SCREEN_VIEW : Screens = .Login
     
+    func notifyFriends(onSuccess : @escaping (Bool) -> Void) {
+        
+        mainRepository.notifyFriends { dataState in
+            onSuccess(true)
+        }
+    }
+    
     func deleteUser(onSuccess : @escaping (Bool) -> Void) {
         
         mainRepository.deleteUser { dataState in
