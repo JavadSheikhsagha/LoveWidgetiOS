@@ -216,6 +216,7 @@ struct CreateWidgetScreen: View {
                 
                 Image(.imgHeartMiss)
                     .offset(y: -10)
+                    .opacity(0.0)
 
                 
                 Button {

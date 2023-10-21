@@ -49,7 +49,7 @@ struct FriendsDialogView: View {
                         ZStack {
                             Color(hex: "")
                             HStack {
-                                Text("Discard")
+                                Text("Cancel")
                                     .font(.system(size: 16))
                                     .foregroundStyle(Color(hex: "#FDA3A3"))
                             }
@@ -101,8 +101,6 @@ struct FriendsDialogView: View {
                         })) { bool in
                             
                         }
-                    } else if newValue.count < oldValue.count && showFriendsBottomSheet {
-                        
                     }
                     
                 }

@@ -378,7 +378,7 @@ struct WidgetSingleScreen: View {
                 VStack(spacing: 0) {
                     
                     VStack(spacing:10) {
-                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 > 0 {
+                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 2 {
                             AsyncImage(url: URL(string: widgetViewModel.getSecondMember()?.profileImage ?? "imgUrl")!) { image in
                                         image
                                             .resizable()
@@ -388,14 +388,30 @@ struct WidgetSingleScreen: View {
                                         Image(.addBtn)
                                     }.frame(width: 84, height: 84)
                                 .clipShape(RoundedRectangle(cornerRadius: 42))
-                        } else {
+                        } else if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 1 {
                             Image(.addBtn)
+                                .resizable()
+                                .frame(width: 84, height: 84)
+                        } else {
+                            Image(.imgMultiFriends)
+                                .resizable()
+                                .frame(width: 84, height: 84)
                         }
                         
-                        Text(widgetViewModel.getSingleWidgetData?.members.count ?? 1 > 1 ?
-                             widgetViewModel.getSecondMember()?.username ?? "" : widgetViewModel.isLoading ? "..." : "Add Friend")
-                          .font(Font.custom("SF UI Text", size: 14))
-                          .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 2 {
+                            Text(widgetViewModel.getSingleWidgetData?.members.count ?? 1 > 1 ?
+                                 widgetViewModel.getSecondMember()?.username ?? "" : widgetViewModel.isLoading ? "..." : "Add Friend")
+                              .font(Font.custom("SF UI Text", size: 14))
+                              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        } else if widgetViewModel.getSingleWidgetData?.members.count ?? 0 == 1 {
+                            Text("Add Friend")
+                              .font(Font.custom("SF UI Text", size: 14))
+                              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        } else {
+                            Text("Friends")
+                              .font(Font.custom("SF UI Text", size: 14))
+                              .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
+                        }
                         
                     }.onTapGesture {
                         withAnimation {
