@@ -118,6 +118,7 @@
 		3F23255A2AB30316000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
 		3F23255B2AB30317000FCCC6 /* LoginApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */; };
 		3F23255D2AB30DF8000FCCC6 /* WidgetApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */; };
+		3F2695202AE3DA6C00DC81B3 /* FriendsDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26951F2AE3DA6C00DC81B3 /* FriendsDialogView.swift */; };
 		3F4548312AC32ACE0058041E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4548302AC32ACE0058041E /* OnBoardingScreen.swift */; };
 		3F4799D62AA07E34006BA057 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4799D52AA07E34006BA057 /* Alamofire */; };
 		3F4799DC2AA07FD9006BA057 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4799D72AA07FD9006BA057 /* ErrorType.swift */; };
@@ -349,6 +350,7 @@
 		3F23254C2AB2F90C000FCCC6 /* LoginApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiService.swift; sourceTree = "<group>"; };
 		3F23254E2AB2FBCD000FCCC6 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		3F23255C2AB30DF8000FCCC6 /* WidgetApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetApiService.swift; sourceTree = "<group>"; };
+		3F26951F2AE3DA6C00DC81B3 /* FriendsDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDialogView.swift; sourceTree = "<group>"; };
 		3F4548302AC32ACE0058041E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		3F4799D72AA07FD9006BA057 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		3F4799D82AA07FD9006BA057 /* ApiServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 				3FED11A62ABFF0C6005220D4 /* EditImageScreen.swift */,
 				3F0963C22ABFFD62007A6473 /* ImageCropperScreen.swift */,
 				3FF3A3D62ADD4D8600CC8DD9 /* DrawScreen.swift */,
+				3F26951F2AE3DA6C00DC81B3 /* FriendsDialogView.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -1282,6 +1285,7 @@
 				3F0963C12ABFFCE1007A6473 /* DialConfig.swift in Sources */,
 				3F1F14D12AAAF98700A065B2 /* ProfileScreen.swift in Sources */,
 				3F23255D2AB30DF8000FCCC6 /* WidgetApiService.swift in Sources */,
+				3F2695202AE3DA6C00DC81B3 /* FriendsDialogView.swift in Sources */,
 				3F0963A82ABFFCE0007A6473 /* CropDimmingView.swift in Sources */,
 				3F09638B2ABFFCE0007A6473 /* Config.swift in Sources */,
 				3FE402A12AD1849200F77F81 /* AppState.swift in Sources */,

@@ -83,7 +83,7 @@ struct CreateWidgetScreen: View {
                         
                         ZStack {
                             
-                            Color(hex: "#FFE5E5")
+                            Color(hex: "#FFDBDB")
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                             HStack(spacing: 14) {

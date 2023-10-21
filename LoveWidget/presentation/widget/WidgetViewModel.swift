@@ -209,6 +209,49 @@ class WidgetViewModel : ObservableObject {
             }
     }
     
+    func editWidgetViewers(friendIds:[String],onSuccess: @escaping (Bool) -> Void) {
+        
+        print(friendIds)
+        
+        widgetRepository.changeWidgetViewers(widgetId: selectedWidgetModel?.id ?? "", friendsIds: friendIds) { dataState in
+            
+            switch(dataState) {
+                
+            case .success(data: let data, message: _):
+                if let data = data {
+                    if data.success == true {
+                        
+                        onSuccess(true)
+                    } else {
+                        self.isErrorOccurred = true
+                        self.errorMessage = data.message ?? "Failed to get widget data.."
+                        onSuccess(false)
+                    }
+                    
+                } else {
+                    self.isErrorOccurred = true
+                    
+                    self.errorMessage = "failed to get widget data."
+                    onSuccess(false)
+                }
+                self.isLoading = false
+                
+            case .error(error: _, message: let msg):
+                self.isErrorOccurred = true
+                self.isLoading = false
+                self.errorMessage = (msg ?? "Failed to get widget data.") ?? "Failed to get widget data."
+                
+            case .loading(message: _):
+                self.isLoading = true
+                self.isErrorOccurred = false
+                self.errorMessage = ""
+                
+            case .idle(message: _):
+                break
+            }
+        }
+    }
+    
     func getSingleWidget(onSuccess: @escaping (Bool) -> Void) {
         
         widgetRepository.getSingleWidget(widgetId: self.selectedWidgetModel?.id ?? "") { dataState in

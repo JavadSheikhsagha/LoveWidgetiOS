@@ -439,7 +439,7 @@ struct ProfileScreen: View {
                     Spacer()
                         .frame(height: 24)
                     
-                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "")!) { image in
+                    AsyncImage(url: URL(string: loadUser()?.profileImage ?? "https://google.com")) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)

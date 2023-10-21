@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct UserModel: Codable {
+struct UserModel: Codable, Equatable {
     
     var username:String
     var code:String?

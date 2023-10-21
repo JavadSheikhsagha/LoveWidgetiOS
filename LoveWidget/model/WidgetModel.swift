@@ -59,7 +59,7 @@ struct GetSingleWidgetResponseModel : Codable {
 struct WidgetFullData : Codable {
     
     let name:String
-    let members :[UserModel]
+    var members :[UserModel]
     let contents : ContentModel
     let creator:String
     let id:String

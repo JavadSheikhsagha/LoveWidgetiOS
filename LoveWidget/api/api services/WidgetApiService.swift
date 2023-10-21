@@ -30,12 +30,31 @@ protocol WidgetApiService {
     func createWidgetWithMultipleFriends(widgetName:String,
                                          friendsIds:[String],
                                          onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void)
-    
+    func changeWidgetViewers(widgetId:String,
+                             friendsIds:[String],
+                             onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void)
 }
 
 
 class WidgetApiService_Impl : WidgetApiService {
     
+    func changeWidgetViewers(widgetId: String,
+                             friendsIds: [String],
+                             onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void) {
+        
+        let url = "\(base_url)/widget/v2/add-users/\(widgetId)"
+        let header = ["Authorization":"Bearer \(getToken() ?? "")"]
+        
+        var friendsIds1 = [String]()
+        for i in friendsIds {
+            friendsIds1.append(i)
+        }
+        let parameters = ["friendsIds":friendsIds1]
+        
+        PatchApiService<CreateWidgetResponseModel>(parameters: parameters, header: header, url: url)
+            .fetch(onResponse: onResponse)
+        
+    }
     
     func createWidget(name: String,
                       friendId: String?,

@@ -10,7 +10,15 @@ import Foundation
 
 class WidgetRepository : WidgetApiService {
     
+    
     private let widgetApiService : WidgetApiService = WidgetApiService_Impl()
+    
+    
+    func changeWidgetViewers(widgetId: String, 
+                             friendsIds: [String],
+                             onResponse: @escaping (DataState<CreateWidgetResponseModel?, ErrorType?, String?>) -> Void) {
+        widgetApiService.changeWidgetViewers(widgetId: widgetId, friendsIds: friendsIds, onResponse: onResponse)
+    }
     
     func createWidgetWithMultipleFriends(widgetName:String,
                                          friendsIds:[String],

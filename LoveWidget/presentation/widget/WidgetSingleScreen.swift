@@ -14,6 +14,7 @@ struct WidgetSingleScreen: View {
     @EnvironmentObject var widgetViewModel : WidgetViewModel
     @EnvironmentObject var friendsViewModel : FriendsViewModel
     
+    @State var showFriendsDialogView = false
     @State var showDeleteWidgetDialog = false
     @State var isButtonEnabled = true
     @State var showFriendsBottomSheet = false
@@ -95,6 +96,8 @@ struct WidgetSingleScreen: View {
                 .opacity(widgetViewModel.isLoading ? 1.0 : 0.0)
                 .offset(y: widgetViewModel.isLoading ? 0 : UIScreen.screenHeight)
             
+            friendsDialogView
+            
         }
         .alert(widgetViewModel.errorMessage, isPresented: $widgetViewModel.isErrorOccurred) {
             Button("ok") {
@@ -140,6 +143,25 @@ struct WidgetSingleScreen: View {
         .sheet(isPresented: $showIntroScreen, content: {
             IntroScreen()
         })
+    }
+    
+    var friendsDialogView : some View {
+        
+        ZStack {
+            
+            Color.black.opacity(showFriendsDialogView ? 0.5 : 0.0)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    withAnimation {
+                        showFriendsDialogView = false
+                    }
+                }
+            
+            FriendsDialogView(showFriendsDialog: $showFriendsDialogView)
+                .offset(y: showFriendsDialogView ? 0 : UIScreen.screenHeight)
+                .opacity(showFriendsDialogView ? 1.0 : 0.0)
+                
+        }
     }
     
     var sheet: ActionSheet {
@@ -376,8 +398,8 @@ struct WidgetSingleScreen: View {
                           .foregroundColor(Color(red: 0.08, green: 0.08, blue: 0.1))
                         
                     }.onTapGesture {
-                        if widgetViewModel.getSecondMember() == nil {
-                            showFriendsBottomSheet = true
+                        withAnimation {
+                            showFriendsDialogView = true
                         }
                     }
 

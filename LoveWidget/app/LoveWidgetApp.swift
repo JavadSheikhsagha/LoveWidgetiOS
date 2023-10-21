@@ -67,7 +67,7 @@ struct LoveWidgetApp: App {
                 .environmentObject(appState)
                 .onLoad {
                     mainViewModel.notifyFriends { bool in
-                        print("on Notify Friends")
+                        
                     }
                 }
         }
