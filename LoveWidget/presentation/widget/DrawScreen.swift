@@ -59,8 +59,7 @@ struct DrawScreen: View {
                             
                         } label: {
                             Image(.iconUndo)
-                                .padding()
-                                .rotationEffect(.degrees(180))
+                                
                         }.disabled(lines.count == 0)
                         
                         Button {
@@ -68,7 +67,10 @@ struct DrawScreen: View {
                             lines.append(line)
                         } label: {
                             Image(.iconUndo)
-                                .padding()
+                            
+                                .rotation3DEffect(
+                                    .degrees(180),axis: (x: 0.0, y: 1.0, z: 0.0)
+                                )
                         }.disabled(undoLines.count == 0)
                         
                     }

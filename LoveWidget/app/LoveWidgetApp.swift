@@ -34,7 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         
         
-        OneSignal.Debug.setLogLevel(.LL_FATAL)
+        OneSignal.Debug.setLogLevel(.LL_VERBOSE)
        OneSignal.initialize("11e4a8c0-931b-481e-a40b-1b3cace50c35",
                             withLaunchOptions: launchOptions)
        OneSignal.Notifications.requestPermission({ accepted in

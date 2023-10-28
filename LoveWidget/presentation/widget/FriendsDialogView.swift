@@ -95,12 +95,19 @@ struct FriendsDialogView: View {
                 }
                 .onChange(of: friendViewModel.selectedFriends) { oldValue, newValue in
                     if newValue.count > oldValue.count {
-                        widgetViewModel.getSingleWidgetData!.members.append(newValue.last!)
-                        widgetViewModel.editWidgetViewers(friendIds: widgetViewModel.getSingleWidgetData!.members.map({ item in
-                            return item.id
-                        })) { bool in
-                            
+                        
+                        if widgetViewModel.getSingleWidgetData?.members[0].id == loadUser()?.id {
+                            widgetViewModel.getSingleWidgetData!.members.append(newValue.last!)
+                            widgetViewModel.editWidgetViewers(friendIds: widgetViewModel.getSingleWidgetData!.members.map({ item in
+                                return item.id
+                            })) { bool in
+                                
+                            }
+                        } else {
+                            widgetViewModel.isErrorOccurred = true
+                            widgetViewModel.errorMessage = "You cannot change the widget viewers."
                         }
+                        
                     }
                     
                 }
@@ -148,14 +155,19 @@ struct FriendsDialogView: View {
                                     
                                     Menu {
                                         Button("Remove") {
-                                            widgetViewModel.getSingleWidgetData!.members = widgetViewModel.getSingleWidgetData!.members.filter({ item in
-                                                return item.id != friend.id
-                                            })
-                                            // request to server
-                                            widgetViewModel.editWidgetViewers(friendIds: widgetViewModel.getSingleWidgetData!.members.map({ item in
-                                                return item.id
-                                            })) { bool in
-                                                
+                                            if widgetViewModel.getSingleWidgetData?.members[0].id == loadUser()?.id {
+                                                widgetViewModel.getSingleWidgetData!.members = widgetViewModel.getSingleWidgetData!.members.filter({ item in
+                                                    return item.id != friend.id
+                                                })
+                                                // request to server
+                                                widgetViewModel.editWidgetViewers(friendIds: widgetViewModel.getSingleWidgetData!.members.map({ item in
+                                                    return item.id
+                                                })) { bool in
+                                                    
+                                                }
+                                            } else {
+                                                widgetViewModel.isErrorOccurred = true
+                                                widgetViewModel.errorMessage = "You cannot change the widget viewers."
                                             }
                                         }
                                     } label: {
