@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>110755347622-pdl9n6si6i5s27pfvb13mdvopjg90eks.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.110755347622-pdl9n6si6i5s27pfvb13mdvopjg90eks</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCpFtCgS-wqTs9pirsGM4uhhZvrJt15NY4</string>
+	<string>AIzaSyBf4nPT4I_UDFNmSNy2siA9hLQf69yf0gs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>110755347622</string>
+	<string>251779563420</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.a2mp.LoveWidget</string>
+	<string>pedram.interwidget</string>
 	<key>PROJECT_ID</key>
-	<string>lovewidget-6c4bb</string>
+	<string>enigma-plus</string>
 	<key>STORAGE_BUCKET</key>
-	<string>lovewidget-6c4bb.appspot.com</string>
+	<string>enigma-plus.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:110755347622:ios:d7d587049871216b80c867</string>
+	<string>1:251779563420:ios:92a815c03b2cf88d71d259</string>
 </dict>
 </plist>

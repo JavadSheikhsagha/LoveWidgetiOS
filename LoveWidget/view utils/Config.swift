@@ -23,10 +23,9 @@
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import UIKit
-
 // MARK: - Localization
 public class LocalizationConfig {
-    public var bundle: Bundle? = Mantis.Config.bundle
+    public var bundle: Bundle? = Config.bundle
     public var tableName = "MantisLocalizable"
 }
     
@@ -47,7 +46,6 @@ public struct Config {
     public var presetFixedRatioType: PresetFixedRatioType = .canUseMultiplePresetFixedRatio()
     public var showAttachedCropToolbar = true
     
-    public private(set) var localizationConfig = Mantis.localizationConfig
     
     var customRatios: [(width: Int, height: Int)] = []
 

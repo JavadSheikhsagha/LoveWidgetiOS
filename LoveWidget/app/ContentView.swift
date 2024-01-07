@@ -15,18 +15,18 @@ struct ContentView: View {
         ZStack {
             
             switch mainViewModel.SCREEN_VIEW {
-                case .MainMenu:
-                    MainScreen()
-                case .Friends:
-                    FriendsScreen()
-                case .WidgetSingle:
-                    WidgetSingleScreen()
-                case .Login:
-                    LoginScreen()
-                case .History:
-                    WidgetHistoryScreen()
-                case .CreateWidget:
-                    CreateWidgetScreen()
+            case .MainMenu:
+                MainScreen()
+            case .Friends:
+                FriendsScreen()
+            case .WidgetSingle:
+                WidgetSingleScreen()
+            case .Login:
+                LoginScreen()
+            case .History:
+                WidgetHistoryScreen()
+            case .CreateWidget:
+                CreateWidgetScreen()
             case .UploadImageScreen:
                 UploadImageScreen()
             case .EditQuoteScreen:

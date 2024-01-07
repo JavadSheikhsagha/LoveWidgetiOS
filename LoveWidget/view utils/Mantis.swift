@@ -26,9 +26,9 @@ import UIKit
 
 // MARK: - APIs
 public func cropViewController(image: UIImage,
-                               config: Mantis.Config = Mantis.Config(),
+                               config: Config = Config(),
                                cropToolbar: CropToolbarProtocol = CropToolbar(frame: .zero),
-                               rotationControlView: RotationControlViewProtocol? = nil) -> Mantis.CropViewController {
+                               rotationControlView: RotationControlViewProtocol? = nil) -> CropViewController {
     let cropViewController = CropViewController(config: config)
     cropViewController.cropView = buildCropView(withImage: image,
                                                 config: config.cropViewConfig,
@@ -38,7 +38,7 @@ public func cropViewController(image: UIImage,
 }
 
 public func cropViewController<T: CropViewController>(image: UIImage,
-                                                      config: Mantis.Config = Mantis.Config(),
+                                                      config: Config = Config(),
                                                       cropToolbar: CropToolbarProtocol = CropToolbar(frame: .zero),
                                                       rotationControlView: RotationControlViewProtocol? = nil) -> T {
     let cropViewController = T(config: config)
@@ -49,9 +49,9 @@ public func cropViewController<T: CropViewController>(image: UIImage,
     return cropViewController
 }
 
-public func setupCropViewController(_ cropViewController: Mantis.CropViewController,
+public func setupCropViewController(_ cropViewController: CropViewController,
                                     with image: UIImage,
-                                    and config: Mantis.Config = Mantis.Config(),
+                                    and config: Config = Config(),
                                     cropToolbar: CropToolbarProtocol = CropToolbar(frame: .zero),
                                     rotationControlView: RotationControlViewProtocol? = nil) {
     cropViewController.config = config
@@ -78,11 +78,11 @@ public struct Language {
 }
 
 public func chooseLanguage(_ language: Language) {
-    Mantis.Config.language = language
+    Config.language = language
 }
 
 public func resetLanguage() {
-    Mantis.Config.language = nil
+    Config.language = nil
 }
 
 // MARK: - internal section
@@ -90,7 +90,7 @@ var localizationConfig = LocalizationConfig()
 
 // MARK: - private section
 private(set) var bundle: Bundle? = {
-    return Mantis.Config.bundle
+    return Config.bundle
 }()
 
 private func buildCropView(withImage image: UIImage,

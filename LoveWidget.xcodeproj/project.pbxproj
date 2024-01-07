@@ -41,6 +41,7 @@
 		3F14916D2AA44D0B00850ED8 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 3F14916C2AA44D0B00850ED8 /* EnigmaSystemDesign */; };
 		3F14916F2AA44D1200850ED8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3F14916E2AA44D1200850ED8 /* Alamofire */; };
 		3F1491712AA44D1500850ED8 /* EnigmaSystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 3F1491702AA44D1500850ED8 /* EnigmaSystemDesign */; };
+		3F15F3892AF8A6AE002E78AB /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = 3F15F3882AF8A6AE002E78AB /* Mantis */; };
 		3F1D3E812AA4632000C7EAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
 		3F1D3E822AA4632100C7EAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CA8E42A9DD21B00599C14 /* Assets.xcassets */; };
 		3F1D3E842AA4D21700C7EAC9 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D3E832AA4D21700C7EAC9 /* WidgetNetworkManager.swift */; };
@@ -80,9 +81,6 @@
 		3F6F1E2E2AA79A0E009E7230 /* WidgyBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491312AA4413400850ED8 /* WidgyBundle.swift */; };
 		3F6F1E302AA79A28009E7230 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491492AA4423A00850ED8 /* IntentHandler.swift */; };
 		3F6F1E312AA79A6A009E7230 /* Widgy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1491332AA4413400850ED8 /* Widgy.swift */; };
-		3F6FA8D92AA77FB4005EA60B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */; };
-		3F6FA8DA2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */; };
-		3F6FA8DB2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */; };
 		3F6FA8DE2AA780D9005EA60B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6FA8DD2AA780D9005EA60B /* FirebaseAnalytics */; };
 		3F6FA8E02AA780D9005EA60B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6FA8DF2AA780D9005EA60B /* FirebaseAnalyticsSwift */; };
 		3F6FA8E22AA780D9005EA60B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6FA8E12AA780D9005EA60B /* FirebaseCrashlytics */; };
@@ -168,7 +166,6 @@
 		3FAAD4442AEE6AC600F05AF1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAD4382AEE6AC500F05AF1 /* Enum.swift */; };
 		3FAAD4452AEE6AC600F05AF1 /* ToolbarButtonOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAD4392AEE6AC500F05AF1 /* ToolbarButtonOptions.swift */; };
 		3FAAD4462AEE6AC600F05AF1 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAD43A2AEE6AC500F05AF1 /* Definition.swift */; };
-		3FAAD4472AEE6AC600F05AF1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAD43B2AEE6AC600F05AF1 /* Info.plist */; };
 		3FC27A062AA70CE100EC59A1 /* EditQuoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */; };
 		3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */; };
 		3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC27A092AA7106500EC59A1 /* Sacramento.ttf */; };
@@ -181,6 +178,7 @@
 		3FC6F7382AAF0386004F959F /* PurchaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */; };
 		3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */; };
 		3FCE39EB2AA324CA006401FE /* UploadImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */; };
+		3FCE466F2B4B22DB00B752F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FCE466E2B4B22DB00B752F7 /* GoogleService-Info.plist */; };
 		3FD031632AB3297D0020414C /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031622AB3297D0020414C /* WidgetRepository.swift */; };
 		3FD031662AB32B2D0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
 		3FD031672AB32B4B0020414C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD031652AB32B2D0020414C /* UserModel.swift */; };
@@ -298,7 +296,6 @@
 		3F569D1F2AA9AEFC00A66837 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F569D212AA9AEFC00A66837 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		3F569D232AA9AEFC00A66837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F6FA8EA2AA7850F005EA60B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3F79279E2A9F10E600D5F1F5 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScreen.swift; sourceTree = "<group>"; };
 		3F7927A12A9F110900D5F1F5 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
@@ -375,7 +372,6 @@
 		3FAAD4382AEE6AC500F05AF1 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		3FAAD4392AEE6AC500F05AF1 /* ToolbarButtonOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtonOptions.swift; sourceTree = "<group>"; };
 		3FAAD43A2AEE6AC500F05AF1 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
-		3FAAD43B2AEE6AC600F05AF1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FC27A052AA70CE100EC59A1 /* EditQuoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuoteScreen.swift; sourceTree = "<group>"; };
 		3FC27A082AA7106500EC59A1 /* SF Pro Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF Pro Text.ttf"; sourceTree = "<group>"; };
 		3FC27A092AA7106500EC59A1 /* Sacramento.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sacramento.ttf; sourceTree = "<group>"; };
@@ -388,6 +384,7 @@
 		3FC6F7372AAF0386004F959F /* PurchaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseScreen.swift; sourceTree = "<group>"; };
 		3FC6F7392AAF1FDE004F959F /* PurchaseFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PurchaseFile.storekit; sourceTree = "<group>"; };
 		3FCE39EA2AA324CA006401FE /* UploadImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageScreen.swift; sourceTree = "<group>"; };
+		3FCE466E2B4B22DB00B752F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FD031622AB3297D0020414C /* WidgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRepository.swift; sourceTree = "<group>"; };
 		3FD031652AB32B2D0020414C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3FD0316D2AB32BB00020414C /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
@@ -449,6 +446,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F15F3892AF8A6AE002E78AB /* Mantis in Frameworks */,
 				3F4799E32AA08393006BA057 /* SwiftyJSON in Frameworks */,
 				3F6FA8E92AA7835F005EA60B /* LottieSwiftUI in Frameworks */,
 				3F6FA8E62AA780D9005EA60B /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -611,7 +609,6 @@
 				3FAAD43A2AEE6AC500F05AF1 /* Definition.swift */,
 				3FAAD4382AEE6AC500F05AF1 /* Enum.swift */,
 				3FAAD4322AEE6AC500F05AF1 /* Global.swift */,
-				3FAAD43B2AEE6AC600F05AF1 /* Info.plist */,
 				3FAAD4342AEE6AC500F05AF1 /* Mantis.h */,
 				3FAAD4372AEE6AC500F05AF1 /* Mantis.swift */,
 				3FAAD4312AEE6AC500F05AF1 /* RatioOptions.swift */,
@@ -798,7 +795,7 @@
 		806CA8DF2A9DD21900599C14 /* LoveWidget */ = {
 			isa = PBXGroup;
 			children = (
-				3F6FA8D82AA77FB4005EA60B /* GoogleService-Info.plist */,
+				3FCE466E2B4B22DB00B752F7 /* GoogleService-Info.plist */,
 				3F4799E62AA08A8C006BA057 /* Info.plist */,
 				3FCDAD682ABC3940001DA68B /* media assets */,
 				3FC27A072AA7106500EC59A1 /* font */,
@@ -947,6 +944,7 @@
 				3F569D3B2AA9B1E000A66837 /* OneSignalFramework */,
 				3FE402172AD1697800F77F81 /* PixelEnginePackage */,
 				3FE402A32AD1860100F77F81 /* MetalPetal */,
+				3F15F3882AF8A6AE002E78AB /* Mantis */,
 			);
 			productName = LoveWidget;
 			productReference = 806CA8DD2A9DD21900599C14 /* LoveWidget.app */;
@@ -1008,6 +1006,7 @@
 				3FE402162AD1697800F77F81 /* XCRemoteSwiftPackageReference "PixelEnginePackage" */,
 				3FE402A22AD1860000F77F81 /* XCRemoteSwiftPackageReference "MetalPetal" */,
 				3F10C1522ADC05380077FC0B /* XCRemoteSwiftPackageReference "Giffy" */,
+				3F15F3872AF8A6AE002E78AB /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = 806CA8DE2A9DD21900599C14 /* Products */;
 			projectDirPath = "";
@@ -1030,7 +1029,6 @@
 				3F1491362AA4413700850ED8 /* Assets.xcassets in Resources */,
 				3F83A60C2AA89A5F0072A380 /* loading2.json in Resources */,
 				3F6FA8EC2AA7850F005EA60B /* loading.json in Resources */,
-				3F6FA8DA2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,7 +1038,6 @@
 			files = (
 				3F1D3E822AA4632100C7EAC9 /* Assets.xcassets in Resources */,
 				3F83A60D2AA89A5F0072A380 /* loading2.json in Resources */,
-				3F6FA8DB2AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 				3F6FA8ED2AA7850F005EA60B /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,7 +1053,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FAAD4472AEE6AC600F05AF1 /* Info.plist in Resources */,
 				3FC27A0F2AA7106500EC59A1 /* SF Pro Text.ttf in Resources */,
 				3F83A60B2AA89A5F0072A380 /* loading2.json in Resources */,
 				806CA8E92A9DD21B00599C14 /* Preview Assets.xcassets in Resources */,
@@ -1068,8 +1064,8 @@
 				3F0B3BFC2AB0A5E200844827 /* intro_vid.mp4 in Resources */,
 				3FC27A132AA7106500EC59A1 /* Purple Purse.ttf in Resources */,
 				3FC6F73A2AAF1FDE004F959F /* PurchaseFile.storekit in Resources */,
-				3F6FA8D92AA77FB4005EA60B /* GoogleService-Info.plist in Resources */,
 				3FC27A122AA7106500EC59A1 /* SF UI TEXT.ttf in Resources */,
+				3FCE466F2B4B22DB00B752F7 /* GoogleService-Info.plist in Resources */,
 				3FC27A102AA7106500EC59A1 /* Sacramento.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1600,7 +1596,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LoveWidget/LoveWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1608,7 +1604,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Love Widget";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need this permission to capture image from camera and send that to your friend's widget";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need this permission to pick an image from gallery and send that to your friend's widget";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1626,7 +1622,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1647,7 +1643,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LoveWidget/LoveWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"LoveWidget/Preview Content\"";
 				DEVELOPMENT_TEAM = 288G3K83N5;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1655,7 +1651,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoveWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Love Widget";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Need this permission to capture image from camera and send that to your friend's widget";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Need this permission to pick an image from gallery and send that to your friend's widget";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1673,7 +1669,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = pedram.interwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1743,6 +1739,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		3F15F3872AF8A6AE002E78AB /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.5;
 			};
 		};
 		3F4799D42AA07E34006BA057 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1851,6 +1855,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 806CA8F42A9DD8C500599C14 /* XCRemoteSwiftPackageReference "EnigmaSystemDesign" */;
 			productName = EnigmaSystemDesign;
+		};
+		3F15F3882AF8A6AE002E78AB /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F15F3872AF8A6AE002E78AB /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
 		};
 		3F4799D52AA07E34006BA057 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
